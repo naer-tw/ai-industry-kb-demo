@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>跨工具知識工作agent｜AI產業知識庫</title><meta name="description" content="跨工具知識工作agent
+
+ 一句話定義（這個職業任務的可交付物是什麼）
+給一個真實的多步驟知識工作任務——需跨工具完成「上網查資料 → 跨來源比對核實 → 產出結構化檔案（報告/試算表/簡報）」——讓 AI agent 在「同一任務獨立重跑 8 次」的嚴格條件下，至少 8 次中 80% 以上各自獨立成功">
+<meta property="og:title" content="跨工具知識工作agent"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "跨工具知識工作agent", "description": "跨工具知識工作agent\n\n 一句話定義（這個職業任務的可交付物是什麼）\n給一個真實的多步驟知識工作任務——需跨工具完成「上網查資料 → 跨來源比對核實 → 產出結構化檔案（報告/試算表/簡報）」——讓 AI agent 在「同一任務獨立重跑 8 次」的嚴格條件下，至少 8 次中 80% 以上各自獨立成功", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="跨工具知識工作agent">跨工具知識工作agent</h1>
+<h2 id="一句話定義這個職業任務的可交付物是什麼">一句話定義（這個職業任務的可交付物是什麼）</h2>
+<p>給一個真實的多步驟知識工作任務——需跨工具完成「上網查資料 → 跨來源比對核實 → 產出結構化檔案（報告/試算表/簡報）」——讓 AI agent 在「同一任務獨立重跑 8 次」的嚴格條件下，<strong>至少 8 次中 80% 以上各自獨立成功</strong>（pass@8 ≥80%，本契約取「每次重跑皆視為一次獨立成功率」的穩定性口徑，逼近 τ-bench 的 pass^k 一致性精神）。重點不在「能不能做一次」，而在「能不能可重複、可信賴地一直做對」。</p>
+<h2 id="難度評分綜合-810技術-7落地-8-理由">難度評分（綜合 8/10：技術 7、落地 8）— 理由</h2>
+<ul>
+<li><strong>技術 7（前沿可做單次、但穩定性是未解瓶頸）</strong>：跨工具多步驟任務的「單次能力」已到前沿可用——GAIA 上 Claude Sonnet 4.5 總分 74.6%（2026Q2）、最難的 Level 3 也達 65.4%（2025/09）。但本任務的硬條件是「重跑下 ≥80% 穩定」，而 agent 的 run-to-run 變異極大：τ-bench 的 pass^k（k 次全對的機率）顯示 GPT-4o 在 retail 的 pass^8 &lt;25%；理論上一個 pass@1 90% 的模型，pass^8 仍只剩約 57%。要在多步驟（每步都可能掉鏈）任務上達到 pass@8 ≥80%，等同要求單步可靠度近乎完美，目前模型做不到。故技術分高於「可用需把關」的 5–6 區，落在 7。</li>
+<li><strong>落地 8（可靠性即信任，職業場景門檻最高）</strong>：知識工作的產出要被當成「可交付」，錯一次就可能誤導決策。實務調查指出可靠性是 agent 落地最大障礙，企業因此「放棄開放式/長時程任務，退回少步驟＋人工複核的工作流」；實驗室 benchmark 與真實部署存在約 37% 落差、相近準確率成本可差 50 倍。職業任務還疊加責任歸屬、稽核軌跡、權限隔離，落地分數高於技術，給 8。</li>
+<li><strong>綜合判定 8</strong>：屬「實驗室/早期可做、可靠性低或落地障礙大」的 7–8 區。P1 初判 7 上修為 8——關鍵在契約的「pass@8 ≥80% 穩定」門檻把任務從「能做一次」拉到「可重複信賴」，這是目前 agent 最弱的一環。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>GAIA（General AI Assistants，arXiv 2311.12983；466 題，Level 1–3，測 web browsing＋檔案處理＋多步驟工具使用）</strong>：HAL（Princeton）排行榜上 Claude Sonnet 4.5 總分 74.55%（Level 1 82.1%、Level 2 72.7%、<strong>Level 3 僅 65.4%</strong>，2025/09）。2026Q2 各方報導前沿 agent 約 75%，人類基線 92%。判讀：跨工具多步驟「單次成功率」約七成五，最難的真實多步任務（L3）約六成五——離 80% 已有距離，且這只是 pass@1。[來源1][來源2]</li>
+<li><strong>τ-bench / τ²-bench（Sierra，Tool-Agent-User 互動，提出 pass^k＝k 次全對機率作為可靠度指標）</strong>：核心發現——SOTA function-calling agent（GPT-4o）retail 任務 <strong>pass^8 &lt;25%</strong>（Sierra 原文：重跑同一任務 8 次僅約 25% 成功，較 pass^1 約掉 60%）；且「一個 pass@1 90% 的模型，pass^8 掉到約 57%」。τ²-bench 上即便 Gemini 3 Pro（2025-11-18 發布）pass^1 約 85%（retail）/73%（airline），pass<sup>1→pass</sup>4 仍明顯下滑。<strong>這是本契約最關鍵的反證</strong>：pass@8 ≥80% 的穩定門檻，遠超現有模型在重跑下的一致性。[來源3][來源4][來源5]
+<ul>
+<li>查證註（2026-06-26）：pass^8&lt;25%（GPT-4o retail）與「pass@1 90%→pass^8≈57%」已由 Sierra 部落格與 τ-bench 論文獨立佐證。<strong>Gemini 3 Pro 在 τ²-bench 的 85%/73% 為單一數據點，至 2026-06 未能於公開 leaderboard（HAL、Artificial Analysis）獨立查得，標為待補來源</strong>；其方向與「可靠度落差」論點一致，不影響結論。</li>
+</ul></li>
+<li><strong>可靠度科學（2025–2026 多篇）</strong>：單次 pass@1 常較 pass@k 高 15–25 分；「90% benchmark ≈ 70% 生產可靠度」。若 benchmark 不報 N 次重跑可靠度，通常掩蓋 10–30 分變異。代表本任務真正的瓶頸是「可重複性」而非「能力上限」。[來源4]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效監管限制">實證二：真實部署/產品案例（誰用、規模、成效、監管限制）</h2>
+<ul>
+<li><strong>OpenAI Deep Research（企業版，2026/02 起）</strong>：可連 MCP/企業知識庫（Google Drive/SharePoint/GitHub 等），產出含內嵌引用、推理軌跡、可稽核中間發現的結構化報告，作為後端服務可程式化串接多代理工作流。企業高影響用例：資料分析與報告產出 60%、56% 規劃 agent 主導研究。屬「跨工具查資料→產檔案」已商用化的代表。<strong>限制</strong>：官方承認仍會偶發幻覺、難辨權威來源與傳聞，需人工把關。[來源6]</li>
+<li><strong>企業落地現況（2025–2026 調查與分析）</strong>：306 位實務者調查指可靠性是 agent 落地最大障礙；企業普遍「退回少步驟＋強制人工複核」的受控工作流，不敢交付開放式長時程任務；benchmark 與真實部署約 37% 落差、相近準確率成本差達 50 倍。即「單次跑得動的 demo」多，「重跑都穩到可無人交付」的規模化部署尚未成熟。[來源4]</li>
+<li><strong>規模化「pass@8 ≥80% 無人交付」的公開案例</strong>：未證實。目前部署皆以 human-in-the-loop（人工複核）保障可靠度，本契約定義的「獨立重跑高一致性、可免人工守門」尚無公開規模化證據。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：單次跑通跨工具的「查資料→比對→產出帶引用報告/試算表」，前沿 agent GAIA 約 75%、Deep Research 等產品已商用；有推理軌跡與引用可供人審。</li>
+<li><strong>做不到/不穩</strong>：(1) 重跑一致性差——pass^8 在受控 benchmark 上常 &lt;25–57%，遠達不到契約 80%；(2) 多步驟誤差累積，每步小機率失敗在 8 次重跑下被放大；(3) 真實任務（GAIA L3）單次也僅約 65%；(4) 高風險知識工作仍須人工複核，尚無「免守門、重跑皆穩」的規模化部署。整體屬「單次前沿可做、但 pass@8 ≥80% 穩定門檻目前難達成」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="AI%20Agent%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96.html">AI Agent與自動化</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="%E4%BC%81%E6%A5%AD%E7%9F%A5%E8%AD%98%E5%BA%AB%E5%B8%B6%E5%BC%95%E7%94%A8%E5%95%8F%E7%AD%94.html">企業知識庫帶引用問答</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>GAIA: a benchmark for General AI Assistants（arXiv 2311.12983）— https://arxiv.org/abs/2311.12983</li>
+<li>HAL GAIA Leaderboard（Princeton，Claude Sonnet 4.5 74.55%/L3 65.4%）— https://hal.cs.princeton.edu/gaia</li>
+<li>τ-bench: A Benchmark for Tool-Agent-User Interaction（OpenReview，pass^k 定義與 pass^8&lt;25%）— https://openreview.net/forum?id=roNSXZpUDN</li>
+<li>The Reliability Gap: Agent Benchmarks for Enterprise（Simmering，pass^k 下滑/37% 落差/50x 成本/306 調查）— https://simmering.dev/blog/agent-benchmarks/</li>
+<li>τ-bench: shaping the development and evaluation of agents（Sierra）— https://sierra.ai/uk/blog/tau-bench-shaping-development-evaluation-agents</li>
+<li>Introducing deep research（OpenAI）— https://openai.com/index/introducing-deep-research/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

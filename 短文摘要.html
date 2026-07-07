@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>短文摘要｜AI產業知識庫</title><meta name="description" content="短文摘要
+
+ 一句話定義（這個可交付物是什麼）
+給定一篇 100–2000 字的單篇文章，AI 產出 3–5 句的精簡摘要；人工抽查時可確認摘要忠於原文、未捏造或扭曲主旨。這是「接地式（grounded）抽象摘要」的最成熟、最易驗證子類——文本短、上下文單一、忠實度可由人快速核對，是當前生成式 AI 商品化最">
+<meta property="og:title" content="短文摘要"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "短文摘要", "description": "短文摘要\n\n 一句話定義（這個可交付物是什麼）\n給定一篇 100–2000 字的單篇文章，AI 產出 3–5 句的精簡摘要；人工抽查時可確認摘要忠於原文、未捏造或扭曲主旨。這是「接地式（grounded）抽象摘要」的最成熟、最易驗證子類——文本短、上下文單一、忠實度可由人快速核對，是當前生成式 AI 商品化最", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="短文摘要">短文摘要</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定一篇 100–2000 字的單篇文章，AI 產出 3–5 句的精簡摘要；人工抽查時可確認摘要忠於原文、未捏造或扭曲主旨。這是「接地式（grounded）抽象摘要」的最成熟、最易驗證子類——文本短、上下文單一、忠實度可由人快速核對，是當前生成式 AI 商品化最徹底的能力之一。</p>
+<h2 id="難度評分綜合-210技術-2落地-3-理由引-benchmark-與部署">難度評分（綜合 2/10：技術 2、落地 3）— 理由（引 benchmark 與部署）</h2>
+<ul>
+<li><strong>技術 2（很成熟）</strong>：短文接地摘要在公開 benchmark 上已高度可靠。Vectara HHEM 幻覺榜（7,700+ 篇文章，2026-05-11）顯示頂尖模型幻覺率僅 1.8–4.1%、忠實度 96–98%；連主流旗艦（GPT-4o 9.6%、Gemini 2.5 Pro 7.0%、Claude Sonnet 4 10.3%）也都在 11% 以下（且此榜為短＋長混合，純短文表現更佳）。這是錨定量表「1–2 已成熟商品化」的典型。技術未給 1，是因為「保證不偏離主旨」在最壞情況仍非 100%。</li>
+<li><strong>查證重評：2／2／3（綜合／技術／落地）</strong>：反查 benchmark 數字（Vectara 2026-05-11、EBU/BBC 2025-10、Otter.ai 2025）皆真實且為現行最新，與原評一致，三分均無 ≥2 差距（無 divergence）。技術 2＝頂尖 1.8–4.1% 幻覺、已億級部署，落在量表「1–2 成熟商品化」；落地 3＝大規模商品化但契約內建「人工抽查」且新聞/複雜內容仍 20–45% 出錯，屬「人在迴路把關」；綜合取 2。</li>
+<li><strong>落地 3（可用但需人工把關）</strong>：已大規模商品化（Otter 累計逾 10 億場會議、3,500 萬+ 用戶；Zoom AI Companion、Notion AI、Copilot 內建摘要）。扣分點在「人工抽查仍有必要」這一契約要求本身：EBU/BBC 跨 18 國研究（2025-10）顯示 AI 新聞摘要 45% 含重大問題、20% 含重大事實錯誤，難題型（快速變動、多方時間軸、事實/意見混雜）尤甚。故落地不是「零監督」而是「人在迴路抽查」的 3，而非 1–2。</li>
+<li><strong>綜合 2</strong>：技術面已是成熟商品；唯一拉高難度的是「忠實度需人工確認」這個內建約束，整體落在「1–2 成熟」與「3–4 需人工把關」的交界，取 2。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>Vectara HHEM Hallucination Leaderboard</strong>（接地摘要忠實度，以 HHEM-2.3 評，7,700+ 篇文章，2026-05-11 更新，來源 1）：
+<ul>
+<li>頂尖：Antgroup Finix S1 32B 幻覺 1.8%／忠實 98.2%；GPT-5.4-Nano 3.1%／96.9%；Gemini 2.5 Flash Lite 3.3%／96.7%；Llama 3.3 70B 4.1%／95.9%。</li>
+<li>主流旗艦：GPT-4o 9.6%／90.4%；Gemini 2.5 Pro 7.0%／93.0%；Claude Sonnet 4 10.3%／89.7%。</li>
+<li>答題率多在 99–100%（即幾乎不拒答），代表能穩定產出可用摘要。</li>
+<li><strong>口徑校正（查證）</strong>：此「次世代」榜（來源 1＝來源 2 同一資料集，2025-11 改版）已非純短文，文本跨 50 字～24K 字、混低/高複雜度。故上述旗艦個位數～10% 幻覺率是「短＋長混合」之聚合值；限定於本契約的 100–2000 字純短文，幻覺率應更低（更偏向頂尖區段）。原文「短文件接地摘要」表述易誤導，已更正。</li>
+</ul></li>
+<li><strong>邊界對照（同一榜內，難度隨長度上升）</strong>：在這份混合榜上，推理型模型（GPT-5、Claude Sonnet 4.5、Grok-4、DeepSeek-R1）幻覺率反而 &gt;10%，Grok-4-fast-reasoning 達 20.2%、Gemini-3-Pro 13.6%——印證「文本越長/越複雜，幻覺越高」；本契約限定 100–2000 字短文，落在最容易端。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Otter.ai</strong>（會議摘要，來源 4）：累計轉錄逾 10 億場會議、3,500 萬+ 用戶，2025 年達 $100M ARR；宣稱每 20 名用戶省下約 1 名全職員工工時、10:1 ROI；62% 專業用戶每週省 4 小時以上。屬規模化商品部署。</li>
+<li><strong>Zoom AI Companion</strong>（來源 5）：付費 Zoom 方案內建會議摘要與行動項，2025 年底起隨付費方案附帶，覆蓋海量企業會議。</li>
+<li><strong>Notion AI／Microsoft Copilot</strong>：文件與會議摘要為標配功能，數千萬席次級部署。</li>
+<li><strong>反例（落地邊界）</strong>：EBU/BBC「News Integrity in AI Assistants」（22 家公媒、18 國、14 語、3,000+ 回應，2025-10，來源 3）——45% 含重大問題、來源問題 31%、事實錯誤 20%、缺脈絡 14%。說明在「新聞/複雜內容」這類高風險場景，摘要仍需人工抽查把關，正對應本契約的「人工抽查」設計。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：短篇、單一來源、一般領域文章的 3–5 句忠實摘要，頂尖模型幻覺率個位數%，且已大規模商品化、邊際成本極低。</li>
+<li><strong>需把關／做不太穩</strong>：(1) 長文件、跨多來源、快速變動的新聞與時間軸；(2) 事實 vs 意見/諷刺的區辨；(3) 對細微語氣與否定的保真。這些情境幻覺率可升至 10–20%，故契約要求「人工抽查」是合理且必要的安全閥。</li>
+<li><strong>結論</strong>：以本任務（短文＋人工抽查確認忠實）而言，AI 已可靠交付，屬成熟商品化能力；風險集中在「不抽查就完全信任」的長文/複雜內容外溢使用。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="%E6%B6%88%E8%B2%BB%E7%B4%9AAI%E5%8A%A9%E7%90%86.html">消費級AI助理</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="AI%E5%B0%8D%E9%BD%8A%E8%88%87%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6.html">AI對齊與安全研究</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Vectara Hallucination Leaderboard（短文接地摘要 benchmark，2026-05-11 更新）— https://github.com/vectara/hallucination-leaderboard</li>
+<li>Vectara：Next Generation Hallucination Leaderboard（企業級長文件對照）— https://www.vectara.com/blog/introducing-the-next-generation-of-vectaras-hallucination-leaderboard</li>
+<li>NPR/EBU/BBC：Global study on news integrity in AI assistants（2025-10-21）— https://www.npr.org/sections/npr-extra/2025/10/21/g-s1-94424/global-study-on-news-integrity-in-ai-assistants-shows-need-for-safeguards-and-improved-accuracy</li>
+<li>Otter.ai 2025 里程碑（$100M ARR、10 億場會議、35M 用戶、ROI）— https://otter.ai/blog/otter-ai-caps-transformational-2025-with-100m-arr-milestone-industry-first-ai-meeting-agents-and-global-enterprise-expansion</li>
+<li>Zoom AI Companion 會議摘要支援頁 — https://support.zoom.com/hc/en/article?id=zm_kb&amp;sysparm_article=KB0058013</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>可發行完整歌曲｜AI產業知識庫</title><meta name="description" content="可發行完整歌曲
+
+ 一句話定義（這個可交付物是什麼）
+給一段歌詞文字＋一句曲風／情緒／樂器描述（如「lo-fi 鄉村抒情、女聲、原聲吉他、80 BPM」），模型一次產出含人聲、有編曲、有結構（主歌/副歌）的完整成品歌曲音檔（通常 2-4 分鐘、WAV/MP3），且品質足以經發行商（DistroKid/O">
+<meta property="og:title" content="可發行完整歌曲"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "可發行完整歌曲", "description": "可發行完整歌曲\n\n 一句話定義（這個可交付物是什麼）\n給一段歌詞文字＋一句曲風／情緒／樂器描述（如「lo-fi 鄉村抒情、女聲、原聲吉他、80 BPM」），模型一次產出含人聲、有編曲、有結構（主歌/副歌）的完整成品歌曲音檔（通常 2-4 分鐘、WAV/MP3），且品質足以經發行商（DistroKid/O", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="可發行完整歌曲">可發行完整歌曲</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給一段歌詞文字＋一句曲風／情緒／樂器描述（如「lo-fi 鄉村抒情、女聲、原聲吉他、80 BPM」），模型一次產出<strong>含人聲、有編曲、有結構（主歌/副歌）的完整成品歌曲音檔</strong>（通常 2-4 分鐘、WAV/MP3），且品質足以經發行商（DistroKid/ONCE 等）上架 Spotify、Apple Music 等串流平台做商業發行。重點是「端到端、免錄音棚、免樂手」——這是音樂生成從「片段／伴奏」躍升到「可直接發表的完整作品」的成果類型。</p>
+<h2 id="難度評分綜合-410技術-3落地-5-理由引-benchmark-與部署">難度評分（綜合 4/10：技術 3、落地 5）— 理由（引 benchmark 與部署）</h2>
+<ul>
+<li><strong>技術 3</strong>：核心交付物已商品化且有大量產品。Suno v5.5 / v5、Udio、ACE-Step、YuE 等可從文字提示一鍵生成含人聲、編曲完整的歌曲；在 ArtificialAnalysis×CMU 的 <strong>Music Arena</strong> 盲測人類偏好榜上，Suno v5.5 居器樂榜首（Elo≈1191）、v5 第三（≈1157，第二為 Mureka V8≈1165），且設有獨立「人聲（vocal）」榜（v5.5 亦居首≈1156），顯示帶人聲生成已可被人類盲測穩定排序、整體偏好高[1,2]。技術面命中錨定「可用且有產品」(3-4)，故給 3。</li>
+<li><strong>落地 5（高於技術）</strong>：能力成熟、商用規模龐大，但「<strong>可商業發行</strong>」這個限定詞引入真實摩擦——落地阻力不在生成，而在<strong>法律與平台治理</strong>。①著作權訴訟未定：UMG、Sony 仍在告 Suno/Udio 訓練資料侵權；WMG 已於 2025-11 和解並轉為授權合作，但訴訟風險使「可乾淨商業發行」帶不確定性[5,6]。②平台反濫用：Spotify 2025 年 12 個月內下架逾 <strong>7,500 萬首</strong> 垃圾／大量上傳 AI 曲，並導入 DDEX AI 揭露標準與聲音克隆同意要求；未經把關的量產 AI 曲會被降推或下架[7]。③人聲擬真仍有破綻：複雜唱腔、咬字、長句連貫偶有合成感，需人工挑版／後製把關。故落地給 5。</li>
+<li><strong>綜合 4</strong>：核心交付物（歌詞＋曲風→完整可上架歌曲）已大規模商品化、有公開 benchmark 與真實上榜案例（evidence A），屬「可用、需人工把關、已有成熟產品」(錨定 3-4) 偏落地受限端。比 P1 初判 6 <strong>下修為 4</strong>——因生成本身非前沿難題，且已有 AI 曲登上 Billboard 冠軍、Suno 達 $3 億 ARR 的硬部署證據；不給 3 是因「商業發行」受著作權訴訟與平台治理拖累，落地非無腦廣泛。</li>
+<li><strong>查證重評：4/3/5</strong>（2026-06-26 二次對抗式查證）：Music Arena 器樂榜經 ArtificialAnalysis 即時榜復核——Suno v5.5≈1191 仍居首、v5≈1157 仍第三屬實，惟<strong>第二名已換為 Mureka V8≈1165</strong>（已補正內文）；arXiv:2507.20900（Music Arena）、arXiv:2601.07237（ICASSP 2026 整曲美學挑戰，2026-01-12 提交）皆復核存在且對題。Breaking Rust《Walk My Walk》登 Billboard Country Digital Song Sales 冠軍經 NME/Newsweek/Hypebeast 交叉復核屬實（註：TIME 指該榜僅約 3,000 銷量、恐有衝榜成分；惟 Spotify 逾 350 萬串流、月聽眾逾 200 萬與報導一致）[4]；Suno $5.4B 估值/$400M Series D（2026-06-03）、日生成逾 700 萬首、$300M ARR（年增 404%）、WMG 和解（2025-11-25）經 Variety/TechCrunch/MBW 復核屬實[5,6]；Spotify 12 個月下架逾 7,500 萬首經 Spotify Newsroom 官方公告（2025-09-25）復核屬實[7]。原內文「$5.4 億美元×10」幣值表述錯誤，已修正為 $5.4B。技術命中「可用且有產品」=3；落地受 UMG/Sony 訴訟＋平台治理摩擦拉高至 5；綜合 4。三軸獨立重評（4/3/5）與原評完全一致，差皆 0，無 divergence。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>Music Arena</strong>（ArtificialAnalysis × CMU GClef，arXiv:2507.20900，平台 2025-07-28 上線）：使用者輸入同一文字提示、盲聽兩段不同模型生成音檔並投票，以 Elo 排名[1,2]。器樂榜 <strong>Suno v5.5 第一（Elo≈1191）、Mureka V8 第二（≈1165）、Suno v5 第三（≈1157）</strong>；另設「人聲（vocal）」獨立榜（2026-06 快照：Suno v5.5≈1156 居首、Mureka V8≈1144 第二、Lyria 3 Pro≈1089 第三、Suno v5≈1086 第四），可在含人聲類別內公平比較（榜單隨投票即時更新）[1]。</li>
+<li><strong>ICASSP 2026 自動歌曲美學評測挑戰</strong>（Automatic Song Aesthetics Evaluation Challenge，arXiv:2601.07237）：學界已將「整曲（含人聲）美學自動評分」立為正式挑戰賽題，呼應產業需要可量化的整曲品質指標——側證該成果類型已從 demo 進入需標準化 benchmark 的階段[3]。</li>
+<li><strong>開源對照</strong>：ACE-Step 1.5、YuE（arXiv:2503.08638，長篇音樂生成開放基礎模型）在 Music Arena 協定的人類 A/B 主觀品質介於 Suno-v4.5 與 v5 之間，顯示開源整曲生成正逼近閉源前沿[1]。</li>
+<li>邊界註記：現有 benchmark 多評「整體聆聽偏好／美學」，對「咬字正確率、人聲擬真度、長曲結構一致性」尚無如語音 TTS 的 WER/SIM 那樣成熟的客觀逐項指標。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Breaking Rust（AI 鄉村歌手）</strong>：AI 生成單曲《Walk My Walk》於 2025-11 登上 <strong>Billboard「Country Digital Song Sales」冠軍</strong>——AI 歌曲首度奪美國榜冠軍；該曲一個月內 Spotify 逾 350 萬串流，其他曲《Livin’ on Borrowed Time》逾 400 萬、《Whiskey Don’t Talk Back》逾 100 萬串流，帳號在 Spotify 為認證藝人、月聽眾逾 200 萬[4]。證明 AI 整曲已能規模化商業發行並取得真實商業成績。</li>
+<li><strong>Suno（市場龍頭）</strong>：2026-06 完成 $4 億 Series D 募資、估值達 <strong>$5.4B</strong>（較 2025-11 的 $2.45B 翻倍多），近 1 億累計註冊用戶、逾 200 萬付費訂閱、<strong>日生成逾 700 萬首歌</strong>；2026-02 達約 $3 億（US$300M）ARR（年增 404%）；2025-11 與 <strong>WMG 達成授權合作並和解訴訟</strong>（首個與主流唱片公司的協議）[5,6]。Pro/Premier 方案授予商用權，使用者可經自選發行商上架 Spotify／Apple Music[8]。</li>
+<li><strong>發行通路成熟</strong>：ONCE、DistroKid、Dynamoi 等發行商已提供「Suno/Udio 整曲→Spotify」的標準化上架流程；Suno/Udio 付費版生成之曲在合約上可商業發行[8]。</li>
+<li><strong>規模化部署存在、但帶條件</strong>：Spotify 2025 年下架逾 7,500 萬首垃圾／量產 AI 曲，並要求 DDEX AI 揭露、聲音克隆須本人授權；未把關之量產 AI 曲會被降推/下架，且 UMG、Sony 訴訟未結——「可上架」與「可乾淨無風險地商業發行任意內容」是兩回事[5,7]。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li>做得到：歌詞＋一句曲風描述→一次產出含人聲、有主歌副歌結構、可直接上架串流的完整歌曲；多語言、多曲風；付費版授予商用權；已有 AI 曲登 Billboard 冠軍與百萬級串流，屬已落地的成果類型。</li>
+<li>做不到/有限制：(1)人聲在複雜唱腔／咬字／長句連貫偶有合成感，量產需人工挑版與後製；(2)整曲尚無如 TTS WER/SIM 的成熟客觀逐項指標，品質判定仍偏主觀；(3)最大阻力非生成技術而是<strong>法律與平台治理</strong>——訓練資料著作權訴訟（UMG/Sony 進行中）、Spotify 反 AI 垃圾下架與 DDEX 揭露、聲音克隆同意要求，使「可乾淨商業發行」受合規門檻限制；(4)未獲授權的歌手聲音克隆在主流平台被禁。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="AI%E5%BD%B1%E5%83%8F%E8%88%87%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">AI影像與影片生成</a>、<a href="%E9%9B%B6%E6%A8%A3%E6%9C%AC%E8%AA%9E%E9%9F%B3%E5%85%8B%E9%9A%86.html">零樣本語音克隆</a>、<a href="%E6%B6%88%E8%B2%BB%E7%B4%9AAI%E5%8A%A9%E7%90%86.html">消費級AI助理</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>ArtificialAnalysis Music Arena 排行榜（器樂／人聲，Elo 人類偏好）— https://artificialanalysis.ai/music/leaderboard/instrumental ；HF Space https://huggingface.co/spaces/ArtificialAnalysis/Music-Arena-Leaderboard</li>
+<li>Music Arena: Live Evaluation for Text-to-Music（CMU GClef，arXiv:2507.20900，2025-07）— https://arxiv.org/abs/2507.20900 ；發布文 https://gclef-cmu.org/blog/posts/250919_MusicArena/</li>
+<li>The ICASSP 2026 Automatic Song Aesthetics Evaluation Challenge（arXiv:2601.07237）— https://arxiv.org/pdf/2601.07237 ；YuE 長篇音樂生成 arXiv:2503.08638 https://arxiv.org/pdf/2503.08638</li>
+<li>Breaking Rust 登 Billboard 鄉村數位銷售榜冠軍、Spotify 數百萬串流（Euronews, 2025-11-14）— https://www.euronews.com/culture/2025/11/14/breaking-rust-ai-artist-tops-us-chart-for-first-time-as-study-reveals-alarming-recognition ；NME https://www.nme.com/news/music/ai-generated-country-track-walk-my-walk-tops-us-billboard-chart-3908829</li>
+<li>Suno 募 $4 億、估值 $5.4B、日生成逾 700 萬首、WMG 授權合作（Variety, 2026-06）— https://variety.com/2026/digital/news/ai-music-suno-funding-round-400-million-5-4-billion-valuation-1236765727/ ；Bloomberg https://www.bloomberg.com/news/articles/2026-06-03/ai-music-startup-suno-raises-capital-at-5-4-billion-valuation</li>
+<li>Suno 達約 $3 億 ARR（年增 404%）、近 1 億註冊用戶（TechCrunch / Fortune, 2026）— https://fortune.com/2026/06/04/suno-ai-and-the-future-of-music-5-4-billion-valuation-eye-on-ai/</li>
+<li>Spotify 強化 AI 保護：12 個月下架逾 7,500 萬首垃圾曲、DDEX AI 揭露、聲音克隆同意（Spotify Newsroom, 2025-09-25）— https://newsroom.spotify.com/2025-09-25/spotify-strengthens-ai-protections/ ；Variety https://variety.com/2025/digital/news/spotify-new-ai-safeguards-1236528493/</li>
+<li>Suno 商用權與發行 Spotify／Apple Music 之官方說明（Suno Help）— https://help.suno.com/en/articles/2410177 ；發行流程 https://dynamoi.com/learn/ai-music-distribution/how-to-distribute-suno-music</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>客服音訊逐字稿｜AI產業知識庫</title><meta name="description" content="客服音訊逐字稿
+
+ 一句話定義（這個職業任務的可交付物是什麼）
+輸入一段商品介紹或客服/客戶通話音訊，端到端產出逐字稿（含標點、可選擇加上講者分離與時間戳），且在「清晰語音」條件下整體 WER（中文用 CER）達 8% 以下，達到「無須重打、人工只需校對潤飾」的可直接交付品質。重點不是 demo，而是真實電話">
+<meta property="og:title" content="客服音訊逐字稿"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "客服音訊逐字稿", "description": "客服音訊逐字稿\n\n 一句話定義（這個職業任務的可交付物是什麼）\n輸入一段商品介紹或客服/客戶通話音訊，端到端產出逐字稿（含標點、可選擇加上講者分離與時間戳），且在「清晰語音」條件下整體 WER（中文用 CER）達 8% 以下，達到「無須重打、人工只需校對潤飾」的可直接交付品質。重點不是 demo，而是真實電話", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="客服音訊逐字稿">客服音訊逐字稿</h1>
+<h2 id="一句話定義這個職業任務的可交付物是什麼">一句話定義（這個職業任務的可交付物是什麼）</h2>
+<p>輸入一段商品介紹或客服/客戶通話音訊，端到端產出逐字稿（含標點、可選擇加上講者分離與時間戳），且在「清晰語音」條件下整體 WER（中文用 CER）達 8% 以下，達到「無須重打、人工只需校對潤飾」的可直接交付品質。重點不是 demo，而是真實電話品質音檔上的穩定可交付——這正是難度落差所在。</p>
+<h2 id="難度評分綜合-310技術-2落地-4-理由">難度評分（綜合 3/10：技術 2、落地 4）— 理由</h2>
+<p>技術成熟度高（diff_tech=2）：在乾淨朗讀英語上，Whisper large-v3 在 LibriSpeech test-clean 已達 WER≈2.7%，gpt-4o-transcribe 約 4.1%（2025），遠優於 8% 門檻，且核心已大規模商品化。但「WER ≤8%」這個門檻的可達性高度依賴音訊條件：真實會話/電話英語 WER 常落在 8-12%，8kHz 窄頻客服電話實測整體在 12-15%（2025-08）；中英夾雜（code-switching）Whisper WER 高達 20.6%。落地難度才是瓶頸（diff_deploy=4）：電話窄頻、背景噪音、口音、專有名詞/商品名、講者重疊使「清晰語音」假設在客服情境經常不成立，且金融/醫療客服受錄音同意、個資去識別、合規留存等監管限制。故定位為「乾淨語音技術上已成熟可商品化，但要在真實客服音訊穩定達 ≤8% 仍需人工把關與選樣」——綜合 difficulty=3（可用但需人工把關、已有產品）。</p>
+<p>查證重評：3／2／4（與原評一致，divergence=false）。技術 2：LibriSpeech test-clean Whisper-v3 2.7%、MLPerf v5.1 已收 Whisper 為 ASR 基準（2025-09，較 RNN-T 降 WER 72%）、gpt-4o-transcribe 4.0-4.1% 皆遠優於 8% 門檻且大規模商品化，給 2 合理。落地 4 維持並上修信心：diff_deploy 的瓶頸不只技術，而是（a）監管——金融/醫療客服受錄音同意、個資去識別、合規留存約束；（b）責任/信任——逐字稿錯一個帳號、藥名、金額即生實質損害，故門檻產業普遍以 WER 自動標記＋強制人工複審把關（與本任務「可直接交付校對」定義吻合）；（c）真實音訊條件落差——8kHz 窄頻電話 12-15%、中英 code-switching 20%+，使「清晰語音」假設常不成立。三者疊加，落地停在 4（而非更低）正是反映監管＋責任＋信任障礙，不宜下修。</p>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li>LibriSpeech test-clean（英語乾淨朗讀，學術標準）：Whisper large-v3 WER≈2.7%、test-other≈5.2%；MLPerf 採 Whisper 作 ASR 基準，較前代 RNN-T 降低 WER 逾 72%（MLPerf Inference v5.1，2025-09）。[1]</li>
+<li>gpt-4o-transcribe：OpenAI 發布對比達 4.1% WER（vs Whisper-v3 5.3%），FLEURS 多語表現亦優於 Whisper（OpenAI 2025-03 發布，FLEURS 涵蓋 100+ 語言）；獨立第三方 Artificial Analysis 真實混合音訊 AA-WER 約 4.0%（2026-06 查證，AA-AgentTalk 50%／VoxPopuli 25%／Earnings22 25%，含口音與挑戰性聲學）。[3][6]</li>
+<li>真實 8kHz 客服電話 benchmark（Voicegain，40 檔跨 8 客戶）：AWS WER≈12.3%、Whisper-large-v3≈13.8%、Voicegain Omega≈14.9%、Google Video≈31.6%（2025-08-09）——說明窄頻客服電話原生 WER 普遍 &gt;8%，需客戶資料微調才逼近門檻。[2]</li>
+<li>中英 code-switching（DOTA-ME-CS 資料集，零微調）：Paraformer WER=17.7%（CER 最低 SenseVoice=17.6%）、Whisper large-v3 WER=20.6%/CER=21.3%（2025-01）——中英夾雜對「≤8%」是顯著未達。[4]</li>
+<li>條件對照：同一 API 在乾淨耳機 92% 正確、會議室 78%、行動電話含噪 65%；批次（全上下文）較串流通常再降 WER 10-17 點（Deepgram production metrics，2025）。[5]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效監管限制">實證二：真實部署/產品案例（誰用、規模、成效、監管限制）</h2>
+<ul>
+<li>已大規模商品化：Deepgram、AssemblyAI、OpenAI、AWS、Google 等皆提供商用 ASR；聯絡中心夜間批次處理已達單夜約 10 萬分鐘、月約 300 萬分鐘規模（2025-26 產業報告）。串流轉寫可 &lt;300ms 出稿，串流定價約每分鐘 US$0.005-0.012。[5]</li>
+<li>成效水準：Deepgram Nova-3 在跨九領域（醫療/金融/得來速/航管/語音信箱等）2,703 檔生產音訊上，批次中位數 WER≈5.26%、串流≈6.84%，維持 &lt;300ms 延遲，批次 US$0.0043/分、串流 US$0.0077/分（2025）——在「足夠清晰」的真實音訊上 ≤8% 已可達成並落地。[6]</li>
+<li>落地把關常態：客服多用 WER 門檻（如 &gt;20%）自動標記需人工複審；金融/醫療客服受錄音告知同意、個資去識別、合規留存等限制，逐字稿須與商品名/帳號/藥名詞典校對，故交付前普遍保留人工校對環節（與本任務「可直接交付校對」定義一致）。[5]</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<p>做得到：乾淨單講者、寬頻麥克風的中/英語逐字稿，整體 WER/CER ≤8% 可達；大規模批次量產、講者分離、時間戳、串流即時轉寫皆已商品化。 仍吃力：8kHz 窄頻電話、重口音、強背景噪音、多人重疊；中英 code-switching（WER 常 15-20%+）；商品名/品牌/帳號/藥名等專有名詞與數字串需詞典或微調；情緒/語氣與「真正意圖」非逐字所能涵蓋。 落地關鍵：能否穩定達 ≤8% 取決於「音訊條件＋是否客戶資料微調＋是否加詞典」，而非單純模型新舊；合規（同意、去識別、留存）決定可否真正交付。因此本任務的「達成」應綁定具體音訊品質與管道政策來判定。</p>
+<h2 id="相關實體連結">相關實體（<span class="todo" title="待建頁面">連結</span>）</h2>
+<ul>
+<li><a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>（客服/通話分析是企業 ASR 主戰場）</li>
+<li><a href="%E6%B6%88%E8%B2%BB%E7%B4%9AAI%E5%8A%A9%E7%90%86.html">消費級AI助理</a>（語音輸入/聽寫的另一大應用面）</li>
+<li><a href="%E9%86%AB%E7%99%82AI.html">醫療AI</a>、<a href="%E9%87%91%E8%9E%8DAI.html">金融AI</a>（受監管客服，去識別與合規門檻最高）</li>
+<li><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>（gpt-4o-transcribe 等多模態 ASR 端點）</li>
+<li><a href="PDF%E6%96%87%E4%BB%B6OCR%E7%B5%90%E6%A7%8B%E5%8C%96.html">PDF文件OCR結構化</a>（同屬「非結構訊號→可交付文本」家族）</li>
+<li><a href="%E9%9B%B6%E6%A8%A3%E6%9C%AC%E8%AA%9E%E9%9F%B3%E5%85%8B%E9%9A%86.html">零樣本語音克隆</a>（同源語音技術棧的生成側對照）</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>MLCommons — Whisper: An MLPerf Inference Benchmark for ASR（v5.1，2025-09）：https://mlcommons.org/2025/09/whisper-inferencev5-1/</li>
+<li>Voicegain — 2025 Speech-to-Text Accuracy Benchmark for 8 kHz Call Center Audio Files（2025-08-09）：https://www.voicegain.ai/post/2025-speech-to-text-accuracy-benchmark-for-8-khz-call-center-audio-files</li>
+<li>OpenAI — Introducing next-generation audio models in the API（gpt-4o-transcribe，2025-03）：https://openai.com/index/introducing-our-next-generation-audio-models/</li>
+<li>arXiv 2501.12122 — DOTA-ME-CS: Mandarin-English Code-Switching Dataset（2025-01）：https://arxiv.org/html/2501.12122v1</li>
+<li>Deepgram — Speech Recognition Accuracy: Production Metrics &amp; Optimization 2025（耳機/會議室/行動含噪 92%/78%/65%、批次較串流降 10-17 點、&lt;300ms）：https://deepgram.com/learn/speech-recognition-accuracy-production-metrics</li>
+<li>Artificial Analysis — OpenAI GPT-4o Transcribe（AA-WER≈4.0%，2026-06 查證）：https://artificialanalysis.ai/speech-to-text/models/openai-gpt-4o-transcribe ；Deepgram Nova-3 生產數字（2,703 檔/九領域、批次 5.26%/串流 6.84% WER、定價）轉引自 NextLevel.ai：https://nextlevel.ai/best-speech-to-text-models/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

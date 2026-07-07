@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PyTorch｜AI產業知識庫</title><meta name="description" content="PyTorch 是一套以 Python 為核心、由 Meta 創建並於 2022 年捐入 Linux Foundation（PyTorch Foundation）的開源深度學習框架，提供自動微分（Autograd）與 GPU 加速，採「動態運算圖／命令式（imperative）」設計，是目前 AI 研究與生成">
+<meta property="og:title" content="PyTorch"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "PyTorch", "description": "PyTorch 是一套以 Python 為核心、由 Meta 創建並於 2022 年捐入 Linux Foundation（PyTorch Foundation）的開源深度學習框架，提供自動微分（Autograd）與 GPU 加速，採「動態運算圖／命令式（imperative）」設計，是目前 AI 研究與生成", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="pytorch">PyTorch</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>PyTorch 是一套以 Python 為核心、由 Meta 創建並於 2022 年捐入 Linux Foundation（PyTorch Foundation）的開源深度學習框架，提供自動微分（Autograd）與 GPU 加速，採「動態運算圖／命令式（imperative）」設計，是目前 AI 研究與生成式模型開發的事實標準工具。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>起源：原始開源於 2016 年 9 月，主要作者 Adam Paszke、Sam Gross、Soumith Chintala、Gregory Chanan（皆出自 Facebook AI Research, FAIR）；採 BSD-3 授權；以 Python、C++、CUDA 撰寫（Wikipedia，2026）。</li>
+<li>代表論文：(1)〈Automatic differentiation in PyTorch〉NeurIPS 2017 Autodiff Workshop，提出 Autograd 機制；(2)〈PyTorch: An Imperative Style, High-Performance Deep Learning Library〉NeurIPS 2019，奠定命令式高效能設計地位（OpenReview，2017；NeurIPS，2019）。</li>
+<li>治理移轉：2022 年 9 月 Meta 將 PyTorch 捐給 Linux Foundation，成立獨立的 PyTorch Foundation；創始白金會員為 AMD、AWS、Google、Meta、Microsoft、NVIDIA 六家（Linux Foundation／Meta AI，2022）。</li>
+<li>會員擴張：PyTorch Foundation 自 2025 年 12 月起再增 9 名會員（5 Silver＋4 Associate；2026-02-24 正式發布），反映代理式 AI（agentic AI）需求帶動的生態擴張（Linux Foundation 新聞稿，2026-02-24）。</li>
+<li>研究主導地位：PyTorch 約佔頂級 AI 會議深度學習論文的 85%，研究社群採用率遠超對手（多份產業比較，2025；屬綜整估計，口徑不一）。</li>
+<li>整體市佔分歧：在「整體市場採用」口徑下，TensorFlow 約 37–38%、PyTorch 約 23–25%；但在 AI 職缺需求口徑，PyTorch 約 37.7% 高於 TensorFlow 約 32.9%（6sense／產業比較，2025–2026；數字依方法學差異大，定位為市場估計）。</li>
+<li>torch.compile 效能：跨 163 個開源模型，torch.compile 成功率 93%，於 NVIDIA A100 上訓練平均加速約 43%（Float32 約 +21%、AMP 約 +51%）（PyTorch 官方 2.x 頁面，2023–2024）。</li>
+<li>最新版本：2.12.0（2026-05-13）；近期里程碑 2.10.0（2026-01-21）、2.9.0（2025-10-15）、2.6（2025-01-29，支援 Python 3.13 與 torch.compiler.set_stance）（Wikipedia／GitHub Releases／PyTorch Docs，2025–2026）。</li>
+<li>代表性採用：ChatGPT、Tesla Autopilot、Uber Pyro、Hugging Face Transformers 等皆建構於 PyTorch 之上（Wikipedia，2025）。</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li>位置：屬中游「軟體框架／開發工具」層，介於底層硬體＋<a href="CUDA.html">CUDA</a> 運算庫（上游）與上層大型模型、應用（下游）之間，是把演算法落地到晶片的關鍵抽象層。</li>
+<li>角色：研究者用 PyTorch 定義與訓練模型（<a href="Transformer.html">Transformer</a> 等架構幾乎都先以 PyTorch 實作），模型權重與訓練腳本再經 <a href="Hugging%20Face.html">Hugging Face</a> 等平台流通；框架選擇直接決定算力如何被消費、綁定哪種硬體後端。</li>
+<li>對硬體的牽動：PyTorch 預設後端深度倚賴 <a href="NVIDIA.html">NVIDIA</a> GPU 與 <a href="CUDA.html">CUDA</a>，使其成為 CUDA 護城河的重要載體；同時 PyTorch 官方安裝頁將 AMD ROCm 列為與 CUDA 並列的一級（first-class）選項，2.9 起 Wheel Variant 支援擴及 ROCm（AMD，2025）。</li>
+<li>編譯堆疊：torch.compile 由 TorchDynamo、AOTAutograd、PrimTorch、TorchInductor 組成，將 PyTorch 程式 JIT 編譯為優化 kernel；TorchInductor 後端可生成 Triton kernel，是降低硬體綁定的技術槓桿。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>2024：PyTorch 2.x 編譯路線（torch.compile）成熟，成為 H100／Blackwell 等新硬體的「參考實作」基準；ROCm 對 PyTorch 的原生支援自 2024 起顯著改善，無需特製 build。</li>
+<li>2025：2.5 引入 FlexAttention（以 torch.compile 自動生成 fused FlashAttention kernel，支援 sliding window／causal／prefix LM）；2.6（1 月）支援 Python 3.13 並強化 AOTInductor；2.9（10 月）擴大 ROCm Wheel Variant 支援。PyTorch Foundation 會員續增（9 名新會員自 2025 年 12 月陸續加入，2026-02-24 公布），標榜支撐 agentic AI 浪潮。</li>
+<li>2025 年底 TorchTPU：據 Reuters 2025 年 12 月報導，Google 啟動 TorchTPU，讓 PyTorch 原生跑在自家 TPU 上，並與 Meta 合作；分析機構稱此舉「直擊 NVIDIA 競爭優勢的根基」，Meta 可能自 2026 起試用 TPU 雲（Hyperframe Research，2025-12）。</li>
+<li>2026：最新穩定版推進至 2.12.0（5 月）；torch.compile 在 Blackwell 世代持續作為效能對照基準。</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li>CUDA 綁定的雙面性：PyTorch 的高效能高度依賴 <a href="NVIDIA.html">NVIDIA</a> <a href="CUDA.html">CUDA</a>，雖鞏固生態，卻也使整個 AI 軟體棧成為 NVIDIA「75–90% AI 加速器市佔」護城河的延伸；硬體多元化進程受框架後端成熟度牽制（The Register，2024；Hyperframe，2025）。</li>
+<li>後端碎片化：ROCm（AMD）、Intel GPU、TPU（TorchTPU）等多後端雖降低鎖定，但各後端 kernel 覆蓋率、torch.compile 相容性與良率不一，跨硬體一致性仍是工程難題（AMD ROCm 文件，2025）。</li>
+<li>治理集中風險：雖已捐入中立基金會，PyTorch 核心維護與技術方向仍高度倚賴 Meta 與少數白金會員的工程投入，社群對單一企業主導的疑慮未消。</li>
+<li>市佔數據口徑混亂：研究端 85% 與整體市場 23–25% 的巨大落差，反映「研究主導」未必等於「生產部署主導」；生產級大規模部署 TensorFlow／JAX 仍有一席之地（產業比較，2025；資料口徑未統一）。</li>
+<li>編譯路線的成熟壓力：torch.compile 雖達 93% 成功率，仍存在約 7% 模型無法順利編譯與除錯困難（ezyang，2025），對追求極致效能的訓練場景構成風險。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="NVIDIA.html">NVIDIA</a>：PyTorch 預設 GPU 後端供應者，CUDA 與 GPU 是其效能基礎，也使 PyTorch 成為 CUDA 護城河載體。</li>
+<li><a href="CUDA.html">CUDA</a>：PyTorch 高效能運算的底層平行運算庫，框架與其深度耦合。</li>
+<li><a href="Transformer.html">Transformer</a>：當代主流模型架構，其開源實作與訓練幾乎以 PyTorch 為首選。</li>
+<li><span class="todo" title="待建頁面">TensorFlow</span>：Google 主導的競爭框架，在生產級大規模部署仍具份額，與 PyTorch 形成研究 vs 生產的分工態勢。</li>
+<li><a href="Hugging%20Face.html">Hugging Face</a>：以 PyTorch 為主要後端的模型／權重流通平台，是 PyTorch 生態擴散的關鍵下游節點。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Wikipedia，PyTorch（版本、作者、授權、Foundation 移轉、採用案例）：https://en.wikipedia.org/wiki/PyTorch</li>
+<li>PyTorch Foundation 官方治理頁：https://pytorch.org/foundation/</li>
+<li>Linux Foundation，Welcoming PyTorch to the Linux Foundation（2022 移轉與創始會員）：https://www.linuxfoundation.org/blog/blog/welcoming-pytorch-to-the-linux-foundation</li>
+<li>Meta AI，Announcing the PyTorch Foundation：https://ai.meta.com/blog/pytorch-foundation/</li>
+<li>PyTorch 官方，PyTorch 2.x（torch.compile 效能與技術堆疊）：https://pytorch.org/get-started/pytorch-2-x/</li>
+<li>OpenReview，Automatic differentiation in PyTorch（NeurIPS 2017）：https://openreview.net/forum?id=BJJsrmfCZ</li>
+<li>Linux Foundation 新聞稿，PyTorch Foundation 新增會員（agentic AI，2026-02-24 發布；9 名新會員自 2025-12 起加入）：https://www.linuxfoundation.org/press/pytorch-foundation-announces-new-members-as-agentic-ai-demand-grows</li>
+<li>Hyperframe Research，Google TorchTPU 與 NVIDIA CUDA 護城河（2025-12）：https://hyperframeresearch.com/2025/12/24/can-googles-torchtpu-eventually-bridge-nvidias-cuda-moat/</li>
+<li>The Register，NVIDIA CUDA moat（2024-12）：https://www.theregister.com/2024/12/17/nvidia_cuda_moat/</li>
+<li>AMD ROCm 文件，PyTorch 相容性（ROCm 一級支援）：https://rocm.docs.amd.com/en/latest/compatibility/ml-compatibility/pytorch-compatibility.html</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

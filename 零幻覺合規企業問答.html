@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>零幻覺合規企業問答｜AI產業知識庫</title><meta name="description" content="零幻覺合規企業問答
+
+ 一句話定義（這個應用/產品是什麼）
+把企業所有異質資料源（文件、Wiki、工單、郵件、資料庫、SaaS）全量接入，輸出一個企業問答系統，同時硬性保證三件事：(1) 零權限洩漏——絕不把使用者無權看的內容透露給他；(2) 零幻覺——答案 100% 有據、不臆造；(3) 全程可審計、符合法">
+<meta property="og:title" content="零幻覺合規企業問答"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "零幻覺合規企業問答", "description": "零幻覺合規企業問答\n\n 一句話定義（這個應用/產品是什麼）\n把企業所有異質資料源（文件、Wiki、工單、郵件、資料庫、SaaS）全量接入，輸出一個企業問答系統，同時硬性保證三件事：(1) 零權限洩漏——絕不把使用者無權看的內容透露給他；(2) 零幻覺——答案 100% 有據、不臆造；(3) 全程可審計、符合法", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="零幻覺合規企業問答">零幻覺合規企業問答</h1>
+<h2 id="一句話定義這個應用產品是什麼">一句話定義（這個應用/產品是什麼）</h2>
+<p>把企業所有異質資料源（文件、Wiki、工單、郵件、資料庫、SaaS）全量接入，輸出一個企業問答系統，同時硬性保證三件事：(1) 零權限洩漏——絕不把使用者無權看的內容透露給他；(2) 零幻覺——答案 100% 有據、不臆造；(3) 全程可審計、符合法遵，且法遵/合規部門可「直接簽核」採用。本頁評的不是「帶引用的企業問答」（那是 <a href="%E4%BC%81%E6%A5%AD%E7%9F%A5%E8%AD%98%E5%BA%AB%E5%B8%B6%E5%BC%95%E7%94%A8%E5%95%8F%E7%AD%94.html">企業知識庫帶引用問答</a>，難度 5），而是把可靠性門檻拉到「零」與「可直接簽核」的合約級絕對標準。</p>
+<h2 id="難度評分綜合-810技術-8落地-9-理由">難度評分（綜合 8/10：技術 8、落地 9）— 理由</h2>
+<ul>
+<li><strong>技術 8（單點可做、但三個「零」同時達成尚無解）</strong>：構成元件（權限感知檢索、RAG＋引用、稽核日誌）都已工程化，但合約裡的「零」是當前 AI 做不到的：①「零幻覺」已被多篇論文證明數學上不可能（對角化/Gödel 不完備性，見實證一），生產法律 RAG 錯誤率仍 17–34%；②「零權限洩漏」被 EchoLeak（CVE-2025-32711, CVSS 9.3）等零點擊提示注入攻破，OWASP 2025 列提示注入為 LLM #1 風險、出現於 73% 受評生產部署。把可靠性從「九成」推到「零失誤」是指數級難題，故技術 8（實驗室/早期、可靠性低）。</li>
+<li><strong>落地 9（合約即不可達，含監管與信任）</strong>：「法遵可直接簽核」意味把 AI 輸出當成免人工複核的合規結論——這與 EU AI Act 高風險系統 Article 14「人為監督須內建於架構」（2026/08/02 強制）直接衝突；高風險場景監管要求人在迴路（human-in-the-loop），「直接簽核」本身被法規否定。加上單位經濟（全量接入＋持續稽核＋紅隊測試成本高）與信任門檻，落地分 9，高於技術分。</li>
+<li><strong>綜合判定 8（非平均）</strong>：元件已商品化（壓向成熟端），但本任務的定義性特徵是三個絕對「零」＋「直接簽核」同時成立——任一皆當前未解，合約整體落在量表 7–8「實驗室/早期、可靠性低或落地障礙大」。P1 初判 8，查證後維持 8。</li>
+<li><strong>查證重評：8 / 9 / 8（技術 / 落地 / 綜合）</strong>：依錨定量表獨立重評。技術 8——權限感知檢索＋RAG＋稽核已工程化（成熟端），但「零幻覺」經 arXiv 2401.11817／2506.06382 證為不可解、生產法律 RAG 17–34%、頂尖模型 Vectara 榜仍 7–12%，「零」屬實驗室/未解。落地 9——diff_deploy 四維皆高：商業模式（全量接入＋持續紅隊＋稽核成本高）、單位經濟（每組織 80.2 萬檔過度分享、洩漏面隨規模放大）、監管（EU AI Act Art 14 人為監督，2026-08-02 強制，與「免複核直接簽核」抵觸）、信任（合約級絕對保證無廠商敢承諾）。三軸與原評全等，差 0 &lt; 2，<strong>divergence=false</strong>。</li>
+</ul>
+<h2 id="實證一benchmark-或市場數據分數規模日期來源">實證一：Benchmark 或市場數據（分數/規模＋日期＋來源）</h2>
+<ul>
+<li><strong>零幻覺＝數學上不可能</strong>：Xu et al.「Hallucination is Inevitable」(arXiv 2401.11817) 用可計算性論證——LLM 無法學會所有可計算函數，作為通用求解器必然存在幻覺缺口；2025「On the Fundamental Impossibility of Hallucination Control」(arXiv 2506.06382) 進一步證任何非平凡知識聚合無法同時滿足真實表徵＋資訊守恆＋完全揭露＋知識約束最優，幻覺與想像為數學等價的權衡。兩者皆指：非訓練不足可解，實務只能壓到「統計上可忽略」、無法達「零」。[來源2][來源6]</li>
+<li><strong>生產可靠性遠未達零</strong>：Stanford RegLab/HAI（2024-05 同儕審查、&gt;200 預註冊題）測商用法律 RAG：Lexis+ AI 與 Ask Practical Law AI 錯誤/失據 &gt;17%、Westlaw AI-Assisted Research 幻覺率 &gt;34%。即旗艦「帶引用」系統每 3–6 題仍錯 1 題。[來源1] Vectara HHEM 幻覺榜（2026-05-11 更新，文件最長約 24K 字）：個位數%已屬榜首水準，多數模型仍非零——Gemini-2.5-Pro 7.0%、Claude Sonnet 4.5 12.0%。即連最佳模型亦未達「零」。[來源4]</li>
+<li><strong>零權限洩漏＝已被攻破</strong>：EchoLeak（CVE-2025-32711, CVSS 9.3, 2025）為 M365 Copilot 零點擊提示注入，單封郵件即可外洩 SharePoint/OneDrive/Teams 內容，無需使用者互動。[來源3] 2026/01 Microsoft 另證實 Copilot 繞過 DLP 讀取「機密」郵件。OWASP 2025：提示注入列 LLM #1、出現於 73% 受評生產部署。[來源7]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效商業模式">實證二：真實部署/產品案例（誰用、規模、成效、商業模式）</h2>
+<ul>
+<li><strong>權限感知企業問答已規模化、但「零」未達標</strong>：Glean、Microsoft 365 Copilot、Onyx、Azure AI Search 等做平台層權限感知檢索（Glean 2025/06 F 輪估值 72 億美元）；商業模式為訂閱式企業搜尋/助理。但 Concentric AI 資料風險報告（分析逾 5.5 億筆資料記錄，2026-04 更新）：每組織平均 16% 業務關鍵資料被過度分享、80.2 萬檔因 oversharing 有風險——Copilot 全企業檢索放大此洩漏面。即「規模化＝是，零洩漏＝否」。[來源9]</li>
+<li><strong>法遵直接簽核：尚無規模化部署</strong>。查無任一商用企業問答產品宣稱其輸出可被法遵/合規「免人工複核直接簽核」；反之高風險領域（法律/醫療/金融）廠商與監管均要求人在迴路。EU AI Act 高風險系統（Article 9–17，2026/08/02 強制）要求風險管理、資料治理、自動日誌、人為監督、CE 標記與合格評鑑——這些是「需人複核」而非「可直接簽核」的架構。[來源5][來源8]</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：權限感知 RAG＋可點擊引用＋稽核日誌的企業問答，已是規模化商用產品；可把幻覺壓到個位數%、權限多數情況正確過濾。</li>
+<li><strong>做不到（本契約核心）</strong>：(1)「零幻覺」數學上不可能，生產錯誤率 7–33%；(2)「零權限洩漏」被提示注入/LLM Scope Violation 攻破，無法給確定性保證；(3)「全量異質資料源」接入時權限在向量化過程常被剝離、放大洩漏面；(4)「法遵可直接簽核」與高風險 AI 監管的人為監督要求直接抵觸。整體屬「元件可用、但合約級絕對標準當前未解」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="%E4%BC%81%E6%A5%AD%E7%9F%A5%E8%AD%98%E5%BA%AB%E5%B8%B6%E5%BC%95%E7%94%A8%E5%95%8F%E7%AD%94.html">企業知識庫帶引用問答</a>、<a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="AI%E6%90%9C%E5%B0%8B.html">AI搜尋</a>、<a href="%E6%B3%95%E5%BE%8BAI.html">法律AI</a>、<a href="Microsoft.html">Microsoft</a>、<a href="Perplexity.html">Perplexity</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Stanford HAI/RegLab, “AI on Trial: Legal Models Hallucinate in 1 out of 6…” — https://hai.stanford.edu/news/ai-trial-legal-models-hallucinate-1-out-6-or-more-benchmarking-queries</li>
+<li>Xu et al., “Hallucination is Inevitable: An Innate Limitation of LLMs” (arXiv 2401.11817) — https://arxiv.org/abs/2401.11817</li>
+<li>“EchoLeak: The First Real-World Zero-Click Prompt Injection Exploit” (CVE-2025-32711, arXiv 2509.10540) — https://arxiv.org/abs/2509.10540</li>
+<li>Vectara Hallucination Leaderboard (HHEM-2.3) — https://github.com/vectara/hallucination-leaderboard</li>
+<li>EU AI Act Article 16 / 高風險提供者義務 — https://artificialintelligenceact.eu/article/16/</li>
+<li>“On the Fundamental Impossibility of Hallucination Control in LLMs” (arXiv 2506.06382) — https://arxiv.org/abs/2506.06382</li>
+<li>OWASP Top 10 for LLM Applications 2025（提示注入 #1）/ Obsidian Security 摘要 — https://www.obsidiansecurity.com/blog/prompt-injection</li>
+<li>EU AI Act Article 14（人為監督）/ 高風險合規 2026/08 — https://artificialintelligenceact.eu/article/14/ ; https://www.mckennaconsultants.com/eu-ai-act-high-risk-compliance-a-technical-readiness-guide-for-august-2026/</li>
+<li>Concentric AI Data Risk Report 2025（Copilot 過度分享/敏感記錄存取）/ Glean F 輪估值 — https://concentric.ai/too-much-access-microsoft-copilot-data-risks-explained/ ; https://www.glean.com/blog/glean-series-f-announcement</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

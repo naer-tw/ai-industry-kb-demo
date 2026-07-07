@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>程式碼補全｜AI產業知識庫</title><meta name="description" content="程式碼補全
+
+ 一句話定義（這個可交付物是什麼）
+給定游標前（prefix）與游標後（suffix）的程式碼上下文，AI 即時產出游標處應插入的下一段程式碼（單行到多行），以灰字內聯（ghost text）顯示，使用者按 Tab 接受、否則忽略繼續打字。技術上即 fill-in-the-middle（FIM，">
+<meta property="og:title" content="程式碼補全"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "程式碼補全", "description": "程式碼補全\n\n 一句話定義（這個可交付物是什麼）\n給定游標前（prefix）與游標後（suffix）的程式碼上下文，AI 即時產出游標處應插入的下一段程式碼（單行到多行），以灰字內聯（ghost text）顯示，使用者按 Tab 接受、否則忽略繼續打字。技術上即 fill-in-the-middle（FIM，", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="程式碼補全">程式碼補全</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定游標前（prefix）與游標後（suffix）的程式碼上下文，AI 即時產出游標處應插入的下一段程式碼（單行到多行），以灰字內聯（ghost text）顯示，使用者按 Tab 接受、否則忽略繼續打字。技術上即 fill-in-the-middle（FIM，填空式）內聯補全。這是生成式 AI 商品化最徹底、單次失誤成本最低（一鍵忽略即可）的能力之一——人在迴路天生內建（每筆建議都由開發者即時決定收/退）。</p>
+<h2 id="難度評分綜合-210技術-2落地-2-理由引-benchmark-與部署">難度評分（綜合 2/10：技術 2、落地 2）— 理由（引 benchmark 與部署）</h2>
+<ul>
+<li><strong>技術 2（很成熟）</strong>：FIM 已是專門訓練目標，主流碼模型（Qwen2.5/3-Coder、StarCoder2、DeepSeek-Coder、GitHub 自訓模型）均原生支援 prefix/suffix 感知。GitHub 2025-10-23 上線的自訓補全模型，相較舊後端「採納率+12%、被接受並保留字元+20%、延遲-35%、token/秒吞吐 3x」（來源 1）。子任務在公開 benchmark（HumanEval-Infilling 單行填空、CrossCodeEval 跨檔）已是標準測項（來源 4、5）。未給 1，是因為跨檔/長倉庫語境與多行邏輯正確性仍非滿分。</li>
+<li><strong>落地 2（已廣泛可靠部署）</strong>：億級規模商品化、邊際成本極低、失誤可一鍵忽略，符合錨定量表「1–2 已成熟商品化可靠廣泛部署」。落地分比「短文摘要(3)」更低，因本任務的人工把關是「天生內建於互動」（每筆 Tab 都是即時驗收），不像摘要需另設抽查流程。</li>
+<li><strong>綜合 2</strong>：技術成熟、部署廣、容錯設計優；唯一拉高難度的是補全內容仍可能含 bug／安全瑕疵，需開發者判讀後接受，故非 1。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>真實採納率（最貼近本契約的線上指標）</strong>：GitHub 引述客戶研究約 30% 建議被採納；企業實測（ZoomInfo）平均建議採納 33%；CACM 研究行採納約 21–24%；Java 開發者最高約 61%（語言差異大）；被接受的碼約 88% 留存於最終提交。GitHub 另宣稱開發者約 46% 的程式碼由 Copilot 產出、受控實驗顯示完成 JS HTTP server 任務快約 55%（皆為 GitHub 自家公布數據，非來源 2 TechCrunch 該篇所載）。</li>
+<li><strong>新自訓模型對舊後端的相對提升</strong>（GitHub Blog，2025-10-23，來源 1）：採納率+12%、保留字元+20%、延遲-35%、吞吐 3x；以近 1,000 萬倉庫、600+ 語言去重語料中期訓練，並以合成微調修正「游標錯位插入、prefix 重複、suffix 覆寫」等 FIM 常見缺陷。</li>
+<li><strong>離線 FIM 測項</strong>（來源 4、5）：HumanEval-Infilling＝單行填空（Python/Java/JS，pass@1）；CrossCodeEval/CCLongEval＝跨檔補全（Exact Match、Edit Similarity）；RepoEval＝倉庫級多檔依賴。Qwen2.5-Coder 技術報告（來源 5，2024-09）將 FIM 列為核心評測，於 HumanEval-Infilling 與跨檔 EM/ES 對同級開源碼模型取得領先；本契約多落在「單行～數行、單檔近鄰語境」，屬這些測項最易端。</li>
+<li><strong>口徑提醒</strong>：採納率是「建議被接受比例」，非「補全正確率」；30% 採納＝多數建議被忽略仍屬正常互動（容錯設計），不代表 70% 是錯的。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>GitHub Copilot</strong>（來源 2，TechCrunch 2025-07-30）：累計逾 2,000 萬用戶、90% 財星百大採用、5 萬+ 組織付費；2025 年 4–7 月三個月新增 500 萬用戶。受控實驗顯示完成 JS HTTP server 任務快約 55%。內聯補全為其原生核心功能。</li>
+<li><strong>Cursor</strong>（來源 3，2026）：&gt;100 萬日活、約 200 萬用戶（逾百萬付費）；ARR 2025-06 破 $500M、2025-11 破 $1B、2026-02 破 $2B；64% 財星五百大採用、企業端每日逾 1 億行程式碼。其 Tab 補全曾為主力（2025-03 Tab 用戶為 Agent 用戶 2.5 倍），現雖被 Agent 反超（Agent 為 Tab 2 倍），但 Tab 補全仍是每日 95% 用戶最高頻互動。</li>
+<li><strong>其他</strong>：Amazon Q Developer（前 CodeWhisperer）、JetBrains AI、Codeium/Windsurf、Tabnine 等皆以內聯補全為基礎功能，VS Code 系生態幾乎標配。</li>
+<li><strong>成效定性</strong>：補全是「分鐘級高頻、低風險」場景，採納率雖僅約 30%，但因每筆只需一個 Tab、忽略零成本，整體淨產出明顯為正，是 AI 寫碼工具最先被廣泛接受的入口能力。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：常見樣板碼、樣式重複碼、單檔近鄰語境的單行到數行補全；FIM 已能正確對齊游標、不覆寫 suffix；億級部署、延遲低於數百毫秒、邊際成本極低。</li>
+<li><strong>需把關／做不太穩</strong>：(1) 跨多檔、深層倉庫依賴的長段補全正確率下滑（CrossCodeEval/RepoEval 即為此設）；(2) 補全可能含邏輯 bug 或安全瑕疵（ACM 研究指 Copilot 建議正確性有限，來源 6），須開發者判讀；(3) 冷僻語言、私有 API、快速變動框架的補全品質較弱。</li>
+<li><strong>結論</strong>：以本任務（游標前後上下文→單行至多行補全，Tab 收/退）而言，AI 已可靠廣泛交付、屬最成熟商品化能力之一；風險集中在「不審視即接受多行補全」導致的潛在 bug/安全問題，而互動設計（一鍵忽略＋即時驗收）天然緩解此風險。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a>、<a href="Cursor.html">Cursor</a>、<a href="GitHub-issue%E7%AB%AF%E5%88%B0%E7%AB%AFPR.html">GitHub-issue端到端PR</a>、<a href="AI%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7.html">AI程式開發工具</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>GitHub Blog：The road to better completions（自訓補全模型，2025-10-23）— https://github.blog/ai-and-ml/github-copilot/the-road-to-better-completions-building-a-faster-smarter-github-copilot-with-a-new-custom-model/</li>
+<li>TechCrunch：GitHub Copilot crosses 20M all-time users（2025-07-30）— https://techcrunch.com/2025/07/30/github-copilot-crosses-20-million-all-time-users/</li>
+<li>Cursor AI Statistics 2026（用戶/ARR/Tab vs Agent）— https://www.getpanto.ai/blog/cursor-ai-statistics</li>
+<li>Qwen3-Coder FIM Benchmarks（HumanEval-Infilling／CrossCodeEval／RepoEval 測項）— https://deepwiki.com/QwenLM/Qwen3-Coder/6.4-fill-in-the-middle-benchmarks</li>
+<li>Qwen2.5-Coder Technical Report（FIM 評測，2024-09）— https://arxiv.org/pdf/2409.12186</li>
+<li>ACM TOSEM（2025）：Assessing and Analyzing the Correctness of GitHub Copilot’s Code Suggestions（2,033 題 LeetCode／C·Java·JS·Python，70% 題有≥1 正確建議、難度越高正確率越低）— https://dl.acm.org/doi/10.1145/3715108</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

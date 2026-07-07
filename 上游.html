@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>上游｜AI產業知識庫</title><meta name="description" content="AI 供應鏈：上游（算力與基礎）總覽
+
+本頁是 AI 產業知識庫「上游（算力層）」的導覽頁，串連各既有實體頁。上游指支撐 AI 訓練與推理的硬體與基礎設施，可概括為一條由設備、製造、封裝、記憶體、晶片、資料中心基建到雲端算力供給的鏈條。其核心特徵是極端集中：少數環節由單一或寡占供應商把持，任一環節卡關即壓抑">
+<meta property="og:title" content="上游"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "上游", "description": "AI 供應鏈：上游（算力與基礎）總覽\n\n本頁是 AI 產業知識庫「上游（算力層）」的導覽頁，串連各既有實體頁。上游指支撐 AI 訓練與推理的硬體與基礎設施，可概括為一條由設備、製造、封裝、記憶體、晶片、資料中心基建到雲端算力供給的鏈條。其核心特徵是極端集中：少數環節由單一或寡占供應商把持，任一環節卡關即壓抑", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>供應鏈總表</span></header>
+<main><article><h1 id="ai-供應鏈上游算力與基礎總覽">AI 供應鏈：上游（算力與基礎）總覽</h1>
+<p>本頁是 AI 產業知識庫「上游（算力層）」的導覽頁，串連各既有實體頁。上游指支撐 AI 訓練與推理的硬體與基礎設施，可概括為一條由設備、製造、封裝、記憶體、晶片、資料中心基建到雲端算力供給的鏈條。其核心特徵是<strong>極端集中</strong>：少數環節由單一或寡占供應商把持，任一環節卡關即壓抑全球 AI 算力釋出。當前三大實體瓶頸為 <strong>CoWoS 先進封裝、HBM 記憶體、能源（電力）</strong>，而台灣在製造與封裝環節握有近乎不可替代的關鍵地位。</p>
+<h2 id="上游結構圖">上游結構圖</h2>
+<pre class="mermaid">flowchart TD
+    subgraph EQUIP[設備層]
+        ASML["微影 / EUV 設備<br/>ASML"]
+    end
+    subgraph FAB[製造層]
+        TSMC["晶圓製造 3nm/2nm<br/>台積電 / Intel / 三星電子"]
+    end
+    subgraph PKG[封裝層 ⚠ 瓶頸]
+        COWOS["先進封裝 CoWoS<br/>先進封裝CoWoS"]
+    end
+    subgraph MEM[記憶體層 ⚠ 瓶頸]
+        HBM["HBM 高頻寬記憶體<br/>HBM記憶體<br/>SK海力士 / 美光 / 三星電子"]
+    end
+    subgraph CHIP[AI 晶片層]
+        GPU["GPU<br/>NVIDIA / AMD"]
+        ASIC["客製 ASIC<br/>客製AI晶片ASIC<br/>Broadcom / Marvell"]
+        ALT["晶圓級 / LPU<br/>Cerebras / Groq"]
+    end
+    subgraph DC[資料中心基建]
+        ENERGY["能源 / 電力 ⚠ 瓶頸<br/>AI資料中心能源"]
+        COOL["液冷散熱<br/>液冷散熱"]
+        NET["高速互連網路<br/>AI資料中心網路"]
+    end
+    subgraph CLOUD[雲端算力供給]
+        CW["GPU 雲 / Neocloud<br/>CoreWeave"]
+        DATA["資料燃料<br/>Scale AI"]
+    end
+
+    ASML --> TSMC
+    TSMC --> COWOS
+    HBM --> COWOS
+    COWOS --> GPU
+    COWOS --> ASIC
+    TSMC --> ALT
+    GPU --> ENERGY
+    ASIC --> ENERGY
+    ALT --> ENERGY
+    ENERGY --- COOL
+    ENERGY --- NET
+    ENERGY --> CW
+    CW --> DATA
+
+    classDef bottleneck fill:#ffe0e0,stroke:#c00,stroke-width:2px;
+    class COWOS,HBM,ENERGY bottleneck;
+    classDef taiwan fill:#fff3d0,stroke:#d68000,stroke-width:2px;
+    class TSMC taiwan;</pre>
+<h2 id="逐環節說明">逐環節說明</h2>
+<h3 id="微影-euv-設備">1. 微影 / EUV 設備</h3>
+<ul>
+<li><a href="ASML.html">ASML</a>：全球唯一能量產極紫外光（EUV）微影機台的荷蘭設備商，5nm 以下製程所需 EUV 設備握有 100% 市佔，是整條鏈最上游、最難取代的閘門。2025 全年營收 327 億歐元、淨利 96 億歐元，全年出貨 48 台 EUV。High-NA 旗艦機單台約 3.7–4 億美元。</li>
+</ul>
+<h3 id="晶圓製造先進邏輯製程">2. 晶圓製造（先進邏輯製程）</h3>
+<ul>
+<li><a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a>：全球最大晶圓代工廠，先進製程（3nm 及以下）市佔逾 90%、2025 全球代工市佔約 69.9%。2025 全年營收約 1,225 億美元（年增 35.9%）。N2（2nm）已於 2025 Q4 量產。是 AI 算力供應鏈的「總水龍頭」。</li>
+<li><a href="Intel.html">Intel</a>：美國唯一具先進製程量產能力的 IDM，押注 18A 製程與晶圓代工求翻身，2025 年罕見引進美國政府入股約 9.9%（89 億美元）與 NVIDIA（50 億）、SoftBank（20 億）策略投資。</li>
+<li><a href="%E4%B8%89%E6%98%9F%E9%9B%BB%E5%AD%90.html">三星電子</a>：全球第二大晶圓代工廠，唯一「記憶體＋代工」雙線整合的巨型供應商。</li>
+</ul>
+<h3 id="先進封裝瓶頸一cowos">3. 先進封裝（瓶頸一：CoWoS）</h3>
+<ul>
+<li><a href="%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9DCoWoS.html">先進封裝CoWoS</a>：台積電主導的 2.5D 封裝，把 GPU/ASIC 邏輯晶片與多顆 HBM 整合在同一中介層上，是 AI 加速器得以量產的關鍵，也是 2024–2025 全球算力最主要的瓶頸。月產能由 2023 年底約 1.3–1.6 萬片擴至 2025 年底約 6.5–7.5 萬片，2025–2026 仍供不應求，缺口延續至 2027；NVIDIA 鎖定逾 60% 份額。</li>
+</ul>
+<h3 id="記憶體瓶頸二hbm">4. 記憶體（瓶頸二：HBM）</h3>
+<ul>
+<li><a href="HBM%E8%A8%98%E6%86%B6%E9%AB%94.html">HBM記憶體</a>：將多顆 DRAM 垂直堆疊、緊貼 GPU 提供 TB/s 級頻寬的「記憶體燃料箱」，必須經 CoWoS 與 GPU 共封裝，故與 CoWoS 並列「雙重瓶頸」。三家供應商 2026 年產能均已售罄，缺貨延伸至 2027；HBM4 於 2026 進入量產競賽。</li>
+<li><a href="SK%E6%B5%B7%E5%8A%9B%E5%A3%AB.html">SK海力士</a>：HBM 絕對龍頭，2025 Q2 市佔 62%；2026 Q1 營收 52.6 兆韓元、營業利益率 72%，創單季新高；2025 年 9 月全球首發 HBM4 量產。</li>
+<li><a href="%E7%BE%8E%E5%85%89.html">美光</a>：三巨頭中唯一美商，HBM 第三供應商，憑低功耗 HBM3E 切入並已為 NVIDIA Vera Rubin 量產 HBM4。</li>
+<li><a href="%E4%B8%89%E6%98%9F%E9%9B%BB%E5%AD%90.html">三星電子</a>：2025 年 9 月通過 NVIDIA 12 層 HBM3E 認證重返供應鏈；2026 Q1 半導體部門營業利益 53.7 兆韓元。</li>
+</ul>
+<h3 id="ai-晶片gpu-asic">5. AI 晶片（GPU / ASIC）</h3>
+<ul>
+<li><a href="NVIDIA.html">NVIDIA</a>：全球 AI 算力核心供應商，憑 GPU 硬體與 CUDA 生態壟斷訓練與推論，資料中心 AI 加速器市佔約 80–92%。FY2026 全年營收 2,159 億美元，2025-10 市值首破 5 兆美元。</li>
+<li><a href="AMD.html">AMD</a>：全球第二大 AI 資料中心 GPU 供應商，以 Instinct MI350/MI400 與開源 ROCm 正面挑戰 NVIDIA。2025 全年營收 346 億美元。</li>
+<li><a href="%E5%AE%A2%E8%A3%BDAI%E6%99%B6%E7%89%87ASIC.html">客製AI晶片ASIC</a>：超大規模雲端業者為自家工作負載量身打造的專用加速器（Google TPU、AWS Trainium、Meta MTIA、Microsoft Maia），主打推論的每瓦效能與每 token 成本，目的是降低對 NVIDIA 的依賴；2026 出貨量預估年增約 44.6%。</li>
+<li><a href="Broadcom.html">Broadcom</a>：全球最大客製 AI 加速器（XPU/ASIC）設計商與 AI 網路晶片龍頭，FY2025 AI 營收年增約 65% 達 200 億美元，是「去 NVIDIA 化」最大受益者。</li>
+<li><a href="Marvell.html">Marvell</a>：與博通並列的兩大白牌 AI 加速器設計夥伴之一，並提供光通訊 DSP、SerDes 等資料中心連接元件；二者合計約掌握 95% 客製 ASIC 共同設計市場。</li>
+<li><a href="Cerebras.html">Cerebras</a>：以「晶圓級晶片」（WSE）把整片 12 吋晶圓做成單一處理器，主打超高速推論；2026 年 5 月完成當年全美最大科技股 IPO。</li>
+<li><a href="Groq.html">Groq</a>：以自研「語言處理單元」（LPU）主打超低延遲 LLM 推論；2025 年 12 月遭 NVIDIA 以約 200 億美元技術授權＋acqui-hire 吸納核心 IP，轉型獨立運營 GroqCloud。</li>
+</ul>
+<h3 id="資料中心基建能源-散熱-網路">6. 資料中心基建（能源 / 散熱 / 網路）</h3>
+<ul>
+<li><a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%83%BD%E6%BA%90.html">AI資料中心能源</a>（瓶頸三：能源）：支撐算力的電力供給體系（併網、發電、變壓器、冷卻）。在 GPU 不再是唯一稀缺品的當下，電力已成算力擴張最關鍵的結構性瓶頸——美國併網排隊逾 5 年、高壓變壓器交期拉長至 4–5 年；四大超大規模業者 2026 年資本支出合計約 7,250 億美元。</li>
+<li><a href="%E6%B6%B2%E5%86%B7%E6%95%A3%E7%86%B1.html">液冷散熱</a>：以液體取代空氣帶走高功耗晶片熱量，AI 機櫃功率密度突破風冷極限後的剛性需求。液冷滲透率由 2024 約 14% 升至 2025 約 33%，由 NVIDIA GB200 NVL72（整櫃約 120kW）放量帶動。</li>
+<li><a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E7%B6%B2%E8%B7%AF.html">AI資料中心網路</a>：把成千上萬顆 GPU 互連成單一巨型運算體的高速互連（NVLink scale-up 與 InfiniBand/乙太網 scale-out）；NVIDIA FY2026 Q3 網路營收 82 億美元（年增 162%），乙太網 2025 Q3 已占 AI 後端網路逾三分之二。</li>
+</ul>
+<h3 id="雲端算力供給">7. 雲端算力供給</h3>
+<ul>
+<li><a href="CoreWeave.html">CoreWeave</a>：全球最大「Neocloud」（AI 專用雲），出租 NVIDIA GPU 算力給模型開發者，以高速擴張＋鉅額舉債為特徵；FY2025 營收 51.3 億美元（年增約 168%），但淨虧損約 11.7 億美元、有息負債約 249 億美元，是上游最具爭議的公司之一。</li>
+<li><a href="Scale%20AI.html">Scale AI</a>：最大「AI 資料燃料」供應商，提供資料標註、RLHF、模型評測；2025 年 6 月遭 Meta 鉅資入股 49% 後，正經歷客戶與人才流失的劇烈轉型。</li>
+</ul>
+<h2 id="三大瓶頸">三大瓶頸</h2>
+<ol type="1">
+<li><strong>CoWoS 先進封裝</strong>：產能由 <a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a> 近乎獨占，直接決定全球 AI 加速器供給上限；2025 年 NVIDIA、Google、AMD、Amazon 四大設計商依產值消耗逾 90% CoWoS 產能。缺口延續至 2027（詳見 <a href="%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9DCoWoS.html">先進封裝CoWoS</a>）。</li>
+<li><strong>HBM 記憶體</strong>：<a href="SK%E6%B5%B7%E5%8A%9B%E5%A3%AB.html">SK海力士</a>、<a href="%E7%BE%8E%E5%85%89.html">美光</a>、<a href="%E4%B8%89%E6%98%9F%E9%9B%BB%E5%AD%90.html">三星電子</a> 三家 2026 年產能全數售罄；必須與 GPU 共封裝，與 CoWoS 形成「雙重瓶頸」（詳見 <a href="HBM%E8%A8%98%E6%86%B6%E9%AB%94.html">HBM記憶體</a>）。</li>
+<li><strong>能源（電力）</strong>：併網、發電、變壓器與冷卻成為新建第一大限制，瓶頸已從晶片轉向電力（詳見 <a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%83%BD%E6%BA%90.html">AI資料中心能源</a> 與橫切議題頁 AI能源瓶頸）。</li>
+</ol>
+<h2 id="台灣的關鍵角色">台灣的關鍵角色</h2>
+<p>台灣是上游製造與封裝環節近乎不可替代的樞紐： - <a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a> 握有全球先進製程逾九成、先進封裝（<a href="%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9DCoWoS.html">先進封裝CoWoS</a>）絕對主導產能，是 <a href="NVIDIA.html">NVIDIA</a>、<a href="AMD.html">AMD</a> 與各家 ASIC 唯一可量產最尖端晶片的代工夥伴。 - HBM4 起，記憶體底部邏輯 base die 改由 <a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a> 先進製程代工，使記憶體供給與台灣晶圓產能進一步耦合。 - 共封裝光學（CPO）矽光子高度依賴台積電 COUPE 平台（詳見 <a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E7%B6%B2%E8%B7%AF.html">AI資料中心網路</a>）。 - 液冷散熱供應鏈台廠（奇鋐、雙鴻、台達電等）為主要供應商（詳見 <a href="%E6%B6%B2%E5%86%B7%E6%95%A3%E7%86%B1.html">液冷散熱</a>）。 - 最大尾部風險：全球逾 90% 最先進晶片在台灣生產，地緣政治集中風險為整個 AI 硬體景氣的關鍵變數。</p>
+<h2 id="相關導覽">相關導覽</h2>
+<ul>
+<li>橫切議題：AI能源瓶頸、AI泡沫論辯（見 scenarios/）</li>
+<li>關鍵事件：美中AI晶片出口管制、Stargate計畫（見 events/）</li>
+</ul>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

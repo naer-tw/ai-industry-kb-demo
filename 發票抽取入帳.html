@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>發票抽取入帳｜AI產業知識庫</title><meta name="description" content="發票抽取入帳
+
+ 一句話定義（這個職業任務的可交付物是什麼）
+給定一張採購發票影像（掃描檔／PDF／照片），系統自動辨識並結構化抽取關鍵欄位——供應商、發票號碼、日期、未稅金額、稅額、總額、品項明細（line items）——再與採購單（PO）／驗收單（GRN）三方匹配、產生 GL 會計科目分類與「自動入帳建">
+<meta property="og:title" content="發票抽取入帳"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "發票抽取入帳", "description": "發票抽取入帳\n\n 一句話定義（這個職業任務的可交付物是什麼）\n給定一張採購發票影像（掃描檔／PDF／照片），系統自動辨識並結構化抽取關鍵欄位——供應商、發票號碼、日期、未稅金額、稅額、總額、品項明細（line items）——再與採購單（PO）／驗收單（GRN）三方匹配、產生 GL 會計科目分類與「自動入帳建", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="發票抽取入帳">發票抽取入帳</h1>
+<h2 id="一句話定義這個職業任務的可交付物是什麼">一句話定義（這個職業任務的可交付物是什麼）</h2>
+<p>給定一張採購發票影像（掃描檔／PDF／照片），系統自動辨識並結構化抽取關鍵欄位——供應商、發票號碼、日期、未稅金額、稅額、總額、品項明細（line items）——再與採購單（PO）／驗收單（GRN）三方匹配、產生 GL 會計科目分類與「自動入帳建議」，於可信度達標時無須人工碰觸即完成過帳（touchless / 直通處理 STP）。屬應付帳款自動化（AP Automation / IDP）的核心職業任務，取代會計事務人員的鍵入與初核。</p>
+<h2 id="難度評分綜合-410技術-3落地-5-理由">難度評分（綜合 4/10：技術 3、落地 5）— 理由</h2>
+<ul>
+<li><strong>技術成熟度 3（可用、已商品化但需把關）</strong>：發票欄位抽取已是成熟商品。LlamaExtract 在 2025-10 一份評測中整體欄位準確率 94%（基準 Docling 僅 63%），標準化欄位（發票表頭、bill-to）最高，行項目較難為 91%，一致性檢查通過率 93%、數學驗證錯誤 0。[1] 多家前沿多模態模型（Claude Sonnet 3.5、Gemini 2.0 Pro、GPT-4o）在公開發票上皆可達高準確抽取，Claude Sonnet 3.5 在跨畫質測試整體準確率與韌性最佳（含低畫質影像）。[2][3] 技術瓶頸集中在長尾：行項目多語多格式、合併欄位、手寫、皺摺/歪斜照片、稅務拆分（多稅率、含稅/未稅）。</li>
+<li><strong>落地難度 5（前沿可做但可靠性/責任/流程是真正障礙）</strong>：難點不在「看懂發票」，而在「敢自動入帳」。STP 85%+ 並非單純抽取精度，而是端到端 touchless——需 PO/GRN 三方匹配通過、科目分類正確、核准規則無例外，缺一即落入人工 exception。財務責任、稽核軌跡、SOX/內控、稅務合規（如台灣統一發票字軌、進項稅額憑證）、供應商主檔比對、重複付款防呆等，都壓低可自動過帳的比例。產業實況：best-in-class 平均 touchless 率僅 49.2%、業界平均 32.6%（Ardent Partners 2025），85%+ 屬「PO-backed、高量、成熟部署」才達得到的上緣。[6]</li>
+<li><strong>綜合判定 4</strong>：技術可做、產品成熟、低風險場景已落地，但「85%+ STP」需條件成熟（PO 紀律＋信心門檻＋例外處理）且仍受監管與財務責任約束 → 落在量表 3-4 之間偏 4。較 P1 初判 3 略升，反映落地長尾與責任門檻。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>欄位級整體準確率</strong>：LlamaExtract 整體 94%，行項目（line items）91%，表頭與 bill-to 最高（標準化欄位）；對照基準 Docling 僅 63%（行項目 58%、稅/淨額/幣別 60%）。[1]（2025-10）</li>
+<li><strong>跨模型／跨畫質</strong>：20 張公開發票、400+ key-value pairs，準確率＝正確 KV 數 / 總 KV 數；Claude Sonnet 3.5 整體準確率與韌性最佳，低畫質影像優勢明顯。測試完成 2024-12（含 Amazon Textract、Google Document AI、Azure Document Intelligence）。[2]</li>
+<li><strong>多工具對比</strong>：7 套方案（AWS／Azure／Google Document AI／GPT-4o 文字與影像／Gemini 2.0 Pro／Deepseek v3）、20 張發票（2006–2020）。Gemini 2.0 Pro 細節抽取最佳（樣本可達文字與數值 100%）；GPT-4o(影像) 數值偶有誤；Azure 在多詞品項描述上最差（單張效率僅 33.3%）；Google Document AI 未能輸出結構化品項（合併為單一字串）。[3]（2025-03）</li>
+<li><strong>限制</strong>：上述多為小樣本（≈20 張）、欄位混合計分，缺大規模分欄位 F1，故 evidence 列 B 而非 A。稅額與行項目通常是準確率最低的兩欄。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效監管限制">實證二：真實部署/產品案例（誰用、規模、成效、監管限制）</h2>
+<ul>
+<li><strong>Vic.ai</strong>：六個月內客戶可達 up to 85% no-touch 發票率、70% Autopilot；某運輸業客戶達 99% 編碼準確率、84% no-touch，並釋出 3 名 FTE 轉高價值工作；一份試點四週學習期後 ≈78% 發票免人工過帳。[4]</li>
+<li><strong>Basware</strong>：客戶 PO-backed 發票 touchless 率 60–85%，成熟高量部署 90%+；其自身內部部署 2025-03 達 77% touchless match。[5]</li>
+<li><strong>產業基準（Ardent Partners 2025）</strong>：best-in-class touchless 49.2%、業界均 32.6%；最佳發票例外率 9%（業界均 22%）；最佳每張成本 $2.78（業界 $9.40、重人工 $12.88）；最佳處理 3.1 天（其他 17.4 天）。顯示 85%+ 是上緣而非常態。[6]</li>
+<li><strong>門檻實務</strong>：KlearStack 建議 STP 門檻設 85%+ 取得自動化與準確的最佳平衡。[7] 監管/責任限制：高金額、無 PO、稅務存疑、供應商首次往來等，業界普遍強制人工覆核，不放行自動過帳。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：標準採購發票（尤其 PO-backed、固定供應商格式）的供應商／金額／稅額／品項抽取與科目建議；在信心門檻控管下，成熟部署可達 85%+ touchless。屬可大規模商品化的職業任務。</li>
+<li><strong>做不到／需人工</strong>：(1) 端到端「全自動入帳」的全面無人化——例外（無 PO、三方不匹配、稅額拆分異常、重複付款疑慮、新供應商）仍須人工；(2) 跨稅制/多國/手寫/劣質影像長尾；(3) 財務責任、稽核與內控要求下的高風險過帳（高金額、合規敏感）；(4) 將「抽取準確率 94%」直接等同「STP 94%」——兩者不同，STP 受流程紀律拖累更低。85%+ STP 是「條件達成」而非「開箱即得」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="PDF%E6%96%87%E4%BB%B6OCR%E7%B5%90%E6%A7%8B%E5%8C%96.html">PDF文件OCR結構化</a>（上游能力：影像→結構化文字/表格）</li>
+<li><a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>（市場：IDP / AP Automation 落地場域）</li>
+<li><a href="%E9%87%91%E8%9E%8DAI.html">金融AI</a>（市場：財務、合規、稽核責任約束）</li>
+<li><a href="AI%20Agent%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96.html">AI Agent與自動化</a>（市場：端到端 touchless / agentic AP 工作流）</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Yashwant et al., “Invoice Information Extraction: Methods and Performance Evaluation”（arXiv:2510.15727, 2025-10-17；LlamaExtract 整體 94%／行項目 91%／一致性 93%，vs Docling 63%）：https://arxiv.org/abs/2510.15727</li>
+<li>AImultiple — Invoice OCR Benchmark: LLMs vs OCRs（20 張/400+ KV，Claude Sonnet 3.5 最佳，2024-12）：https://aimultiple.com/invoice-ocr</li>
+<li>Businessware Technologies — AI Models Invoice Processing Benchmark（7 工具/20 張，2025-03）：https://www.businesswaretech.com/blog/research-ai-models-invoice-processing-benchmark</li>
+<li>Vic.ai — Why Vic.ai（85% no-touch、84%/99% 案例）：https://www.vic.ai/why-vic-ai</li>
+<li>Basware — On a Journey to 100% Automated Invoice Processes（60–85%、自身 77%）：https://blog.basware.com/en/on-a-journey-to-100-automated-100-compliant-and-100-protected-invoice-processes</li>
+<li>Ardent Partners — AP Metrics That Matter in 2025（touchless 49.2%/32.6%、例外率、成本）：https://ardentpartners.com/ap-metrics-that-matter-in-2025/</li>
+<li>KlearStack — Straight Through Invoice Processing（STP 門檻 85%+ 建議）：https://klearstack.com/blogs/straight-through-invoice-processing</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

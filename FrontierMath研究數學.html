@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FrontierMath研究數學｜AI產業知識庫</title><meta name="description" content="FrontierMath研究數學
+
+ 一句話定義（這個可交付物是什麼）
+給一道「研究級」數學問題——FrontierMath 由 IMO 金牌、Fields 獎得主等專業數學家原創、全數未發表（防訓練污染），最難的 Tier 4 是數學教授／博後花數週研究專案才解出的題目——模型在允許使用 Python（sy">
+<meta property="og:title" content="FrontierMath研究數學"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "FrontierMath研究數學", "description": "FrontierMath研究數學\n\n 一句話定義（這個可交付物是什麼）\n給一道「研究級」數學問題——FrontierMath 由 IMO 金牌、Fields 獎得主等專業數學家原創、全數未發表（防訓練污染），最難的 Tier 4 是數學教授／博後花數週研究專案才解出的題目——模型在允許使用 Python（sy", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="frontiermath研究數學">FrontierMath研究數學</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給一道「研究級」數學問題——FrontierMath 由 IMO 金牌、Fields 獎得主等專業數學家原創、全數未發表（防訓練污染），最難的 Tier 4 是數學教授／博後花數週研究專案才解出的題目——模型在允許使用 Python（sympy/numpy/scipy）、token 上限 100 萬、pass@1 條件下，輸出正確的最終解答。這是衡量 AI「逼近真正數學研究」的最硬基準，與 <a href="AIME%E7%AB%B6%E8%B3%BD%E6%95%B8%E5%AD%B8.html">AIME競賽數學</a>（有確定整數解的競賽窄域、已飽和）截然不同。</p>
+<h2 id="難度評分綜合-810技術-7落地-8-理由">難度評分（綜合 8/10：技術 7、落地 8）— 理由</h2>
+<ul>
+<li><strong>技術成熟度 diff_tech=7（前沿、可靠性低）</strong>：進步極快但遠未攻克。起點 o3 在 2024-12 解出 25.2%（前代僅約 2%）[6]；至 2025-11 Gemini 3 Pro 創 Tiers 1-3 38%、Tier 4 19% 紀錄[4]；2026-01 Epoch 官方記錄 GPT-5.2 Pro 在 Tier 4 達 31%(15/48)[2]；2026-03 GPT-5.4 Pro 再創 Tiers 1-3 50%、Tier 4 38% 新高，並自主解出一道 2019 年起未解的開放題（經 Epoch 獨立驗證）[8]；綜合榜（含 Tier 4）頂尖模型約 50%、且「top models score under 50%」[3]。即「給工具仍解不到一半、最難題逾六成未解」，落在實驗室前沿、單題可靠性低的 7。</li>
+<li><strong>落地難度 diff_deploy=8（極高）</strong>：無任何規模化產品。真實「部署」是手工策展的研究助理場景——Google DeepMind 以 Gemini Deep Think 自主解出 Erdős 資料庫 4 道開放題（含 Erdős-1051 衍生出論文一般化）[5]；研究代理 Aletheia 產出多篇論文、解出 FirstProof 研究題[7]；解答須 Lean 形式化或人類專家評分才可信。屬「需專家把關、信任門檻高、零商品化」，故 8（高於 <a href="AIME%E7%AB%B6%E8%B3%BD%E6%95%B8%E5%AD%B8.html">AIME競賽數學</a> 的 4）。</li>
+<li><strong>綜合 difficulty=8</strong>：真前沿能力、突破真實但稀疏、可靠性低、無商品部署，落在「實驗室/早期、落地障礙大」的 7-8 區並取 8（較 P1 初判 7 上修，因 Tier 4 多數題仍未解、且部署仍是個案而非產品）。尚未到 9-10「做不到」，因確有原創未發表題被自主解出。</li>
+<li><strong>查證重評：7/8/8（技術 7、落地 8、綜合 8）</strong>——依錨定量表 §4.1：頂尖模型 Tiers 1-3 約 50%、Tier 4 仍 ≤38%、綜合 &lt;50%，且零商品化、解答須 Lean 形式化或專家評分，正落在「7-8：實驗室/早期、可靠性低或落地障礙大」。三軸與原評皆相符，無分歧。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>基準性質</strong>：FrontierMath 共 350 題（Tiers 1-3 共 300＋Tier 4 共 50，Epoch 官方[1]）；全題未發表、防污染；允許 Python；pass@1 計分。Tier 4 計分私有集隨時程略有增減（2026-01 為 48 題[2]）。（註：部分二手站稱 v2 縮為 338 題，與 Epoch 一手 350 不符，本頁以官方為準。）</li>
+<li><strong>歷史起點</strong>：o3 在原始全集解出 25.2%（2024-12），數學家 Kevin Buzzard 稱「震撼」；前代模型僅約 2%[6]。</li>
+<li><strong>Tiers 1-3（較易層）</strong>：Gemini 3 Pro 38%（2025-11，Epoch 官方創紀錄貼文，ECI 154）[4]；GPT-5.4 Pro 50%（2026-03）[8]；至 2026-06 頂尖（GPT-5.5 系）約 52%[3]。</li>
+<li><strong>Tier 4（最難層，研究專案級）</strong>：現紀錄 GPT-5.4 Pro 38%（2026-03，Epoch 預先評測；同次自主解出一道 2019 年起未解開放題、經 Epoch 獨立驗證）[8]；前紀錄 GPT-5.2 Pro 31%(15/48)（2026-01-23），其在「held-out 未授權題」反而較高（50% vs 18%），顯示無過擬合[2]；更早 19%（2025-11）[4]。</li>
+<li><strong>綜合榜（2026-06-18, BenchLM）</strong>：GPT-5.5 Pro 52.4%、GPT-5.5 51.7%、Claude Opus 4.7 43.8%；明載「top models score under 50%」[3]。</li>
+<li><strong>v2 校正</strong>：2026-06-12 發布 v2，原 v1 約 42% 題目含小而關鍵錯誤，修正 123(T1-3)+12(T4)、移除 5+7 題[1][3]。</li>
+<li><strong>數據衝突註記</strong>：部分二手站（aidailypost／digitalapplied）宣稱 2026-06 出現 Claude Fable 5 在 Tier 4 達 ~88%、GPT-5.5 ~75%；此數與 Epoch 官方 Tier 4 現紀錄 38%（2026-03）、BenchLM 綜合榜「&lt;50%」及整體成長軌跡嚴重矛盾，研判為未經查證的誇大／幻覺數據，本頁不採用，以 Epoch 一手與 BenchLM 為準。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>無規模化商品</strong>：此能力非獨立產品，僅內建於頂尖模型的高算力推理模式（GPT-5.x Pro、Gemini Deep Think、Claude Opus），且實際用於研究是個案而非批量。</li>
+<li><strong>DeepMind / Gemini Deep Think</strong>：2025 夏達 IMO 金牌標準；官方部落格載自主解出 Erdős 資料庫 4 道開放題（Erdős-1051 衍生論文一般化），並在物理（宇宙弦輻射閉式解）等領域貢獻；IMO-ProofBench Advanced 達約 90%，由人類專家評分[5]。</li>
+<li><strong>研究論文級貢獻</strong>：《Towards Autonomous Mathematics Research》之代理 Aletheia 產出多篇論文（含一篇 eigenweights 全自主、無人介入），半自主評估 700 道開放題；GPT-5.2 Pro 配 Aristotle/Lean 解出 Erdős #728；Claude Opus 4.6 解出 Cayley digraph 開放題並給閉式構造[7]。</li>
+<li><strong>成效與限制</strong>：均屬「人類專家驗證後採用」、樣本以個位數開放題計，無使用者規模或營收數據；故證據等級定 B（benchmark 一手且有日期＝強，但部署為研究個案而非產品）。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：在允許工具下解出部分研究級題（Tiers 1-3 約半數）、自主攻克少數真實開放數學問題、作為數學家研究助理加速繁瑣推導與文獻整合。</li>
+<li><strong>邊界一：最難題多數未解</strong>。Tier 4 紀錄 38%（2026-03，GPT-5.4 Pro），綜合榜 &lt;50%；真正「數週研究專案級」題目逾六成仍超出 AI。</li>
+<li><strong>邊界二：可靠性與驗證成本</strong>。解答常需 Lean 形式化或專家逐步審查；自主產出仍可能推理跳步或結論不可信，無法無人值守。</li>
+<li><strong>邊界三：解題 ≠ 開放式證明研究</strong>。FrontierMath 以「有可機器判分之最終答案」為主，與開放定理證明、提出新理論仍有距離（見 <a href="Scaling%20Laws%E8%88%87%E5%85%B6%E6%A5%B5%E9%99%90.html">Scaling Laws與其極限</a> 與前沿研究討論）。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>（各家 Pro/Deep Think 高算力推理模式為主力）、<a href="Google%20DeepMind.html">Google DeepMind</a>、<a href="OpenAI.html">OpenAI</a>（研究級數學突破主要來源）、<a href="Epoch%20AI.html">Epoch AI</a>（FrontierMath 製作與計分方）、<a href="%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B%E8%88%87test-time%20compute.html">推理模型與test-time compute</a>（本能力技術根源）、<a href="Scaling%20Laws%E8%88%87%E5%85%B6%E6%A5%B5%E9%99%90.html">Scaling Laws與其極限</a>、<a href="AIME%E7%AB%B6%E8%B3%BD%E6%95%B8%E5%AD%B8.html">AIME競賽數學</a>（同族但已飽和的競賽窄域對照）。</p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Epoch AI, FrontierMath: About（題數/分層/未發表/允許 Python/pass@1；v2 校正） — https://epoch.ai/frontiermath/tiers-1-4/about</li>
+<li>Epoch AI Substack, New record on FrontierMath Tier 4（GPT-5.2 Pro 31% 15/48，2026-01-23；前紀錄 19%；無過擬合證據） — https://epochai.substack.com/p/new-record-on-frontiermath-tier-4</li>
+<li>BenchLM, FrontierMath Benchmark（2026-06-18 綜合榜：GPT-5.5 Pro 52.4% 等；「top models score under 50%」；v2 校正細節） — https://benchlm.ai/benchmarks/frontierMath</li>
+<li>Epoch AI（X/Twitter），Gemini 3 Pro 創紀錄：Tiers 1-3 38%、Tier 4 19%、ECI 154（2025-11） — https://x.com/EpochAIResearch/status/1991945942174761050</li>
+<li>Google DeepMind, Accelerating mathematical and scientific discovery with Gemini Deep Think（IMO 金牌、自主解 4 道 Erdős 開放題、IMO-ProofBench ~90%） — https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/</li>
+<li>GIGAZINE, o3 在 FrontierMath 得 25.2%（2024-12，前代約 2%；數學家震撼回應） — https://gigazine.net/gsc_news/en/20241225-ai-frontiermath/</li>
+<li>arXiv 2602.10177, Towards Autonomous Mathematics Research（Aletheia 代理；GPT-5.2 Pro 解 Erdős #728；Claude Opus 4.6 解 Cayley digraph 開放題） — https://arxiv.org/pdf/2602.10177</li>
+<li>Epoch AI（X/Twitter），GPT-5.4 創 FrontierMath 新紀錄：Tiers 1-3 50%、Tier 4 38%（2026-03，Epoch 預先評測）；佐證見 WinBuzzer 報導（GPT-5.4 Pro 自主解出 2019 年起未解 Ramsey 型開放題，Epoch 獨立驗證） — https://x.com/EpochAIResearch/status/2029626255776395425 ｜ https://winbuzzer.com/2026/03/24/gpt-54-pro-solves-open-math-problem-epoch-ai-frontiermath-xcxwbn/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

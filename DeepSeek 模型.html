@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepSeek 模型｜AI產業知識庫</title><meta name="description" content="DeepSeek（深度求索）是中國杭州由量化基金 High-Flyer（幻方量化）孵化的 AI 實驗室，以「高性價比、開源權重（MIT）的 Mixture-of-Experts 大模型與推理模型」聞名；其 R1 推理模型於 2025 年 1 月引爆全球「DeepSeek 衝擊」，並重塑了開源/低成本訓練的論辯">
+<meta property="og:title" content="DeepSeek 模型"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "DeepSeek 模型", "description": "DeepSeek（深度求索）是中國杭州由量化基金 High-Flyer（幻方量化）孵化的 AI 實驗室，以「高性價比、開源權重（MIT）的 Mixture-of-Experts 大模型與推理模型」聞名；其 R1 推理模型於 2025 年 1 月引爆全球「DeepSeek 衝擊」，並重塑了開源/低成本訓練的論辯", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>模型/產品</span></header>
+<main><article><h1 id="deepseek-模型">DeepSeek 模型</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>DeepSeek（深度求索）是中國杭州由量化基金 High-Flyer（幻方量化）孵化的 AI 實驗室，以「高性價比、開源權重（MIT）的 Mixture-of-Experts 大模型與推理模型」聞名；其 R1 推理模型於 2025 年 1 月引爆全球「DeepSeek 衝擊」，並重塑了開源/低成本訓練的論辯。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>公司：2023-07-17 成立於杭州，創辦人梁文鋒（亦為母公司 High-Flyer CEO），員工約 160 人。[來源1，Wikipedia]</li>
+<li>DeepSeek-V3：2024-12 發布，671B 總參數 / 每 token 啟動 37B（MoE），MIT 授權。MMLU 88.5、MMLU-Pro 75.9、GPQA 59.1（V3 技術報告 arXiv:2412.19437）。[來源4]</li>
+<li>訓練成本宣稱：V3 預訓練 2.788M H800 GPU-hours，以 $2/GPU-hr 估算約 <strong>$5.576M</strong>（僅變動成本，未含前期研究與消融實驗）。[來源4][來源7]</li>
+<li>DeepSeek-R1：2025-01-20 發布，MIT 授權、可自由蒸餾與商用，官方稱「對標 OpenAI o1」。AIME 2024 79.8、MATH-500 97.3、Codeforces 96.3 percentile、GPQA-Diamond 71.5（R1 技術報告 arXiv:2501.12948）。[來源3][來源5]</li>
+<li>R1 上市定價（deepseek-reasoner）：輸入 $0.14（cache hit）/$0.55（cache miss）、輸出 $2.19，USD/百萬 token。[來源3，官方公告 2025-01-20]</li>
+<li>DeepSeek-V3.2 / V3.2-Speciale：2025-12-01 釋出（實驗版 V3.2-Exp 為 2025-09-29），導入 <strong>DeepSeek Sparse Attention（DSA）</strong>，長文推論成本砍半。[來源6，TechCrunch 2025-09-29]</li>
+<li>DeepSeek-V4（Preview）：2026-04-24 釋出，V4-Pro 1.6T 總參數 / 啟動 49B、V4-Flash 284B / 啟動 13B；原生 1M token 上下文，MIT 授權，權重上 Hugging Face。[來源9，Morph]</li>
+<li>V4 評測（廠商自報，未經第三方獨立複現）：V4-Pro SWE-bench Verified 80.6%、LiveCodeBench 93.5；MMLU-Pro 87.5%、GPQA-Diamond 90.1%（均略遜 Gemini 3.1 Pro）。[來源9]</li>
+<li>現行 API 定價（官方定價頁）：deepseek-v4-flash 輸入 $0.14 / 輸出 $0.28；deepseek-v4-pro 輸入 $0.435 / 輸出 $0.87（USD/百萬 token，cache miss）。舊名 deepseek-chat / deepseek-reasoner 將於 2026-07-24 棄用。[來源2]</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li>屬<strong>中游「模型層」</strong>：自行訓練基礎模型與推理模型，並以 API + 開源權重雙軌對外。</li>
+<li>對上游晶片（<a href="NVIDIA.html">NVIDIA</a>）：宣稱以受出口管制的 H800 等「次級」晶片做到高效訓練，是「算力效率」敘事核心；但第三方（SemiAnalysis）估其累計硬體投入逾 $1.6B、約 5 萬張 GPU。[來源7][來源8 旁證]</li>
+<li>對下游應用：MIT 授權＋極低 API 價，使其成為新創、開源社群與中國雲廠（華為、寒武紀已適配 V4）最常用的低成本替代方案。[來源1]</li>
+<li>競爭定位：以「對標 <a href="OpenAI.html">OpenAI</a> o1 / <a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、價格僅 1/10」的性價比切入，是西方閉源旗艦的主要開源挑戰者之一。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>2025-01：R1 登頂美區 iOS App Store 下載榜，觸發 1/27「DeepSeek 衝擊」，<a href="NVIDIA.html">NVIDIA</a> 單日重挫約 17%、市值蒸發約 $589B（美股史上單一公司最大單日跌幅），隔日（1/28）反彈逾 8%。[來源1][來源7][來源10]</li>
+<li>2025-08：V3.1 推出 hybrid thinking / non-thinking 混合模式。[來源1]</li>
+<li>2025-09 / 12：V3.2-Exp → V3.2 / V3.2-Speciale，DSA 稀疏注意力使長文成本減半。[來源6]</li>
+<li>2026-02：<a href="Anthropic.html">Anthropic</a> 指控 DeepSeek、Moonshot、MiniMax 以約 2.4 萬個假帳號、逾 1,600 萬次對話「蒸餾」Claude 的 agentic/工具/程式碼能力；OpenAI 亦向美國國會指其蒸餾前沿模型。[來源8]</li>
+<li>2026-04：V4 Preview 發布（1.6T MoE、1M 上下文）；同期傳出以約 $100 億估值洽談 $3 億募資。[來源9][來源1]</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>訓練成本真實性爭議</strong>：$5.6M 僅為變動成本；SemiAnalysis 估固定資本支出達 $1.6B，外界質疑「低成本」敘事被誇大。[來源7]</li>
+<li><strong>蒸餾／智財爭議</strong>：被 Anthropic、OpenAI 指控未授權蒸餾其模型，恐牽動 AI 智財與資料邊界規範。[來源8]</li>
+<li><strong>地緣政治與晶片管制</strong>：模型訓練倚賴受美國出口管制的 NVIDIA 晶片；部分研究人員傳與解放軍實驗室有關聯，西方政府對資料安全與封禁存疑。[來源1]</li>
+<li><strong>模態落差</strong>：仍以文字/推理為主，缺乏與 GPT、Gemini 對等的原生多模態（影像/影片生成）旗艦。</li>
+<li><strong>基準分數可信度</strong>：V4 多項分數為廠商自報、尚未經第三方獨立複現，需以 LMArena / Artificial Analysis 等外部榜單交叉驗證（截至撰稿，獨立複現資料未證實）。[來源9]</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="OpenAI.html">OpenAI</a> — 主要對標對象（o1 / <a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>），並為蒸餾爭議指控方。</li>
+<li><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a> — 性價比與基準比較的競品基準線。</li>
+<li><a href="NVIDIA.html">NVIDIA</a> — 上游晶片供應；R1 引發其史上最大單日市值跌幅。</li>
+<li><a href="Anthropic.html">Anthropic</a> — 2026-02 蒸餾攻擊指控發起方（Claude）。</li>
+<li><span class="todo" title="待建頁面">High-Flyer 幻方量化</span> — 母公司／量化基金，提供算力與資金。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>DeepSeek — Wikipedia：https://en.wikipedia.org/wiki/DeepSeek</li>
+<li>DeepSeek API Docs — Pricing：https://api-docs.deepseek.com/quick_start/pricing</li>
+<li>DeepSeek API Docs — R1 Release（2025-01-20）：https://api-docs.deepseek.com/news/news250120</li>
+<li>DeepSeek-V3 Technical Report（arXiv:2412.19437）：https://arxiv.org/pdf/2412.19437</li>
+<li>DeepSeek-R1 Technical Report（arXiv:2501.12948）：https://arxiv.org/pdf/2501.12948</li>
+<li>TechCrunch — DeepSeek sparse attention 砍半 API 成本（2025-09-29）：https://techcrunch.com/2025/09/29/deepseek-releases-sparse-attention-model-that-cuts-api-costs-in-half/</li>
+<li>Stanford FSI — Taking Stock of the DeepSeek Shock：https://cyber.fsi.stanford.edu/publication/taking-stock-deepseek-shock</li>
+<li>CNBC — Anthropic 指控中國 AI 公司蒸餾 Claude（2026-02-24）：https://www.cnbc.com/2026/02/24/anthropic-openai-china-firms-distillation-deepseek.html</li>
+<li>Morph — DeepSeek V4 Specs/Benchmarks/Pricing（2026）：https://www.morphllm.com/deepseek-v4</li>
+<li>CNBC — Nvidia drops nearly 17% as DeepSeek sparks global tech sell-off（2025-01-27）：https://www.cnbc.com/2025/01/27/nvidia-falls-10percent-in-premarket-trading-as-chinas-deepseek-triggers-global-tech-sell-off.html</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

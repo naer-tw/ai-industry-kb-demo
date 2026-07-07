@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 產業知識庫 — 多代理研究＋對抗式查證 方法示範</title>
+<meta name="description" content="用多代理 Workflow 自動研究、對抗式查證、結構化並轉成 GEO 網站的生產線示範。">
+<style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b;--warn:#8a4b0b;--warnbg:#fdf3e3}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Noto Sans TC",sans-serif;color:var(--ink);background:var(--bg);line-height:1.75}
+.wrap{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+.eyebrow{color:var(--gold);font-weight:700;letter-spacing:.08em;font-size:.8rem;text-transform:uppercase}
+h1{font-size:2.3rem;line-height:1.2;margin:.3rem 0 .6rem;border-bottom:3px solid var(--gold);padding-bottom:.5rem}
+.lead{font-size:1.15rem;color:#333}
+.banner{background:var(--warnbg);border:1px solid #e6c9a0;border-left:5px solid var(--warn);color:var(--warn);
+padding:.9rem 1.1rem;border-radius:8px;margin:1.4rem 0;font-size:.92rem}
+h2{font-size:1.35rem;color:var(--acc);margin-top:2.4rem;border-left:4px solid var(--gold);padding-left:.6rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.2rem 0}
+.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1rem;text-align:center}
+.stat b{display:block;font-size:1.9rem;color:var(--acc);font-variant-numeric:tabular-nums}
+.stat span{font-size:.82rem;color:var(--mut)}
+ol.pipe{counter-reset:s;list-style:none;padding:0}
+ol.pipe li{position:relative;padding:.5rem 0 .5rem 2.4rem;border-bottom:1px dashed var(--line)}
+ol.pipe li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:.5rem;width:1.7rem;height:1.7rem;
+background:var(--acc);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:.9rem;font-weight:700}
+.chips a{display:inline-block;margin:.25rem .5rem .25rem 0;padding:.35rem .8rem;background:#fff;border:1px solid var(--line);
+border-radius:20px;text-decoration:none;color:var(--acc);font-size:.92rem}
+.chips a:hover{border-color:var(--acc)}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left}th{background:#f0ece1}
+code{background:#f0ece1;padding:.1rem .35rem;border-radius:4px;font-size:.9em}
+footer{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--mut);font-size:.82rem}
+a{color:var(--acc)}
+</style></head>
+<body><div class="wrap">
+
+<div class="eyebrow">Method Demonstration · 方法示範</div>
+<h1>用多代理研究＋對抗式查證，把散資料變成可稽核知識資產</h1>
+<p class="lead">這是一條生產線的示範：<b>多代理 Workflow 自動研究 → 獨立代理對抗式查證 → 結構化知識庫 → 轉成 AI 搜尋看得懂的 GEO 網站</b>。以「全球 AI 產業」為題材跑了一遍。</p>
+
+<div class="banner">⚠️ <b>請先讀這段。</b>本站內容是 <b>AI 自動生成的研究草稿</b>，含前推情境數據，全部標記 <code>status: draft</code>。它展示的是<b>生產流程與查證方法</b>，<b>不是權威產業參考資料</b>；任何數字請以每頁標註的原始來源連結為準。</div>
+
+<h2>成果規模</h2>
+<div class="grid">
+<div class="stat"><b>176</b><span>知識頁（9 型別＋供應鏈圖＋主題頁）</span></div>
+<div class="stat"><b>63</b><span>AI 能力頁（難度 1–10 圖譜）</span></div>
+<div class="stat"><b>178</b><span>GEO 網頁（schema.org＋mermaid）</span></div>
+<div class="stat"><b>~2,000</b><span>附來源引用（每頁平均 ~20）</span></div>
+</div>
+
+<h2>生產線（每步都可交付給客戶）</h2>
+<ol class="pipe">
+<li><b>多代理研究</b>：數十個代理平行 web 研究，各自抓 benchmark、財報、部署案例，附來源。</li>
+<li><b>對抗式查證</b>：每份產出交給<b>獨立</b>代理反查關鍵數字，抓錯、標分歧——生產者不驗自己。</li>
+<li><b>結構化</b>：抽成實體、互相連結、寫進可查詢的知識庫＋SQLite。</li>
+<li><b>可稽核交付</b>：每筆答案回溯到檔／頁／URL，附「改了什麼、信心水準」的查證軌跡。</li>
+<li><b>GEO 發布</b>：轉成 AI 搜尋引擎正確引用的結構化網頁。</li>
+</ol>
+
+<h2>對抗式查證抓到的真實錯誤（差異化證據）</h2>
+<table>
+<tr><th>項目</th><th>查證前</th><th>修正</th></tr>
+<tr><td>台積電/ASML 營收</td><td>「億」（少 10 倍）</td><td>→「兆／billion」</td></tr>
+<tr><td>NVIDIA 單季營收</td><td>位數錯</td><td>→ 對回官方法說</td></tr>
+<tr><td>EU AI Act 生效日</td><td>2025-02</td><td>→ 透明度義務 2026-08</td></tr>
+<tr><td>多份 benchmark</td><td>過時／張冠李戴</td><td>→ 更新＋正確歸屬</td></tr>
+</table>
+<p>這種「抓出十倍量級錯誤」的能力，正是一般 AI 內容服務不會給的——<b>可稽核、可溯源、有查證軌跡</b>。</p>
+
+<h2>逛幾頁（樣本）</h2>
+<div class="chips">
+<a href="all.html">▸ 全部頁面索引</a>
+<a href="%E9%9B%A3%E5%BA%A6%E7%B8%BD%E8%A1%A8.html">AI 能力難度總表（1–10）</a>
+<a href="%E5%8D%B1%E6%A9%9F%E5%9C%B0%E5%9C%96.html">危機地圖</a>
+<a href="%E4%B8%8A%E6%B8%B8.html">上游供應鏈圖</a>
+<a href="NVIDIA.html">NVIDIA</a>
+<a href="%E4%BC%81%E6%A5%AD%E7%9F%A5%E8%AD%98%E5%BA%AB%E5%B8%B6%E5%BC%95%E7%94%A8%E5%95%8F%E7%AD%94.html">能力頁範例</a>
+</div>
+
+<footer>
+由 Claude 多代理自動研究生成（2026-06）· 內容為方法示範用途、非權威資料 · 數字以內文來源為準<br>
+生產工具：多代理 Workflow ＋ 對抗式查證 ＋ 自寫 reindex/lint/build_geo 腳本
+</footer>
+</div></body></html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>影像去背｜AI產業知識庫</title><meta name="description" content="影像去背
+
+ 一句話定義（這個可交付物是什麼）
+給定單張含前景主體的照片，模型自動把主體與背景分離，輸出帶 alpha 透明通道的 PNG（或同等可去背圖層），關鍵品質指標是髮絲、毛邊、半透明邊緣的乾淨程度與 alpha 過渡是否自然，使結果可直接套白底用於電商商品圖（如 Amazon 規定的純白 RGB 2">
+<meta property="og:title" content="影像去背"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "影像去背", "description": "影像去背\n\n 一句話定義（這個可交付物是什麼）\n給定單張含前景主體的照片，模型自動把主體與背景分離，輸出帶 alpha 透明通道的 PNG（或同等可去背圖層），關鍵品質指標是髮絲、毛邊、半透明邊緣的乾淨程度與 alpha 過渡是否自然，使結果可直接套白底用於電商商品圖（如 Amazon 規定的純白 RGB 2", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="影像去背">影像去背</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定單張含前景主體的照片，模型自動把主體與背景分離，輸出帶 alpha 透明通道的 PNG（或同等可去背圖層），關鍵品質指標是髮絲、毛邊、半透明邊緣的乾淨程度與 alpha 過渡是否自然，使結果可直接套白底用於電商商品圖（如 Amazon 規定的純白 RGB 255,255,255 主圖）。技術上分兩層：分割（segmentation，二值前景/背景）與摳像/抖像（matting，每像素 0–1 連續 alpha 值），髮絲與半透明問題屬後者。</p>
+<h2 id="難度評分綜合-310技術-2落地-3-理由引-benchmark-與部署">難度評分（綜合 3/10：技術 2、落地 3）— 理由(引 benchmark 與部署)</h2>
+<ul>
+<li><strong>技術成熟度 2（成熟）</strong>：高解析二分割已近飽和。BiRefNet（CAAI AIR 2024）在 DIS5K 整體測試集 DIS-TE(1-4) 上 maxFβ 0.896、Sm 0.901、MAE 0.035、HCE 916，較基線 IS-Net（0.799 / 0.819 / 0.070 / 1016）全面大幅領先，且能在無遮罩下分割到「髮絲級」細絲。商用工具盲測首次可用率 90–92%，技術已是商品。</li>
+<li><strong>落地難度 3（可用、量產，但難樣本仍需人工把關）</strong>：核心難點不在「能不能去背」而在 matting 長尾。金髮對白底、捲髮對樹叢、玻璃/水瓶/蕾絲/煙霧等半透明物，AI 約抓到 85–90%，剩餘飛絲與光暈仍需約 30 秒人工修（多回 Photoshop 細修）。但這屬「修飾」而非「重做」，且已有 Photoroom、remove.bg、Shopify Magic、Canva、Adobe Express 等成熟低成本服務大規模量產，故落地壓力低於 OCR 結構化。</li>
+<li><strong>綜合判定 3</strong>：已大規模商品化、可靠且廉價，僅高品質/難材質需人工複核 → 落在量表 3「可用但需人工把關、已有產品」。較 P1 初判 2 上修 1：純技術值 2，但「電商白底圖直接可用、髮絲乾淨」這個交付標準把難樣本的人工把關計入，綜合定 3 較貼合實況。</li>
+<li><strong>查證重評：3/3/2（綜合 3、落地 3、技術 2）</strong>：獨立重評維持原分。對抗式查證（2026-06-26）發現 benchmark 數字小幅錯誤已修正（原誤記 maxFβ 0.900/Sm 0.906/MAE 0.034/HCE 961，正確值為 DIS-TE(1-4) 0.896/0.901/0.035/916，見 Table 4），但 BiRefNet 仍遠勝 IS-Net、結論方向不變，故難度判定不受影響。divergence=false。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>DIS5K（高解析二分割，DIS-TE1–4 合併測試集 2,000 張，Table 4）</strong>，BiRefNet（SwinL，預設）vs 基線 IS-Net（arXiv 2401.03407, CAAI AIR 2024）：maxFβ 0.896 vs 0.799、Sm 0.901 vs 0.819、MAE 0.035 vs 0.070、HCE 916 vs 1016（Fβ/Sm 越高越好；MAE/HCE 越低越好）。論文宣稱在 DIS、HRSOD、COD 三任務皆 SOTA。[1]</li>
+<li><strong>商用工具盲測</strong>（Morphed，25 張難樣本：髮絲+雜亂背景、玻璃/水瓶、珠寶蕾絲、花紋衣對花紋背景、重疊主體；五維度含 200% 放大看邊緣，2026-04 測）：首次可用率 remove.bg 92%、ClearCutout 90%、Cloudinary 85%、Adobe Express 82%、Canva 78%；邊緣準確度 remove.bg 與 ClearCutout 精修模式並列最高 9.0/10。報告明指「髮絲對雜亂背景、捲髮對樹叢」對多數工具仍是難點。[2]</li>
+<li>學術摳像（Composition-1k 用 SAD/MSE/Grad/Conn）近年仍持續刷新（DRIP 2024 對 SAD +3.3%、MSE +6.1%；MatAny 對 MSE +58.3%、SAD +40.6%），顯示難樣本 matting 仍是活躍研究方向，尚未飽和。[6]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Photoroom</strong>：去背起家的影像 App，逾 1.5 億次下載、月活 500 萬+，年處理影像逾 50 億張（2024 年用戶累計編輯 22 億張）；2023 ARR 約 5,000 萬美元、2024 年 2 月 B 輪 4,300 萬美元、估值 5 億美元；2024 自研去背模型上線。屬規模化獲利商業部署。[3][4]</li>
+<li><strong>remove.bg</strong>：開發者 API，宣稱日處理逾 200 萬張、可達 500MP/分鐘、支援批次與 webhook，已是 Shopify/WooCommerce 商品上架管線預設選項；隨用隨付約每張 0.20 美元（500 張/月約 100 美元）。[2][5]</li>
+<li><strong>平台內建免費化</strong>：Shopify Magic（2024 起所有方案內建，去背/換底色/文字生成背景，免額外付費）、Canva（一鍵去背，Pro 每 24 小時 500 張）、Adobe Express、Cloudinary。去背已下沉為電商與設計平台的標配功能。[5]</li>
+<li><strong>電商成效</strong>：Amazon 主圖強制純白底、否則下架/壓制排名；賣家導入自動去背批次工具，報告平均每週省約 15 小時影像前處理。[2][5]</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：一般主體（人、商品、動物）對清楚背景 → 一鍵秒級輸出乾淨 alpha PNG，邊緣與多數髮絲可用，已商品化、低成本、可自架（BiRefNet 開源）。</li>
+<li><strong>仍吃力/需人工</strong>：金髮對白底、捲髮飛絲、玻璃/水/煙/蕾絲等半透明，AI 約 85–90% 達標，剩餘需人工細修；深色髮對淺底最乾淨、淺髮對淺底最難。高解析輸出的細節保真各工具差距明顯。</li>
+<li><strong>本質瓶頸</strong>：分割已近解，瓶頸在 matting 的 sub-pixel 半透明 alpha 與光暈/飛絲長尾——這也是它停在量表 3 而非 1–2 的主因。對「直接可用、無需修圖」的嚴格電商品質，仍非 100% 自動。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="AI%E5%BD%B1%E5%83%8F%E8%88%87%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">AI影像與影片生成</a>、<a href="%E6%93%B4%E6%95%A3%E6%A8%A1%E5%9E%8B.html">擴散模型</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="Stability%20AI.html">Stability AI</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>BiRefNet: Bilateral Reference for High-Resolution Dichotomous Image Segmentation (arXiv 2401.03407, CAAI AIR 2024) — https://arxiv.org/abs/2401.03407</li>
+<li>8 Best AI Background Removers Tested (Morphed, 2026-04) — https://morphed.app/blog/best-ai-background-removers</li>
+<li>Photoroom 2024 Product Recap — https://www.photoroom.com/inside-photoroom/photoroom-2024-product-recap</li>
+<li>Photoroom: the background removal app (Sacra) — https://sacra.com/research/photoroom-background-removal-app/</li>
+<li>11 Best Free Background Removal Tools / Shopify Magic 內建 (Shopify) — https://www.shopify.com/blog/194970057-remove-background-product-photography-image</li>
+<li>Matte Anything / DRIP 等 Composition-1k 摳像進展 (ScienceDirect / NeurIPS 2024) — https://www.sciencedirect.com/science/article/abs/pii/S0262885624001719</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

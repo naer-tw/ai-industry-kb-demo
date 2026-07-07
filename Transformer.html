@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transformer｜AI產業知識庫</title><meta name="description" content="Transformer 是一種「完全以注意力機制（attention）為基礎」的神經網路架構，捨棄了過去序列模型必備的遞迴（RNN）與卷積（CNN）結構，讓序列中每個位置可同時、平行地直接計算與所有其他位置的關聯權重；這個「平行化＋長距離依賴」特性使其能在 GPU 上大規模擴展，成為當今幾乎所有大型語言模型（">
+<meta property="og:title" content="Transformer"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Transformer", "description": "Transformer 是一種「完全以注意力機制（attention）為基礎」的神經網路架構，捨棄了過去序列模型必備的遞迴（RNN）與卷積（CNN）結構，讓序列中每個位置可同時、平行地直接計算與所有其他位置的關聯權重；這個「平行化＋長距離依賴」特性使其能在 GPU 上大規模擴展，成為當今幾乎所有大型語言模型（", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="transformer">Transformer</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>Transformer 是一種「完全以注意力機制（attention）為基礎」的神經網路架構，捨棄了過去序列模型必備的遞迴（RNN）與卷積（CNN）結構，讓序列中每個位置可同時、平行地直接計算與所有其他位置的關聯權重；這個「平行化＋長距離依賴」特性使其能在 GPU 上大規模擴展，成為當今幾乎所有大型語言模型（GPT、Claude、Gemini、Llama 等）的共通底層技術。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>起源論文《Attention Is All You Need》由 Google 團隊 Vaswani 等 8 人於 2017 年 6 月發表（NeurIPS 2017）；核心主張為「僅以注意力機制即可，完全捨棄遞迴與卷積」。（arXiv:1706.03762，2017）</li>
+<li>原論文成績：英德翻譯 28.4 BLEU、英法翻譯 41.8 BLEU（單一模型新 SOTA），且英法結果僅用「8 顆 GPU 訓練 3.5 天」即達成，遠低於當時同級模型訓練成本。（arXiv:1706.03762，2017）</li>
+<li>核心瓶頸：自注意力對序列長度 N 的時間與記憶體複雜度為 O(N²)，需計算 N² 組位置兩兩關聯；理論研究指出，除非強指數時間假說（SETH）為假，此二次方下界難以根本突破。（arXiv:2209.04881；arXiv:2507.19595 綜述，2025）</li>
+<li>FlashAttention（2022）以「IO-aware」分塊（tiling）方式，避免在 GPU 高頻寬記憶體（HBM）寫出完整注意力矩陣，改於晶片內 SRAM 完成計算，為「精確（exact）」而非近似的加速。（arXiv:2205.14135，2022）</li>
+<li>FlashAttention-3（2024，NeurIPS 2024）針對 Hopper（H100）優化：較 FlashAttention-2 快約 1.5–2.0 倍，FP16 達約 740 TFLOPs/s（H100 利用率自前代約 35% 提升至約 75%）、FP8 接近 1.2 PFLOPs/s，且 FP8 數值誤差較基準低 2.6 倍。（arXiv:2407.08608 摘要；tridao.me，2024）（註：NeurIPS 正式版另報 BF16 約 840 TFLOPs/s、85% 利用率、FP8 約 1.3 PFLOPs/s）</li>
+<li>上下文長度演進：自 BERT 的 512 tokens（2018）擴張至 Gemini 1.5 的 1M+ tokens（2024），靠硬體進步與注意力效率演算法共同達成。（arXiv:2507.19595 綜述，2025）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li>層級定位：屬 AI 產業「中游」核心技術。它是「模型架構／演算法能力」本身，向下承接上游算力（GPU、<a href="HBM%E8%A8%98%E6%86%B6%E9%AB%94.html">HBM記憶體</a>），向上支撐下游各類 LLM 應用與服務。</li>
+<li>對上游的牽引：Transformer 的二次方注意力與龐大參數，直接放大了對高頻寬記憶體與大量矩陣運算（GEMM）的需求，是 GPU、HBM、先進封裝需求暴增的根本演算法驅動力。</li>
+<li>與硬體的共生：<a href="NVIDIA.html">NVIDIA</a> H100 內建 Transformer Engine，以 FP8 精度針對此架構加速；官方稱在 Megatron 530B 推論上，H100 單卡吞吐量最高達 A100 的 30 倍。（NVIDIA Blog；GitHub/NVIDIA，2024）</li>
+<li>跨領域擴散：原為機器翻譯設計，現已外溢至影像（ViT）、語音、蛋白質結構、多模態等領域，成為通用序列建模的事實標準。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>仍是主流：自 2018 年起，BERT、GPT-3/4、Claude、Gemini 等幾乎所有主流大型語言模型皆建構於 Transformer 之上，截至 2026 年仍為產業共通底座。（多方綜述，2025–2026）</li>
+<li>硬體加速持續演進：NVIDIA Transformer Engine 在 Blackwell GPU 上新增支援 MXFP8（Microscaling FP8）與 NVFP4 等更低精度格式，於訓練與推論皆追求更高效能與更低記憶體。（GitHub/NVIDIA，2024–2025）</li>
+<li>混合架構興起：為降低長序列推論成本，廠商將多數注意力層改為線性複雜度的狀態空間（Mamba-2）層——
+<ul>
+<li>NVIDIA Nemotron-H：以 Mamba-2 取代約 92% 注意力層，吞吐量最高達同級 Llama-3.1／Qwen-2.5 的約 3 倍。（arXiv:2504.03624，2025）</li>
+<li>IBM Granite 4.0：採較保守的 Mamba-Transformer 混合，主打降低 AI 基礎設施成本。（InfoWorld，2025）</li>
+</ul></li>
+<li>效率研究熱度高：2025 年已出現多篇針對 LLM 高效注意力（線性注意力、稀疏注意力）的系統性綜述，反映「降低二次方成本」仍是核心攻關方向。（arXiv:2507.19595，2025）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li>二次方成本天花板：O(N²) 在 128K+ tokens 的超長上下文下成本高昂，是 Transformer 最根本的結構性限制，也是各類替代架構的主要切入口。（多方資料，2024–2025）</li>
+<li>替代架構的競爭：Mamba（Gu &amp; Dao，2023 年 12 月）以線性複雜度與「隱藏狀態即記憶」挑戰純注意力；RWKV、RetNet 等亦在角逐。惟狀態空間模型在「長序列複製、上下文學習（in-context learning）、induction heads」等能力上仍有取捨與短板。（多方綜述，2024–2025）</li>
+<li>「混合」而非「取代」：目前產業共識偏向混合架構（少量保留注意力層＋多數 Mamba 層），而非全面廢棄注意力；純 Transformer 是否被取代，截至 2026 年尚無定論，屬「資料未證實」之開放問題。</li>
+<li>推論階段壓力：生成（decode）時記憶體與計算隨已生成 token 線性累積，KV cache 膨脹推升長文本與推理（reasoning）任務的部署成本——這正是混合模型主打的痛點。（arXiv:2508.14444，2025）</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="NVIDIA.html">NVIDIA</a>：以 GPU 與 Transformer Engine（FP8/FP4）提供此架構的主要算力與硬體加速。</li>
+<li><a href="HBM%E8%A8%98%E6%86%B6%E9%AB%94.html">HBM記憶體</a>：Transformer 龐大參數與 KV cache 的高頻寬記憶體需求來源。</li>
+<li><a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>：以 Transformer 為底層架構的下游模型總稱（GPT、Claude、Gemini、Llama 等）。</li>
+<li><a href="Mamba%E7%8B%80%E6%85%8B%E7%A9%BA%E9%96%93%E6%A8%A1%E5%9E%8B.html">Mamba狀態空間模型</a>：以線性複雜度挑戰純注意力、並成為混合架構主要組件的替代技術。</li>
+<li><a href="FlashAttention.html">FlashAttention</a>：使 Transformer 注意力在 GPU 上更快、更省記憶體的 IO-aware 精確加速演算法。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Vaswani et al., 《Attention Is All You Need》, 2017 — https://arxiv.org/abs/1706.03762</li>
+<li>Dao et al., 《FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness》, 2022 — https://arxiv.org/abs/2205.14135</li>
+<li>Shah et al., 《FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision》, NeurIPS 2024 — https://arxiv.org/abs/2407.08608</li>
+<li>Tri Dao, FlashAttention-3 官方部落格（H100 效能數據）, 2024 — https://tridao.me/blog/2024/flash3/</li>
+<li>NVIDIA TransformerEngine（FP8/FP4、MXFP8、NVFP4 支援）, GitHub — https://github.com/NVIDIA/TransformerEngine</li>
+<li>NVIDIA Blog, 《H100 Transformer Engine Supercharges AI Training》（30x 推論吞吐量）, 2022–2024 — https://blogs.nvidia.com/blog/h100-transformer-engine/</li>
+<li>NVIDIA, 《Nemotron-H: Hybrid Mamba-Transformer Models》（取代約 92% 注意力層）, 2025 — https://arxiv.org/abs/2504.03624</li>
+<li>NVIDIA, 《Nemotron Nano 2: Hybrid Mamba-Transformer Reasoning Model》, 2025 — https://arxiv.org/abs/2508.14444</li>
+<li>InfoWorld, 《IBM launches Granite 4.0 … hybrid Mamba-transformer models》, 2025 — https://www.infoworld.com/article/4067691/ibm-launches-granite-4-0-to-cut-ai-infra-costs-with-hybrid-mamba-transformer-models.html</li>
+<li>《Efficient Attention Mechanisms for Large Language Models: A Survey》（二次方複雜度、上下文長度演進）, 2025 — https://arxiv.org/abs/2507.19595</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

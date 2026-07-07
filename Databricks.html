@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Databricks｜AI產業知識庫</title><meta name="description" content="Databricks 是源自 UC Berkeley、由 Apache Spark 原創團隊創立的「資料＋AI」統一平台公司，主打 Lakehouse（湖倉一體）架構與 Data Intelligence Platform；在 AI 供應鏈屬中游「資料／模型基礎設施層」，是企業在自有資料上開發與部署 AI／代">
+<meta property="og:title" content="Databricks"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Databricks", "description": "Databricks 是源自 UC Berkeley、由 Apache Spark 原創團隊創立的「資料＋AI」統一平台公司，主打 Lakehouse（湖倉一體）架構與 Data Intelligence Platform；在 AI 供應鏈屬中游「資料／模型基礎設施層」，是企業在自有資料上開發與部署 AI／代", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>公司</span></header>
+<main><article><h1 id="databricks">Databricks</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>Databricks 是源自 UC Berkeley、由 Apache Spark 原創團隊創立的「資料＋AI」統一平台公司，主打 Lakehouse（湖倉一體）架構與 Data Intelligence Platform；在 AI 供應鏈屬中游「資料／模型基礎設施層」，是企業在自有資料上開發與部署 AI／代理人（agent）的核心平台，2025–2026 年以逾 65% 年增率與千億美元級估值成為 B2B 軟體最受矚目的未上市巨頭之一。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>營收 run-rate</strong>：2026 年 1 月（FY2026 Q4 結束）年化營收突破 54 億美元，年增逾 65%；progression 為 2025 Q2 約 40 億、Q3 約 48 億、2026-01 達 54 億美元（來源 1，官方 2026-02；來源 10 Sacra）。run-rate 為年化快照，非全年 GAAP 認列營收。</li>
+<li><strong>AI 產品營收</strong>：2025 Q4 AI 產品年化 run-rate 達 14 億美元，約占總營收 26%（來源 1，官方 2026-02）；Databricks SQL（資料倉儲）於 FY2025 Q4（截至 2025-01）達 6 億美元 run-rate、年增逾 150%（來源 5，Series J 官方新聞稿 2024-12）。</li>
+<li><strong>最新估值</strong>：1,340 億美元（Series L；2025-12-16 官方宣布募資、2026-02-09 完成增資，估值維持 1,340 億；較 2025-08 Series K 的逾 1,000 億跳升約 34%）（來源 3，CNBC／官方 2025-12；來源 4，CNBC 2026-02）。</li>
+<li><strong>最近募資</strong>：<strong>Series L</strong> 於 2025-12-16 宣布啟動募資逾 40 億美元、估值 1,340 億（由 Insight Partners、Fidelity、J.P. Morgan Asset Management 領投，a16z、BlackRock、Blackstone、Coatue、GIC、MGX、NEA 等參與）；2026-02-09 宣布完成全輪逾 70 億美元——約 50 億股權＋約 20 億美元債務額度，估值 1,340 億美元（來源 3、4）。Series K（2025-08-19 宣布）約 10 億美元、逾 1,000 億美元估值，由 a16z、Insight Partners、MGX、Thrive Capital、WCM 共同領投（來源 2）。</li>
+<li><strong>募資歷程</strong>：Series J（2024-12-17）100 億美元、估值 620 億，由 Thrive Capital 領投，a16z、DST、GIC、Insight、WCM 共同領投（來源 5）→ Series K（2025-08）約 10 億、估值逾 1,000 億 → Series L（2025-12 宣布／2026-02 完成）逾 70 億、估值 1,340 億美元（來源 5、2、3、4）。</li>
+<li><strong>客戶規模</strong>：全球逾 20,000 家組織使用平台（2026-02）；年化消費逾 100 萬美元客戶逾 800 家、逾 1,000 萬美元客戶逾 70 家；淨收入留存率（NDR）逾 140%（來源 1，官方）。</li>
+<li><strong>獲利能力</strong>：2025 全年達自由現金流為正（free cash flow positive，來源 1，官方 2026-02）。</li>
+<li><strong>MosaicML 收購</strong>：2023-06-26 宣布以約 13 億美元（含留任獎酬）收購生成式 AI 平台 MosaicML，成為今日 Mosaic AI 產品線基礎；MosaicML 以 MPT 系列開源 LLM 著稱（來源 6，官方 2023-06）。</li>
+<li><strong>創立背景</strong>：2013 年由七位 UC Berkeley 研究者（Ali Ghodsi、Ion Stoica、Matei Zaharia、Patrick Wendell、Reynold Xin、Andy Konwinski、Arsalan Tavakoli-Shiraji）創立，源自 AMPLab 的 Apache Spark 開源專案；Ali Ghodsi 於 2016-01 接任 CEO（來源 9，Wikipedia）。</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li><strong>層級</strong>：中游「資料／AI 基礎設施與平台層」。Databricks 不自製前沿基礎模型與其競爭，而是提供企業「治理自有資料 ＋ 在其上訓練／微調／部署 AI 與代理人」的統一平台（Lakehouse → Data Intelligence Platform → Mosaic AI / Agent Bricks）。</li>
+<li><strong>與雲端的關係</strong>：平台跨 AWS、Azure、Google Cloud 三大公有雲執行（多雲中立），是 <a href="Amazon.html">Amazon</a>、<a href="Microsoft.html">Microsoft</a>、<a href="Google.html">Google</a> 雲端之上的關鍵資料／AI 工作負載層；與 Snowflake 為資料平台主要競爭對手。</li>
+<li><strong>與模型廠的關係</strong>：2025 年與 <a href="Anthropic.html">Anthropic</a> 達成合作，將 Claude 模型整合進平台供企業在自有資料上使用；亦與 <a href="OpenAI.html">OpenAI</a>、Meta Llama、Google 等多模型整合，定位「模型中立」的資料層，讓客戶在 Databricks 內取用各家模型。</li>
+<li><strong>算力</strong>：大規模模型訓練／推論依賴 <a href="NVIDIA.html">NVIDIA</a> GPU，並透過三大雲端取得算力。</li>
+<li><strong>核心產品</strong>：Lakehouse（Delta Lake）、Unity Catalog（資料治理）、Databricks SQL（資料倉儲）、Mosaic AI（模型訓練／服務）、Agent Bricks（代理人開發）、Lakebase（基於 Postgres 的營運型資料庫，2025 推出）、Genie（自然語言分析）。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>2026-06-04</strong>：CEO Ali Ghodsi 公開表示 2026 是「上市的糟糕年份（a terrible year to go public）」，因 SpaceX、<a href="Anthropic.html">Anthropic</a>、<a href="OpenAI.html">OpenAI</a> 等將吸走逾 2,000 億美元 IPO 資金；強調公司「已具備上市條件（IPO-ready）」但不急於今年掛牌，最可能於 2026 下半年遞交 S-1、2026 年底至 2027 年上市（來源 8，TNW 2026-06）。</li>
+<li><strong>2026-02-09</strong>：宣布完成 Series L 全輪逾 70 億美元（約 50 億股權＋20 億債務），估值維持 1,340 億美元；同步公布 Q4 營收 run-rate 54 億、AI 產品 14 億、近 12 個月自由現金流為正（來源 1、4，官方／CNBC）。</li>
+<li><strong>2025-12-16</strong>：宣布啟動 Series L，募資逾 40 億美元、估值 1,340 億美元，由 Insight Partners、Fidelity、J.P. Morgan Asset Management 領投；當時 run-rate 約 48 億、年增逾 55%（來源 3，CNBC／官方）。</li>
+<li><strong>2025-08-19</strong>：宣布 Series K（約 10 億美元），估值逾 1,000 億美元；資金用於加速 AI 策略、擴張 Agent Bricks 與 Lakebase、全球擴張及潛在 AI 併購（來源 2，官方）。</li>
+<li><strong>2025-05-14</strong>：宣布以約 10 億美元收購 serverless PostgreSQL 新創 Neon，強化 AI／代理人所需的營運型資料庫基礎（成為 Lakebase 核心，來源 7，CNBC 2025-05）。</li>
+<li><strong>2025-02</strong>：收購 AI 資料遷移新創 BladeBridge（金額未揭露），加速客戶從舊系統遷移；另 2024 年以逾 10 億美元收購 Iceberg 開源表格商 Tabular（來源：TechTarget / Tracxn 2025）。</li>
+<li><strong>2024-12-17</strong>：宣布 Series J 100 億美元、估值 620 億美元，為 2024 年最大創投案；近季年增逾 60%，受企業 AI 需求帶動（來源 5，官方）。</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>IPO 不確定性</strong>：估值已達 1,340 億美元（2026-02），但 CEO 明言 2026 不上市，掛牌時程延後；長期未上市使早期員工／投資人變現受限，亦面臨 SpaceX、OpenAI、Anthropic 等同期巨型 IPO 排擠市場資金的競爭（來源 8）。</li>
+<li><strong>估值與基本面落差</strong>：1,340 億美元估值對應約 54 億 run-rate，市銷率（P/S）約 25 倍，屬高估值區間；若成長放緩或 IPO 市況轉差，估值修正風險高（依來源 1、4 數據推算）。</li>
+<li><strong>競爭激烈</strong>：與 Snowflake 在資料平台正面對決；上游雲端（<a href="Microsoft.html">Microsoft</a> Fabric、<a href="Google.html">Google</a> BigQuery、<a href="Amazon.html">Amazon</a>）兼具夥伴與競爭雙重關係，存在被雲端原生服務替代的風險。</li>
+<li><strong>AI 投資週期風險</strong>：營收高速成長高度依賴企業 AI／代理人支出熱潮，若整體 AI 資本支出降溫，AI 產品線（占比約 26%）成長動能恐受衝擊。</li>
+<li><strong>整合風險</strong>：2023 年以來頻繁併購（MosaicML、Tabular、Neon、BladeBridge 等十餘起），多產品線整合與技術消化存在執行風險（來源 6、7）。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="Anthropic.html">Anthropic</a>：2025 年合作夥伴，Claude 模型整合進 Databricks 平台供企業使用。</li>
+<li><a href="OpenAI.html">OpenAI</a>：平台整合的多模型供應商之一；亦為同期備受矚目的 IPO 候選者（市場資金競爭）。</li>
+<li><a href="Google.html">Google</a>：Google Cloud 為 Databricks 三大執行雲端之一，BigQuery 為競品。</li>
+<li><a href="Microsoft.html">Microsoft</a>：Azure 為核心執行雲端與投資者；Microsoft Fabric 為直接競品。</li>
+<li><a href="Amazon.html">Amazon</a>：AWS 為 Databricks 最大執行雲端基礎之一。</li>
+<li><a href="NVIDIA.html">NVIDIA</a>：模型訓練／推論所依賴的 GPU 算力供應商。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Databricks 官方新聞稿（2026-02）— Q4 營收 run-rate 54 億、AI 14 億、客戶與 NDR 數據：https://www.databricks.com/company/newsroom/press-releases/databricks-grows-65-yoy-surpasses-5-4-billion-revenue-run-rate</li>
+<li>Databricks 官方新聞稿（2025-08-19）— Series K、逾 1,000 億估值：https://www.databricks.com/company/newsroom/press-releases/databricks-raising-series-k-investment-100-billion-valuation</li>
+<li>CNBC（2025-12-16）— 宣布 Series L、估值 1,340 億美元（官方同日新聞稿「&gt;$4.8B run-rate, raising &gt;$4B Series L」：https://www.databricks.com/company/newsroom/press-releases/databricks-surpasses-4-8b-revenue-run-rate-growing-55-year-over-year）：https://www.cnbc.com/2025/12/16/databricks-funding-valuation.html</li>
+<li>CNBC（2026-02-09）— 完成逾 70 億美元募資（50 億股權＋20 億債務）：https://www.cnbc.com/2026/02/09/databricks-completes-5-billion-funding-round-with-2-billion-in-debt.html</li>
+<li>Databricks 官方新聞稿（2024-12-17）— Series J 100 億、620 億估值：https://www.databricks.com/company/newsroom/press-releases/databricks-raising-10b-series-j-investment-62b-valuation</li>
+<li>Databricks 官方新聞稿（2023-06-26）— 13 億美元收購 MosaicML：https://www.databricks.com/company/newsroom/press-releases/databricks-signs-definitive-agreement-acquire-mosaicml-leading-generative-ai-platform</li>
+<li>CNBC（2025-05-14）— 約 10 億美元收購 Neon：https://www.cnbc.com/2025/05/14/databricks-is-buying-database-startup-neon-for-about-1-billion.html</li>
+<li>The Next Web（2026-06）— CEO 稱 2026 是上市糟糕年份：https://thenextweb.com/news/databricks-ceo-calls-2026-a-terrible-year-to-go-public-as-spacex-anthropic-and-openai-prepare-to-absorb-200-billion-in-ipo-capital</li>
+<li>Wikipedia — Databricks 創立背景、創辦人、總部、CEO：https://en.wikipedia.org/wiki/Databricks</li>
+<li>Sacra — Databricks 營收／估值／募資追蹤：https://sacra.com/c/databricks/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

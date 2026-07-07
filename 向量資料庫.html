@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>向量資料庫｜AI產業知識庫</title><meta name="description" content="向量資料庫（Vector Database）是專為儲存、索引並以「相似度」而非「精確比對」來檢索高維向量（embedding，嵌入向量）的資料庫；它把文字、圖片、音訊等非結構化資料先用嵌入模型轉成數百至數千維的數值向量，再透過近似最近鄰（ANN, Approximate Nearest Neighbor）演算">
+<meta property="og:title" content="向量資料庫"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "向量資料庫", "description": "向量資料庫（Vector Database）是專為儲存、索引並以「相似度」而非「精確比對」來檢索高維向量（embedding，嵌入向量）的資料庫；它把文字、圖片、音訊等非結構化資料先用嵌入模型轉成數百至數千維的數值向量，再透過近似最近鄰（ANN, Approximate Nearest Neighbor）演算", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="向量資料庫">向量資料庫</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>向量資料庫（Vector Database）是專為儲存、索引並以「相似度」而非「精確比對」來檢索高維向量（embedding，嵌入向量）的資料庫；它把文字、圖片、音訊等非結構化資料先用嵌入模型轉成數百至數千維的數值向量，再透過近似最近鄰（ANN, Approximate Nearest Neighbor）演算法在毫秒級從上億筆向量中找出「語意最接近」的結果，是 <a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>、語意搜尋與 AI 記憶層的核心基建。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>解決什麼問題</strong>：傳統資料庫擅長精確查詢（WHERE id = 5），但無法回答「找出語意最相近的文件」。向量資料庫把「相似」量化為向量空間中的距離（餘弦／L2／內積），讓機器能做語意檢索，是把私有知識接到大模型的關鍵橋樑。（綜合產業報告，存取 2026-06）</li>
+<li><strong>核心演算法 HNSW</strong>：主流索引演算法「分層可導航小世界圖」（Hierarchical Navigable Small World）出自 Malkov &amp; Yashunin 論文〈Efficient and robust approximate nearest neighbor search using HNSW graphs〉（2016，正式刊於 IEEE TPAMI 2018）。它結合 NSW 圖與 Skip List，達成對數級搜尋複雜度，是當今幾乎所有向量資料庫的預設索引。（Semantic Scholar / Malkov-Yashunin）</li>
+<li><strong>技術起源 FAISS</strong>：Meta（Facebook AI Research）的 FAISS 函式庫（2017 公開，Jégou 發起、Douze 寫 CPU 版、Johnson 寫 GPU 版）是向量檢索的奠基開源工具，2017 論文〈Billion-scale similarity search with GPUs〉確立 GPU 加速億級向量檢索的可行性。（Meta Engineering Blog 2017-03；GitHub facebookresearch/faiss）</li>
+<li><strong>代表廠商 Pinecone（託管型）</strong>：2023-04 完成 1 億美元 B 輪、估值 7.5 億美元（a16z 領投）。ARR 由 2023 年 1,600 萬美元成長至 2024 年 2,660 萬美元（+66%）。（Pinecone Blog 2023-04；getlatka，存取 2026-06）</li>
+<li><strong>pgvector（PostgreSQL 擴充）</strong>：開源、GitHub 約 21.6k stars；最新 0.8.x（截至 2026-06 為 0.8.2）同時支援 HNSW 與 IVFFlat、多種距離（L2／內積／餘弦／L1／Hamming／Jaccard）。<code>vector</code> 型別最高可儲存 16,000 維，但 HNSW／IVFFlat 索引上限為 2,000 維（超過須改用 halfvec 半精度，上限 4,000 維）；二元（bit）向量可達 64,000 維。0.8.0 新增迭代式索引掃描解決過度過濾問題。（GitHub pgvector，存取 2026-06；PostgreSQL News）</li>
+<li><strong>Milvus / Zilliz（開源分散式）</strong>：Apache 2.0 授權、儲存與運算分離、可橫向擴展至 10 億筆以上向量，2.4+ 導入 GPU 加速索引；由 Zilliz 提供託管雲。（GitHub milvus-io/milvus，存取 2026-06）</li>
+<li><strong>市場規模</strong>：SNS Insider（2025-03 新聞稿）估全球向量資料庫市場 2023 年約 16 億美元、2032 年達 106 億美元，CAGR 約 23.5%（其官網報告頁另載 2024 年約 19.7 億美元）。其他機構估值不一：Verified Market Research 估 2024 年約 22 億美元，部分機構估 2035 年達 150–190 億美元。（SNS Insider via GlobeNewswire 2025-03；多家市調機構，數字區間因方法而異）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>向量資料庫屬 AI 供應鏈的<strong>中游（資料／檢索基建層）</strong>，位於底層硬體（<a href="NVIDIA.html">NVIDIA</a> GPU）與上層應用之間，是 <a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a> 管線的「檢索儲存核心」。典型 RAG 四元件中，它承擔第二棒：嵌入模型把文件轉向量 → <strong>向量資料庫存放並索引</strong> → 重排序 → LLM 生成。</p>
+<p>它的能力本質是「語意記憶層」：讓 <a href="OpenAI.html">OpenAI</a>、Anthropic 等通用大模型能存取訓練資料以外的私有、即時知識，而無需重訓模型。下游受益場景包含企業搜尋、客服、推薦系統、影像檢索、AI Agent 長期記憶。產業生態分兩大陣營——<strong>向量原生（vector-native）</strong>（Pinecone、Weaviate、Milvus、Qdrant、Chroma）與<strong>既有資料庫加掛向量</strong>（pgvector、Elasticsearch、MongoDB Atlas、Redis），兩者在不同規模各有優勢。</p>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>Serverless 與託管化</strong>：Pinecone 把 serverless 設為預設（儲存按 GB 計、運算按量、閒置零成本），降低使用門檻；Milvus 推 Serverless／BYOC，Zilliz Cloud 提供全託管。（廠商文件，2025）</li>
+<li><strong>開源採用爆發</strong>：Weaviate 月下載逾百萬次；Chroma 主打快速原型（2025-04 約 6k GitHub stars）；pgvector 因「免額外基建、無廠商鎖定」成最受歡迎的加掛方案。（產業報告，2025）</li>
+<li><strong>效能基準競賽</strong>：Milvus 2.4+ GPU 索引基準逾每秒 10 萬次查詢；pgvectorscale 在 5,000 萬向量、99% 召回下達 471 QPS，宣稱為 Qdrant 同條件的 11.4 倍。（InfoQ；Timescale 基準 2025-05，廠商自評數字宜審慎）</li>
+<li><strong>Qdrant 募資</strong>：Qdrant 2026-03-12 宣布完成 5,000 萬美元 B 輪（AVP 領投，Bosch Ventures、Unusual Ventures、Spark Capital、42CAP 參與），累計募資約 8,780 萬美元。（Qdrant 官方部落格／BusinessWire 2026-03-12）</li>
+<li><strong>與長情境（long context）並存</strong>：百萬 token 級模型興起，部分場景可繞過檢索，但長情境推論成本高，向量資料庫在成本與可控性上仍具優勢。（產業分析，2025–2026）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>商品化與被巨頭吞併</strong>：向量搜尋正從「獨立產品」變為「資料庫的內建功能」——SQL Server 2025、MongoDB Atlas、Redis、Cassandra、Elasticsearch 皆已內建向量搜尋。業界廣泛流傳「向量資料庫是一項功能，不是一門生意」的論調（常被歸於 Elastic 高層，惟確切原話未證實），純向量廠商的護城河受擠壓。（VentureBeat；Data Science Collective，2025–2026）</li>
+<li><strong>Pinecone 獨立性承壓</strong>：2025 年傳出 Pinecone 評估出售、競爭加劇；2025-09 創辦人 Edo Liberty 轉任首席科學家、由 Ash Ashutosh 接任 CEO。getlatka 列其 2025 ARR 為 1,400 萬美元（較 2024 年 2,660 萬大幅下滑），此數字與成長軌跡矛盾，恐為部分期間或估算值，<strong>待官方財報證實</strong>。（Calcalist 2025；getlatka，存取 2026-06）</li>
+<li><strong>規模分水嶺</strong>：分析指 5,000 萬向量以下，PostgreSQL（pgvector）在總持有成本與簡易度上勝出；1 億向量以上、低延遲、多模態場景，向量原生資料庫仍明顯領先。（Data Science Collective，2025–2026）</li>
+<li><strong>「RAG 已死」連帶風險</strong>：若超長情境與情境記憶在 Agentic 場景取代部分 RAG，向量資料庫需求可能受波及（多數分析認為是演化而非消亡）。</li>
+<li><strong>數字可信度</strong>：市場規模各機構差異大（2024 年估值 22 億至 32 億美元不等），引用時須標明來源與方法。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>：向量資料庫最主要的應用場景，檢索層核心。</li>
+<li><a href="Transformer.html">Transformer</a>：嵌入向量由 Transformer 系嵌入模型產生，是向量資料的來源。</li>
+<li><a href="NVIDIA.html">NVIDIA</a>：提供 GPU 加速向量索引與檢索（FAISS、Milvus GPU 索引）。</li>
+<li><a href="%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB.html">向量資料庫</a>：代表性託管向量資料庫供應商。</li>
+<li><a href="OpenAI.html">OpenAI</a>：嵌入模型（embedding）供應者，下游與向量資料庫搭配構成 RAG。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>GitHub — facebookresearch/faiss（FAISS 函式庫，存取 2026-06）：https://github.com/facebookresearch/faiss</li>
+<li>Meta Engineering Blog（2017-03）— Faiss: A library for efficient similarity search：https://engineering.fb.com/2017/03/29/data-infrastructure/faiss-a-library-for-efficient-similarity-search/</li>
+<li>Malkov &amp; Yashunin — Efficient and Robust ANN Search Using HNSW Graphs（2016/2018，Semantic Scholar）：https://www.semanticscholar.org/paper/Efficient-and-Robust-Approximate-Nearest-Neighbor-Malkov-Yashunin/699a2e3b653c69aff5cf7a9923793b974f8ca164</li>
+<li>Pinecone Blog（2023-04）— Announcing Our $100M Series B Funding：https://www.pinecone.io/blog/series-b/</li>
+<li>getlatka — Pinecone Revenue（ARR 2023–2025，存取 2026-06）：https://getlatka.com/companies/pinecone.io</li>
+<li>GitHub — pgvector/pgvector（版本與功能，存取 2026-06）：https://github.com/pgvector/pgvector</li>
+<li>GitHub — milvus-io/milvus（架構與授權，存取 2026-06）：https://github.com/milvus-io/milvus</li>
+<li>SNS Insider via GlobeNewswire（2025-03）— Vector Database Market to Reach USD 10.6 Billion by 2032：https://www.globenewswire.com/news-release/2025/03/07/3039040/0/en/Vector-Database-Market-to-Reach-USD-10-6-Billion-by-2032-SNS-Insider.html</li>
+<li>Calcalist / Ctech（2025）— AI database startup Pinecone weighs sale amid rising competition：https://www.calcalistech.com/ctechnews/article/rz31q82b5</li>
+<li>Data Science Collective / Medium（2025–2026）— 向量資料庫商品化與生產實證：https://medium.com/data-science-collective/vector-databases-are-dying-heres-the-production-evidence-8c17b54687e2</li>
+<li>PostgreSQL News — pgvector 0.8.0 Released：https://www.postgresql.org/about/news/pgvector-080-released-2952/</li>
+<li>Qdrant Blog（2026-03-12）— We Raised $50M Series B：https://qdrant.tech/blog/series-b-announcement/</li>
+<li>Pinecone Newsroom（2025-09-08）— Pinecone’s Next Chapter（Ash Ashutosh 任 CEO）：https://www.pinecone.io/newsroom/next-chapter/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

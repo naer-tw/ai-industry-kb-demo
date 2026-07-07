@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CSV資料分析｜AI產業知識庫</title><meta name="description" content="CSV資料分析
+
+ 一句話定義（這個可交付物是什麼）
+使用者上傳一份結構化資料檔（CSV/Excel）並用自然語言提問（如「各區營收差異？哪個變數最相關？」），AI 自行寫出可執行的 Python/SQL 程式碼，跑出描述統計、產生圖表，並回一句結論。屬「對話式資料分析 / Code Interpreter」">
+<meta property="og:title" content="CSV資料分析"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "CSV資料分析", "description": "CSV資料分析\n\n 一句話定義（這個可交付物是什麼）\n使用者上傳一份結構化資料檔（CSV/Excel）並用自然語言提問（如「各區營收差異？哪個變數最相關？」），AI 自行寫出可執行的 Python/SQL 程式碼，跑出描述統計、產生圖表，並回一句結論。屬「對話式資料分析 / Code Interpreter」", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="csv資料分析">CSV資料分析</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>使用者上傳一份結構化資料檔（CSV/Excel）並用自然語言提問（如「各區營收差異？哪個變數最相關？」），AI 自行寫出可執行的 Python/SQL 程式碼，跑出描述統計、產生圖表，並回一句結論。屬「對話式資料分析 / Code Interpreter」類能力，是目前主流大型模型已商品化的核心功能之一。</p>
+<h2 id="難度評分綜合-310技術-3落地-4-理由">難度評分（綜合 3/10：技術 3、落地 4）— 理由</h2>
+<ul>
+<li><strong>技術 3（可用但需把關）</strong>：單步、乾淨的描述統計與繪圖任務模型已做得很好——InfiAgent-DABench（257 題、52 個 CSV）GPT-4o 達 75.9%（來源 2），DABStep 簡單題目開源 Llama 70B 零樣本即可超過 90%（來源 1）。但一旦變成多步、需跨表/讀文件、做正確口徑的「真實分析」，準確率斷崖式下滑：DABStep 難題最佳推理模型 o3-mini 僅 16%、Claude 3.5 Sonnet 12%、DeepSeek V3 6%（來源 1）。技術成熟但「會算對」與「會算對難題」差距大。</li>
+<li><strong>落地 4（已大規模產品化、但可靠性需人工把關）</strong>：ChatGPT Advanced Data Analysis、Claude、Excel Copilot 均已 GA 並廣泛部署（來源 3、5）；落地障礙不在「能不能做」而在「敢不敢信」——Excel Copilot 同一輸入重算結果可能不同、且會產生看似合理的錯誤公式，微軟與專家明確建議財務預測、迴歸、統計建模等高風險場景「跳過 Copilot、改用原生函數」並強制人工複核（來源 6）。故落地分數略高於技術分。</li>
+<li>綜合判定 3：屬「可用但需人工把關、已有成熟產品」的 3-4 帶下緣；考量描述統計這一最常見子任務已可靠商品化，定 3。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>InfiAgent-DABench</strong>（257 個資料分析挑戰、52 個 CSV、7 類別）：GPT-4o 無 agent 框架達 <strong>75.9%</strong>；原論文 GPT-4 <strong>78.99%</strong>，最佳開源 Qwen-72B-Chat 59.92%，落後 GPT-4 約 19 個百分點（2024-01，來源 2、4）。</li>
+<li><strong>DABStep</strong>（450+ 真實財務分析多步任務，含跨文件推理）：簡單題人類做 3 小時以上約 <strong>62%</strong>；難題最佳推理 agent <strong>o3-mini 僅 16%</strong>、R1 13%、Claude 3.5 Sonnet 12%、DeepSeek V3 6%（2025-02，來源 1）。</li>
+<li>解讀：描述統計／單步繪圖＝高分區（70-90%+）；多步真實分析＝低分區（&lt;20%），是當前主要技術瓶頸。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>OpenAI ChatGPT Advanced Data Analysis（前身 Code Interpreter）</strong>：GA 功能，每次上傳上限 512MB，以實際 Python 運算（來源 4 對照、MIT Sloan 教學採用）。</li>
+<li><strong>Microsoft Excel Copilot</strong>：「Copilot in Excel with Python」已 <strong>GA</strong>；<code>=COPILOT()</code> 函數 2025-08 推 Insider、預計 2026-12 桌面/網頁版全面 GA（來源 3、5）。內建於 Excel 計算引擎，自然語言→自動生成並插入 Python 代碼出圖表/樞紐分析。</li>
+<li><strong>Anthropic Claude</strong>：企業客戶 2025-08 突破 30 萬家；32% 企業 LLM 工作負載跑在 Claude 上；金融業 24% 大型銀行採用（來源:Julius/IntuitionLabs 彙整）。單檔上限 20MB。</li>
+<li><strong>Julius AI</strong> 等垂直工具：處理上限達 32GB（高 RAM 容器），補足通用助理檔案大小限制（來源:Julius 比較頁）。</li>
+<li>規模成效：屬數百萬級日常使用的成熟功能；但企業高風險場景普遍要求人工複核，少有「無人把關自動產出對外結論」之規模化部署。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：乾淨單表的描述統計、相關性、分群、標準圖表、自然語言→可執行代碼、口語化一句結論。</li>
+<li><strong>做不到/不可靠</strong>：多步跨表/跨文件分析、需正確業務口徑的真實分析（DABStep 難題 &lt;20%）；結果可重現性差（同輸入不同輸出）；會產生看似合理的錯誤公式/口徑；高風險財務、統計建模微軟建議「跳過、人工複核」（來源 6）。</li>
+<li>邊界一句話：<strong>「快出初步洞察」已可靠商品化；「可直接信任的最終分析結論」仍需人類把關。</strong></li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="Microsoft.html">Microsoft</a>、<a href="OpenAI.html">OpenAI</a>、<a href="AI%20Agent%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96.html">AI Agent與自動化</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="Agentic%20AI%E7%A0%94%E7%A9%B6.html">Agentic AI研究</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>DABStep: Data Agent Benchmark for Multi-step Reasoning（HuggingFace, 2025-02-04）https://huggingface.co/blog/dabstep</li>
+<li>InfiAgent-DABench: Evaluating Agents on Data Analysis Tasks（arXiv 2401.05507, 2024-01）https://arxiv.org/pdf/2401.05507</li>
+<li>Unlock the power of Copilot in Excel, now generally available（Microsoft, 2025）https://techcommunity.microsoft.com/blog/excelblog/unlock-the-power-of-copilot-in-excel-now-generally-available/4242810</li>
+<li>How to Use ChatGPT’s Advanced Data Analysis Feature（MIT Sloan EdTech）https://mitsloanedtech.mit.edu/ai/tools/how-to-use-chatgpts-advanced-data-analysis-feature/</li>
+<li>What’s New in Excel (August 2025) / COPILOT 函數（Microsoft）https://techcommunity.microsoft.com/blog/excelblog/whats-new-in-excel-august-2025/4437351</li>
+<li>When to Use Copilot in Excel – And When to Skip It（Reworked, 2025）https://www.reworked.co/digital-workplace/when-to-use-copilot-in-excel-and-when-to-skip-it/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

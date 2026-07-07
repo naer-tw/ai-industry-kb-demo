@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VLA模型｜AI產業知識庫</title><meta name="description" content="VLA（Vision-Language-Action，視覺-語言-動作）模型是把多模態基礎模型擴展到「動作」輸出的技術：輸入相機影像與自然語言指令，直接輸出機器人低階控制動作（末端位姿、夾爪、關節速度），讓「會看會說」的大模型變成「會做事」的具身智慧大腦。">
+<meta property="og:title" content="VLA模型"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "VLA模型", "description": "VLA（Vision-Language-Action，視覺-語言-動作）模型是把多模態基礎模型擴展到「動作」輸出的技術：輸入相機影像與自然語言指令，直接輸出機器人低階控制動作（末端位姿、夾爪、關節速度），讓「會看會說」的大模型變成「會做事」的具身智慧大腦。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="vla模型">VLA模型</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>VLA（Vision-Language-Action，視覺-語言-動作）模型是把多模態基礎模型擴展到「動作」輸出的技術：輸入相機影像與自然語言指令，直接輸出機器人低階控制動作（末端位姿、夾爪、關節速度），讓「會看會說」的大模型變成「會做事」的具身智慧大腦。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>起源與命名</strong>：Google DeepMind 於 2023-07-28 發表 RT-2，首次把視覺-語言模型（VLM）轉化為 VLA，奠定此技術範式；RT-2 建構在 PaLI-X 與 PaLM-E 之上。[1][2]</li>
+<li><strong>核心機制——動作 token 化</strong>：RT-2 把機器人動作（6 自由度位姿變化＋夾爪狀態）量化成 256 個離散區間，編碼為「動作字串」，可被標準語言 tokenizer 處理，與生成文字同一套自回歸流程；這使 web 規模知識能遷移到機器人控制。[1][2]</li>
+<li><strong>RT-2 效能</strong>：未見過情境成功率由 RT-1 的 32% 提升至 62%；新興技能（訓練資料外的任務）較基線提升逾 3 倍；Language Table 模擬任務達 90%（基線 72–77%）。[2]</li>
+<li><strong>兩大架構流派</strong>：(1) 自回歸離散 token（RT-2、OpenVLA），訓練簡單但空間精度受限；(2) 連續動作生成（π0 用 flow matching、GR00T 用 diffusion transformer），可在 50 Hz 高頻輸出連續動作、較適合高自由度與靈巧操作。[1][3]</li>
+<li><strong>開源代表 OpenVLA</strong>：Stanford 等 2024-06 發布，7B 參數，訓練於 Open X-Embodiment 約 97 萬條軌跡、涵蓋 22 種機器人形態，多項操作任務優於 RT-2，並支援參數高效微調。[5]</li>
+<li><strong>π0（pi-zero）</strong>：Physical Intelligence 於 2024-10（arXiv 2410.24164）發表，以 PaliGemma（約 3B）為 VLM 骨幹＋conditional flow matching，10,000 小時具身資料，可控制多種機器人並以 50 Hz 輸出。[3]</li>
+<li><strong>雙系統（System 1/2）設計</strong>：Figure AI 的 Helix（2025-02）以 7B VLM 作 System 2 推理、80M 網路作 System 1 高頻控制，單一權重操作數千種新物件。[7]</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>VLA 屬中游「模型與演算法能力」層，是把上游算力（<a href="NVIDIA.html">NVIDIA</a> GPU、訓練叢集）與下游具身硬體（人形/機械臂機器人、自駕車）銜接的關鍵技術接口。它直接奠基於 <a href="Transformer.html">Transformer</a> 架構與 <a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>／VLM 的預訓練成果，把語言模型的世界知識「投射」到物理動作空間，是「physical AI（實體 AI）」與機器人基礎模型（robot foundation model）浪潮的技術核心。對台灣硬體供應鏈而言，VLA 的成熟直接放大人形機器人與邊緣推論晶片的需求。</p>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>大廠全面下場</strong>：Google DeepMind 2025-03 發表 Gemini Robotics（以 Gemini 2.0 加上動作輸出模態），泛化基準平均較其他 SOTA VLA 高逾一倍；後續 2025-06 推出 On-Device 版（本地端執行）、2025-09 推出會「先思考再行動」的 Gemini Robotics 1.5。[8]</li>
+<li><strong>NVIDIA Isaac GR00T N1</strong>（2025-03，arXiv 2503.14734）：宣稱首個開放人形機器人基礎模型，採 System 2（VLM 推理）＋System 1（diffusion transformer 動作生成）雙系統，訓練混合真實示範、網路影片與 Isaac Lab 合成資料，跨 1X Neo、Fourier GR-1 等形態共用權重；後續迭代至 N1.7。[6]</li>
+<li><strong>開放世界泛化</strong>：Physical Intelligence 2025-04 發表 π0.5（arXiv 2504.16054，CoRL 2025 oral），以異質資料 co-training 讓機器人在「從未見過的家庭」執行任務；訓練環境由 3 個增至 104 個家庭時泛化顯著提升，並勝過 GPT-4 規劃器。[4]</li>
+<li><strong>輕量化趨勢</strong>：出現 Hugging Face SmolVLA（450M）等小模型，以及大量視覺 token 剪枝、即時化研究，降低部署門檻。[1]</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>可靠性與安全</strong>：實體動作出錯有物理後果，泛化雖進步但長程、雜亂場景的穩定性與成功率仍未達工業級可靠度（π0.5 等仍以「明顯改善」而非「已解決」描述）。[4]</li>
+<li><strong>資料稀缺</strong>：機器人示範資料遠少於文字/影像，是擴展瓶頸；業界大量倚賴合成資料與人類影片補足，其 sim-to-real 落差仍待驗證。[6]</li>
+<li><strong>架構分歧未收斂</strong>：離散 token 與連續（flow/diffusion）、單模型與雙系統路線並存，尚無公認最佳解，評測基準也不統一，跨論文數字可比性有限。[1]</li>
+<li><strong>評測與宣稱落差</strong>：多為各廠自評基準、缺乏統一第三方 benchmark，部分泛化宣稱（如「逾一倍」「3 倍」）需謹慎對待其測試條件。[8][2]</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="Transformer.html">Transformer</a>：VLA 的底層神經網路骨幹。</li>
+<li><a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>：VLA 由 LLM／VLM 預訓練遷移而來。</li>
+<li><a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>：VLA 是多模態模型加上動作模態，與世界模型的物理理解高度相關。</li>
+<li><a href="Google%20DeepMind.html">Google DeepMind</a>：RT-2 與 Gemini Robotics 的開發者。</li>
+<li><a href="NVIDIA.html">NVIDIA</a>：GR00T 機器人基礎模型與訓練/推論算力供應者。</li>
+<li><a href="Tesla.html">Tesla</a>：Optimus 人形機器人為下游具身應用代表。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Wikipedia, “Vision-language-action model”（持續更新，2026-06 檢索）— https://en.wikipedia.org/wiki/Vision-language-action_model</li>
+<li>Google DeepMind, “RT-2: New model translates vision and language into action”（2023-07-28）— https://deepmind.google/blog/rt-2-new-model-translates-vision-and-language-into-action/</li>
+<li>Black et al., “π0: A Vision-Language-Action Flow Model for General Robot Control”, arXiv:2410.24164（2024-10）— https://arxiv.org/abs/2410.24164</li>
+<li>Physical Intelligence, “π0.5: a VLA Model with Open-World Generalization”, arXiv:2504.16054（2025-04-22, CoRL 2025）— https://arxiv.org/abs/2504.16054</li>
+<li>Kim et al., “OpenVLA: An Open-Source Vision-Language-Action Model”（Stanford, 2024-06）— https://openvla.github.io/</li>
+<li>NVIDIA, “GR00T N1: An Open Foundation Model for Generalist Humanoid Robots”, arXiv:2503.14734（2025-03）— https://arxiv.org/abs/2503.14734</li>
+<li>Figure AI, “Helix: A Vision-Language-Action Model for Generalist Humanoid Control”（2025-02）— https://www.figure.ai/news/helix</li>
+<li>Google DeepMind, “Gemini Robotics”（2025-03 起多版本）— https://deepmind.google/models/gemini-robotics/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

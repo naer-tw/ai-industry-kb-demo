@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>垂直AI-SaaS草稿｜AI產業知識庫</title><meta name="description" content="垂直AI-SaaS草稿
+
+ 一句話定義（這個應用/產品是什麼）
+針對法務、醫療、會計等高合規垂直領域，餵入該領域文件與專業查詢，由 RAG（檢索增強）＋LLM 產出「符合該領域規範、每一論點可回溯到權威來源」的草稿（法律備忘錄/合約紅線、臨床決策摘要/病歷、稅務或審計工作底稿），交由執照專業人士審核後採用。賣">
+<meta property="og:title" content="垂直AI-SaaS草稿"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "垂直AI-SaaS草稿", "description": "垂直AI-SaaS草稿\n\n 一句話定義（這個應用/產品是什麼）\n針對法務、醫療、會計等高合規垂直領域，餵入該領域文件與專業查詢，由 RAG（檢索增強）＋LLM 產出「符合該領域規範、每一論點可回溯到權威來源」的草稿（法律備忘錄/合約紅線、臨床決策摘要/病歷、稅務或審計工作底稿），交由執照專業人士審核後採用。賣", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="垂直ai-saas草稿">垂直AI-SaaS草稿</h1>
+<h2 id="一句話定義這個應用產品是什麼">一句話定義（這個應用/產品是什麼）</h2>
+<p>針對法務、醫療、會計等高合規垂直領域，餵入該領域文件與專業查詢，由 RAG（檢索增強）＋LLM 產出「符合該領域規範、每一論點可回溯到權威來源」的草稿（法律備忘錄/合約紅線、臨床決策摘要/病歷、稅務或審計工作底稿），交由執照專業人士審核後採用。賣點是「可稽核的草稿」（audit-defensible draft），定位為專業人員的助手而非取代簽核責任。</p>
+<h2 id="難度評分綜合-510技術-5落地-6-理由">難度評分（綜合 5/10：技術 5、落地 6）— 理由</h2>
+<ul>
+<li><strong>技術 5</strong>：垂直 RAG 已能在窄域穩定產出可用草稿，部分研究任務首度超越人類基線（Vals 2025-10 法律研究 AI 81% vs 律師 71%[1]）。但「可追溯」是核心難關——即使專用 RAG，Stanford 研究實測 Lexis+ AI 仍 17%、Westlaw 33% 幻覺（含引用錯接、捏造判例）[2]；醫療草稿含幻覺 31%[6]。能寫但「可信到能少人複核」仍未跨越。</li>
+<li><strong>落地 6</strong>：商業已驗證（見實證二），單位經濟亮眼（OpenEvidence 90% 毛利[4]）。但 diff_deploy 高在三道結構性牆：(1) <strong>專業責任</strong>——律師/醫師/會計師對產出負最終法定責任，人不可移除，直接封頂效率收益；(2) <strong>信任/幻覺</strong>——引用可回溯但未必正確，誤接地在法律/醫療尤其危險；(3) <strong>監管/隱私</strong>——HIPAA、律師執業規範、審計準則、多州 AI 揭露義務。技術可做、市場已起飛，但天花板在信任與責任，非演算法。</li>
+<li><strong>綜合 5</strong>：契合量表 5-6 帶「前沿可做、可靠性/成本仍挑戰、部分落地」。已大規模商用故不入 7-8；但通用跨域達標與責任天花板未解故不入 3-4。較 P1 初判 6 微下修至 5（部署證據強於初判）。</li>
+<li><strong>查證重評：技術 5／落地 6／綜合 5</strong>（與原評一致，無分歧）。理由：技術端幻覺 17-43%、醫療 31% 仍迫使逐項複核，屬「能寫但不夠可信以減少複核」＝量表 5；落地端商業與單位經濟極強（Harvey $11B/$300M ARR、OpenEvidence $12B/40% 美國醫師/90% 毛利）但 diff_deploy 受三道結構牆（執照簽核責任不可移除、幻覺信任、HIPAA/執業規範/審計準則）封頂＝6。三軸與原評皆差 0，divergence=false。</li>
+</ul>
+<h2 id="實證一benchmark-或市場數據分數規模日期來源">實證一：Benchmark 或市場數據（分數/規模＋日期＋來源）</h2>
+<ul>
+<li><strong>法律研究（Vals AI, 2025-10-23）</strong>：210 題、9 類研究任務，Counsel Stack 81%、Alexi/ChatGPT 80%、Midpage 79%，皆高於律師基線 71%；法律專用工具來源可靠度（authoritativeness）平均 76% &gt; ChatGPT 70%——專有資料庫＋curated 引用是可追溯性的關鍵差異[1]。</li>
+<li><strong>法律 RAG 可靠度（Stanford, JELS 2025；測 2024-05 工具）</strong>：Lexis+ AI 準確 65%、幻覺 17%；Westlaw AI 準確僅 42%、幻覺 33%；通用 GPT-4 幻覺 43%。證明 RAG 大幅降低但未消除幻覺與引用錯接[2]。</li>
+<li><strong>醫療草稿品質（Frontiers in AI, 2025-10-22）</strong>：AI ambient scribe SOAP 草稿整體品質 4.20 vs 醫師 4.25（5 分制，近平手），完整度勝醫師；但含幻覺比例 AI 31% vs 醫師 20%[6]。</li>
+<li><strong>市場規模</strong>：會計事務所 AI 採用率 2024 年 9% → 2025 年 41%（Wolters Kluwer 2025 Future Ready Accountant 報告[7]）；垂直 AI 市值被 Bessemer 預估可達傳統 SaaS 的 10 倍。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效商業模式">實證二：真實部署/產品案例（誰用、規模、成效、商業模式）</h2>
+<ul>
+<li><strong>法律 — Harvey</strong>：142,000+ 律師、1,500+ 客戶、60+ 國，含 Am Law 100 半數；估值 110 億美元、ARR 約 3 億美元（2026-05 Sacra 估）；每日執行 70 萬+ 任務、25,000+ 自建 agent。商業模式＝企業席位訂閱（per-seat SaaS）[3]。</li>
+<li><strong>醫療 — OpenEvidence</strong>：757,000+ 經驗證醫師、覆蓋全美逾 40% 執業醫師、10,000+ 醫院；月臨床查詢逾 2,000 萬次（一年前約 300 萬）；估值 120 億美元、年化營收約 1.5 億（90% 毛利）；Sutter/Mount Sinai/Cedars-Sinai 嵌入 Epic EHR。模式＝醫藥廣告＋企業授權[4]。</li>
+<li><strong>會計 — Big Four</strong>：EY 在 EY Canvas 全球佈署多代理 agentic AI（年處理 1.4 兆筆分錄、16 萬審計案、目標 2028 端到端覆蓋）[5]；KPMG 2026 夏起部署審計 AI agent 接手例行測試，CTO 稱 2-3 年內（約 2029）例行測試「幾乎無人」、已分手約 10% 美國審計合夥人[8]；PwC 縮減初階稅務/查核招募。共通：自動化由初階「例行測試」端推進，但簽核責任仍在人。</li>
+<li><strong>共通</strong>：皆為「草稿＋專家審核」模式，無人簽核；單位經濟由訂閱/授權支撐，毛利高。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：窄域、標準化任務的可追溯第一遍草稿（法律研究/合約紅線、臨床證據摘要/SOAP、稅務與審計底稿），速度遠勝人工，部分研究任務準確率已超人類基線；引用可回溯到權威來源已是產品標配。</li>
+<li><strong>做不到/受限</strong>：(1) 引用可回溯 ≠ 引用正確——幻覺與誤接地（17-43%/31%）仍需專家逐項核對；(2) 跨域、非標準、客製任務的通用穩定達標；(3) 承擔最終法定責任——律師/醫師/會計師簽核義務使人不可移除；(4) 監管與隱私（HIPAA/執業規範/審計準則/AI 揭露）。瓶頸已從「能不能寫」轉為「可不可信到能減少複核」與「責任歸屬」。</li>
+</ul>
+<h2 id="相關實體連結既有頁">相關實體（<span class="todo" title="待建頁面">連結</span>既有頁）</h2>
+<p><a href="%E6%B3%95%E5%BE%8BAI.html">法律AI</a>、<a href="%E9%86%AB%E7%99%82AI.html">醫療AI</a>、<a href="%E9%87%91%E8%9E%8DAI.html">金融AI</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>LawSites — Vals AI Benchmark Finds Legal and General AI Now Outperform Lawyers（2025-10-23）：https://www.lawnext.com/2025/10/vals-ais-latest-benchmark-finds-legal-and-general-ai-now-outperform-lawyers-in-legal-research-accuracy.html</li>
+<li>Magesh et al. — Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools（J. Empirical Legal Studies 2025；測 2024-05）：https://onlinelibrary.wiley.com/doi/full/10.1111/jels.12413</li>
+<li>Harvey — Raises at $11 Billion Valuation to Scale Agents Across Law Firms（2026）：https://www.harvey.ai/blog/harvey-raises-at-dollar11-billion-valuation-to-scale-agents-across-law-firms-and-enterprises</li>
+<li>Sacra — OpenEvidence revenue, valuation &amp; funding（2026；用戶/查詢/毛利/估值）：https://sacra.com/c/openevidence/</li>
+<li>CPA Practice Advisor — EY Rolls Out Agentic AI in Assurance（2026-04-07；含採用率 9%→41%、Big Four 佈署）：https://www.cpapracticeadvisor.com/2026/04/07/ey-rolls-out-agentic-ai-in-assurance-across-its-global-network-of-accounting-firms/181097/</li>
+<li>Frontiers in AI — Assessing the quality of AI-generated clinical notes（2025-10-22；SOAP 草稿品質與幻覺）：https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1691499/full</li>
+<li>Wolters Kluwer — 2025 Future Ready Accountant Report（會計事務所 AI 採用率 9%→41%）：https://www.wolterskluwer.com/en/news/wolters-kluwer-releases-its-2025-future-ready-accountant-report</li>
+<li>Going Concern — KPMG Plans to Hand Routine Testing Off to AI（2026；夏季部署 agent、2-3 年例行測試近乎無人、合夥人縮編）：https://www.goingconcern.com/kpmg-plans-to-hand-routine-testing-off-to-ai/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

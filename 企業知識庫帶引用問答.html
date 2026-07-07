@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>企業知識庫帶引用問答｜AI產業知識庫</title><meta name="description" content="企業知識庫帶引用問答
+
+ 一句話定義（這個可交付物是什麼）
+給一座企業私有知識庫（文件/工單/Wiki/資料表）與一個自然語言問題，系統用 RAG 檢索相關段落、生成答案，並對每個論點附上「可點擊回原文」的引用；同時用 citation precision（引用是否真支持該句）與 groundedness（答">
+<meta property="og:title" content="企業知識庫帶引用問答"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "企業知識庫帶引用問答", "description": "企業知識庫帶引用問答\n\n 一句話定義（這個可交付物是什麼）\n給一座企業私有知識庫（文件/工單/Wiki/資料表）與一個自然語言問題，系統用 RAG 檢索相關段落、生成答案，並對每個論點附上「可點擊回原文」的引用；同時用 citation precision（引用是否真支持該句）與 groundedness（答", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="企業知識庫帶引用問答">企業知識庫帶引用問答</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給一座企業私有知識庫（文件/工單/Wiki/資料表）與一個自然語言問題，系統用 RAG 檢索相關段落、生成答案，並對每個論點附上「可點擊回原文」的引用；同時用 citation precision（引用是否真支持該句）與 groundedness（答案是否全部來自檢索內容、無臆造）兩項指標量測可信度。</p>
+<h2 id="難度評分綜合-510技術-4落地-6-理由">難度評分（綜合 5/10：技術 4、落地 6）— 理由</h2>
+<ul>
+<li><strong>技術 4（前沿可做、benchmark 已成熟）</strong>：RAG＋引用是工程上成熟的 pattern，向量檢索＋LLM 生成＋引用標註都有現成框架。前沿模型在受控 grounding benchmark 上表現良好（FACTS Grounding 70%+ 級），生成「帶引用的答案」本身不是難題。扣分主因：groundedness/citation precision 並非 100%，長文件、跨段綜合、結構化識別碼（錯誤碼、版本號）場景下仍會掉。</li>
+<li><strong>落地 6（可靠性是主要瓶頸）</strong>：真實生產系統的 misgrounding/幻覺率遠高於 benchmark——Stanford 測得法律 RAG 商用系統錯誤率 17–33%（見實證二）。引用「存在」不等於引用「正確」：引用可能指錯段、或答案實際未被該引用支持。企業場景需人工把關、審計軌跡、權限隔離，落地成本與信任門檻高，故落地分數高於技術分數。</li>
+<li><strong>綜合判定 5</strong>：屬「前沿可做、已部分落地，但可靠性/成本仍是挑戰」的 5–6 區間下緣。P1 初判 5 維持。</li>
+<li><strong>查證重評：5/4/6（無分歧）</strong>——獨立比對錨定量表（§4.1）：本任務本質＝量表 5–6 級之「契約審查」同類問題（前沿可做、部分落地、可靠性/成本仍為挑戰）；Glean/Perplexity Enterprise 已規模化商用（壓向成熟端），但法律 RAG 生產系統 17–33% 錯誤率＋自動幻覺偵測 &lt;78% 準確率＋需人工把關，使其無法降到 3–4。技術面 RAG＋引用為成熟 pattern、frontier 模型 FACTS Grounding 約七成（diff_tech 4）；落地面以生產可靠性為瓶頸（diff_deploy 6）。三分與原評一致，差 0 分，無分歧。（2026-06-26 查證）</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>FACTS Grounding（Google DeepMind，2024/12 發布）</strong>：測 LLM 對「提供的長文件」生成完全 grounded 答案的能力，1,719 題（860 公開＋859 私有）。Gemini 3 Pro Grounding 子項 69.0±2.1、Gemini 2.5 Pro 74.2±2.0（數字經 2025/12 新版 FACTS Leaderboard 論文 Table 1 交叉確認，arXiv 2512.10791）。判讀：頂尖模型在「給定上下文回答」約七成完全合格，仍有約三成未完全 grounded。注意 Gemini 3 Pro 在 Grounding 子項（69.0）反低於 Gemini 2.5 Pro（74.2），顯示新一代模型 grounding 並非單調進步。[來源1][來源2][來源7]
+<ul>
+<li><strong>2025/12/09 更新</strong>：DeepMind 推出 <strong>FACTS Benchmark Suite</strong>（四項：Parametric／Search／Multimodal／Grounding v2），原 FACTS Grounding 升級為 Grounding v2 併入套件；四項平均之綜合 FACTS Score 中 Gemini 3 Pro 68.8、Gemini 2.5 Pro 62.1、GPT-5 61.8。上方 Grounding 子項分數仍為現行有效值。[來源7]</li>
+</ul></li>
+<li><strong>Vectara 幻覺排行榜（HHEM-2.3，2025 末更新「難版」資料集，&gt;7,700 篇、文件達 32k token）</strong>：摘要任務幻覺率——主流前沿模型中 Gemini-2.5-flash-lite 3.3% 最低（Gemini-2.5-Pro 7.0%、DeepSeek-R1 11.3%、Claude Sonnet 4.5 12.0%、GPT-5 8.4–15.1%、Grok-4 ~20%）；榜首為小型微調模型 antgroup/finix_s1_32b 1.8%。多數前沿模型在難版 &gt;10%。舊版（簡單）資料集則 Gemini-2.0-Flash 0.7%、GPT-4o 1.5%。判讀：難度上升後 groundedness 顯著退化，跨領域長文件是壓力點。[來源3]</li>
+<li><strong>RAGTruth / FaithBench / FACTS 系列（2024–2025）</strong>：幻覺「偵測」仍困難，零樣本偵測 balanced accuracy 普遍 &lt;78%、F1-macro &lt;72%。代表「自動量測 groundedness」這件事本身也未完全可靠。[來源5]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Glean（企業搜尋＋RAG，2025）</strong>：跨工具企業知識問答，2025/06 完成 1.5 億美元 F 輪、估值 72 億美元；Sacra 估 2025 年 ARR 約 2.08 億美元、年增 89%。代表帶引用的企業知識問答已是規模化商用產品。[來源4 衍生]</li>
+<li><strong>Perplexity Enterprise</strong>：以「來源透明＋可點擊引用」為賣點，被分析師/顧問/知識團隊採用，主打事實準確優先。屬已商品化的帶引用問答。[來源4 衍生]</li>
+<li><strong>法律 RAG 商用系統（Stanford RegLab/HAI，2024 同儕審查研究，&gt;200 題預註冊）</strong>：Lexis+ AI 錯誤或 misgrounded &gt;17%、準確率僅 65%；Westlaw AI-Assisted Research 幻覺率約 33%、準確率僅 42%。即「附引用」的旗艦商用系統，每 3–6 題仍有 1 題答錯或引用失據。這是落地可靠性的關鍵警訊。[來源4]</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：對單一/少量文件、答案點明確時，生成帶可點擊引用的答案，並以 RAGAS/HHEM/FACTS-judge 等自動量測 groundedness 與 citation 覆蓋率；已有規模化商用產品。</li>
+<li><strong>做不到/不穩</strong>：(1) 長文件、跨多段綜合、需精確結構化識別碼時 groundedness 掉到 70% 級或更低；(2) 「有引用」≠「引用正確支持該句」，citation precision 需另測且非滿分；(3) 自動幻覺偵測本身準確率 &lt;80%，無法當唯一守門；(4) 高風險領域（法律/醫療/金融）生產錯誤率 17–33%，仍須人工複核。整體屬「可用但需人工把關」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>、<a href="%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB.html">向量資料庫</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="AI%E6%90%9C%E5%B0%8B.html">AI搜尋</a>、<a href="%E6%B3%95%E5%BE%8BAI.html">法律AI</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Google DeepMind, “FACTS Grounding: A new benchmark…” — https://deepmind.google/blog/facts-grounding-a-new-benchmark-for-evaluating-the-factuality-of-large-language-models/</li>
+<li>The FACTS Grounding Leaderboard (arXiv 2501.03200) — https://arxiv.org/pdf/2501.03200</li>
+<li>Vectara Hallucination Leaderboard (HHEM-2.3) — https://github.com/vectara/hallucination-leaderboard</li>
+<li>Stanford HAI/RegLab, “AI on Trial: Legal Models Hallucinate in 1 out of 6…” — https://hai.stanford.edu/news/ai-trial-legal-models-hallucinate-1-out-6-or-more-benchmarking-queries</li>
+<li>“Benchmarking LLM Faithfulness in RAG with Evolving Leaderboards” (arXiv 2505.04847) — https://arxiv.org/html/2505.04847v2</li>
+<li>Glean 企業 RAG（Series F 1.5億美元/估值72億美元，2025/06/10；ARR/年增引自 Sacra 估算）— https://www.glean.com/blog/glean-series-f-announcement ; https://sacra.com/c/glean/</li>
+<li>The FACTS Leaderboard: A Comprehensive Benchmark（2025/12，含 Grounding 子項 Table 1 與 FACTS Benchmark Suite）— https://arxiv.org/abs/2512.10791 ; https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

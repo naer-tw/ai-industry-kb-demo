@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>多鏡頭敘事影片｜AI產業知識庫</title><meta name="description" content="多鏡頭敘事影片
+
+ 一句話定義（這個可交付物是什麼）
+給定一份劇本或分鏡，模型輸出一段「2 分鐘以上」、由多個鏡頭組成的敘事影片，且必須同時滿足三項硬條件：(1) 主要角色跨場景外貌/服裝/身份一致；(2) 情節因果連貫；(3) 場景內物件狀態不漂移（例如已開的門不會自己關、桌上的杯子數量不變）。重點不是單鏡">
+<meta property="og:title" content="多鏡頭敘事影片"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "多鏡頭敘事影片", "description": "多鏡頭敘事影片\n\n 一句話定義（這個可交付物是什麼）\n給定一份劇本或分鏡，模型輸出一段「2 分鐘以上」、由多個鏡頭組成的敘事影片，且必須同時滿足三項硬條件：(1) 主要角色跨場景外貌/服裝/身份一致；(2) 情節因果連貫；(3) 場景內物件狀態不漂移（例如已開的門不會自己關、桌上的杯子數量不變）。重點不是單鏡", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="多鏡頭敘事影片">多鏡頭敘事影片</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定一份劇本或分鏡，模型輸出一段「2 分鐘以上」、由多個鏡頭組成的敘事影片，且必須同時滿足三項硬條件：(1) 主要角色跨場景外貌/服裝/身份一致；(2) 情節因果連貫；(3) 場景內物件狀態不漂移（例如已開的門不會自己關、桌上的杯子數量不變）。重點不是單鏡頭好不好看，而是「長度 ∩ 跨鏡頭一致性 ∩ 連續性」三者同時成立——這是把影片生成從「片段」推向「電影級敘事」的門檻。</p>
+<h2 id="難度評分綜合-810技術-8落地-7-理由">難度評分（綜合 8/10：技術 8、落地 7）— 理由</h2>
+<ul>
+<li><strong>技術 8</strong>：兩大瓶頸相乘。(a) 長度：旗艦商用模型單次生成上限仍只有 15–25 秒（Sora 2 標準 15s／Pro 25s[6]；Kling 3.0 為 15s）[5]，2 分鐘必須靠多段拼接，無單次直出 2 分鐘的可靠產品。(b) 跨鏡頭一致性：EntityBench(2026-05) 最佳方法 EntityMem「角色身份正確率」僅 <strong>0.406</strong>、臉部保真 0.740[1]；偏差會「跨鏡頭累積」，鏡頭越多漂移越嚴重。MuSS(2026-04) 直指現有 baseline「無法維持連續敘事邏輯，退化成貼圖式 2D 複製」[3]；OneStory(2025-12) 亦稱長敘事連貫「仍是開放問題」[4]。技術面命中錨定「7–8 實驗室/早期、可靠性低」。</li>
+<li><strong>落地 7（非 8–9）</strong>：與「物理可驗證長影片」不同，本任務的核心元件<strong>已商品化出貨</strong>——Kling 3.0 Omni(2026-02 發表) 內建 6 鏡頭 storyboard、角色臉/服裝/聲音跨鏡頭鎖定[5]；Sora 2 加入 storyboard 逐格編劇[6]。即多鏡頭、角色一致已是付費可用的產品功能，廣告/社群/分鏡片已實際採用。但「2 分鐘＋零狀態漂移」這個確切規格仍需人工把關與多段重生、無零漂移保證，故落地給 7（前沿可做、部分落地、可靠性仍挑戰），非完全未解。</li>
+<li><strong>綜合 8</strong>：可交付物 = 2 分鐘 ∩ 多鏡頭角色一致 ∩ 情節連貫 ∩ 無物件漂移。元件已落地但完整規格需人工修補、benchmark 顯示一致性遠未飽和，落在「實驗室/早期、可靠性低或落地障礙大」與「前沿可做、部分落地」之交界，取 8。</li>
+<li><strong>與 P1 初判(8) 一致</strong>：證據支持綜合 8；技術 8、落地較技術略低(7) 反映元件已商用但完整規格不可信賴。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>EntityBench</strong>(arXiv:2605.15199, 2026-05)：140 集、2,491 鏡頭、三難度（hard 單集達 50 鏡頭、實體再現間隔達 33.5 鏡頭）；51 項指標、含「保真閘」避免靜態錯誤渲染灌水。最佳方法 EntityMem：角色出現率 0.967、臉部保真 <strong>0.740</strong>、<strong>角色身份正確率僅 0.406</strong>、跨鏡頭轉場一致性 0.738[1]。身份正確率 &lt;0.5 顯示「同一角色跨鏡頭」仍未可靠。</li>
+<li><strong>MSVBench</strong>(arXiv:2602.23969, 2026-02)：人類對齊 94.4% Spearman；評 20 種方法，四維度（視覺品質/故事對齊/影片一致性/動作品質）。總分 AniSora 3.2=<strong>7.90</strong> &gt; Wan2.2-TI2V=7.50 &gt; Sora 2=<strong>6.67</strong> &gt; Veo 3.1=<strong>5.60</strong>[2]；「商用模型定義 SOTA」，但跨鏡頭角色身份/服裝穩定仍為主要失分項。</li>
+<li><strong>MuSS / Cinematic Narrative Benchmark</strong>(arXiv:2604.23789, 2026-04)：雙軌（敘事有效性＋主體一致性），含 ACP-Var 反「貼圖複製」指標。最佳：文本對齊 0.2359、場景邏輯 <strong>3.84/5</strong>、選角邏輯 <strong>3.96/5</strong>、ACP-Var 0.8827[3]；明言 baseline「退化成貼圖式生成」。</li>
+<li>補：OneStory(arXiv:2512.07802, 2025-12) 以 adaptive memory 延長多鏡頭連貫，但承認長敘事連貫「仍是領域開放問題」[4]。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Kling 3.0 Omni</strong>(快手, 2026-02-05 發表)：原生 4K/60fps、6 鏡頭 storyboard、跨鏡頭鎖定角色臉/姿態/服裝/聲音、原生對嘴；可上傳參考片自動綁定角色外觀與音色。明列可用於廣告、社群、客戶案、商業製作[5]。<strong>但單次上限 15 秒、約 2–6 鏡頭</strong>，2 分鐘需多段串接。</li>
+<li><strong>OpenAI Sora 2 Storyboard</strong>：逐格/逐場景編劇工具，可描述場景＋選時長自動生成可編輯分鏡並拼接多場景；單段標準 15s、Pro 25s[6]。</li>
+<li><strong>規模</strong>：影片生成載體本身已爆量（Sora App 上線 &lt;5 天破百萬下載；Google Flow 累計逾 2 億支，見<a href="%E7%89%A9%E7%90%86%E4%B8%80%E8%87%B4%E9%95%B7%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">物理一致長影片生成</a>）。多鏡頭/角色一致功能搭載其上、付費可用。</li>
+<li><strong>結論</strong>：多鏡頭＋角色一致＝已商用功能、有真實採用；但「2 分鐘以上、單片內零狀態漂移、全自動無人工把關」之完整規格<strong>尚無零漂移保證的規模化部署</strong>，實務靠多段重生與人工剪接補齊。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li>做得到：15–25 秒內、2–6 鏡頭、主角外貌大致一致的敘事片段（產品級可用，需人挑選/重生）；以參考圖/影鎖定單一主角身份；簡單轉場與對嘴。</li>
+<li>做不到：(1) 單次直出 2 分鐘以上多鏡頭片；(2) 鏡頭數多（&gt;10）時角色身份不累積漂移（EntityBench 身份正確率 0.41）；(3) 跨多場景的嚴格情節因果連貫（MuSS 退化成貼圖）；(4) 物件狀態在長片內穩定不漂移；(5) 全自動、零人工把關達成上述規格。本質瓶頸：長度上限、記憶/一致性隨鏡頭數衰減、缺乏可驗證的連續性約束。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="AI%E5%BD%B1%E5%83%8F%E8%88%87%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">AI影像與影片生成</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>、<a href="%E7%89%A9%E7%90%86%E4%B8%80%E8%87%B4%E9%95%B7%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">物理一致長影片生成</a>、<a href="OpenAI.html">OpenAI</a>、<a href="Google%20DeepMind.html">Google DeepMind</a>、<a href="%E5%AD%97%E7%AF%80%E8%B7%B3%E5%8B%95.html">字節跳動</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation (arXiv:2605.15199v1, 2026-05) — https://arxiv.org/html/2605.15199v1</li>
+<li>MSVBench: Towards Human-Level Evaluation of Multi-Shot Video Generation (arXiv:2602.23969v1, 2026-02) — https://arxiv.org/html/2602.23969v1</li>
+<li>MuSS: A Large-Scale Dataset and Cinematic Narrative Benchmark for Multi-Shot Subject-to-Video Generation (arXiv:2604.23789v1, 2026-04) — https://arxiv.org/html/2604.23789v1</li>
+<li>OneStory: Coherent Multi-Shot Video Generation with Adaptive Memory (arXiv:2512.07802, 2025-12) — https://arxiv.org/pdf/2512.07802</li>
+<li>Kling 3.0 Omni User Guide / Multi-Shot Storyboard(快手, 2026-02) — https://kling.ai/quickstart/klingai-video-3-omni-model-user-guide ；另見 https://wavespeed.ai/blog/posts/kling-3-0-omni-explained/</li>
+<li>OpenAI Adds Longer Clips and Storyboarding to Sora 2(eWeek, 2026) — https://www.eweek.com/openai/openai-adds-longer-clips-sora-2/ ；時長另見 https://www.glbgpt.com/hub/how-long-are-sora-2-videos/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

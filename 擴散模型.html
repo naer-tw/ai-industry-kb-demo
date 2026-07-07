@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>擴散模型｜AI產業知識庫</title><meta name="description" content="擴散模型（Diffusion Model）是一種生成式 AI 技術：訓練時對乾淨資料「逐步加噪」直到變成純高斯噪聲（前向過程），再學會把這個過程反轉、從噪聲「逐步去噪」還原出資料（反向過程）；推論時即從隨機噪聲出發、經多步去噪生成全新樣本。它是當前影像、影片、3D 與音訊生成的主流底層技術，與「逐 token">
+<meta property="og:title" content="擴散模型"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "擴散模型", "description": "擴散模型（Diffusion Model）是一種生成式 AI 技術：訓練時對乾淨資料「逐步加噪」直到變成純高斯噪聲（前向過程），再學會把這個過程反轉、從噪聲「逐步去噪」還原出資料（反向過程）；推論時即從隨機噪聲出發、經多步去噪生成全新樣本。它是當前影像、影片、3D 與音訊生成的主流底層技術，與「逐 token", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="擴散模型">擴散模型</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>擴散模型（Diffusion Model）是一種生成式 AI 技術：訓練時對乾淨資料「逐步加噪」直到變成純高斯噪聲（前向過程），再學會把這個過程反轉、從噪聲「逐步去噪」還原出資料（反向過程）；推論時即從隨機噪聲出發、經多步去噪生成全新樣本。它是當前影像、影片、3D 與音訊生成的主流底層技術，與「逐 token 順序生成」的自回歸（autoregressive）路線形成兩大生成範式。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>起源代表論文《Denoising Diffusion Probabilistic Models》（DDPM）由 Jonathan Ho、Ajay Jain、Pieter Abbeel（UC Berkeley）於 2020 年 6 月發表（NeurIPS 2020）；其核心貢獻是建立「擴散模型 ↔︎ 去噪分數匹配（denoising score matching）＋ Langevin 動力學」的連結，並推導出可簡單訓練的「噪聲預測」目標函數。（arXiv:2006.11239，2020）</li>
+<li>DDPM 成績：無條件 CIFAR-10 取得 Inception Score 9.46、FID 3.17（當時 SOTA）；256×256 LSUN 樣本品質可比擬 ProgressiveGAN。（arXiv:2006.11239，2020）</li>
+<li>思想源頭更早：Sohl-Dickstein 等人 2015 年《Deep Unsupervised Learning using Nonequilibrium Thermodynamics》已提出以非平衡熱力學為靈感的擴散式生成框架，DDPM 是其工程化突破。（arXiv:1503.03585，2015）</li>
+<li>關鍵效率突破——潛在擴散（Latent Diffusion, LDM）：Rombach 等人 2022 年提出「在預訓練自編碼器（VAE）的低維潛在空間做擴散」，而非直接在像素空間運算，大幅降低訓練算力（先前像素級擴散需數百 GPU 天），並以 cross-attention 引入文字等條件控制。此即 Stable Diffusion 的基礎。（arXiv:2112.10752，CVPR 2022）</li>
+<li>架構演進——DiT：Peebles 與 Xie 2022 年《Scalable Diffusion Models with Transformers》以 <a href="Transformer.html">Transformer</a> 取代傳統的 U-Net 去噪骨幹（即 Diffusion Transformer, DiT），證明擴散模型同樣享有 Transformer 的規模化（scaling）優勢；此架構後為 Sora、Stable Diffusion 3、FLUX 等採用。（arXiv:2212.09748，2022）</li>
+<li>核心限制——多步取樣：原始 DDPM 生成單一樣本需數百至上千步去噪，速度遠慢於 GAN；後續 DDIM、改良取樣器與蒸餾（distillation）將步數壓到數十步甚至個位數。（arXiv:2102.09672 改良 DDPM，2021；多方資料）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li>層級定位：屬 AI 產業「中游」的模型架構／演算法能力，與 <a href="Transformer.html">Transformer</a> 並列為兩大生成底層技術；向下承接上游算力（GPU、HBM），向上支撐影像、影片、3D、音訊等下游生成應用。</li>
+<li>與 Transformer 的關係：兩者非互斥——現代主流影片／影像生成多採「DiT」即「以 Transformer 為去噪骨幹的擴散模型」，可同時吃到擴散的迭代精修與 Transformer 的規模化。</li>
+<li>對上游的牽引：多步去噪與高解析度生成推升推論算力與記憶體需求；影片生成（需建模時間維度）對 GPU 與頻寬的壓力尤甚，是 <a href="NVIDIA.html">NVIDIA</a> 等算力需求的重要來源之一。</li>
+<li>生態定位：開源權重（Stable Diffusion、FLUX 系列）養成龐大微調（LoRA／ControlNet）社群，是生成式視覺產業的事實標準骨幹。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>影片生成成主戰場：OpenAI Sora（2024 公布）採 DiT 架構、將影片視為時空 patch 序列；Sora 2 於 2025 年 9 月 30 日發布，可生成含同步音訊（對白／音效）的影片。（多方報導，2024–2025）（註：Sora 2 確切規格以官方為準，部分外媒數字「資料未證實」）</li>
+<li>開源／商用模型迭代：Black Forest Labs（Stable Diffusion 原班人馬創立）的 FLUX.1 為 11.9B 參數的 Transformer 式（DiT）模型；FLUX.1 Kontext（2025-05-29，主打 in-context 編輯）、FLUX.2 系列（2025-11-25，含 Apache 2.0 授權的 Klein）相繼推出。（Wikipedia/Flux，2025）</li>
+<li>成為產業基準：MLCommons 於 MLPerf Training v5.1（2025-10）以 FLUX.1 取代舊版 Stable Diffusion，作為新的文生圖訓練基準，反映 DiT 式擴散已是代表性工作負載。（MLCommons，2025）</li>
+<li>擴散「跨界」語言生成：Google DeepMind 推出實驗性文字擴散模型 Gemini Diffusion，以「精修噪聲」而非逐 token 生成，官方示範約 1479 tokens/秒，並在 HumanEval 89.6%、MBPP 76.0% 等程式基準與較大模型相當。（DeepMind，2025）</li>
+<li>與自回歸的競合：2024–2025 出現「自回歸追平擴散」的研究（如 LlamaGen《Autoregressive Model Beats Diffusion》），視覺生成兩條路線差距縮小，並興起 AR＋擴散的混合法。（arXiv:2406.06525，2024）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li>取樣速度與成本：多步迭代是結構性慢點，雖經 DDIM／蒸餾／一致性模型（consistency models）大幅改善，但「步數—品質—速度」三者權衡仍是核心攻關方向。（多方資料，2024–2025）</li>
+<li>路線之爭未定：在語言領域，自回歸仍主導；在視覺領域，擴散仍領先但自回歸快速逼近，「哪種範式終將勝出或如何融合」截至 2026 年屬開放問題、「資料未證實」。</li>
+<li>智財與安全爭議：以網路圖像大規模訓練引發版權訴訟，且文生圖／影片是 deepfake 與不實內容的主要技術來源，伴隨水印、來源溯源（provenance）等監管壓力。（多方資料，2023–2025）</li>
+<li>評估指標滯後：FID／IS 等傳統指標對最新模型的鑑別力下降，業界轉向人類偏好排行（如 Artificial Analysis 競技場），但客觀標準化仍不足。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="Transformer.html">Transformer</a>：現代擴散模型（DiT）以其為去噪骨幹，兩大技術在影片／影像生成上深度融合。</li>
+<li><a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>：另一以自回歸為主的生成範式；擴散正反向「跨界」挑戰文字生成（如 Gemini Diffusion）。</li>
+<li><a href="NVIDIA.html">NVIDIA</a>：擴散（尤其影片生成）多步去噪與高解析度運算的主要算力與硬體來源。</li>
+<li><a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>：影片擴散模型常被視為「世界模型／物理模擬」的雛形，是該方向的關鍵技術載體。</li>
+<li><a href="Midjourney.html">Midjourney</a>：以擴散技術為核心的代表性商用文生圖服務。</li>
+<li><a href="Runway.html">Runway</a>：以擴散技術為核心的代表性 AI 影片生成公司。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Ho, Jain, Abbeel, 《Denoising Diffusion Probabilistic Models》(DDPM), NeurIPS 2020 — https://arxiv.org/abs/2006.11239</li>
+<li>Rombach et al., 《High-Resolution Image Synthesis with Latent Diffusion Models》(Stable Diffusion 基礎), CVPR 2022 — https://arxiv.org/abs/2112.10752</li>
+<li>Sohl-Dickstein et al., 《Deep Unsupervised Learning using Nonequilibrium Thermodynamics》(擴散思想源頭), 2015 — https://arxiv.org/abs/1503.03585</li>
+<li>Nichol &amp; Dhariwal, 《Improved Denoising Diffusion Probabilistic Models》, 2021 — https://arxiv.org/abs/2102.09672</li>
+<li>Peebles &amp; Xie, 《Scalable Diffusion Models with Transformers》(DiT), 2022 — https://arxiv.org/abs/2212.09748</li>
+<li>Sun et al., 《Autoregressive Model Beats Diffusion: Llama for Scalable Image Generation》(LlamaGen), 2024 — https://arxiv.org/abs/2406.06525</li>
+<li>Google DeepMind, 《Gemini Diffusion》(實驗性文字擴散模型), 2025 — https://deepmind.google/models/gemini-diffusion/</li>
+<li>Wikipedia, 《Flux (text-to-image model)》(FLUX 參數與發布時程), 2025 — https://en.wikipedia.org/wiki/Flux_(text-to-image_model)</li>
+<li>MLCommons, 《MLPerf Training Introduces Flux.1 Text-to-Image Benchmark》, 2025 — https://mlcommons.org/2025/10/training-flux1/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

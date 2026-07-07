@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>社群行銷單圖｜AI產業知識庫</title><meta name="description" content="社群行銷單圖
+
+ 一句話定義（這個可交付物是什麼）
+給定一句自然語言描述（提示詞），模型自動產出一張解析度 1024px 以上、主體清楚、構圖合理、色彩與留白可直接用於社群貼文（IG/FB/X）或行銷素材（橫幅、廣告底圖、活動主視覺）的單張圖像。可用性的關鍵不只是「畫得出來」，而是：構圖是否合理（主體置中/三">
+<meta property="og:title" content="社群行銷單圖"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "社群行銷單圖", "description": "社群行銷單圖\n\n 一句話定義（這個可交付物是什麼）\n給定一句自然語言描述（提示詞），模型自動產出一張解析度 1024px 以上、主體清楚、構圖合理、色彩與留白可直接用於社群貼文（IG/FB/X）或行銷素材（橫幅、廣告底圖、活動主視覺）的單張圖像。可用性的關鍵不只是「畫得出來」，而是：構圖是否合理（主體置中/三", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="社群行銷單圖">社群行銷單圖</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定一句自然語言描述（提示詞），模型自動產出一張解析度 1024px 以上、主體清楚、構圖合理、色彩與留白可直接用於社群貼文（IG/FB/X）或行銷素材（橫幅、廣告底圖、活動主視覺）的單張圖像。可用性的關鍵不只是「畫得出來」，而是：構圖是否合理（主體置中/三分、不歪斜、不殘肢多指）、解析度與長寬比是否符合平台規格、有無可商用授權、以及（若需要）圖內文字是否清晰可讀。本頁聚焦「單張靜態圖、文字輸入、開箱即用級品質」，不含品牌一致性批量生成（屬企業流程）與影片。</p>
+<h2 id="難度評分綜合-310技術-2落地-3-理由引-benchmark-與部署">難度評分（綜合 3/10：技術 2、落地 3）— 理由(引 benchmark 與部署)</h2>
+<ul>
+<li><strong>技術成熟度 2（成熟）</strong>：文生圖是當前 AI 最成熟的多模態能力之一。前沿模型在語意對齊（GenEval）與長提示構圖（DPG-Bench 85.5 SOTA, 2025）已接近飽和；1024px 早是基準起點，Seedream 4/4.5 等可原生輸出 2K/4K（最高 4096×4096）。1024px+「構圖合理」對主流商用模型屬常規輸出而非挑戰。</li>
+<li><strong>落地難度 3（可用、量產，但需人工挑選與把關）</strong>：核心難點不在「能不能生成」而在可靠性長尾——同一提示需生成數張再挑（first-shot 可用率非 100%）、複雜場景仍偶見肢體/手指錯誤、圖內長段文字仍易拼錯（Seedream 4.5 等已大幅改善小字與重複問題，但長句仍非 100%）。此外授權合規（Firefly 主打商用安全訓練資料）是行銷量產的真實門檻。但這些屬「挑選/微調」而非「重做」，且已有 Firefly、Midjourney、Canva、DALL·E、Seedream 等大規模低成本服務量產。</li>
+<li><strong>綜合判定 3</strong>：已大規模商品化、可靠、廉價，僅可靠性長尾與圖內文字/合規需人工把關 → 落在量表 3「可用但需人工把關、已有產品」。較 P1 初判 2 上修 1：純技術值 2，但「構圖合理、可直接用於行銷」這個交付標準把挑圖、文字錯誤、商用授權的人工把關計入，綜合定 3 較貼合實況。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>DPG-Bench（長提示複雜構圖，1,065 條長提示、5 維度，越高越好）</strong>：Skywork UniPic（2025）創 85.5 新高；NextStep-1 達 85.28；Qwen-Image 在屬性/構圖類提示取得 DPG 最高分。顯示「依長描述產出構圖一致圖像」已達高水準。[1][2]</li>
+<li><strong>GenEval（語意對齊，553 條短提示、6 維度如物件計數/顏色/位置，0–1 越高越好）</strong>：開源 Qwen-Image 技術報告載其達 SOTA 級（約 0.87），前沿閉源模型多在 0.85–0.90 區間；這是「畫對了使用者要的東西」的核心指標。[3]</li>
+<li><strong>人類盲測 Arena（Artificial Analysis Text-to-Image ELO，真人兩兩偏好投票，持續更新）</strong>：截至 2026-06，榜首為 GPT Image 2 (high)（ELO 1338），其後 MAI-Image-2.5（1275）、HiDream-O1-Image-1.5（1264）、GPT Image 1.5 (high)（1263）、Nano Banana 2 / Gemini 3.1 Flash Image Preview（1255）；Nano Banana Pro（Gemini 3 Pro Image）約 1223、Seedream 5 約 1147。多家模型同處可用高位、ELO 差距收斂，印證能力已商品化。[1]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>市場規模</strong>：全球 AI 影像生成市場 2026 估值約 124 億美元；逾 1.5 億人每月使用文生圖工具，每日產出約 8,000 萬張圖像。屬大規模日常化部署。[5]</li>
+<li><strong>Adobe Firefly（行銷主力）</strong>：至 2025-04 累計生成 220 億張素材；在 AI 設計工具約 29% 市佔（領先 Midjourney 19%、Canva AI 16%、DALL·E 14%）；財星 500 大設計團隊採用率約 72%；行銷代理商採用率約 63%、電商品牌 58%。[6]</li>
+<li><strong>品牌實案</strong>：可口可樂與 Adobe 共創 Project Fizzion / Firefly Design Intelligence，跨 Coke/Sprite/Smartwater/BodyArmor 套用 StyleID 自動產出數百個在地化合規變體，內容產製速度宣稱快至 10 倍；Mattel 用 Firefly 3 加速數千款玩具包裝設計與點子視覺化。顯示「文字描述→可用行銷圖」已進入頭部品牌量產流程。[4]</li>
+<li><strong>成效與限制並存</strong>：54% 財星 500 行銷團隊已在部分活動使用 AI 生成圖；但頭部品牌多搭配品牌規則引擎＋人工終審以控制構圖/文字/合規，印證落地仍含人工把關環節。[6]</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：一句話 → 數秒內產出 1024px～4K、構圖合理、風格多元（攝影/插畫/3D/扁平）的單張圖，主體清晰、可指定長寬比與平台規格，已商品化、低成本、可自架（FLUX/Qwen-Image/SD 開源）。</li>
+<li><strong>仍需人工/吃力</strong>：(1) first-shot 可用率非 100%，量產常需生成多張再挑；(2) 複雜場景偶見手指/肢體/物件數量錯誤；(3) 圖內長段文字仍會拼錯或排版亂（短標題已大幅改善）；(4) 精準品牌一致性、特定產品外觀、合規授權需流程與終審把關。</li>
+<li><strong>本質瓶頸</strong>：生成本身已近解，瓶頸在「可控與可靠」——讓每一張都精確命中構圖、文字、品牌規格而免挑免修。對「直接可用、零人工」的嚴格行銷品質仍非 100% 自動，這是它停在量表 3 而非 1–2 的主因。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="AI%E5%BD%B1%E5%83%8F%E8%88%87%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">AI影像與影片生成</a>、<a href="%E6%93%B4%E6%95%A3%E6%A8%A1%E5%9E%8B.html">擴散模型</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Midjourney.html">Midjourney</a>、<a href="Stability%20AI.html">Stability AI</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Artificial Analysis — Text-to-Image Leaderboard（人類盲測 ELO 與綜合 bench）— https://artificialanalysis.ai/image/leaderboard/text-to-image</li>
+<li>DPG-Bench Complex Generation Record（Skywork UniPic 85.5 等）— https://www.emergentmind.com/topics/dpg-bench-complex-generation-record</li>
+<li>Qwen-Image Technical Report（GenEval/DPG SOTA）— https://arxiv.org/pdf/2508.02324</li>
+<li>The Coca-Cola Company refreshes the world with next-level personalization（Project Fizzion / Firefly）— https://business.adobe.com/blog/the-coca-cola-company-refreshes-the-world-with-next-level-personalization</li>
+<li>AI Image Generation Statistics 2026: 80 Million Per Day（市場規模/用量）— https://imagera.ai/blog/ai-image-generation-statistics-2026</li>
+<li>Adobe Firefly Statistics（市佔/企業採用/行銷採用）— https://electroiq.com/stats/adobe-firefly-statistics/</li>
+<li>Seedream 4.5 Complete Guide 2026（原生 2K/4K 與圖內文字）— https://wavespeed.ai/blog/posts/seedream-4-5-complete-guide-2026/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

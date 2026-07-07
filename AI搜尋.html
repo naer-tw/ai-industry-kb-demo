@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI搜尋｜AI產業知識庫</title><meta name="description" content="AI 搜尋（AI Search / Generative Search）是把大型語言模型與即時檢索結合，直接生成「附引用的答案」而非「十條藍色連結」的下游應用，代表形態包含 Google AI Overviews 與 AI Mode、ChatGPT search、以及原生 answer engine Perp">
+<meta property="og:title" content="AI搜尋"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "AI搜尋", "description": "AI 搜尋（AI Search / Generative Search）是把大型語言模型與即時檢索結合，直接生成「附引用的答案」而非「十條藍色連結」的下游應用，代表形態包含 Google AI Overviews 與 AI Mode、ChatGPT search、以及原生 answer engine Perp", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>市場/應用</span></header>
+<main><article><h1 id="ai搜尋">AI搜尋</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>AI 搜尋（AI Search / Generative Search）是把大型語言模型與即時檢索結合，直接生成「附引用的答案」而非「十條藍色連結」的下游應用，代表形態包含 Google AI Overviews 與 AI Mode、ChatGPT search、以及原生 answer engine Perplexity；其技術底層多為 <a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>，是 2024–2026 對傳統搜尋商業模式與開放網路流量衝擊最劇烈的應用層戰場。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>市場規模（狹義 AI 搜尋引擎）：Grand View Research 估 2024 年約 162.8 億美元，預測 2033 年達 508.8 億美元（CAGR 13.6%）；Business Research Insights 另估 2024 年 152 億 → 2033 年 416 億美元（CAGR 11.2%）。[來源 1, 2]（2025）</li>
+<li>區域與結構：北美 2024 年占最大營收份額 31.1%；大型企業客群占 63.1%；NLP 為最大技術區隔。[來源 1]（2024）</li>
+<li>Google AI Overviews：2025/7 月活躍用戶達 20 億（2025/5 為 15 億，單季增 5 億），涵蓋 200 國（來源 3 未列具體語言數，早期 2024 I/O 曾稱逾 40 語言）；Pichai 於 2025/7/23 法說會宣布。[來源 3, 4]（2025/7）</li>
+<li>Google AI Mode（對話式搜尋）：2025/7 月活躍用戶逾 1 億（美國與印度）；AI Overviews 使相關查詢量增加逾 10%。[來源 3]（2025/7）</li>
+<li>ChatGPT：週活躍用戶約 9 億（2026/2 OpenAI 公布，由 2025/4 的 8 億再增）、每日處理逾 25 億則 prompt（2025/7 數據），占全球數位查詢量約 17.9%（Google 約 77.0%；First Page Sage 2026 Q2 估計），為二十年來首次有對手在搜尋級流量取得雙位數份額。[來源 8]（2026）</li>
+<li>Perplexity：2025/9 完成 2 億美元募資、估值 200 億美元；累計募資逾 15 億美元，投資人含 <a href="NVIDIA.html">NVIDIA</a>、SoftBank、Jeff Bezos。[來源 6, 7]（2025/9）</li>
+<li>Perplexity 用量與營收：2025 年中月活躍用戶約 4,500 萬（年初約 2,200 萬，增逾一倍）；2025/5 單月查詢 7.8 億次；ARR 由 2024 年底約 8,000 萬 → 2025 年約 1.48 億美元。[來源 7]（2025）</li>
+<li>對傳統搜尋衝擊（Pew 實證）：分析 900 名美國成人、68,879 次查詢（資料 2025/3）；出現 AI 摘要時用戶點擊傳統連結比例僅 8%，無摘要時為 15%（近乎減半）；僅 1% 會點 AI 摘要內的來源連結。[來源 5]（2025/7）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li>位置：屬最下游「應用／介面層」。Perplexity 等純應用商不自訓基礎模型，而是調用上游 <a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="Anthropic.html">Anthropic</a> 等模型 API，疊加即時網路檢索（<a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>）封裝成 answer engine。</li>
+<li>角色：是基礎模型「面向消費者」最大的變現出海口與分發入口，也是 RAG／引用接地（grounding）技術最成規模的商用驗證場；正催生新興行銷學科 GEO（Generative Engine Optimization），即 SEO 的 AI 搜尋版。</li>
+<li>結構張力：垂直整合者（Google 用自家 <a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、Microsoft 用 <a href="OpenAI.html">OpenAI</a>）對純應用商（Perplexity）形成模型成本與分發雙重擠壓；同時各家爭奪上游內容授權，與新聞出版業形成「資料來源 vs. 流量掠奪」的對立。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>Google 由守轉攻：AI Overviews 自 2023/5 推出後快速全球化，2024/5 美國全面開放；2025 推出對話式 AI Mode，2026 I/O 將 Gemini 深度嵌入搜尋並加入可代為行動的 AI agent，稱為「25 年來搜尋框最大升級」。[來源 3, 11]</li>
+<li>競爭格局重整：ChatGPT 取得約 17.9% 全球查詢份額，打破 Google 近壟斷；但 AI 聊天機器人類別內，ChatGPT 流量份額一年內由約 86.7% 降至約 61.8%（2025 Q2→2026 Q2，年減 24.9 個百分點），<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a> 為最大挑戰者（同期由約 5.7% 升至 13.1%）。[來源 8]</li>
+<li>Perplexity 火箭成長：用戶一年內翻倍至 4,500 萬、估值衝上 200 億美元，並推出付費訂閱、Comet 瀏覽器與企業版，試圖跳出純搜尋框。[來源 6, 7]</li>
+<li>內容授權與訴訟並行：一方面 OpenAI、Perplexity 與多家媒體簽授權與分潤協議；另一方面 News Corp 旗下 Dow Jones、紐約郵報 2024/10 控告 Perplexity「大規模非法複製」與幻覺誤植。[來源 9]</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li>開放網路流量崩塌（最大風險）：零點擊搜尋由 2024/5 約 56% 升至 2025/5 約 69%；NPR 引述出版業稱 Google AI 搜尋為「滅絕級事件」；新聞網站自然流量由 2024 年中月 23 億次降至 2025/5 不足 17 億次。[來源 5, 10]</li>
+<li>幻覺與引用可信度：AI 摘要會生成錯誤或誤植來源的內容（如將不實引述歸給特定媒體），既是法律風險也侵蝕用戶信任，是 answer engine 取代搜尋的核心障礙。[來源 9]</li>
+<li>純應用商護城河存疑：Google／Microsoft 垂直整合（自有模型＋分發），Perplexity 須外購模型且面臨被巨頭功能複製，獲利路徑與長期定位仍待驗證。[來源 8]</li>
+<li>商業模式未成形：傳統搜尋廣告（每年數千億美元）建立在連結點擊；AI 答案直接終結點擊，廣告如何嵌入答案、如何向被引用內容付費（pay-per-crawl／分潤）皆在實驗中，是否撐得起市場規模存疑。[來源 1, 5]</li>
+<li>反壟斷與監管：Google 反壟斷訴訟文件被引用顯示 AI Overviews 重創出版商點擊，AI 搜尋的市場集中度與資料使用恐引來更多監管。[來源 10]</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li>玩家：<a href="OpenAI.html">OpenAI</a>（ChatGPT search／<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>）、<a href="Perplexity.html">Perplexity</a>（原生 answer engine）、<a href="Google%20DeepMind.html">Google DeepMind</a>（AI Overviews／AI Mode／<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>）、<a href="Microsoft.html">Microsoft</a>（Copilot／Bing，採 <a href="OpenAI.html">OpenAI</a> 模型）、<a href="Anthropic.html">Anthropic</a>（Claude 內建網路檢索）</li>
+<li>技術：<a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>（引用接地核心）、<a href="AI%20Agent%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96.html">AI Agent與自動化</a>（搜尋 agent 化）</li>
+<li>鄰近市場：<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>（企業內部搜尋／知識檢索）</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Grand View Research — AI Search Engine Market Report：https://www.grandviewresearch.com/industry-analysis/ai-search-engine-market-report</li>
+<li>Business Research Insights — AI Search Engines Market 2025–2033：https://www.businessresearchinsights.com/market-reports/ai-search-engines-market-121601</li>
+<li>TechCrunch — Google’s AI Overviews have 2B monthly users, AI Mode 100M (2025/7/23)：https://techcrunch.com/2025/07/23/googles-ai-overviews-have-2b-monthly-users-ai-mode-100m-in-the-us-and-india/</li>
+<li>Digiday — Google’s AI Overviews reach over 2 billion monthly users：https://digiday.com/media/googles-ai-overviews-reach-over-2-billion-monthly-users/</li>
+<li>Pew Research Center — Google users less likely to click when AI summary appears (2025/7/22)：https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/</li>
+<li>TechCrunch — Perplexity reportedly raised $200M at $20B valuation (2025/9/10)：https://techcrunch.com/2025/09/10/perplexity-reportedly-raised-200m-at-20b-valuation/</li>
+<li>DemandSage — Perplexity AI Statistics 2026（彙整 TechCrunch／SimilarWeb／Reuters）：https://www.demandsage.com/perplexity-ai-statistics/</li>
+<li>First Page Sage — Google vs ChatGPT Market Share 2026 Report：https://firstpagesage.com/seo-blog/google-vs-chatgpt-market-share-report/</li>
+<li>CNBC — Murdoch firms Dow Jones and NY Post sue Perplexity AI (2024/10/21)：https://www.cnbc.com/2024/10/21/murdoch-firms-dow-jones-and-new-york-post-sue-perplexity-ai.html</li>
+<li>NPR — Online news publishers face ‘extinction-level event’ from Google AI search (2025/7/31)：https://www.npr.org/2025/07/31/nx-s1-5484118/google-ai-overview-online-publishers</li>
+<li>Google Blog — Search I/O 2026 updates: AI agents and more：https://blog.google/products-and-platforms/products/search/search-io-2026/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

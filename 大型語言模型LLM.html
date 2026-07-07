@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>大型語言模型LLM｜AI產業知識庫</title><meta name="description" content="大型語言模型（Large Language Model, LLM）是以 Transformer 架構為底層、用海量文本「預測下一個 token」目標訓練出的超大型神經網路；當參數量與訓練資料規模擴大到一定門檻後，模型「湧現」出問答、翻譯、寫程式、推理等通用語言能力，成為當今生成式 AI（ChatGPT、Cla">
+<meta property="og:title" content="大型語言模型LLM"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "大型語言模型LLM", "description": "大型語言模型（Large Language Model, LLM）是以 Transformer 架構為底層、用海量文本「預測下一個 token」目標訓練出的超大型神經網路；當參數量與訓練資料規模擴大到一定門檻後，模型「湧現」出問答、翻譯、寫程式、推理等通用語言能力，成為當今生成式 AI（ChatGPT、Cla", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="大型語言模型llm">大型語言模型LLM</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>大型語言模型（Large Language Model, LLM）是以 <a href="Transformer.html">Transformer</a> 架構為底層、用海量文本「預測下一個 token」目標訓練出的超大型神經網路；當參數量與訓練資料規模擴大到一定門檻後，模型「湧現」出問答、翻譯、寫程式、推理等通用語言能力，成為當今生成式 AI（ChatGPT、Claude、Gemini 等）的核心引擎與 AI 產業中游最關鍵的「能力載體」。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>解決什麼問題：LLM 把「理解與生成自然語言」變成單一可擴展模型即可處理的通用任務（問答、摘要、翻譯、寫程式、Agent 工具調用），取代過去需逐項任務單獨建模的做法。（多方綜述，2025）</li>
+<li>起源論文：架構源自 Google 團隊《Attention Is All You Need》（Vaswani 等 8 人，2017 年 6 月，NeurIPS 2017），確立完全以注意力機制取代遞迴／卷積的 <a href="Transformer.html">Transformer</a>。（arXiv:1706.03762，2017）</li>
+<li>「對齊」起源論文：OpenAI《Training Language Models to Follow Instructions with Human Feedback》（Ouyang 等，2022，即 InstructGPT）確立「SFT → 獎勵模型 → PPO 強化學習」的 RLHF 三階段；論文指出 1.3B 的 InstructGPT 在人類偏好上「勝過」175B 的 GPT-3，且事實錯誤與毒性更低。（arXiv:2203.02155，2022）</li>
+<li>三段式訓練流程：①預訓練（pretraining，在數兆 token 上自監督學「預測下一字」）→ ②監督微調（SFT，學會跟隨指令）→ ③RLHF／RLAIF（用人類或 AI 偏好對齊回答風格與安全）。（arXiv:2203.02155，2022；多方綜述，2025）</li>
+<li>訓練成本量級：前沿模型訓練成本已達數千萬至數億美元等級；GPT-4 預估約 5,000 萬–1 億美元。（arXiv:2511.12869，2025；多方綜述，2025）</li>
+<li>上下文視窗：旗艦模型上下文已普遍達 100 萬 token 等級——Claude Sonnet 4 於 2025/08 升級至 1M token、Gemini 2.5 Pro 達 1M（部分達 2M）；惟並非全部，OpenAI GPT-5 為 40 萬 token。可一次處理整本書或大型程式庫。（simonwillison.net 年度回顧，2025；Anthropic／多方報導，2025）</li>
+<li>市場規模：LLM 市場 2025 年約 77.7 億美元，預估 2035 年達約 1,498.9 億美元（2026–2035 CAGR 約 34.44%）。（Precedence Research，2025）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li>層級定位：屬 AI 產業「中游」。LLM 是「模型能力」本身——向下吃上游算力（<a href="NVIDIA.html">NVIDIA</a> GPU、HBM、資料中心），向上被下游應用（聊天助理、Copilot、Agent、企業 SaaS）封裝成產品。</li>
+<li>對上游的牽引：LLM 的參數規模與 <a href="Transformer.html">Transformer</a> 二次方注意力，是 GPU、HBM、先進封裝需求暴增的根本演算法驅動力；訓練與推論皆為上游算力最大買主。</li>
+<li>與下游的關係：LLM 多以 API 或開源權重對外輸出，下游再以 <a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>、工具調用、微調等方式接上私有資料與業務場景。</li>
+<li>效率技術依附：為壓低訓練與服務成本，LLM 大量採用 <a href="MoE%E6%B7%B7%E5%90%88%E5%B0%88%E5%AE%B6.html">MoE混合專家</a>（稀疏啟動）與 <a href="%E6%8E%A8%E8%AB%96%E5%84%AA%E5%8C%96.html">推論優化</a>（量化、KV cache、批次化）等中游技術。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>前沿三強格局：2025 年底至 2026 年，OpenAI（GPT-5 系列）、Google（Gemini 3 系列）、Anthropic（Claude 4.x 系列）為三大旗艦陣營，並出現專攻「思考／推理模式」的競爭軸線。（simonwillison.net 年度回顧，2025；多方報導，2025–2026）</li>
+<li>企業市占翻轉：企業 LLM API 支出由 2024/11 的約 35 億美元增至 2025 年中的約 84 億美元；市占 Anthropic 32%、OpenAI 25%（自 2023 年 50% 下滑）、Google 20%、Meta Llama 9%、DeepSeek 1%。（Menlo Ventures，2025/07/31）</li>
+<li>推論超越訓練：算力支出重心由「訓練」轉向「線上推論」——新創 74% 工作負載已是推論（一年前 48%）。（Menlo Ventures，2025/07/31）</li>
+<li>開源權重低成本衝擊：DeepSeek-V3 技術報告載明「完整訓練」（含預訓練 2,664K＋脈絡延伸 119K＋後訓練 5K）共約 278.8 萬 H800 GPU 小時，按每小時 2 美元租金估約 557.6 萬美元；逼近閉源前沿，R1 推理模型開源並對標 OpenAI o1。（DeepSeek-V3 Technical Report, arXiv:2412.19437，2024；BentoML，2025）（註：此數字僅計官方訓練之 GPU 租用成本，不含先前研究、架構消融與資料實驗，總投入估遠高於此，屬爭議數字）</li>
+<li>推理模型成主流：GPT-5、Gemini 3 Pro Deep Think、Claude Opus 4.x、DeepSeek-R1 等「會先思考再回答」的模型，在 GPQA、AIME、SWE-bench 等高難度評測大幅領先非推理模型。（多方綜述，2025–2026）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li>幻覺（hallucination）難根除：研究指出幻覺反映 LLM「內在的計算與統計極限」，現有架構、規模或最佳化皆無法完全消除，只能緩解。（arXiv:2511.12869，2025；Frontiers in AI，2025）</li>
+<li>成本與能耗天花板：前沿訓練成本達數億美元級，且推論規模化把負擔轉向「服務端」算力與能源，能耗與營運成本成為擴展路徑能否持續的關鍵限制。（arXiv:2511.12869，2025）</li>
+<li>資料瓶頸：高品質人類文本已近抓取殆盡；若主要以 AI 生成資料訓練，模型品質會退化（model collapse 風險）。（多方綜述，2025）</li>
+<li>架構是否觸頂的辯論：2025–2026 出現「純擴大 LLM 是否已邊際遞減、下一代是否需新架構」的討論，惟尚無定論，屬「資料未證實」之開放問題。（Medium 評論等，2026）</li>
+<li>品牌不保市占：OpenAI 企業市占自 50% 跌至 25%，顯示「真實工作負載一旦上線，品牌無法守住份額」，競爭由效能與成本主導。（Menlo Ventures，2025）</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="Transformer.html">Transformer</a>：LLM 的底層神經網路架構，所有主流 LLM 皆建於其上。</li>
+<li><a href="OpenAI.html">OpenAI</a>：以 GPT 系列與 InstructGPT/RLHF 流程定義現代對齊型 LLM 的代表廠商。</li>
+<li><a href="NVIDIA.html">NVIDIA</a>：LLM 訓練與推論的主要算力（GPU）供應者，是上游關鍵依賴。</li>
+<li><a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>：下游為 LLM 補上即時／私有知識、抑制幻覺的主要技術。</li>
+<li><a href="MoE%E6%B7%B7%E5%90%88%E5%B0%88%E5%AE%B6.html">MoE混合專家</a>：以稀疏啟動降低 LLM 訓練與推論成本的關鍵架構技術。</li>
+<li><a href="%E6%8E%A8%E8%AB%96%E5%84%AA%E5%8C%96.html">推論優化</a>：使 LLM 在服務端更快、更省的部署層技術（量化、KV cache 等）。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Vaswani et al., 《Attention Is All You Need》（Transformer 起源）, 2017 — https://arxiv.org/abs/1706.03762</li>
+<li>Ouyang et al., 《Training Language Models to Follow Instructions with Human Feedback》（InstructGPT/RLHF）, 2022 — https://arxiv.org/abs/2203.02155</li>
+<li>Menlo Ventures, 《2025 Mid-Year LLM Market Update》（企業市占、支出、推論超越訓練）, 2025/07/31 — https://menlovc.com/perspective/2025-mid-year-llm-market-update/</li>
+<li>Precedence Research, 《Large Language Model Market》（市場規模與 CAGR）, 2025 — https://www.precedenceresearch.com/large-language-model-market</li>
+<li>Simon Willison, 《2025: The year in LLMs》（旗艦格局、上下文視窗）, 2025/12/31 — https://simonwillison.net/2025/Dec/31/the-year-in-llms/</li>
+<li>BentoML, 《The Complete Guide to DeepSeek Models: V3, R1, V4 and Beyond》（DeepSeek 成本與開源衝擊）, 2025 — https://www.bentoml.com/blog/the-complete-guide-to-deepseek-models-from-v3-to-r1-and-beyond</li>
+<li>《On the Fundamental Limits of LLMs at Scale》（幻覺、成本、能耗等根本極限）, 2025 — https://arxiv.org/pdf/2511.12869</li>
+<li>DeepSeek-AI, 《DeepSeek-V3 Technical Report》（2.788M H800 GPU 小時為「完整訓練」之原始出處）, 2024 — https://arxiv.org/abs/2412.19437</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

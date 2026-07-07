@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L5全天候自駕｜AI產業知識庫</title><meta name="description" content="L5全天候自駕
+
+ 一句話定義（這個可交付物是什麼）
+把車丟到任何一條「沒事先高精地圖測繪」的道路，在雪、夜間、暴雨濃霧、道路施工等全天候條件下，全程無地理圍欄（geofence）、無遠端人類接管或協助，車輛自主完成載人駕駛，且嚴重事故率不高於人類駕駛——即 SAE 定義的真正 L5（ODD 等同於一般人類駕">
+<meta property="og:title" content="L5全天候自駕"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "L5全天候自駕", "description": "L5全天候自駕\n\n 一句話定義（這個可交付物是什麼）\n把車丟到任何一條「沒事先高精地圖測繪」的道路，在雪、夜間、暴雨濃霧、道路施工等全天候條件下，全程無地理圍欄（geofence）、無遠端人類接管或協助，車輛自主完成載人駕駛，且嚴重事故率不高於人類駕駛——即 SAE 定義的真正 L5（ODD 等同於一般人類駕", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="l5全天候自駕">L5全天候自駕</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>把車丟到任何一條「沒事先高精地圖測繪」的道路，在雪、夜間、暴雨濃霧、道路施工等全天候條件下，全程無地理圍欄（geofence）、無遠端人類接管或協助，車輛自主完成載人駕駛，且嚴重事故率不高於人類駕駛——即 SAE 定義的真正 L5（ODD 等同於一般人類駕駛、任何地點任何條件）。這是自駕的「聖杯」終局，與今日已商業化的 L4 地理圍欄 Robotaxi 有結構性差距。</p>
+<h2 id="難度評分綜合-910技術-9落地-9-理由">難度評分（綜合 9/10：技術 9、落地 9）— 理由</h2>
+<ul>
+<li><strong>技術 9</strong>：截至 2026/06 全球無任何系統達成 L5，亦無任何車獲 L5 認證（PatentPC、Safe Self Drive 2026）。最強的 Waymo 仍依賴高精地圖、地理圍欄、且在 edge case 時呼叫遠端「fleet response」人類給高階指引（雖非接管），與「未測繪道路+無遠端協助」的契約條件直接相違（thelastdriverlicenseholder、Koopman 2026）。核心障礙是 long-tail edge case：罕見不可預測場景近乎無限，AI 缺乏人類常識難以可靠處理（Safe Self Drive 2026）。</li>
+<li><strong>落地 9</strong>：今日所有無人服務（Waymo 數千輛、Tesla 無監督 Robotaxi 約 20 輛）皆在限定城市、限定天候、限定圍欄內運行（即便 Tesla 2026/06 把 Austin 圍欄擴到整個都會，仍是圍欄）。把契約四要素（任意未測繪路 × 全天候 × 無圍欄 × 無遠端）同時滿足，目前零部署。</li>
+<li><strong>為何不給 10</strong>：「嚴重事故率不高於人類」這個安全門檻，在 Waymo 的受限 ODD 內已被實證跨越（2026Q1 達 -94% 更少嚴重事故，A 級證據），證明該安全標準在受控域可達；缺口純在「泛化到無圍欄全天候未測繪路」。故判 9（早期/未解但非完全不可想像），高於 P1 初判 10。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>Waymo 安全對標研究</strong>：累計 56.7M 純無人（rider-only）里程，相對同路段人類基準，嚴重傷亡以上事故顯著降低；經 <em>Traffic Injury Prevention</em> 同儕審查（Waymo et al., 2025/05）。</li>
+<li><strong>Waymo Safety Impact（2026Q1 live hub，累計 220.6M 無人里程；中途里程碑：2026/03/19 達 170.7M）</strong>：嚴重/致命傷害事故 <strong>減少 94%</strong>（170.7M 里程碑時為 92%）；任何傷害事故 <strong>減少 82%</strong>；行人傷害 <strong>-93%</strong>、單車 <strong>-84%</strong>、機車 <strong>-84%</strong>；安全氣囊啟動事故 <strong>-82%</strong>（任一車）/ <strong>-95%</strong>（限 Waymo 車）（Waymo Safety Impact hub;Waymo 170M update 2026/03）。〔2025/09 舊數據為 127.16M 里程、嚴重 -90% / 任何 -81%，已被本次更新取代〕</li>
+<li><strong>關鍵 caveat（直接打到本契約）</strong>：上述全在 Phoenix/SF/LA/Austin 四個地理圍欄市區、以地面道路為主，<strong>未涵蓋未測繪道路與全天候</strong>；研究本身註明結果不適用於未部署地區與 ODD 外 edge case（Fifth Level Consulting 2026）。</li>
+<li><strong>L5 達成率</strong>：=0 家、0 認證車（2026/06；PatentPC、Safe Self Drive）。針對「未測繪路+全天候+無圍欄+無遠端」此一複合條件，目前無任何公開 benchmark 可宣稱通過。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Waymo（最接近者，仍非 L5）</strong>：車隊規模數千輛、每週超 400 萬里、營運於 SF、LA、Phoenix、Austin、Atlanta、Miami（2026 初 Miami 上線，並擴向 Nashville/Washington/Detroit 等）；皆地理圍欄 L4。天候上已能行駛雨、霧、沙塵、低溫，並在 Detroit/Denver/D.C. 擴雪地營運、於上紐約州/密西根上半島/Sierra 測雪數萬英里；但官方明言會「依當地條件設清楚的營運啟停準則」，即仍有天候停駛閾值（Waymo all-weather blog 2025/10）。仍使用美國與菲律賓的遠端人類做 edge case 高階協助（Koopman 2026）——違反「無遠端協助」要件。</li>
+<li><strong>Tesla</strong>：無監督 Robotaxi 在 Austin/Houston/Dallas 運行、車內無安全員，但車隊規模小（2026/06 約 20 輛在營運、累計峰值約 25 輛）。2026/06/03 把 Austin 服務區擴到整個都會（約 245 平方英里）——範圍變大但<strong>仍是地理圍欄</strong>，Houston/Dallas 圍欄更小（約 12–35 平方英里）。消費車版無監督 FSD 一再延期，官方把激進擴張押在 FSD v15 改寫（參數約 10 億→100 億）後的 2026 末/2027 初（Electrek 2026/04、2026/06；Teslarati 2026）——仍非無圍欄、非未測繪路。</li>
+<li><strong>整體</strong>：對「任意未測繪道路 × 全天候 × 無圍欄 × 無遠端接管」此契約，<strong>尚無任何規模化部署</strong>，亦無任何小規模商用案例。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：在事先高精測繪、有地理圍欄、可呼叫遠端高階協助、且天候在閾值內的限定 ODD，AI 已能達到「比人類更安全」（Waymo A 級實證）。雪/雨/霧/夜間的部分子場景也在逐步攻克。</li>
+<li><strong>做不到</strong>：脫離高精地圖到任意未測繪路、跨越天候停駛閾值（重雪/極端惡劣）、完全切斷遠端人類協助、且維持安全率——四者同時成立。產業共識已從「近期里程碑」改判為「數十年目標」，部分專家甚至質疑 L5 是否必要（多數需求 L4 限定域即可滿足）（Safe Self Drive、Torc 2026）。</li>
+<li><strong>瓶頸</strong>：long-tail edge case 的泛化推理（接近 <a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a> 與具身常識問題）、惡劣天候下感測器可靠性、以及無接管下的故障安全（fail-operational）設計。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B.html">自動駕駛</a>、<a href="Tesla.html">Tesla</a>、<span class="todo" title="待建頁面">Waymo</span>、<a href="NVIDIA.html">NVIDIA</a>、<a href="VLA%E6%A8%A1%E5%9E%8B.html">VLA模型</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>、<a href="AI%20Agent%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96.html">AI Agent與自動化</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Waymo Safety Impact live hub（220.6M 無人里程，嚴重事故 -94%；2026Q1 截取）https://waymo.com/safety/impact/ 1b. Waymo, Safety Impact update at 170M miles（2026/03/19，嚴重 -92%）https://waymo.com/blog/shorts/waymo-safety-impact-update-170m/</li>
+<li>Fifth Level Consulting, 2026 Waymo Safety Impact Compared with Human Drivers https://fifthlevelconsulting.com/waymo-safety-impact/</li>
+<li>Traffic Injury Prevention, Comparison of Waymo Rider-Only crash rates at 56.7M miles（2025/05）https://www.tandfonline.com/doi/full/10.1080/15389588.2025.2499887</li>
+<li>Waymo, Creating an all-weather Driver（2025/10）https://waymo.com/blog/2025/10/creating-an-all-weather-driver/</li>
+<li>The Last Driver License Holder, Are Waymos Remote Controlled or Not?（2026/02）https://thelastdriverlicenseholder.com/2026/02/09/are-waymos-remote-controlled-or-not-the-answer-is-no/</li>
+<li>Phil Koopman, Waymo Tap-Dances about Remote Drivers（2026）https://philkoopman.substack.com/p/waymo-tap-dances-about-remote-drivers</li>
+<li>Electrek, Musk pushes unsupervised FSD for consumer Teslas, Q4 delay again（2026/04/22）https://electrek.co/2026/04/22/tesla-elon-musk-unsupervised-fsd-consumer-cars-q4-delay-again/ 7b. Electrek, Tesla Robotaxi expands to entire Austin metro — still only ~20 vehicles（2026/06/03）https://electrek.co/2026/06/03/tesla-robotaxi-expands-entire-austin-metro-only-20-vehicles/</li>
+<li>Safe Self Drive, The 6 Levels of Autonomous Driving Explained 2026 Edition https://safeselfdrive.org/blog/levels-of-autonomous-driving-2026/</li>
+<li>PatentPC, Level 5 Autonomy: How Close Are We?（Latest Stats）https://patentpc.com/blog/level-5-autonomy-how-close-are-we-to-fully-self-driving-cars-latest-industry-stats</li>
+<li>Torc.ai, Why Level 5 Autonomy is Science Fiction vs Science Fact https://torc.ai/why-level-5-autonomy-is-science-fiction-vs-science-fact/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

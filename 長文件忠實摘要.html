@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>長文件忠實摘要｜AI產業知識庫</title><meta name="description" content="長文件忠實摘要
+
+ 一句話定義（這個可交付物是什麼）
+給定一份數萬字、最長達 ~32K token 的長文件（年報、研究報告、冗長合約），AI 產出忠於原文的摘要；事後事實核對顯示既無「關鍵幻覺」（捏造原文沒有的事實），也無「關鍵遺漏」（漏掉決定性條款/結論）。相較於已商品化成熟的 短文摘要，本任務的難">
+<meta property="og:title" content="長文件忠實摘要"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "長文件忠實摘要", "description": "長文件忠實摘要\n\n 一句話定義（這個可交付物是什麼）\n給定一份數萬字、最長達 ~32K token 的長文件（年報、研究報告、冗長合約），AI 產出忠於原文的摘要；事後事實核對顯示既無「關鍵幻覺」（捏造原文沒有的事實），也無「關鍵遺漏」（漏掉決定性條款/結論）。相較於已商品化成熟的 短文摘要，本任務的難", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="長文件忠實摘要">長文件忠實摘要</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定一份數萬字、最長達 ~32K token 的長文件（年報、研究報告、冗長合約），AI 產出忠於原文的摘要；事後事實核對顯示既無「關鍵幻覺」（捏造原文沒有的事實），也無「關鍵遺漏」（漏掉決定性條款/結論）。相較於已商品化成熟的 <a href="%E7%9F%AD%E6%96%87%E6%91%98%E8%A6%81.html">短文摘要</a>，本任務的難點全在「長上下文＋忠實度」：文本越長，模型越容易在後半段失真、漏掉散落各處的關鍵細節，故屬接地式摘要中明顯更難、可靠性仍未解的子類。</p>
+<h2 id="難度評分綜合-510技術-5落地-6-理由引-benchmark-與部署">難度評分（綜合 5/10：技術 5、落地 6）— 理由（引 benchmark 與部署）</h2>
+<ul>
+<li><strong>技術 5（前沿可做、可靠性隨長度退化）</strong>：短文摘要技術已成熟（量表 1–2），但拉長到數萬字後忠實度顯著下滑。NoLiMa（ICML 2025）顯示 GPT-4o 在 32K token 的有效檢索由 99.3% 降至 69.7%，11 個模型跌破其短文基線的一半；Vectara 難版榜（≤32K token）多數前沿模型幻覺率 &gt;10%，且「文章越長幻覺率越高」為明確趨勢。長文摘要不是新 pattern，但「保證無關鍵幻覺與遺漏」在最壞情況仍做不到，故技術給 5 而非短文的 2。</li>
+<li><strong>落地 6（可靠性／信任是主要瓶頸）</strong>：合約／報告場景已規模化商用（Harvey 逾 10 萬律師、1,300 組織；CoCounsel、Spellbook 等），但高準確率多來自「條款抽取」而非「整份忠實摘要」；GPT-4 在 ~64K token 後不準確度上升，重度協商的長合約正是 AI 最易出錯處，人工複核為硬性要求。可靠性與信任門檻使落地高於技術分。</li>
+<li><strong>綜合 5</strong>：屬量表「5–6：前沿可做、部分落地、可靠性/成本仍挑戰」。P1 初判 6 下修為 5——短文端已解、部署真實規模化（壓向成熟端），但長文忠實度的可靠性缺口使其無法降到 3–4。</li>
+<li><strong>與鄰頁定位</strong>：明顯難於 <a href="%E7%9F%AD%E6%96%87%E6%91%98%E8%A6%81.html">短文摘要</a>（2），略低於 <a href="%E4%BC%81%E6%A5%AD%E7%9F%A5%E8%AD%98%E5%BA%AB%E5%B8%B6%E5%BC%95%E7%94%A8%E5%95%8F%E7%AD%94.html">企業知識庫帶引用問答</a>（5，含跨庫檢索與引用精準度的額外負擔），三者構成「短→長→帶引用」的難度梯度。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>Vectara 次世代幻覺榜（HHEM-2.3，2025-11-19，來源1/2）</strong>：資料集擴至 7,700+ 篇、最長 32K token，橫跨法律/醫療/金融/科技/教育等十類，HHEM&lt;0.5 判為幻覺。難版上頂尖為小型專用模型（Gemini-2.5-flash-lite 3.3%、Mistral-large／DeepSeek-v3.2／IBM Granite-4 約 4–5%）；但多數推理型前沿模型 &gt;10%（Gemini-3-Pro 13.6%、Claude Sonnet 4.5／GPT-5／Grok-4／DeepSeek-R1 皆 &gt;10%）。官方明確結論：高複雜度（長）文章幻覺率「一致地高於」低複雜度文章——直接對應本契約的長文件設定。</li>
+<li><strong>NoLiMa 長上下文榜（ICML 2025，來源4）</strong>：以「需語意推理、非字面比對」測有效上下文。32K token 時 11 個模型跌破短文基線一半；即使表現最佳的 GPT-4o 也由 99.3% 降至 69.7%。判讀：宣稱支援 128K+ 的模型，實際「可靠提取散落關鍵細節」的有效長度遠短於此——這正是長文摘要「關鍵遺漏」的根源。</li>
+<li><strong>長文摘要幻覺定位研究（arXiv 2505.15291，v3 2026-01-13，來源3）</strong>：實證幻覺「不平均分布」，而是集中於長輸出的後半段（positional hallucination），並研究針對結尾段落的緩解方法。對應 NotebookLM 用戶回報「長文後半被略過、摘要失真」的現象（來源6 同類）。</li>
+<li><strong>合約理解對照（來源5）</strong>：CUAD 上 Ivo 報 97% 抽取準確率、Kira 宣稱 M&amp;A/不動產/金融 90%+、LawGeex 經典基準 AI 94% vs 律師均 85%。注意：此為「條款抽取/分類」而非「整份忠實摘要」，故不能直接套用為本任務分數，僅佐證合約 AI 已具商用準確度基礎。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Harvey（法律專業服務，來源6 衍生）</strong>：稱逾 100,000 名律師、1,300+ 組織使用，擅長合約摘要與關鍵資訊抽取；2025 年與 A&amp;O Shearman 推出可自主處理反壟斷申報分析、貸款文件審查的 agent；DLA Piper 於 2026-03 擴至 5,000 席。屬規模化商用部署。</li>
+<li><strong>Spellbook／CoCounsel（來源5）</strong>：Spellbook 可摘要冗長文件、合規檢查、分類；CoCounsel 等列為 2026 法律文件分析主力工具。長合約/長文件摘要為標配功能。</li>
+<li><strong>NotebookLM Enterprise（Google Cloud，2025）</strong>：免費版可處理至 50 來源、每源 50 萬字，企業版含 VPC 資料隔離、可選資料駐留地。但用戶社群回報音訊摘要對「極長文件」常截斷上下文、導致後半「幻覺式摘要」——印證長文後半失真的落地邊界。</li>
+<li><strong>落地邊界（共識）</strong>：各來源一致強調長/客製合約（&gt;64K token）為 AI 最易出錯區，人工複核為法律可辯護性所必需。即「附摘要≠可直接信任」，需人在迴路把關。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：對結構清晰、單一長文件，產出大體忠實的長摘要；專用/小型摘要模型在難版榜可壓到 3–5% 幻覺；合約關鍵條款抽取已達 90%+ 商用準確度並規模化部署。</li>
+<li><strong>做不到／不穩</strong>：(1) 數萬字、關鍵細節散落全文時，有效檢索退化（NoLiMa 32K 大幅掉），易漏「決定性條款/數字」造成關鍵遺漏；(2) 幻覺集中於摘要後半，長輸出尾段最不可信；(3) 多數前沿模型在 32K 難版幻覺 &gt;10%，「無關鍵幻覺」無法保證；(4) 高風險領域（法律/醫療/金融）仍須人工複核。整體屬「前沿可做、可靠性仍是挑戰、需人工把關」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="%E7%9F%AD%E6%96%87%E6%91%98%E8%A6%81.html">短文摘要</a>、<a href="%E4%BC%81%E6%A5%AD%E7%9F%A5%E8%AD%98%E5%BA%AB%E5%B8%B6%E5%BC%95%E7%94%A8%E5%95%8F%E7%AD%94.html">企業知識庫帶引用問答</a>、<a href="%E6%B3%95%E5%BE%8BAI.html">法律AI</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>、<a href="%E6%8E%A8%E8%AB%96%E5%84%AA%E5%8C%96.html">推論優化</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="AI%E5%B0%8D%E9%BD%8A%E8%88%87%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6.html">AI對齊與安全研究</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Vectara：Next Generation Hallucination Leaderboard（≤32K token 難版，2025-11-19）— https://www.vectara.com/blog/introducing-the-next-generation-of-vectaras-hallucination-leaderboard</li>
+<li>Vectara Hallucination Leaderboard（HHEM 資料集／GitHub）— https://github.com/vectara/hallucination-leaderboard</li>
+<li>Hallucinate at the Last in Long Response Generation: A Case Study on Long Document Summarization（arXiv 2505.15291，v3 2026-01-13）— https://arxiv.org/abs/2505.15291</li>
+<li>NoLiMa: Long-Context Evaluation Beyond Literal Matching（ICML 2025，32K 退化數據）— https://arxiv.org/html/2502.05167v1</li>
+<li>Spellbook：AI Legal Document Review（CUAD/LawGeex 準確率、人工把關）— https://www.spellbook.legal/learn/ai-legal-document-review</li>
+<li>Harvey（法律 AI 部署規模：10萬+律師、1,300+組織）— https://www.harvey.ai/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

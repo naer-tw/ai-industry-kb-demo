@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>履歷初篩排序｜AI產業知識庫</title><meta name="description" content="履歷初篩排序
+
+ 一句話定義（這個職業任務的可交付物是什麼）
+給一批履歷（PDF/純文字）＋一份職缺描述（JD），系統要對候選人做相關性排序、輸出每位的初篩通過/淘汰建議與「人類看得懂的理由」（符合哪些必要條件、缺哪些），交給 HR 複核；並且整套排序結果要能通過 adverse-impact（不利影響）公平">
+<meta property="og:title" content="履歷初篩排序"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "履歷初篩排序", "description": "履歷初篩排序\n\n 一句話定義（這個職業任務的可交付物是什麼）\n給一批履歷（PDF/純文字）＋一份職缺描述（JD），系統要對候選人做相關性排序、輸出每位的初篩通過/淘汰建議與「人類看得懂的理由」（符合哪些必要條件、缺哪些），交給 HR 複核；並且整套排序結果要能通過 adverse-impact（不利影響）公平", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="履歷初篩排序">履歷初篩排序</h1>
+<h2 id="一句話定義這個職業任務的可交付物是什麼">一句話定義（這個職業任務的可交付物是什麼）</h2>
+<p>給一批履歷（PDF/純文字）＋一份職缺描述（JD），系統要對候選人做相關性排序、輸出每位的初篩通過/淘汰建議與「人類看得懂的理由」（符合哪些必要條件、缺哪些），交給 HR 複核；並且整套排序結果要能通過 adverse-impact（不利影響）公平性稽核——亦即各受保護群體（性別、種族等）的選取率比值不得低於 EEOC「五分之四原則」的 0.8 門檻。難點不在「排出一個名次」，而在「排序合理＋理由可信＋同時跨群體公平＋可被獨立稽核」四者同時成立，而這正是法規（NYC Local Law 144、EU AI Act 列高風險）強制要求之處。</p>
+<h2 id="難度評分綜合-710技術-6落地-8-理由">難度評分（綜合 7/10：技術 6、落地 8）— 理由</h2>
+<ul>
+<li><strong>技術 6（前沿可做、品質與公平性不穩）</strong>：把履歷對 JD 做語意排序、生成淘汰理由，技術上現成 LLM 即可做，產品遍地。但「排得準」仍弱：GPT-3.5 履歷評分準確率僅 58%、GPT-4 僅 50%（2024）；2025 研究指 LLM 評分與人類招募者僅「弱相關」，不能互換。領域專用模型（ROC AUC 0.85）明顯勝過通用 LLM（0.77）。故技術可做但可靠性未達「免複核」。</li>
+<li><strong>落地 8（公平稽核＋法律責任＝主障礙，故顯著高於技術）</strong>：這是典型「技術可做但落地受監管/責任/信任卡死」的職業任務。(1) <strong>公平性是硬傷</strong>：通用嵌入模型在 27 組測試中男女選取率僅 37% 達平衡，種族僅 6.3% 達平衡，白人姓名 85.1% 受偏好、黑人男性對白人男性「0%」獲得同等青睞——遠低於 0.8 門檻；反向地，後訓練（RLHF）又可能讓模型「略偏女性與非白人」（Gaebler/Goel 2024），兩種偏誤都會讓 adverse-impact 稽核不通過。(2) <strong>法規強制</strong>：NYC Local Law 144 自 2023 強制每年獨立 bias audit、公開 impact ratio、告知候選人並提供 opt-out，首件違規 USD 500、後續每件 USD 500–1,500，且「每連續一日」算一件、按日累計；EU AI Act 將招募 AI 列高風險（Annex III 第 4 點），高風險義務自 2026/08 起適用，要求風險管理、資料治理、人工監督（Art.14）、保留紀錄≥6 個月與 FRIA，且「人工最終決策」不能免除高風險歸類。(3) <strong>責任歸屬</strong>：歧視訴訟責任在雇主，故幾乎所有部署都鎖在「AI 排序＋人工最終決策」，不敢全自動。</li>
+<li><strong>綜合判定 7</strong>：量表 7–8 級（落地障礙大）。技術面已商品化（落到 5–6），但「通過 adverse-impact 稽核」這個契約條件目前沒有任一通用方案能穩定達成、且受法律強約束，把綜合難度拉到 7。不取 8 是因領域專用模型（如 Eightfold）已能把種族 impact ratio 拉到 0.957（&gt;0.8）並規模化部署。</li>
+<li><strong>查證重評：7/6/8（vs P1 初判 6，差 +1；本次對抗式重評維持 7/6/8，divergence=false）</strong>——P1 低估了「公平稽核＋法規責任」對落地的拖累。對照既有 <a href="%E4%BC%81%E6%A5%AD%E7%9F%A5%E8%AD%98%E5%BA%AB%E5%B8%B6%E5%BC%95%E7%94%A8%E5%95%8F%E7%AD%94.html">企業知識庫帶引用問答</a>（5/4/6）：本任務技術相近，但多了「強制公平稽核＋法律責任＋人類信任」三重落地門檻，diff_deploy 明顯更高（Local Law 144 年度獨立稽核＋公開＋罰則；EU AI Act 高風險義務 2026/08 上路、人工最終決策不免責；責任在雇主；66% 求職者拒投），故 diff_deploy=8 成立、不取 9（領域模型已把 impact ratio 拉過 0.8 並規模化）。證據級 B（有 benchmark＋部署案例，但公平數字跨研究分歧、無統一公開 leaderboard），故 confidence: low。（2026-06-26 查證；benchmark/市場/法規數字全數複核無誤）</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>履歷評分準確率（2024）</strong>：在真實履歷評分任務上，GPT-3.5-Turbo 約 58%、GPT-4 約 50%；GPT 系列優於 LLaMA2。GPT-4 排序的前十名與人工評分高度相似，顯示「排序」比「打絕對分」可靠。[來源2 衍生]</li>
+<li><strong>配對品質 / 公平性（Eightfold，2025）</strong>：領域專用 Match Score 模型 ROC AUC 0.85，勝過通用 LLM 的 0.77；公平性上，Eightfold 模型種族最低 impact ratio 0.957（&gt;0.8 通過）、交叉（種族×性別）0.906，而最佳通用 LLM 種族 ≤0.809、交叉僅 0.773（多數通用 LLM 不通過）。[來源2]</li>
+<li><strong>嵌入式檢索偏誤（Brookings/AAAI AIES，2025/04/25）</strong>：測 E5-Mistral-7b、GritLM-7B、SFR-Embedding-Mistral。性別：27 組測試僅 37% 達平衡，失衡時男性姓名受偏好 51.9%、女性僅 11.1%；種族：僅 6.3% 達平衡，白人姓名受偏好 85.1%、黑人僅 8.6%；交叉偏誤最嚴重——黑人男性選取率僅黑人女性的 14.8%、對白人男性「0%」獲同等青睞。[來源1]</li>
+<li><strong>反向偏誤（Gaebler, Goel, Huq, Tambe，2024）</strong>：以對應實驗（correspondence experiment）審計 LLM 評 K-12 教職候選人，發現模型「中度」偏誤但方向相反——略偏女性與非白人，作者歸因於後訓練（RLHF）矯偏。判讀：偏誤方向不一致、且高度依賴模型與提示，使「穩定通過稽核」更難。[來源3]</li>
+<li>註：本任務無單一公開 leaderboard，故 evidence_level 為 B、confidence low。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效監管限制">實證二：真實部署/產品案例（誰用、規模、成效、監管限制）</h2>
+<ul>
+<li><strong>市場規模與採用</strong>：AI 招募軟體市場 2024 約 USD 18 億、2025 約 USD 20 億，預估 2034 達 USD 54 億。2025 年約 83% 公司用 AI 履歷初篩、約 68–70% 在整體招募流程用 AI；廠商宣稱縮短 to-hire 時間達 50%、降招募成本 30%。屬已規模化商用。[來源5][來源5 衍生]</li>
+<li><strong>監管/信任限制（落地天花板）</strong>：(1) 67% 公司自承 AI 招募工具帶偏誤；66% 美國成人表示拒絕投「AI 主導決策」的職缺。(2) NYC Local Law 144（2023 生效、2023/07 起執法）強制 AEDT 每年獨立 bias audit、公開 adverse-impact 報告與資料/方法、告知候選人並提供 opt-out。(3) EU AI Act 將招募／員工管理 AI 列高風險，要求風險管理、資料治理、人工監督。綜合結果：產業實務一律「AI 排序＋HR 人工複核與最終決策」，極少全自動淘汰；領域專用平台（如 Eightfold）靠專用模型把 impact ratio 拉過 0.8 才敢規模化。[來源4][來源1 衍生]</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：對 JD 做履歷語意排序、抽取符合/缺漏條件、生成可讀初篩理由，並大幅提速；領域專用模型可在內部測試達到 impact ratio &gt;0.8。已是 8 成企業在用的成熟商用能力（在「協助、人工把關」定位下）。</li>
+<li><strong>做不到/不穩</strong>：(1) 「排得準」未達免複核——與人類僅弱相關、絕對評分準確率 5–6 成；(2) <strong>預設通用 LLM/嵌入模型多數通不過 adverse-impact 稽核</strong>，且偏誤方向因模型/提示而異（有偏白人男性者，亦有 RLHF 後偏向少數者），難穩定達標；(3) 法律責任在雇主、受 Local Law 144／EU AI Act 強約束，故無法全自動、必須可獨立稽核＋人工監督。整體屬「技術已商品化，但『通過公平稽核＋滿足法規』讓端到端落地仍是 7 級難題」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="%E4%BC%81%E6%A5%AD%E7%9F%A5%E8%AD%98%E5%BA%AB%E5%B8%B6%E5%BC%95%E7%94%A8%E5%95%8F%E7%AD%94.html">企業知識庫帶引用問答</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="AI%20Agent%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96.html">AI Agent與自動化</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Gender, Race, and Intersectional Bias in AI Resume Screening via Language Model Retrieval（Brookings／AAAI AIES, 2025/04/25）— https://www.brookings.edu/articles/gender-race-and-intersectional-bias-in-ai-resume-screening-via-language-model-retrieval/</li>
+<li>Evaluating the Promise and Pitfalls of LLMs in Hiring Decisions（Eightfold AI, arXiv 2507.02087, 2025；含 GPT-3.5 58%/GPT-4 50%、ROC AUC 0.85 vs 0.77、種族 impact ratio 0.957 vs ≤0.809）— https://arxiv.org/html/2507.02087v2</li>
+<li>Auditing large language models for race &amp; gender disparities（Gaebler, Goel, Huq, Tambe, 2024；後訓練致略偏女性／非白人）— https://journals.sagepub.com/doi/10.1177/23794607251320229</li>
+<li>NYC Local Law 144 Compliance Guide（Warden AI；強制年度 bias audit、公開 impact ratio、opt-out、罰則）— https://www.warden-ai.com/resources/hr-tech-compliance-nyc-local-law-144</li>
+<li>How Many Companies Are Using AI to Review Resumes? 2025 Data &amp; Statistics（The Interview Guys；83% 採用、67% 承認偏誤、66% 求職者拒投）— https://blog.theinterviewguys.com/how-many-companies-are-using-ai-to-review-resumes/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

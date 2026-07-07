@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>多模態與世界模型｜AI產業知識庫</title><meta name="description" content="「多模態」指讓單一 AI 模型同時理解與生成多種資料型態（文字、影像、影片、語音、動作指令等）的研究方向；「世界模型（world model）」則進一步要求模型在內部建立對物理世界動態的可預測表徵，能依當前狀態與動作，預測「下一刻會發生什麼」，以支援規劃、模擬與具身控制。兩者在 2023–2026 年快速收斂">
+<meta property="og:title" content="多模態與世界模型"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "多模態與世界模型", "description": "「多模態」指讓單一 AI 模型同時理解與生成多種資料型態（文字、影像、影片、語音、動作指令等）的研究方向；「世界模型（world model）」則進一步要求模型在內部建立對物理世界動態的可預測表徵，能依當前狀態與動作，預測「下一刻會發生什麼」，以支援規劃、模擬與具身控制。兩者在 2023–2026 年快速收斂", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>研究趨勢</span></header>
+<main><article><h1 id="多模態與世界模型">多模態與世界模型</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>「多模態」指讓單一 AI 模型同時理解與生成多種資料型態（文字、影像、影片、語音、動作指令等）的研究方向；「世界模型（world model）」則進一步要求模型在內部建立對物理世界動態的可預測表徵，能依當前狀態與動作，預測「下一刻會發生什麼」，以支援規劃、模擬與具身控制。兩者在 2023–2026 年快速收斂：視覺語言模型（VLM）負責「看懂與描述」，影片生成與 JEPA 類模型則嘗試「模擬與預測」，並延伸到機器人具身智慧——但「影片生成模型是否真學到物理世界模型」是當前最核心的學術爭論。</p>
+<h2 id="研究方向演化與核心問題">研究方向演化與核心問題</h2>
+<ul>
+<li>第一階段（2023，VLM 接合）：以「凍結視覺編碼器＋LLM」的接合範式為主流。代表為 LLaVA 用純語言 GPT-4 合成圖文指令資料、再做視覺指令微調，證明小資料即可逼近多模態對話能力；同年 RT-2 把這套「web 知識」直接遷移到機器人控制，開啟「視覺-語言-動作（VLA）」路線。核心問題：如何把語言模型的世界知識最省成本地接到視覺與動作上。</li>
+<li>第二階段（2024，生成即模擬）：研究主軸從「理解」轉向「生成式世界模擬」。OpenAI Sora 提出「影片生成模型即世界模擬器」的願景；DeepMind Genie 從無標註網路影片學出「可逐格操控」的互動環境；Meta V-JEPA 則走相反路線，主張在「表徵空間」而非「像素空間」做預測。核心問題：要在像素層級生成，還是在抽象表徵層級預測？</li>
+<li>第三階段（2025–2026，物理保真與具身落地）：焦點轉為「生成得好看 ≠ 懂物理」。多篇論文與基準（PhyWorld、WorldModelBench）系統性質疑影片模型的物理一致性；同時 V-JEPA 2、NVIDIA Cosmos、Genie 3 把世界模型推向「零樣本機器人控制」與「即時可互動環境」的產業應用。核心問題：世界模型能否同時做到物理保真、長時序一致、且可即時互動。</li>
+<li>三條主要技術路線之爭：(1) 像素生成派（Sora、Genie、Cosmos，擴散/自迴歸）；(2) 表徵預測派（V-JEPA，LeCun 的 JEPA 主張「別預測像素、預測抽象表徵」）；(3) VLA 具身派（RT-2 一脈，把世界模型直接接到動作）。三者對「世界模型該長什麼樣」尚無共識。</li>
+</ul>
+<h2 id="關鍵論文20232026515-篇每篇含-標題機構年份venue-或-arxiv-編號一句-takeawayurl">關鍵論文（2023–2026，5–15 篇；每篇含 標題/機構/年份/venue 或 arXiv 編號/一句 takeaway/URL）</h2>
+<ol type="1">
+<li><strong>Visual Instruction Tuning（LLaVA）</strong> ｜ Liu, Li, Wu, Lee（UW-Madison／Microsoft）｜ 2023 ｜ NeurIPS 2023 Oral（arXiv:2304.08485）｜ takeaway：首度用純語言 GPT-4 合成圖文指令資料，以「CLIP 視覺編碼器＋Vicuna＋線性投影」低成本接出多模態對話，奠定開源 VLM 的接合範式。｜ https://arxiv.org/abs/2304.08485</li>
+<li><strong>RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control</strong> ｜ Google DeepMind｜ 2023 ｜ arXiv:2307.15818（CoRL 2023）｜ takeaway：把機器人動作當成「語言 token」與圖文聯合訓練，使網路規模的世界知識直接遷移到機器人控制，對未見場景／物體的泛化能力較 RT-1 等基準約提升 2 倍（未見情境成功率自 RT-1 的 32% 升至 62%），開創 VLA 路線。｜ https://arxiv.org/abs/2307.15818</li>
+<li><strong>Genie: Generative Interactive Environments</strong> ｜ Google DeepMind（Bruce et al.）｜ 2024 ｜ ICML 2024 Best Paper（arXiv:2402.15391）｜ takeaway：11B 參數、純從無標註網路影片以非監督方式學出「潛在動作模型」，可逐格操控生成 2D 互動環境，被視為首個「基礎世界模型」。｜ https://arxiv.org/abs/2402.15391</li>
+<li><strong>Video generation models as world simulators（Sora 技術報告）</strong> ｜ OpenAI｜ 2024 ｜ 官方技術報告（非同儕審查）｜ takeaway：以 spacetime patch＋擴散 Transformer 統一不同時長/解析度視覺資料，主張「擴大影片生成規模是通往通用物理世界模擬器的有望路徑」，引爆「影片即世界模型」論戰。｜ https://openai.com/index/video-generation-models-as-world-simulators/</li>
+<li><strong>Revisiting Feature Prediction for Learning Visual Representations from Video（V-JEPA）</strong> ｜ Meta AI（FAIR）｜ 2024 ｜ arXiv:2404.08471 / TMLR｜ takeaway：把 JEPA 擴展到時空影片，於「表徵空間」而非像素空間預測被遮蔽區域；對「違反物理」的不可能事件呈現更高預測誤差，體現 LeCun「預測抽象表徵」的世界模型主張。｜ https://ai.meta.com/research/vjepa/</li>
+<li><strong>How Far is Video Generation from World Model: A Physical Law Perspective</strong> ｜ ByteDance Seed（Kang et al.）｜ 2024 ｜ ICML 2025（arXiv:2411.02385）｜ takeaway：用可控 2D 物理測試台證明影片生成模型難以「純從視覺發現物理定律」，傾向被訓練集「欺騙性樣本」帶偏、以 case-based 方式類推，組合泛化能力弱——對「Sora 即世界模型」的關鍵反證。｜ https://arxiv.org/abs/2411.02385</li>
+<li><strong>Cosmos World Foundation Model Platform for Physical AI</strong> ｜ NVIDIA｜ 2025 ｜ arXiv:2501.03575（CES 2025 發布）｜ takeaway：提出可被微調為下游「客製世界模型」的開放權重平台，含影片資料策展、預訓練世界基礎模型與影片 tokenizer，主張「Physical AI 需先有世界的數位分身」。｜ https://arxiv.org/abs/2501.03575</li>
+<li><strong>WorldModelBench: Judging Video Generation Models As World Models</strong> ｜ 多機構合作｜ 2025 ｜ arXiv:2502.20694｜ takeaway：建立以「世界模型」標準（含物理遵從度）評判影片生成模型的基準，發現逐格畫質與物理遵從度相關性極低（約 0.28），凸顯「好看」與「懂物理」是兩回事。｜ https://arxiv.org/abs/2502.20694</li>
+<li><strong>V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning</strong> ｜ Meta AI（Ballas et al.，30 位作者）｜ 2025 ｜ arXiv:2506.09985｜ takeaway：在 100 萬+ 小時網路影片自監督預訓練，再以不到 62 小時無標註機器人影片後訓練，即可在不同實驗室的 Franka 機械臂上「零樣本」依影像目標規劃抓放，證明表徵預測派可直通具身控制。｜ https://arxiv.org/abs/2506.09985</li>
+<li><strong>Genie 3: A New Frontier for World Models</strong> ｜ Google DeepMind｜ 2025 ｜ 官方部落格（非同儕審查；2026-01-29 以 Project Genie 對 Google AI Ultra 用戶釋出）｜ takeaway：首個可「即時互動」的世界模型，依文字提示生成可即時導覽的動態世界（720p、24fps、連續一致數分鐘），相較 Genie 2 大幅提升一致性與真實感。｜ https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/</li>
+<li><strong>Vision Language Models: A Survey of 26K Papers</strong> ｜ Lin（綜述）｜ 2025 ｜ arXiv:2510.09586｜ takeaway：以 2.6 萬篇論文量化三大轉向：VLM 工作量激增並把傳統感知重構為「指令遵循＋多步推理」、生成方法（擴散）向可控與加速整併、3D/影片從 NeRF 轉向 Gaussian splatting，是觀察多模態研究版圖的宏觀地圖。｜ https://arxiv.org/abs/2510.09586</li>
+</ol>
+<h2 id="代表成果與爭論">代表成果與爭論</h2>
+<ul>
+<li>代表成果：(1) VLA 具身落地——RT-2 → V-JEPA 2 證明「網路知識＋少量機器人資料」可直通真實機械臂控制；(2) 互動世界生成——Genie 1（2024）到 Genie 3（2025）實現「可即時操控、數分鐘一致」的生成環境；(3) 開放生態——NVIDIA Cosmos 把世界模型平台化、開源化，供產業微調。</li>
+<li>核心爭論一「像素 vs. 表徵」：Sora/Genie/Cosmos 主張在像素層級生成即可逼近世界模型；LeCun 與 V-JEPA 陣營主張像素預測浪費算力於不可預測細節，應在抽象表徵空間預測。截至 2026 年兩派並存，無定論。</li>
+<li>核心爭論二「會生成 ≠ 懂物理」：ByteDance（arXiv:2411.02385）與 WorldModelBench 等實證指出，影片模型常違反物體恆存、碰撞、重力等基本物理，且物理遵從度與畫質脫鉤；批評者主張「視覺逼真」被誤當成「物理理解」。</li>
+<li>核心爭論三「評測信效度」：因尚無公認的世界模型評測標準，各家「世界模型」宣稱（尤以官方部落格 Sora、Genie 3 為甚）多屬廠商自評、缺乏獨立同儕審查，數據可比性低——屬「資料未證實／待獨立驗證」之開放問題。</li>
+</ul>
+<h2 id="對產業的影響">對產業的影響</h2>
+<ul>
+<li>機器人與具身智慧：VLA／世界模型把「少量機器人資料即可泛化」變成可能，降低資料蒐集成本，是人形機器人、工業自動化的關鍵賦能技術（連結 <a href="%E4%BA%BA%E5%BD%A2%E6%A9%9F%E5%99%A8%E4%BA%BA%E8%88%87%E5%85%B7%E8%BA%AB%E6%99%BA%E6%85%A7.html">人形機器人與具身智慧</a>）。</li>
+<li>算力需求結構改變：影片生成與世界模型的時空資料量遠大於純文字，放大對 GPU、HBM 與長序列運算的需求；NVIDIA 以 Cosmos 同時卡位「模型平台」與「Physical AI 算力」（連結 <a href="NVIDIA.html">NVIDIA</a>）。</li>
+<li>合成資料與模擬訓練：世界模型可作為「世界的數位分身」，為自駕、機器人提供近乎無限的模擬訓練與安全測試環境，牽動模擬／合成資料產業。</li>
+<li>內容生成商業化：Sora、Genie 3 等推向消費級產品（如 Project Genie 對訂閱用戶釋出），但物理一致性不足仍限制其在專業（醫療、工程、自駕驗證）場景的可信度。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="Transformer.html">Transformer</a>：多模態與多數影片生成模型（spacetime patch＋擴散 Transformer）的共通底層架構。</li>
+<li><a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>：VLM 的語言端骨幹（如 LLaVA 接 Vicuna），世界知識的主要來源。</li>
+<li><a href="%E6%93%B4%E6%95%A3%E6%A8%A1%E5%9E%8B.html">擴散模型</a>：Sora、Cosmos 等像素生成派世界模型的核心生成方法。</li>
+<li><a href="%E4%BA%BA%E5%BD%A2%E6%A9%9F%E5%99%A8%E4%BA%BA%E8%88%87%E5%85%B7%E8%BA%AB%E6%99%BA%E6%85%A7.html">人形機器人與具身智慧</a>：VLA（RT-2）與 V-JEPA 2 世界模型的主要落地場域。</li>
+<li><a href="NVIDIA.html">NVIDIA</a>：以 Cosmos 世界模型平台與 GPU 算力同時卡位模型與硬體兩端。</li>
+<li><a href="Fei-Fei%20Li.html">Fei-Fei Li</a>：ImageNet 之母、World Labs 創辦人，推動「空間智慧」世界模型路線。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Liu et al., 《Visual Instruction Tuning》(LLaVA), NeurIPS 2023 — https://arxiv.org/abs/2304.08485</li>
+<li>Google DeepMind, 《RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control》, 2023 — https://arxiv.org/abs/2307.15818</li>
+<li>Bruce et al. (DeepMind), 《Genie: Generative Interactive Environments》, ICML 2024 — https://arxiv.org/abs/2402.15391</li>
+<li>OpenAI, 《Video generation models as world simulators》(Sora 技術報告), 2024 — https://openai.com/index/video-generation-models-as-world-simulators/</li>
+<li>Meta AI, 《V-JEPA》研究頁（Revisiting Feature Prediction for Learning Visual Representations from Video）, 2024 — https://ai.meta.com/research/vjepa/</li>
+<li>Kang et al. (ByteDance Seed), 《How Far is Video Generation from World Model: A Physical Law Perspective》, ICML 2025 — https://arxiv.org/abs/2411.02385</li>
+<li>NVIDIA, 《Cosmos World Foundation Model Platform for Physical AI》, 2025 — https://arxiv.org/abs/2501.03575</li>
+<li>《WorldModelBench: Judging Video Generation Models As World Models》, 2025 — https://arxiv.org/abs/2502.20694</li>
+<li>Ballas et al. (Meta AI), 《V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning》, 2025 — https://arxiv.org/abs/2506.09985</li>
+<li>Google DeepMind, 《Genie 3: A New Frontier for World Models》(官方部落格), 2025 — https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/</li>
+<li>Lin, 《Vision Language Models: A Survey of 26K Papers》, 2025 — https://arxiv.org/abs/2510.09586</li>
+<li>補充綜述：《Sora: A Review on Background, Technology, Limitations, and Opportunities of Large Vision Models》, 2024 — https://arxiv.org/abs/2402.17177</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>產線通用機器人裝配｜AI產業知識庫</title><meta name="description" content="產線通用機器人裝配
+
+ 一句話定義（這個職業任務的可交付物是什麼）
+
+把一條全新製造產線的零件清單與工序（BOM＋工藝）輸入通用機器人基礎模型（VLA / 具身基礎模型），機器人在零樣本或少樣本（不為此產線專門訓練、不重寫程式）下，自主完成抓取、對位、插入、鎖固等裝配動作，並在量產第一天就達到首件通過良率（f">
+<meta property="og:title" content="產線通用機器人裝配"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "產線通用機器人裝配", "description": "產線通用機器人裝配\n\n 一句話定義（這個職業任務的可交付物是什麼）\n\n把一條全新製造產線的零件清單與工序（BOM＋工藝）輸入通用機器人基礎模型（VLA / 具身基礎模型），機器人在零樣本或少樣本（不為此產線專門訓練、不重寫程式）下，自主完成抓取、對位、插入、鎖固等裝配動作，並在量產第一天就達到首件通過良率（f", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="產線通用機器人裝配">產線通用機器人裝配</h1>
+<h2 id="一句話定義這個職業任務的可交付物是什麼">一句話定義（這個職業任務的可交付物是什麼）</h2>
+<p>把一條全新製造產線的零件清單與工序（BOM＋工藝）輸入通用機器人基礎模型（VLA / 具身基礎模型），機器人在零樣本或少樣本（不為此產線專門訓練、不重寫程式）下，自主完成抓取、對位、插入、鎖固等裝配動作，並在量產第一天就達到首件通過良率（first-pass yield, FPY）≥95%。這是「通用機器人即插即用取代產線整合工程」的高標準職業任務。</p>
+<h2 id="難度評分綜合-910技術-9落地-9-理由">難度評分（綜合 9/10：技術 9、落地 9）— 理由</h2>
+<ul>
+<li><strong>技術 9</strong>：當前基礎模型在「一般抓取/操作」上已具備可觀泛化（TRI 預訓練模型在 1,800 真機＋47,000 模擬 rollout 上達到或超過專家模型；來源 1），但<strong>接觸密集裝配（contact-rich assembly）仍屬早期研究</strong>。Epoch AI（來源 1）明確判定組裝為「早期研究階段」，核心能力（用工具、處理多樣零件、上扣件/鎖螺絲）「未被證實」；IKEA 組裝僅做到搬木板、無法上扣件。最強通用模型的真機平均成功率仍偏低（π0.5＝43.7%，已查證，來源 6；GR00T N1 SimplerEnv ≈57%，第三方比較口徑待補佐證），距「多工序串接且首件 95% 良率」差距極大。</li>
+<li><strong>落地 9</strong>：任務要求三重高門檻同時成立——(a) 零/少樣本不重訓、(b) 全新產線多工序串接、(c) <strong>首日</strong>良率 ≥95%。製造業 FPY ≥95% 被視為「優秀（Excellent）」、≥90% 才算「良好（Good）」（來源 9；該文未提 99%／世界級基準，99% 屬業界通用標竿口徑），且傳統產線通常要經數週「良率爬坡（yield ramp）」才達標，<strong>首日就達 95% 連人類整合的傳統產線都罕見</strong>。BMW＋Figure 的 30,000 台車案例（來源 7）是窄任務、預先針對工位調校、且簽約到量產耗時 11 個月，並非零樣本即插即用。落地還疊加安全認證、責任歸屬（自主裝配出錯誰負責）、信任、節拍/可靠度遠低於十年前傳統工業臂等障礙。</li>
+</ul>
+<blockquote>
+<p><strong>查證重評（2026-06-26）：9 / 9 / 9（技術／落地／綜合）。</strong> 對齊錨定量表「9–10＝當前 AI 仍做不到，例：通用機器人靈巧操作」：本任務正屬接觸密集裝配（contact-rich assembly），Epoch AI（2026-02）判為早期研究、上扣件/鎖螺絲「未證實」，最強通用 VLA 真機平均僅 43.7%（π0.5），技術＝9。落地端三重門檻＋良率爬坡＋安全認證／責任歸屬／信任障礙＋零規模化部署，落地＝9。三項與原評一致（差 0），<strong>divergence=false，不標分歧</strong>。診斷出的問題僅為來源 9 引用口徑誤植（已修）與來源 3（GR00T N1 SimplerEnv 57.1%）出處未能獨立復現（標為待補佐證，不影響定性結論）。</p>
+</blockquote>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>EasyInsert（來源 2）</strong>：資料高效插入策略，在 13 個全新物件上達 <strong>&gt;90% 零樣本成功率</strong>（2025-05）。但只是<strong>單一插入動作</strong>，非多工序裝配、非良率口徑。</li>
+<li><strong>REASSEMBLE（來源 3）</strong>：建於 NIST Assembly Task Board 1 的接觸密集裝配資料集，含 17 物件、4 動作，4,551 筆示範中 4,035 筆成功（2025-02）——此為<strong>人類示教資料</strong>而非自主良率，反映該領域仍在「建資料、攻 benchmark」階段。</li>
+<li><strong>RAMP / IndustReal（來源 4、5）</strong>：裝配規劃與 sim-to-real 接觸密集裝配的研究 benchmark，顯示此題仍是學界活躍課題，未見產線級首日良率指標。</li>
+<li><strong>通用 VLA 真機評測</strong>：RoboChallenge Table30 上 π0.5（finetuned）平均 43.7%（已查證；π0=28.3%、CogACT=11.7%；來源 6）；Isaac-GR00T N1 在 SimplerEnv 約 57%（57.1% 屬第三方比較表口徑，原論文 arXiv:2503.14734 未直列此數，待補佐證）——一般操作尚難穩定過半，遑論裝配 95%。</li>
+<li><strong>端到端目標任務</strong>：「新產線＋多工序＋零/少樣本＋首日 95% 良率」<strong>查無公開 benchmark，未證實</strong>。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效監管限制">實證二：真實部署/產品案例（誰用、規模、成效、監管限制）</h2>
+<ul>
+<li><strong>BMW × Figure（來源 7-注：見 iiot-world 來源 7）</strong>：BMW Spartanburg 廠 11 個月內由人形機器人協助組裝 <strong>逾 30,000 輛車、約 99% 準確率</strong>。但屬<strong>窄任務、針對固定工位預先調校</strong>，非零樣本通用、非「新產線首日 95% 良率」口徑。</li>
+<li><strong>Figure 自家製造（來源 8）</strong>：電池產線 FPY <strong>99.3%</strong>、整機 FPY「逾 80% 且每週提升」（2026-05）。<strong>關鍵澄清：這是人類與傳統自動化在 150+ 工位『製造』人形機器人，並非通用機器人零樣本在新產線上裝配</strong>；機器人在廠內僅做 burn-in 測試。</li>
+<li><strong>規模化現況</strong>：人形機器人在製造現場 2026 年只在少數試點、窄任務、節拍與可靠度低於傳統工業臂十年前水準。Tesla Optimus 內部部署主要為學習用途、非生產性工作（CEO 於 Q4 2025 財報坦言）。</li>
+<li><strong>規模化零/少樣本新產線裝配＋首日 95% 良率：尚無任何規模化部署。</strong></li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：結構化工位的已知物件抓取/揀選（見 <a href="%E7%B5%90%E6%A7%8B%E5%8C%96%E6%A9%9F%E6%A2%B0%E8%87%82%E6%8F%80%E9%81%B8.html">結構化機械臂揀選</a>，可達 99%+）；單一插入動作零樣本 &gt;90%；窄任務、經數月整合調校後的產線協作（BMW 案）。</li>
+<li><strong>做不到（本任務核心）</strong>：通用基礎模型對<strong>全新產線多工序</strong>零/少樣本即插即用；接觸密集裝配的穩定高良率；尤其<strong>量產首日即達 95% 良率</strong>——既受技術成熟度限制（裝配仍早期研究），又受落地門檻限制（良率爬坡、安全與責任）。屬「當前 AI 仍做不到」一檔。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="%E4%BA%BA%E5%BD%A2%E6%A9%9F%E5%99%A8%E4%BA%BA%E8%88%87%E5%85%B7%E8%BA%AB%E6%99%BA%E6%85%A7.html">人形機器人與具身智慧</a>、<a href="AI%20Agent%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96.html">AI Agent與自動化</a>（市場/應用）</li>
+<li><a href="VLA%E6%A8%A1%E5%9E%8B.html">VLA模型</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>（技術/研究）</li>
+<li><a href="NVIDIA.html">NVIDIA</a>、<a href="Tesla.html">Tesla</a>（供應鏈/廠商）</li>
+<li>同族能力對照：<a href="%E7%B5%90%E6%A7%8B%E5%8C%96%E6%A9%9F%E6%A2%B0%E8%87%82%E6%8F%80%E9%81%B8.html">結構化機械臂揀選</a>（難度 3，已商品化）、<a href="%E4%BA%BA%E5%BD%A2%E6%A9%9F%E5%99%A8%E4%BA%BA%E9%87%8D%E8%A4%87%E4%BB%BB%E5%8B%99.html">人形機器人重複任務</a>（難度 5）、<a href="%E5%8F%A3%E8%AA%9E%E5%AE%B6%E5%8B%99%E9%80%9A%E7%94%A8%E6%A9%9F%E5%99%A8%E4%BA%BA.html">口語家務通用機器人</a>（難度 9）</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Epoch AI, “Where Autonomy Works: Evaluating Robot Capabilities in 2026” — https://epoch.ai/blog/where-autonomy-works-evaluating-robot-capabilities-in-2026</li>
+<li>EasyInsert: A Data-Efficient and Generalizable Insertion Policy (2025-05) — https://arxiv.org/pdf/2505.16187</li>
+<li>REASSEMBLE: Multimodal Dataset for Contact-rich Robotic Assembly (2025-02) — https://arxiv.org/html/2502.05086v1</li>
+<li>RAMP: Benchmark for Robotic Assembly Manipulation and Planning — https://arxiv.org/pdf/2305.09644</li>
+<li>IndustReal: Transferring Contact-Rich Assembly Tasks from Sim to Real — https://arxiv.org/pdf/2305.17110</li>
+<li>RoboChallenge: Large-scale Real-robot Evaluation of Embodied Policies (含 π0.5 43.7%) — https://arxiv.org/pdf/2510.17950</li>
+<li>IIoT World, “Physical AI Deployment ROI: BMW’s 30,000-Car Proof” — https://www.iiot-world.com/artificial-intelligence-ml/robotics/physical-ai-deployment-roi-humanoid-robots/</li>
+<li>Robotics &amp; Automation News, “Figure ramps up humanoid robot manufacturing” (2026-05-27, FPY 99.3%/&gt;80%) — https://roboticsandautomationnews.com/2026/05/27/figure-ramps-humanoid-robot-manufacturing-at-unprecedented-speed/101954/</li>
+<li>NEXGEN, “First Pass Yield (FPY) in Manufacturing”（原文：≥95% Excellent、≥90% Good；未述 99%／世界級）— https://www.nexgenam.com/blog/first-pass-yield/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

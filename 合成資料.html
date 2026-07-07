@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>合成資料｜AI產業知識庫</title><meta name="description" content="合成資料（Synthetic data）指由 AI 模型（多為大型語言模型或生成式世界模型）自動生成、而非由人類直接產出或從網路爬取的訓練資料；其核心目的是在「真實高品質人類資料即將耗盡」（資料牆，data wall）的背景下，以可控、可大量擴增、可標註的方式補充訓練語料，尤其用於推理、程式碼、數學與機器人/">
+<meta property="og:title" content="合成資料"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "合成資料", "description": "合成資料（Synthetic data）指由 AI 模型（多為大型語言模型或生成式世界模型）自動生成、而非由人類直接產出或從網路爬取的訓練資料；其核心目的是在「真實高品質人類資料即將耗盡」（資料牆，data wall）的背景下，以可控、可大量擴增、可標註的方式補充訓練語料，尤其用於推理、程式碼、數學與機器人/", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="合成資料">合成資料</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>合成資料（Synthetic data）指由 AI 模型（多為大型語言模型或生成式世界模型）自動生成、而非由人類直接產出或從網路爬取的訓練資料；其核心目的是在「真實高品質人類資料即將耗盡」（資料牆，data wall）的背景下，以可控、可大量擴增、可標註的方式補充訓練語料，尤其用於推理、程式碼、數學與機器人/自駕等難以蒐集真實樣本的領域。它是一種「資料生產的能力」，而非產業位置或研究方向。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>解決的核心問題：資料牆</strong>。Epoch AI（2024-06）估計，可用於 AI 訓練、經品質與重複調整後的公開人類文字存量約為 <strong>300 兆（300T）token</strong>；其 80% 信賴區間預測此存量將在 <strong>2026 至 2032 年間</strong>被完全用盡，若採過度訓練（overtraining）策略則可能更早。Epoch 明確指出合成資料（尤其用於推理訓練）與多模態資料是兩大突破來源。（Epoch AI，2024-06）</li>
+<li><strong>代表性起源論文之一</strong>：Microsoft Research〈Textbooks Are All You Need〉（arXiv:2306.11644，2023-06）以 GPT-3.5 生成「教科書品質」合成資料訓練 1.3B 參數的 phi-1，僅用 8 張 A100 訓練 4 天，於 HumanEval 達 pass@1 50.6%、MBPP 55.5%，證明高品質合成資料可大幅降低模型規模需求。後續 phi-1.5、phi-2 延續此路線。（Microsoft Research，2023）</li>
+<li><strong>物理 AI / 世界模型生成</strong>：NVIDIA Cosmos 平台（CES 2025 發表）以生成式世界基礎模型（World Foundation Models）為機器人與自駕量產合成訓練資料；其 Cosmos Transfer 可吸收分割圖、深度圖、光達掃描、軌跡圖等結構化輸入，生成可控的擬真影片。（NVIDIA Newsroom，2025-03）</li>
+<li><strong>早期採用者</strong>：1X、Agility Robotics、Figure AI、Foretellix、Skild AI、Uber 等已採用 Cosmos 為實體 AI 大規模生成訓練資料。（NVIDIA Newsroom，2025）</li>
+<li><strong>資本訊號</strong>：Meta 於 2025-06 以 <strong>143 億美元</strong>取得資料基建公司 Scale AI 約 49% 非投票股權，估值約 290 億美元，創辦人 Alexandr Wang 轉任 Meta 首席 AI 官。此投資被業界解讀為押注合成資料與「專家在環」（expert-in-the-loop）訓練。（TechCrunch，2025-06-13）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>合成資料屬 AI 供應鏈的<strong>上游（資料層）能力</strong>，與算力、模型架構並列為訓練的三大投入之一。它本身不是某個產業環節（segment），而是一套<strong>資料生產技術</strong>：用既有強模型（teacher）生成資料，訓練新模型（student），形成「模型生模型資料」的迴圈。典型應用形態包括： 1. <strong>蒸餾 / 教師生成</strong>：以前沿模型輸出推理鏈（CoT）、程式碼、QA 對，訓練較小模型（如 phi 系列、DeepSeek 蒸餾版）。 2. <strong>自我對弈 / 可驗證獎勵</strong>：在數學、程式等可自動驗證對錯的領域生成大量樣本，配合 RLVR 用於<a href="%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B%E8%88%87test-time%20compute.html">推理模型與test-time compute</a>。 3. <strong>模擬器 / 世界模型生成</strong>：以<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>（如 NVIDIA Cosmos、Omniverse）為實體 AI 生成擬真影像與軌跡。 4. <strong>資料增強與隱私替代</strong>：在醫療、金融等敏感領域，以合成樣本替代受隱私限制的真實資料。</p>
+<p>對產業而言，合成資料是繞過資料牆、延續 <a href="Scaling%20Laws%E8%88%87%E5%85%B6%E6%A5%B5%E9%99%90.html">Scaling Laws與其極限</a> 的關鍵槓桿，使資料供給從「有限的人類存量」轉為「可隨算力擴張的生成式供給」。</p>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>後訓練主戰場</strong>：2024–2026 年合成資料的重心明顯從預訓練轉向<strong>後訓練（post-training）與推理訓練</strong>。OpenAI o 系列、DeepSeek-R1 等推理模型大量使用自生成的推理軌跡，使 test-time compute 成為新的擴展軸（詳見 <a href="%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B%E8%88%87test-time%20compute.html">推理模型與test-time compute</a>）。</li>
+<li><strong>NVIDIA Cosmos 3（2026-06-01）</strong>：發表為「全球首個完全開放的全模態（omnimodal）世界基礎模型」，原生支援文字、影像、影片、環境聲音與動作的跨模態生成與視覺推理，定位為實體 AI 合成資料生成與策略模型開發的旗艦。（NVIDIA Newsroom，2026-06-01）</li>
+<li><strong>學界共識轉向</strong>：2025 年多篇論文（ICLR 2025、arXiv:2510.01631）系統性研究合成資料的縮放律、效益與陷阱，主流結論是「合成資料可行，但須與真實資料<strong>累積（accumulate）並用</strong>，而非取代」。微軟、Hugging Face、Anthropic 等已在生產規模驗證合成路線多年。（arXiv 與研究綜述，2025）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>模型崩潰（Model Collapse）</strong>：Shumailov 等人於 Nature（vol. 631, 2024-07）〈AI models collapse when trained on recursively generated data〉證明，若不加區別地以模型生成內容遞迴訓練，會使原始資料分布的「長尾」消失、輸出多樣性與品質不可逆退化；此現象在 LLM、變分自編碼器（VAE）與高斯混合模型（GMM）皆出現，屬生成式遞迴訓練的普遍性質。（Nature，2024-07）</li>
+<li><strong>緩解方向有共識但未根除</strong>：2025 年研究指出崩潰可避免，關鍵是「累積真實資料」而非純合成遞迴；但偏誤放大、事實漂移、評測污染（合成資料洩漏進測試集）等問題仍待解，model collapse 在 2025 年「尚未被完全解決」。（研究綜述，2025）</li>
+<li><strong>資料品質與來源透明度</strong>：合成資料的品質高度依賴 teacher 模型，若 teacher 本身有偏誤或幻覺，會被放大繼承；同時引發資料溯源、版權與「合成資料是否該標示」的治理討論。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>、<a href="Transformer.html">Transformer</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>、<a href="NVIDIA.html">NVIDIA</a>、<a href="Scale%20AI.html">Scale AI</a>、<a href="Microsoft.html">Microsoft</a>、<a href="Scaling%20Laws%E8%88%87%E5%85%B6%E6%A5%B5%E9%99%90.html">Scaling Laws與其極限</a>、<a href="%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B%E8%88%87test-time%20compute.html">推理模型與test-time compute</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Shumailov et al., “AI models collapse when trained on recursively generated data”, Nature 631, 755–759（2024-07）— https://www.nature.com/articles/s41586-024-07566-y</li>
+<li>Gunasekar et al., “Textbooks Are All You Need”, arXiv:2306.11644（2023-06）— https://arxiv.org/abs/2306.11644</li>
+<li>Epoch AI, “Will we run out of data? Limits of LLM scaling based on human-generated data”（2024-06）— https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data</li>
+<li>NVIDIA Newsroom, “NVIDIA Announces Major Release of Cosmos World Foundation Models and Physical AI Data Tools”（2025-03）— https://nvidianews.nvidia.com/news/nvidia-announces-major-release-of-cosmos-world-foundation-models-and-physical-ai-data-tools</li>
+<li>NVIDIA Newsroom, “NVIDIA Launches Cosmos 3, the Open Frontier Foundation Model for Physical AI”（2026-06-01）— https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai</li>
+<li>TechCrunch, “Scale AI confirms ‘significant’ investment from Meta, says CEO Alexandr Wang is leaving”（2025-06-13）— https://techcrunch.com/2025/06/13/scale-ai-confirms-significant-investment-from-meta-says-ceo-alexandr-wang-is-leaving/</li>
+<li>“Demystifying Synthetic Data in LLM Pre-training”, arXiv:2510.01631（2025）— https://arxiv.org/html/2510.01631v1</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

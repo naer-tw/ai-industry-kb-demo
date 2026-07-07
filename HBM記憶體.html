@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HBM記憶體｜AI產業知識庫</title><meta name="description" content="HBM（High Bandwidth Memory，高頻寬記憶體）是將多顆 DRAM 晶片垂直堆疊、以矽穿孔（TSV）與超寬資料介面連接的記憶體，緊貼在 AI 加速器（GPU/ASIC）旁，提供 TB/s 級的資料吞吐量，是當前 AI 算力能否被「餵飽」的關鍵瓶頸元件。">
+<meta property="og:title" content="HBM記憶體"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "HBM記憶體", "description": "HBM（High Bandwidth Memory，高頻寬記憶體）是將多顆 DRAM 晶片垂直堆疊、以矽穿孔（TSV）與超寬資料介面連接的記憶體，緊貼在 AI 加速器（GPU/ASIC）旁，提供 TB/s 級的資料吞吐量，是當前 AI 算力能否被「餵飽」的關鍵瓶頸元件。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>供應鏈環節</span></header>
+<main><article><h1 id="hbm記憶體">HBM記憶體</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>HBM（High Bandwidth Memory，高頻寬記憶體）是將多顆 DRAM 晶片垂直堆疊、以矽穿孔（TSV）與超寬資料介面連接的記憶體，緊貼在 AI 加速器（GPU/ASIC）旁，提供 TB/s 級的資料吞吐量，是當前 AI 算力能否被「餵飽」的關鍵瓶頸元件。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>市場集中度（2025 Q2，Counterpoint）</strong>：以位元出貨量計，SK海力士 62%、美光 21%、三星 17%；相較 2024 Q2，三星由 41% 大幅滑落、美光由 4% 暴增。［來源 2、3］</li>
+<li><strong>HBM 龍頭（2025 Q3）</strong>：SK海力士仍以約 57% 領先 HBM 市場（三星 22%、美光 21%）；在 2025 Q4，三星以約 371 兆韓元（約 259 億美元）營收重新登上「整體記憶體（DRAM＋NAND）」營收龍頭，但 SK海力士在「DRAM 單項」與「HBM」兩項仍維持領先（Counterpoint）。［來源 1、4；https://counterpointresearch.com/en/insights/Q4-2025-Samsung-Reclaims-Top-Memory-Spot-With-$26-Bn-in-Revenue-Record-Operating-Profit-Margin-for-SK-hynix ；https://www.koreaherald.com/article/10544988 ］</li>
+<li><strong>SK海力士 2026 Q1 財報</strong>：營收 52.6 兆韓元（年增約 198%，季增約 60%），首度單季突破 50 兆韓元；營業利益 37.6 兆韓元，營業利益率約 72%——HBM 與高容量伺服器 DRAM 為主要動能。［來源 4、5；發布日 2026-04-23/29］</li>
+<li><strong>供給售罄</strong>：SK海力士、三星、美光三家 2026 年 HBM 產能均已被預訂一空；SK海力士將 DRAM/NAND/HBM 大量鎖定供應 NVIDIA，部分客戶（含 Microsoft、Google）提前付足訂金，缺貨預估延伸至 2027。［來源 6、7；2025 Q4–2026 Q1］</li>
+<li><strong>HBM4 標準</strong>：JEDEC 於 2025 年 4 月發布 HBM4（JESD270-4）；介面位元寬度倍增至 2048-bit，單堆疊頻寬上看 2 TB/s，最高容量 64GB（16 層堆疊）。［來源 9、10；2025-04］</li>
+<li><strong>市場規模</strong>：多方估計全球 HBM 市場約自 2025 年 380 億美元成長至 2026 年約 580 億美元；TrendForce 指 HBM 2025 年將占整體 DRAM 營收逾 30%。［來源 1、TrendForce；數字屬產業預估，仍待逐季驗證］</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>HBM 位於 AI 產業的<strong>上游算力層</strong>，是 AI 加速器的「記憶體燃料箱」： - <strong>與運算晶片的關係</strong>：<a href="NVIDIA.html">NVIDIA</a> 等的 GPU / ASIC 受限於「記憶體牆」——運算單元算得再快，若資料無法及時送達就只能閒置。HBM 以 3–5 TB/s 的頻寬（相對 DDR5 僅約 50–100 GB/s）餵飽運算核心。［來源 11］ - <strong>與先進封裝的關係</strong>：HBM 必須透過 <a href="%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9DCoWoS.html">先進封裝CoWoS</a>（<a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a> 主導）把記憶體堆疊與 GPU 整合到同一中介層上，因此 HBM 與 CoWoS 是 AI 晶片的「雙重瓶頸」，兩者產能同時吃緊。 - <strong>與基板邏輯晶片的關係</strong>：HBM4 起，堆疊底部的 base die（邏輯基底）改採先進邏輯製程，SK海力士採用 <a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a> N12 製程代工，美光用自家 CMOS，三星用 SF4——記憶體廠與晶圓代工的綁定加深。［來源 10］ - <strong>下游連動</strong>：HBM 容量與頻寬直接決定單一伺服器能承載的大型語言模型規模，進而推升 <a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%83%BD%E6%BA%90.html">AI資料中心能源</a> 的用電密度。</p>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>HBM3E 全面放量</strong>：2024–2025 年 HBM3E（第 5 代）成為主力，搭載於 NVIDIA Blackwell（B200/GB200）與 Blackwell Ultra（B300，HBM3e 容量拉高至每顆 GPU 288GB）。［來源見搜尋：B300/HBM3e 288GB］</li>
+<li><strong>三星跨過 NVIDIA 認證門檻</strong>：三星於 2025 年 9 月下旬通過 NVIDIA 對其 12 層 HBM3E 的品質認證，成為繼 SK海力士、美光後第三家供應商，並開始於 2025 Q3 出貨。［來源 8；2025-09］</li>
+<li><strong>HBM4 進入量產競賽</strong>：量產時程落在 2026 年（約 Q1 末至 H2）。美光宣布已為 NVIDIA Vera Rubin 量產 HBM4（pin 速度 &gt;11 Gb/s、單堆疊頻寬 &gt;2.8 TB/s）；三星宣稱達 11–13 Gb/s；SK海力士展示全球首款 16 層、2 TB/s HBM4。［來源 6、10］</li>
+<li><strong>NVIDIA Rubin 規格</strong>：每顆 Rubin GPU 搭載 288GB HBM4、8 個堆疊、總頻寬上看約 22 TB/s，採 <a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a> 3nm + CoWoS-L。［來源 10；GTC 2026］</li>
+<li><strong>價格上行</strong>：三星與 SK海力士傳出 2026 年 HBM3E 約 20% 漲價，反映 NVIDIA H200 與 ASIC 需求暢旺（TrendForce）。［TrendForce；2025-12］</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>結構性缺貨</strong>：HBM 為 AI 算力最緊的瓶頸之一，2025 年估有約 28% 供給缺口，售罄延伸至 2027；任何 HBM 良率或產能閃失都會直接卡住 AI 晶片出貨。［來源 11；屬產業估計，待驗證］</li>
+<li><strong>技術門檻陡升</strong>：HBM4 改用 2048-bit 介面與先進邏輯 base die、更高層堆疊與混合鍵合（hybrid bonding），良率挑戰大；NVIDIA 對 Rubin 規格的拉高一度造成記憶體廠重新設計與時程延後。［來源 10］</li>
+<li><strong>競爭格局位移</strong>：美光快速崛起、三星重返 NVIDIA 供應鏈，SK海力士的領先優勢正被侵蝕；2026 年戰場轉向 HBM4，誰先穩定量產誰就掌握定價權。［來源 1、8］</li>
+<li><strong>客戶集中與循環性風險</strong>：HBM 需求高度集中於少數 AI 客戶（NVIDIA、雲端大廠、Google TPU 等），一旦 AI 資本支出循環反轉，記憶體產業特有的劇烈價格波動恐再現。</li>
+<li><strong>代工綁定風險</strong>：HBM4 base die 對 <a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a> 先進製程的依賴，使記憶體供給與晶圓代工產能、地緣政治風險進一步耦合。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="NVIDIA.html">NVIDIA</a>：最大 HBM 採購方，AI 加速器規格直接定義 HBM 世代需求。</li>
+<li><a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a>：CoWoS 先進封裝主導者，並代工 HBM4 邏輯 base die。</li>
+<li><a href="%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9DCoWoS.html">先進封裝CoWoS</a>：HBM 與 GPU 整合的必經封裝技術，與 HBM 同為雙重瓶頸。</li>
+<li><a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%83%BD%E6%BA%90.html">AI資料中心能源</a>：HBM 容量推升單機算力密度，連動資料中心用電。</li>
+<li><a href="SK%E6%B5%B7%E5%8A%9B%E5%A3%AB.html">SK海力士</a> / <a href="%E4%B8%89%E6%98%9F%E9%9B%BB%E5%AD%90.html">三星電子</a> / <a href="%E7%BE%8E%E5%85%89.html">美光</a>：HBM 三大供應商（市占由高至低）。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Astute Group — SK hynix holds 62% of HBM, Micron overtakes Samsung：https://www.astutegroup.com/news/general/sk-hynix-holds-62-of-hbm-micron-overtakes-samsung-2026-battle-pivots-to-hbm4/</li>
+<li>Counterpoint Research — Global DRAM and HBM Market Share：https://counterpointresearch.com/en/insights/global-dram-and-hbm-market-share</li>
+<li>Semiecosystem (Mark LaPedus) — SK Hynix, Micron Gain Share In HBM（引 Counterpoint 2025 Q2 數據）：https://marklapedus.substack.com/p/sk-hynix-micron-gain-share-in-hbm</li>
+<li>CNBC — SK Hynix posts record first-quarter profit (2026-04-23)：https://www.cnbc.com/2026/04/23/sk-hynix-earnings-ai-memory-shortage-hbm-demand.html</li>
+<li>StorageNewsletter — SK hynix Fiscal 1Q26 Financial Results：https://www.storagenewsletter.com/2026/04/29/sk-hynix-fiscal-1q26-financial-results/</li>
+<li>Micron — High-Volume Production of HBM4 for NVIDIA Vera Rubin：https://investors.micron.com/news-releases/news-release-details/micron-high-volume-production-hbm4-designed-nvidia-vera-rubin</li>
+<li>TechSpot — SK Hynix sells out DRAM, NAND, and HBM capacity into 2026：https://www.techspot.com/news/110058-sk-hynix-completely-sells-out-semiconductor-supply-ai.html</li>
+<li>KED Global — Samsung clears Nvidia hurdle for 12-layer HBM3E (2025-09)：https://www.kedglobal.com/korean-chipmakers/newsView/ked202509190008</li>
+<li>Wikipedia — High Bandwidth Memory（HBM4 / JESD270-4 / 世代年表）：https://en.wikipedia.org/wiki/High_Bandwidth_Memory</li>
+<li>Tom’s Hardware — HBM4/HBM4E architectural shakeup, TSMC base die：https://www.tomshardware.com/pc-components/dram/hbm-undergoes-major-architectural-shakeup-as-tsmc-and-guc-detail-hbm4-hbm4e-and-c-hbm4e-3nm-base-dies-to-enable-2-5x-performance-boost-with-speeds-of-up-to-12-8gt-s-by-2027</li>
+<li>TrendForce — Memory Wall：AI Compute Sparks Memory Supercycle：https://www.trendforce.com/insights/memory-wall</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

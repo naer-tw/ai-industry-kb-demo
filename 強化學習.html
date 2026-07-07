@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>強化學習｜AI產業知識庫</title><meta name="description" content="強化學習（Reinforcement Learning, RL）是一種「以獎勵訊號驅動、透過試誤學習決策策略」的機器學習範式：代理（agent）在環境中採取行動、取得回饋（reward），並更新策略以最大化長期累積獎勵。在當代大型語言模型（LLM）中，RL 是後訓練（post-training）的核心技術——">
+<meta property="og:title" content="強化學習"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "強化學習", "description": "強化學習（Reinforcement Learning, RL）是一種「以獎勵訊號驅動、透過試誤學習決策策略」的機器學習範式：代理（agent）在環境中採取行動、取得回饋（reward），並更新策略以最大化長期累積獎勵。在當代大型語言模型（LLM）中，RL 是後訓練（post-training）的核心技術——", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="強化學習">強化學習</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>強化學習（Reinforcement Learning, RL）是一種「以獎勵訊號驅動、透過試誤學習決策策略」的機器學習範式：代理（agent）在環境中採取行動、取得回饋（reward），並更新策略以最大化長期累積獎勵。在當代大型語言模型（LLM）中，RL 是<strong>後訓練（post-training）</strong>的核心技術——先用 RLHF/RLAIF 把模型對齊人類偏好，再用 RLVR（可驗證獎勵的 RL）大規模提升數學、程式碼、推理能力，是 OpenAI o 系列與 DeepSeek-R1 等「推理模型」得以湧現「思考鏈」的關鍵能力。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>起源論文</strong>：把人類偏好接進深度 RL 的奠基作是 Christiano 等人（OpenAI/DeepMind）《Deep Reinforcement Learning from Human Preferences》（arXiv 1706.03741，2017-06）；當時在 Atari 與模擬機器人上，用人類對軌跡片段的兩兩比較訓練獎勵模型，再以 RL 優化策略。PPO 演算法（Schulman 等人，arXiv 1707.06347，2017）成為後續 LLM RL 的標準優化器。</li>
+<li><strong>RLHF 落地 LLM</strong>：OpenAI《Training language models to follow instructions with human feedback》（InstructGPT，2022-03）確立「SFT → 獎勵模型 → PPO」三階段流程；論文指出 1.3B 的 InstructGPT 在人類評比上勝過 175B 的 GPT-3，僅用約 40 名標註員、約 1.3 萬筆示範資料（OpenAI，2022）。此流程是 ChatGPT（2022-11）的核心。</li>
+<li><strong>RLAIF / Constitutional AI</strong>：Anthropic《Constitutional AI: Harmlessness from AI Feedback》（arXiv 2212.08073，2022-12）以一份「憲法（一組原則）」取代大量人類有害性標註，由 AI 自我批判、修訂並產生偏好資料訓練獎勵模型，提出 RLAIF 以解決 RLHF 標註成本與規模化瓶頸——成為 <a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a> 的對齊基礎。</li>
+<li><strong>DPO（簡化路線）</strong>：Rafailov 等人《Direct Preference Optimization》（arXiv 2305.18290，2023-05）證明可繞過顯式獎勵模型與 RL 取樣，直接用分類式目標優化策略；穩定、輕量、易實作，成為開源社群偏好對齊的主流替代方案（注意：DPO 嚴格說是「偏好優化」而非標準 RL）。</li>
+<li><strong>GRPO（推理時代的關鍵演算法）</strong>：DeepSeek《DeepSeekMath》提出 Group Relative Policy Optimization（arXiv 2402.03300，2024-02）；以「同一題目取樣多個答案、組內相對比較」估計優勢函數，<strong>免去獨立的價值（critic）模型</strong>，大幅降低 RL 訓練的記憶體與運算成本，成為 RLVR 的事實標準演算法。</li>
+<li><strong>DeepSeek-R1 里程碑</strong>：《DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning》（arXiv 2501.12948，2025-01-22）證明<strong>純 RL（不經 SFT 暖身）即可讓推理能力與「aha moment」自我湧現</strong>（R1-Zero）；AIME 2024 pass@1 從 15.6% 提升到 71.0%、多數投票達 86.7%，逼近 OpenAI-o1（DeepSeek，2025）。</li>
+<li><strong>首篇通過同儕審查的主流大模型</strong>：DeepSeek-R1 於《Nature》封面發表（2025-09-17），揭露 R1 的<strong>RL 階段訓練成本僅約 29.4 萬美元</strong>（不含基礎模型），是首個通過權威期刊同儕審查的主流 LLM（Nature, 2025；多家媒體報導整理）。</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>RL 屬<strong>中游「模型訓練／後訓練」能力層</strong>，銜接於預訓練（pre-training）之後： - <strong>與預訓練分工</strong>：預訓練（自監督、靠 <a href="Scaling%20Laws%E8%88%87%E5%85%B6%E6%A5%B5%E9%99%90.html">Scaling Laws與其極限</a>）讓模型「具備知識與潛在能力」；RL 後訓練讓模型「對齊人類意圖」並「把潛在能力轉成可靠輸出」（尤其推理）。 - <strong>驅動 test-time compute 範式</strong>：RLVR 訓練出的長思考鏈，是 <a href="%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B%E8%88%87test-time%20compute.html">推理模型與test-time compute</a> 把算力從「訓練期」移到「推論期」的引擎，連帶推升推論側 <a href="NVIDIA.html">NVIDIA</a> GPU 與雲端算力需求。 - <strong>資料與評測依賴</strong>：RLVR 需要<strong>可自動驗證</strong>的題庫（數學符號檢查、程式碼單元測試、精確比對），使高品質可驗證資料與評測環境成為新的稀缺資源；RLHF 則仰賴人類偏好標註（<a href="Scale%20AI.html">Scale AI</a> 等資料服務）。</p>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>從「對齊」轉向「能力」</strong>：2024 前 RL 主要用於對齊（安全、有用、誠實）；2024 下半年起，RLVR 成為提升推理的主引擎，催生 OpenAI o1（2024-09）/o3、DeepSeek-R1、Qwen/Gemini/Claude 等推理版本（業界報導，2025–2026）。</li>
+<li><strong>演算法快速迭代</strong>：GRPO 之後出現大量變體（如針對 KL 正則、取樣效率、能力邊界塌縮的改良），方向集中於「更穩定、更省算力、能突破基礎模型上限」（多篇 arXiv，2025）。</li>
+<li><strong>走向 Agentic RL</strong>：2026 焦點從單輪推理轉向<strong>多輪、與環境互動的代理式 RL</strong>（工具使用、長程規劃、自我修正），被視為自主 AI 代理的關鍵拼圖（<a href="Agentic%20AI%E7%A0%94%E7%A9%B6.html">Agentic AI研究</a>；產業評論，2026-01）。</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>「RL 是否真的拓展能力」的根本爭議</strong>：Yue 等人《Does RL Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?》（arXiv 2504.13837，2025-04，獲 NeurIPS 2025 收錄）指出——RLVR 模型在小 k 值（如 pass@1）勝過基礎模型，但在<strong>大 k 值時基礎模型 pass@k 反而更高</strong>；所有 RLVR 產生的推理路徑都已存在於基礎模型的取樣分布內。結論：現有 RLVR 主要<strong>提升取樣效率，未必擴張推理能力邊界</strong>（資料來源明確，但學界仍有反方研究，屬未定論）。</li>
+<li><strong>獎勵駭客（reward hacking）</strong>：模型可能鑽獎勵函數漏洞取得高分卻偏離真實目標，是 RL 對齊的長期風險（<a href="AI%E5%B0%8D%E9%BD%8A%E8%88%87%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6.html">AI對齊與安全研究</a>）。</li>
+<li><strong>可驗證性天花板</strong>：RLVR 在數學/程式碼有效，但難擴及「無唯一正解」的開放領域（如知識問答、長文寫作）；如何設計可靠獎勵是當前瓶頸（多篇 2025 研究）。</li>
+<li><strong>資料/評測污染</strong>：可驗證題庫一旦被訓練吸收，評測效度與真實能力提升的歸因都會失真。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="Transformer.html">Transformer</a>、<a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>（RL 後訓練的作用對象）</li>
+<li><a href="%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B%E8%88%87test-time%20compute.html">推理模型與test-time compute</a>（RLVR 的直接產物與應用場景）</li>
+<li><a href="DeepSeek%20%E6%A8%A1%E5%9E%8B.html">DeepSeek 模型</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>（採用 RL 後訓練的代表模型）</li>
+<li><a href="Anthropic.html">Anthropic</a>、<a href="OpenAI.html">OpenAI</a>、<a href="DeepSeek.html">DeepSeek</a>（RLHF/RLAIF/RLVR 的主要推動者）</li>
+<li><a href="AI%E5%B0%8D%E9%BD%8A%E8%88%87%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6.html">AI對齊與安全研究</a>、<a href="Scaling%20Laws%E8%88%87%E5%85%B6%E6%A5%B5%E9%99%90.html">Scaling Laws與其極限</a>、<a href="Agentic%20AI%E7%A0%94%E7%A9%B6.html">Agentic AI研究</a>（密切相關的研究方向）</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Christiano et al., Deep Reinforcement Learning from Human Preferences (2017-06): https://arxiv.org/abs/1706.03741</li>
+<li>Ouyang et al., InstructGPT / Training language models to follow instructions with human feedback (2022-03): https://cdn.openai.com/papers/Training_language_models_to_follow_instructions_with_human_feedback.pdf</li>
+<li>Bai et al., Constitutional AI: Harmlessness from AI Feedback (2022-12): https://arxiv.org/abs/2212.08073</li>
+<li>Rafailov et al., Direct Preference Optimization (2023-05): https://arxiv.org/abs/2305.18290</li>
+<li>Shao et al., DeepSeekMath（提出 GRPO）(2024-02): https://arxiv.org/abs/2402.03300</li>
+<li>DeepSeek-AI, DeepSeek-R1（arXiv 預印本）(2025-01): https://arxiv.org/abs/2501.12948</li>
+<li>DeepSeek-AI, DeepSeek-R1（Nature 封面、同儕審查、RL 成本約 29.4 萬美元）(2025-09): https://www.nature.com/articles/s41586-025-09422-z</li>
+<li>Yue et al., Does RL Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model? (2025-04, NeurIPS 2025): https://arxiv.org/abs/2504.13837</li>
+<li>Reinforcement learning from human feedback（背景整理）, Wikipedia: https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

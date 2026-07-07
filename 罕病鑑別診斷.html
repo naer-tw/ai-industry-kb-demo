@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>罕病鑑別診斷｜AI產業知識庫</title><meta name="description" content="罕病鑑別診斷
+
+ 一句話定義（這個職業任務的可交付物是什麼）
+輸入一份開放式、非選擇題的罕病或多系統病例（病史、症狀、檢驗、影像描述等自由文字，而非 ABCD 選項），由 AI 端到端產出鑑別診斷清單＋下一步檢查與處置建議，且診斷準確率達到（或超過）相關專科醫師在同類困難病例上的水準。這">
+<meta property="og:title" content="罕病鑑別診斷"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "罕病鑑別診斷", "description": "罕病鑑別診斷\n\n 一句話定義（這個職業任務的可交付物是什麼）\n輸入一份開放式、非選擇題的罕病或多系統病例（病史、症狀、檢驗、影像描述等自由文字，而非 ABCD 選項），由 AI 端到端產出鑑別診斷清單＋下一步檢查與處置建議，且診斷準確率達到（或超過）相關專科醫師在同類困難病例上的水準。這", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="罕病鑑別診斷">罕病鑑別診斷</h1>
+<h2 id="一句話定義這個職業任務的可交付物是什麼">一句話定義（這個職業任務的可交付物是什麼）</h2>
+<p>輸入一份<strong>開放式、非選擇題</strong>的罕病或多系統病例（病史、症狀、檢驗、影像描述等自由文字，而非 ABCD 選項），由 AI 端到端產出<strong>鑑別診斷清單＋下一步檢查與處置建議</strong>，且診斷準確率達到（或超過）相關<strong>專科醫師</strong>在同類困難病例上的水準。這是臨床決策支援裡最高階的「診斷推理」交付。</p>
+<h2 id="難度評分綜合-610技術-5落地-7-理由">難度評分（綜合 6/10：技術 5、落地 7）— 理由</h2>
+<ul>
+<li><strong>技術 5（前沿可做、可靠性仍有缺口）</strong>：在「困難但結構化」的封閉測試集上，AI 已能匹配甚至大幅超越專科醫師——MAI-DxO（OpenAI o3 為核心）在 304 例 NEJM-CPC 難例 top-1 達 <strong>85.5%</strong>，21 位執業醫師（無教科書/同儕協助）僅約 <strong>20%</strong>（來源1、2）；DeepRare 在 8 個公開＋自建資料集（6,401 例、2,919 種罕病）平均 Recall@1 <strong>57.18%</strong>，較次佳法高 23.79 個百分點，與專家對照 163 例達 <strong>79% vs 66%</strong>（來源3、4）。但這些都建立在<strong>整理過的病例摘要</strong>上，真實「開放式雜訊輸入＋未測偽陽性率」仍是缺口，故非更低分。</li>
+<li><strong>落地 7（技術可做，但受監管/責任/信任卡關）</strong>：所有系統皆明示「<strong>尚未獲准臨床使用</strong>」、僅為研究展示（MAI-DxO，來源1）；落地形態一律是<strong>醫師在環的決策支援</strong>，而非「AI 自主下診斷」。自主診斷屬 SaMD（軟體醫材），須 FDA/EMA 等臨床試驗與審查，誤診責任歸屬未解（來源5）。</li>
+<li>對照量表：技術已過「5-6 前沿可做、部分落地」，但「開放式非選擇題＋專科級可靠＋可規模化交付」這組合尚未成立，落地受制度堵住，故綜合判 <strong>6</strong>（較 P1 初判 8 下修，因 benchmark 與真實部署證據比預期成熟）。</li>
+<li><strong>查證重評：6/5/7</strong>（理由）——獨立比對錨定量表三項皆與原評一致，差 0 分，<strong>無分歧</strong>。Tech 5：與 <a href="%E6%94%BE%E5%B0%84%E5%BD%B1%E5%83%8F%E8%BC%94%E5%8A%A9%E9%96%B1%E7%89%87.html">放射影像輔助閱片</a>（技術 3）同為「人在環醫療 AI」但更難——後者已有 FDA-cleared 產品、RCT 級實證，本任務在<strong>真實開放式雜訊輸入</strong>下的可靠性與偽陽性率仍未證實（公開非整理集 Recall@1 僅 57.18%；EJHG 2026 系統性 benchmark 更指 LLM 尚未超越傳統罕病決策工具，來源7），故較放射高 2 級。Dep 7：核心動作「自主下診斷」正是業界刻意保留給人類的部分（與 <a href="%E8%87%AA%E5%8B%95%E4%BA%8B%E5%AF%A6%E6%9F%A5%E6%A0%B8.html">自動事實查核</a> Dep=8 同構），但罕病<strong>決策支援</strong>已大規模真實部署（DeepRare 600+ 機構、OpenEvidence 40% 美國醫師），未如查核被完全堵死，故介於 <a href="%E9%86%AB%E7%97%85SOAP%E7%97%85%E6%AD%B7.html">醫病SOAP病歷</a>（6，FDA 多不納管）與自動事實查核（8）之間 → 7，<strong>確實反映 SaMD 監管／誤診責任／決策支援 vs 自主診斷紅線</strong>三重落地障礙。（2026-06-26 查證，benchmark 與部署數字均經獨立來源覆核屬實、日期最新）</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>MAI-DxO ＠ Sequential Diagnosis Benchmark（NEJM-CPC，2025-06-30）</strong>：將 2017–2025 共 304 例 NEJM 臨床病理討論會（最困難病例）改寫為「逐步問診」互動。以 OpenAI o3 驅動的 MAI-DxO <strong>top-1 準確率 85.5%</strong>，對照 21 位美/英執業醫師（5–20 年資、無外援）平均約 <strong>20%</strong>，準確率約 4 倍且測試成本更低。Microsoft 自承「未經同儕審查、不適用於臨床」（來源1、2）。</li>
+<li><strong>DeepRare ＠ RareBench 等（Nature，2026-02-19）</strong>：8 資料集、6,401 例、2,919 種罕病。僅用臨床表型（HPO）平均 <strong>Recall@1 57.18%</strong>；RareBench-MME 子集 <strong>Recall@1 78%、Recall@3 85%</strong>；併入基因資料時複雜病例 <strong>Recall@1 升至 70.6%</strong>，勝過業界標準工具 Exomiser（53.2%）。推理鏈經臨床專家驗證一致性 <strong>95.4%</strong>（來源3、4）。</li>
+<li>平衡訊號：罕病 LLM 診斷的系統性回顧與統合分析（medRxiv，2026-03-27）納入 19 個系統-資料集條目（17/19 為 2025 後），指出各研究 top-1 準確率離散大、受測試集挑選與資料汙染影響，提醒 benchmark 高分不等於真實世界可靠（來源6）。另一獨立 benchmark（EJHG，2026）更直接指出<strong>通用 LLM 尚未達到傳統罕病決策支援工具的診斷準確率</strong>，與本任務「benchmark ≠ 真實可靠」判斷一致（來源7）。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效監管限制">實證二：真實部署/產品案例（誰用、規模、成效、監管限制）</h2>
+<ul>
+<li><strong>DeepRare（上海交大×新華醫院×哈佛）</strong>：自 <strong>2025 年 7 月</strong>上線線上診斷平台，全球 <strong>逾 600 家醫療機構</strong>註冊使用，定位為「鑑別診斷決策支援」而非自主下診斷；計畫以 2 萬例真實病例續驗（來源4）。中國罕見病聯盟調查：罕病患者 42% 曾被誤診、平均等 4.26 年才確診——凸顯此任務的臨床缺口（來源4）。</li>
+<li><strong>OpenEvidence（「醫師版 ChatGPT」）</strong>：2026-01 估值 120 億美元；逾 <strong>40% 美國醫師、逾 1 萬家機構</strong>使用，每月逾 6.5 萬名新驗證醫師註冊。屬臨床問答/決策支援，<strong>對醫師免費、靠藥廠廣告變現</strong>，非經 FDA 上市審查的自主診斷器（來源5、醫療AI 頁）。</li>
+<li><strong>監管限制</strong>：MAI-DxO 路線圖為原型(2025)→臨床試驗(2026–27)→部署(2027+)；自主診斷須 SaMD 審查，誤診責任目前仍回到醫師身上。<strong>尚無「AI 自主、達專科級、規模化」的罕病診斷部署案例</strong>——現況一律醫師在環。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：在整理過的困難病例上，產出高品質鑑別診斷清單與檢查建議，封閉測試集準確率匹配甚至超越無外援的專科醫師；作為<strong>決策支援</strong>已真實大規模使用（DeepRare 600+ 機構、OpenEvidence 40% 美國醫師）；提供可追溯推理鏈（DeepRare 一致性 95.4%）。</li>
+<li><strong>做不到/未證實</strong>：在<strong>真實開放式雜訊輸入</strong>（非整理摘要）下的穩定可靠；<strong>偽陽性率/安全性</strong>多數研究未測；以<strong>自主下診斷</strong>形態通過監管上市；長尾極罕病與資料分布外（弱勢族群、紀錄不全）之泛化。</li>
+<li><strong>核心瓶頸</strong>：benchmark 與真實世界落差、未測偽陽性、監管(SaMD)與誤診責任、以及「決策支援」與「自主診斷」之間的制度紅線——後者使落地難度高於技術難度。</li>
+</ul>
+<h2 id="相關實體連結既有頁">相關實體（<span class="todo" title="待建頁面">連結</span>既有頁）</h2>
+<p><a href="%E9%86%AB%E7%99%82AI.html">醫療AI</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="Agentic%20AI%E7%A0%94%E7%A9%B6.html">Agentic AI研究</a>、<a href="%E5%90%8C%E5%84%95%E5%AF%A9%E6%9F%A5%E8%AB%96%E6%96%87.html">同儕審查論文</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Microsoft AI — The Path to Medical Superintelligence（MAI-DxO，2025-06-30）：https://microsoft.ai/news/the-path-to-medical-superintelligence/</li>
+<li>Sequential Diagnosis with Language Models（arXiv 2506.22405）：https://arxiv.org/abs/2506.22405</li>
+<li>An agentic system for rare disease diagnosis with traceable reasoning（DeepRare, Nature s41586-025-10097-9，2026-02-19）：https://www.nature.com/articles/s41586-025-10097-9</li>
+<li>CGTN — “Agentic” AI system delivers high accuracy in rare disease diagnosis（2026-02-19，含部署規模/Exomiser 對照/誤診統計）：https://news.cgtn.com/news/2026-02-19/-Agentic-AI-system-delivers-high-accuracy-in-rare-disease-diagnosis-1KSXg0DechO/p.html</li>
+<li>CNBC — OpenEvidence 估值翻倍至 120 億美元（2026-01-21）：https://www.cnbc.com/2026/01/21/openevidence-chatgpt-for-doctors-doubles-valuation-to-12-billion.html</li>
+<li>Diagnostic Accuracy of LLMs for Rare Diseases: A Systematic Review and Meta-Analysis（medRxiv，2026-03-27，19 系統-資料集條目；搜尋 2020-01～2026-02）：https://www.medrxiv.org/content/10.64898/2026.03.26.26349194v1</li>
+<li>Systematic benchmarking demonstrates LLMs have not reached the diagnostic accuracy of traditional rare-disease decision support tools（European Journal of Human Genetics，2026）：https://www.nature.com/articles/s41431-026-02054-5</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

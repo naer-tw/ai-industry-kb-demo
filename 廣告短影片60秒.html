@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>廣告短影片60秒｜AI產業知識庫</title><meta name="description" content="廣告短影片60秒
+
+ 一句話定義（這個可交付物是什麼）
+給一段文字描述，AI 端到端產出一支約 60 秒的影片，且片中角色與場景在多個鏡頭間維持時序連貫（同一人物臉孔/服裝不漂移、場景接續合理），品質達到可直接拿去廣告投放（電視/串流/社群）的水準。重點不在「能生出畫面」——那已是商品化能力——而在「60 秒">
+<meta property="og:title" content="廣告短影片60秒"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "廣告短影片60秒", "description": "廣告短影片60秒\n\n 一句話定義（這個可交付物是什麼）\n給一段文字描述，AI 端到端產出一支約 60 秒的影片，且片中角色與場景在多個鏡頭間維持時序連貫（同一人物臉孔/服裝不漂移、場景接續合理），品質達到可直接拿去廣告投放（電視/串流/社群）的水準。重點不在「能生出畫面」——那已是商品化能力——而在「60 秒", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="廣告短影片60秒">廣告短影片60秒</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給一段文字描述，AI 端到端產出一支約 60 秒的影片，且片中角色與場景在多個鏡頭間維持時序連貫（同一人物臉孔/服裝不漂移、場景接續合理），品質達到可直接拿去廣告投放（電視/串流/社群）的水準。重點不在「能生出畫面」——那已是商品化能力——而在「60 秒長度 × 跨鏡頭一致性 × 投放級品質」三者同時成立。</p>
+<h2 id="難度評分綜合-610技術-6落地-5-理由">難度評分（綜合 6/10：技術 6、落地 5）— 理由</h2>
+<ul>
+<li><strong>技術 6（前沿可做但有可靠性挑戰）</strong>：核心矛盾是「原生片長」。2026-06 主流模型單次生成上限仍短——Veo 3 為 4/6/8 秒、Kling 3.0 約 10-15 秒[2,5]，沒有任何模型能「一鏡到底」原生產出 60 秒。要達 60 秒須靠「分鏡多次生成＋延伸(extend)＋剪接」拼接，Veo 用 scene-extension 約可疊到 148 秒[2]，Kling 3.0 單次可產最多 6 個連續鏡頭並以 Soul ID 維持角色一致[6]。畫面美學已近飽和(VBench 超表面保真接近天花板[3])，但跨鏡頭的角色臉孔/服裝一致、物理與常識(VBench-2.0 內在保真)仍是未解弱項[3]，因此「投放級無瑕」仍需大量重抽與人工挑選。</li>
+<li><strong>落地 5（可用但需人工把關、已有產品且已上電視）</strong>：這正是它比<a href="%E7%89%A9%E7%90%86%E4%B8%80%E8%87%B4%E9%95%B7%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">物理一致長影片生成</a>容易之處——廣告場景<strong>容忍創意失真</strong>，不要求物理零違規，只要「好看、對味、過審」。已有真實品牌廣告在主流媒體投放(見實證二)，工具(Veo/Kling/Runway)已產品化、可付費取得。給 5 而非更低，是因為產線仍重度依賴人工：Kalshi 案例約跑 300-400 支片段才挑出 15 支進終剪[備註]，屬「人機協作、人工把關」而非「一鍵交付」。</li>
+<li><strong>綜合 6</strong>：可交付物 = 60 秒 ∩ 跨鏡頭連貫 ∩ 投放級。落地端已有商用案例與上電視紀錄(往 5 靠)，但「文字一鍵→60 秒成片無須人工挑修」尚不可靠(往 6-7 靠)，綜合落在「前沿可做、可靠性/成本仍挑戰、部分落地」的 5-6 區間，取 6。</li>
+<li><strong>與 P1 初判(6)一致</strong>：對抗式查證後維持 6/6/5。技術面命中錨定「5-6 前沿可做但可靠性成本仍挑戰」；落地面已有真實投放故略低於技術分。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>原生片長上限</strong>(2026-06)：Veo 3/3.1 單次生成僅 4/6/8 秒，extend 每次 +7 秒、用 scene-extension 約可達 148 秒；Kling 3.0 單次約 3-15 秒、可一次產最多 6 連續鏡頭(總長至多 15 秒)[2,5,6]。→ 60 秒本質是「拼接題」而非「單次生成題」。</li>
+<li><strong>T2V 偏好競技場 Elo</strong>(Artificial Analysis Arena, 2026-04)：HappyHorse-1.0(Alibaba)=1361、Seedance 2.0 720p(ByteDance)=1268、Kling 3.0 1080p Pro=1247、Veo 3(Google)=1217[1]。另一榜(llm-stats, 2026-06)Kling v3 arena=2031 居首[搜尋]。顯示頂級模型畫面品質已具競爭力。</li>
+<li><strong>VBench / VBench-2.0</strong>：VBench 開源最佳 Wan 2.2=84.7%、HunyuanVideo 1.5 視覺品質 96.4%[1]；論文指「超表面保真(畫質/簡單提示遵循)接近飽和」[3]。但 VBench-2.0 新增的人類保真/物理/常識/可控性等「內在保真」維度，當前模型「仍難以做到不只看似可信、而是根本上真實」[3]——這正對應跨鏡頭角色漂移與不合理動作。</li>
+<li><strong>一致性弱點</strong>：Wan 系列在時序一致與多物件追蹤領先；但 HunyuanVideo、CogVideoX-1.5、Sora 480p、Kling 1.6 在「動態屬性變化」僅得 8%-29%[搜尋]，說明複雜長序列一致性仍脆弱。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Kalshi(預測市場平台)</strong>：AI 製作的 30 秒廣告於 2025 NBA 總決賽 Game 3 在 ABC 播出(全美最高收視運動賽事之一、首支於黃金時段全國轉播的全 AI 廣告)並通過電視台審查；由 PJ Accetturo 以 Veo 3＋Gemini 生成視覺/語音/動態，約跑 300-400 支片段、挑出 15 支進終剪；預算約 2,000 美元(外加自由接案創意費)、從概念到全國放送僅約 48 小時，把數週產期壓到數小時[4,5]。→ 證明「文字→可投放廣告」已真實上電視，但需大量迭代與人工挑選。</li>
+<li><strong>Popeyes「(w)Rap Battle」</strong>：AI 導演 Accetturo 以 Google Veo 3 生成影像、Suno 生成音樂，整支廣告 3 天內完成；展示「文化熱點即時反應」的速度優勢，傳統產線難以趕上[5]。</li>
+<li><strong>Coca-Cola 假期廣告</strong>：2024 版用 Kling、Leonardo、Runway 等重製經典卡車/雪景；2025 版由 Secret Level 與 Silverside AI 以更新模型製作[5]。屬大品牌正式投放。</li>
+<li><strong>量化效益</strong>：業界案例稱 Veo 3 可省去獨立配音、後製時間砍半以上(某豪華車品牌 4K 系列廣告)[搜尋]。Kling 因成本低，常用於量產測試與多版本素材。</li>
+<li><strong>結論</strong>：「文字→可投放短影片」已有真實規模化商用與電視投放，但「精準 60 秒、跨鏡頭完全連貫、零人工修補」仍非常態，產線普遍「人機協作」。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li>做得到：單鏡頭 8-15 秒高品質畫面；用分鏡＋延伸＋剪接拼到 60 秒以上；以角色一致工具(如 Kling Soul ID)在數個鏡頭間大致維持同一人物；社群/電視級廣告已實際投放。</li>
+<li>做不到/需人工：(1)文字一鍵原生輸出連貫 60 秒——須多次生成與剪接；(2)長序列中角色臉孔/服裝/場景零漂移——仍會抖動，需重抽挑片；(3)物理與常識內在保真(VBench-2.0 弱項)；(4)精準口型/品牌字卡/法規合規常須人工後製。整體屬「可用但需人工把關、已有產品」偏向「前沿可做、可靠性與成本仍是挑戰」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="AI%E5%BD%B1%E5%83%8F%E8%88%87%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">AI影像與影片生成</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="%E6%93%B4%E6%95%A3%E6%A8%A1%E5%9E%8B.html">擴散模型</a>、<a href="%E5%A4%9A%E9%8F%A1%E9%A0%AD%E6%95%98%E4%BA%8B%E5%BD%B1%E7%89%87.html">多鏡頭敘事影片</a>、<a href="%E7%89%A9%E7%90%86%E4%B8%80%E8%87%B4%E9%95%B7%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">物理一致長影片生成</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Video Generation Benchmarks Leaderboard 2026（Arena Elo、VBench 開源分數，2026-04）— https://awesomeagents.ai/leaderboards/video-generation-benchmarks-leaderboard/</li>
+<li>How Long Are Veo 3 / Veo 3.1 Videos?（8s 上限、extend 規則，2026）— https://ulazai.com/how-long-veo3-videos/ ；另見 https://www.glbgpt.com/hub/how-long-can-veo-3-1-videos-be/</li>
+<li>VBench-2.0: Advancing Video Generation Benchmark Suite for Intrinsic Faithfulness（arXiv:2503.21755, 2025-03）— https://arxiv.org/html/2503.21755v1</li>
+<li>9 AI Marketing Campaigns 2026（Kalshi NBA 總決賽案例、成本/工期）— https://www.superside.com/blog/ai-marketing-campaigns</li>
+<li>AI Video Generators for Ads in 2026: Veo, Sora, Kling or Runway?（Kalshi 300-400 提示/15 片段、Popeyes、Coca-Cola、片長）— https://www.spaceads.agency/blog/ai-video-generators-veo-3-sora-2-kling-runway-ads-2026</li>
+<li>Kling 3.0 多鏡頭與角色一致(Soul ID、最多 6 連續鏡頭、單次 10-15 秒)— https://www.elser.ai/blog/kling-ai-vs-veo-2026</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIME競賽數學｜AI產業知識庫</title><meta name="description" content="AIME競賽數學
+
+ 一句話定義（這個可交付物是什麼）
+給一道 AIME（美國數學邀請賽）等級的競賽數學題，模型在無外部工具（不呼叫計算器/Python/檢索）、限時、閉卷條件下，輸出正確的整數答案並附上完整、可檢核的推理過程。這是「純推理能力」的代表性壓力測試，因為 AIME 答案是 0–999 的整數、可">
+<meta property="og:title" content="AIME競賽數學"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "AIME競賽數學", "description": "AIME競賽數學\n\n 一句話定義（這個可交付物是什麼）\n給一道 AIME（美國數學邀請賽）等級的競賽數學題，模型在無外部工具（不呼叫計算器/Python/檢索）、限時、閉卷條件下，輸出正確的整數答案並附上完整、可檢核的推理過程。這是「純推理能力」的代表性壓力測試，因為 AIME 答案是 0–999 的整數、可", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="aime競賽數學">AIME競賽數學</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給一道 AIME（美國數學邀請賽）等級的競賽數學題，模型在無外部工具（不呼叫計算器/Python/檢索）、限時、閉卷條件下，輸出正確的整數答案並附上完整、可檢核的推理過程。這是「純推理能力」的代表性壓力測試，因為 AIME 答案是 0–999 的整數、可機器判分，且每年新題可作抗污染基準。</p>
+<h2 id="難度評分綜合-310技術-2落地-4-理由">難度評分（綜合 3/10：技術 2、落地 4）— 理由</h2>
+<ul>
+<li><strong>技術成熟度 diff_tech=2（很成熟）</strong>：前沿推理模型已在 AIME 2025 上達到飽和。Vellum 排行榜（2026-06-09）顯示 GPT-5.2、Gemini 3 Pro 達 100%，Claude Opus 4.6 99.8%，連開源 GPT-oss-20b 也達 98.7%[1]。對照 2023 年初前沿模型「幾乎無法得分」、2025 年初已普遍勝過頂尖人類[3]，兩年內從個位數百分比躍升到 &gt;90%，顯示這是已被攻克的能力。</li>
+<li><strong>落地難度 diff_deploy=4（中低，但有可靠性折扣）</strong>：能力已內建於 ChatGPT / Claude / Gemini 的「thinking」模式並大規模商用，數學是其主打場景之一，落地門檻低。扣分在「單次可靠性」：研究指出 reasoning 模型在 AIME 上單跑（single run）變異極大——Phi-4-reasoning 技術報告以 50 次獨立執行做核密度估計，發現 o3-mini 單跑準確率可在 70–100% 之間擺盪、DeepSeek-R1-Distill-Llama-70B 在 30–70%，並明言「以單跑比較模型極易得出誤導結論」[5]；學界因此須用 pass@1 取 k 次平均才穩定（AceReason-Nemotron 報告：AIME2024 在 k=16/32/64 時平均值的標準誤 SEM 為 1.8/1.2/0.7）[6]。亦即「平均很強」與「這一次答對且推理無誤」是兩回事，正式採用（如自動批改、教學評分）仍需多次取樣或人工把關。</li>
+<li><strong>綜合 difficulty=3</strong>：技術飽和、已商品化，但因高方差與「無工具閉卷仍餘 2–3 題未解」的長尾，落在「可用但需人工把關、已有產品」的 3–4 區間，取偏低端的 3。較 P1 初判的 5 下修，因 2026 年榜單已接近滿分，難度錨應反映商品化現實。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>AIME 2025（無工具/閉卷，pass@1）</strong>，Vellum「Best in High School Math」榜，2026-06-09 更新[1]：Gemini 3 Pro 100%、GPT-5.2 100%、Claude Opus 4.6 99.8%、Kimi K2 Thinking 99.1%、GPT-oss-20b 98.7%。</li>
+<li><strong>Artificial Analysis</strong> 獨立評測（AIME 2025）：GPT-5.2(xhigh)、GPT-5 Codex(high)、Gemini 3 Flash Preview(Reasoning) 並列滿分[2]。</li>
+<li><strong>GPT-5（full, closed-book）約 94.6%</strong>（2025 秋）[3]；Grok-4 約 91–93%、Qwen-OSS-120B 92.6%[3]。</li>
+<li><strong>抗污染特性</strong>：AIME 每年新題、賽後才公開，被視為逐年最乾淨的數學推理訊號；但 AIME 2024 舊題已污染部分模型預訓練，可較 2025 題虛高 10–20 分[搜尋彙整]。Klear-Reasoner(8B) 從 AIME 2024 的 90.5% 掉到 2025 的 83.2%，印證「題目新鮮度仍有影響」[3]。</li>
+<li><strong>工具加持近乎滿分</strong>：給 Python，GPT-5 Pro 達 100%、甚至 GPT-4 加 Python 約 99.5%[3]——但本可交付物明確限定「無外部工具」，故以閉卷分數為準。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>商品化形態</strong>：此能力非獨立產品，而是內建於主流聊天助理的「深度推理 / thinking」模式。OpenAI 於 2025-08-07 將 o 系列整併入 GPT-5，gpt-5-thinking 取代 o3，向 Plus/Pro/Team/Free 及隨後的 Enterprise/Edu 全面開放[搜尋彙整]，數學為其主打標竿之一。Claude、Gemini 亦同。</li>
+<li><strong>可靠性實測</strong>：OpenAI 稱開啟 Thinking 模式後錯誤率較 o3 最多降 80%；在 1000+ 真實高價值推理題上，外部專家偏好 GPT-5 pro 達 67.8%、重大錯誤少 22%[搜尋彙整]。顯示「數學/推理」已是企業級可賣賣點。</li>
+<li><strong>規模化教育/批改部署證據仍弱</strong>：未找到「以 AIME 級閉卷自動解題與評分」做大規模正式採用（如官方競賽訓練平台）的公開數據；多為通用助理的子能力。故證據等級定 B（benchmark 強、產品案例為通用助理而非專用部署）。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：競賽級代數、數論、組合、幾何的標準題型，前沿模型閉卷 pass@1 已逼近滿分，並能輸出逐步推理。</li>
+<li><strong>邊界一：單次不穩</strong>。平均高分掩蓋高方差，單跑可能答錯或推理跳步、結論對但過程有瑕疵[5][6]，高風險場景須多取樣 + 人工核。</li>
+<li><strong>邊界二：題目新鮮度與污染</strong>。舊題分數可能被預訓練污染虛高[3]；真正未見過的新題仍掉分。</li>
+<li><strong>邊界三：飽和≠通用數學能力</strong>。AIME 是「有確定整數解、可判分」的窄域；不等同證明題、開放式研究數學（後者見 <a href="Scaling%20Laws%E8%88%87%E5%85%B6%E6%A5%B5%E9%99%90.html">Scaling Laws與其極限</a> 與前沿研究討論）。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B%E8%88%87test-time%20compute.html">推理模型與test-time compute</a>（本能力的技術根源：test-time compute / 思維鏈）、<a href="Scaling%20Laws%E8%88%87%E5%85%B6%E6%A5%B5%E9%99%90.html">Scaling Laws與其極限</a>、<a href="%E9%86%AB%E7%99%82AI.html">醫療AI</a>（同屬高可靠性需求的推理落地對照）。</p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Vellum, LLM Leaderboard（Best in High School Math, AIME 2025），更新 2026-06-09 — https://www.vellum.ai/llm-leaderboard</li>
+<li>Artificial Analysis, AIME 2025 Evaluation Leaderboard — https://artificialanalysis.ai/evaluations/aime-2025</li>
+<li>IntuitionLabs, AIME 2025 Benchmark: An Analysis of AI Math Reasoning（2025-10-24） — https://intuitionlabs.ai/articles/aime-2025-ai-benchmark-explained</li>
+<li>llm-stats, AIME 2025 Benchmark Leaderboard — https://llm-stats.com/benchmarks/aime-2025</li>
+<li>Microsoft, Phi-4-reasoning Technical Report（arXiv 2504.21318，50 次獨立執行的 AIME 2025 單跑變異區間：o3-mini 70–100%、DeepSeek-R1-Distill-Llama-70B 30–70%） — https://arxiv.org/pdf/2504.21318 〔原 vals.ai 連結 https://www.vals.ai/benchmarks/aime-2025-04-18 於 2026-06 查證已失效(404)，改以該變異發現之原始出處 Phi-4 報告替代〕</li>
+<li>AceReason-Nemotron（arXiv 2505.16400，pass@1 k=64 取樣標準差） — https://arxiv.org/pdf/2505.16400</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

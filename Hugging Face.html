@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hugging Face｜AI產業知識庫</title><meta name="description" content="Hugging Face 是開源 AI 生態的「中央樞紐」與事實標準平台，經營全球最大的模型／資料集／應用（Spaces）共享 Hub 與 Transformers 函式庫；在 AI 供應鏈屬中游「模型分發與開發工具層」，被視為「機器學習界的 GitHub」，連結上游算力／模型供應者與下游開發者與企業。">
+<meta property="og:title" content="Hugging Face"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Hugging Face", "description": "Hugging Face 是開源 AI 生態的「中央樞紐」與事實標準平台，經營全球最大的模型／資料集／應用（Spaces）共享 Hub 與 Transformers 函式庫；在 AI 供應鏈屬中游「模型分發與開發工具層」，被視為「機器學習界的 GitHub」，連結上游算力／模型供應者與下游開發者與企業。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>公司</span></header>
+<main><article><h1 id="hugging-face">Hugging Face</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>Hugging Face 是開源 AI 生態的「中央樞紐」與事實標準平台，經營全球最大的模型／資料集／應用（Spaces）共享 Hub 與 Transformers 函式庫；在 AI 供應鏈屬中游「模型分發與開發工具層」，被視為「機器學習界的 GitHub」，連結上游算力／模型供應者與下游開發者與企業。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>平台規模</strong>：截至 2025–2026 年，Hub 託管逾 200 萬個公開模型、逾 50 萬個公開資料集、註冊使用者約 1,300 萬（來源 1，HF 官方 State of Open Source AI Spring 2026；該報告未列 Spaces 數）。Spaces（AI 應用）數官方口徑不一：HF Hub 文件行銷標頭稱「1.5M AI apps」，但多數第三方統計約為 100 萬量級（來源 9，HF Hub 文件 2026；註：同頁標頭稱資料集「1.5M」與內文「over 500k」互相矛盾，故資料集以 50 萬為準）。模型數於 2025-10 突破 200 萬（lbourdois 統計，2,126,833 個 / 2025-10-01）。</li>
+<li><strong>Transformers 函式庫</strong>：GitHub 約 16.1 萬顆星、3.34 萬個 fork，最新版 v5.10.2（2026-06-04 釋出）；定位為「模型定義框架」，跨 PyTorch／TensorFlow／JAX 與各推論引擎的相容性樞紐（來源 2，GitHub 官方）。</li>
+<li><strong>開源分發龍頭</strong>：2025 年 Hugging Face 承載約 42% 的社群模型下載量，為開放權重模型最主要的分發管道（來源 7／fueler.io 引述，2025）。</li>
+<li><strong>營收與獲利</strong>：年化營收（ARR）約 2023 年 7,000 萬、2024 年約 1.3 億美元；2025 年企業營收估約 1.2–1.5 億美元 ARR（Sacra／getlatka／fueler.io，估值口徑不一，2024–2025）。公司曾於早期表態已接近獲利、「不缺錢」（Sacra，較早期；2025 是否仍獲利資料未證實）。</li>
+<li><strong>員工數</strong>：約 635 人（2026 年估，較 2024 年 444 人成長；Sacra／第三方統計，未經官方逐年證實）。</li>
+<li><strong>估值與募資</strong>：最後一次官方確認估值為 45 億美元，來自 2023-08 的 2.35 億美元 D 輪（由 Salesforce 領投，<a href="NVIDIA.html">NVIDIA</a>、Google、Amazon、Intel、AMD、Qualcomm、IBM 等共同參與）；累計募資約 3.95 億美元（來源 3，TechCrunch 2023-08-24）。<strong>2024–2026 未見新一輪官方募資公告</strong>，估值仍停在 45 億美元水準（多家追蹤機構，2026）。</li>
+<li><strong>使用者結構轉變</strong>：2025 年獨立／無所屬開發者占模型<strong>下載量</strong>比重升至約 39%（2022 年前約 17%），產業界於整體開發活動占比由約 70% 降至約 37%；下載量中國占約 41%、單月已超越美國（來源 1，HF 官方 2026；註：39% 與 37% 在原報告分屬「下載量占比」與「整體開發活動占比」，非「模型發布數」占比）。</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>Hugging Face 位居 AI 供應鏈<strong>中游的「模型分發、開發工具與開源協作層」</strong>，是連接各環節的中立基礎設施：</p>
+<ul>
+<li><strong>對上游（模型／晶片供應者）</strong>：<a href="Meta.html">Meta</a> 的 <a href="Llama%20%E7%B3%BB%E5%88%97.html">Llama 系列</a>、阿里 <a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a>、<a href="DeepSeek.html">DeepSeek</a>、Mistral 等開放權重模型多以 Hub 為首發與分發地（Qwen 衍生模型逾 11.3 萬個）；<a href="NVIDIA.html">NVIDIA</a> 等晶片商既是投資者也整合其推論工具。</li>
+<li><strong>核心工具鏈</strong>：Transformers（模型定義，建於 <a href="PyTorch.html">PyTorch</a> 之上）、Datasets、Diffusers、Tokenizers、Accelerate、PEFT 等構成開源 AI 的標準堆疊；Transformers 已是無數下游函式庫與框架的相容基準。</li>
+<li><strong>對下游（開發者／企業）</strong>：透過 Inference Providers（彙整 200+ 模型、跨供應商 pay-as-you-go）、Inference Endpoints、Spaces（應用展示）與 Enterprise Hub（SSO、私有部署、稽核，逾 2,000 組織採用、每席每月 20 美元）提供商用化路徑。</li>
+<li><strong>全鏈布局</strong>：2026-02 併入 ggml.ai（llama.cpp）後，Hugging Face 同時掌握「模型託管（Hub）＋模型定義（Transformers）＋本地推論（llama.cpp/ggml）」，為唯一橫跨三者的組織（來源 6，Simon Willison 2026-02-20）。</li>
+<li><strong>定位差異</strong>：相對 <a href="OpenAI.html">OpenAI</a> 等閉源前沿廠走「模型即服務」，Hugging Face 走中立平台路線——不押單一模型，靠生態與工具掌握開發者入口。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>進軍機器人（硬體首跳）</strong>：2024 年啟動 LeRobot 開源函式庫（由前 Tesla 工程師 Remi Cadene 領軍），Hub 成為開放機器人最廣用平台；2025-04 收購法國 Pollen Robotics，取得開源人形機器人 Reachy 2（售價約 7 萬美元）並新增約 30 名員工，押注「具身學習」為 AI 下一前沿（來源 5，HF 官方 2025-04）。</li>
+<li><strong>收購 ggml.ai / llama.cpp</strong>：2026-02-20 宣布 Georgi Gerganov 的 ggml.ai 加入，llama.cpp 維持 MIT 授權與社群自主，補齊本地／邊緣推論一環（來源 6，Simon Willison 2026-02-20；未揭露金額）。</li>
+<li><strong>機器人資料爆發</strong>：機器人資料集由 2024 年 1,145 個暴增至 2025 年 26,991 個，從第 44 名躍居 Hub 最大資料集類別；LeRobot GitHub 星數年增近三倍（來源 1，HF 官方 2026）。</li>
+<li><strong>企業採用深化</strong>：逾 30% 財星 500 大企業擁有 HF 認證帳號；中國廠商加速貢獻（百度 2024 年 0 個發布、2025 年逾 100 個，字節跳動、騰訊各增 8–9 倍）（來源 1，HF 官方 2026）。</li>
+<li><strong>模型大型化</strong>：Hub 上模型平均參數量由 2023 年 8.27 億升至 2025 年 208 億（來源 1，HF 官方 2026）。</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>估值與募資停滯落差</strong>：估值自 2023 年 45 億美元起未獲官方更新，而 <a href="OpenAI.html">OpenAI</a>、Anthropic 等同期估值已飆至數千億美元級；坊間雖有「50–100 億美元潛力」說法（Lux Capital），但屬非官方臆測（資料未證實）。在資本密集的 AI 競賽中，相對輕資本的平台模式募資節奏明顯偏慢。</li>
+<li><strong>獲利模式單薄</strong>：營收規模（約億美元級 ARR）相對其生態影響力偏小，核心 Hub 多為免費，變現高度倚賴企業訂閱、推論與運算服務；如何把「開發者心占率」轉為可觀營收仍是關鍵考驗（Sacra／productmint，2025）。</li>
+<li><strong>算力與雲端依賴</strong>：本身不擁有大規模算力，推論服務需仰賴雲端與 <a href="NVIDIA.html">NVIDIA</a> 等夥伴，議價與毛利受制於人。</li>
+<li><strong>平台治理與安全風險</strong>：開放上傳的海量模型／資料集存在惡意模型、後門權重、授權與資料合規爭議；逾半模型下載量極低（前 200 名模型占約 49.6% 下載），長尾品質與審核負擔沉重（來源 1，HF 官方 2026）。</li>
+<li><strong>地緣與生態集中</strong>：下載量高度向中國模型傾斜（占約 41%），在美中科技角力下，平台中立性與潛在政策／出口管制風險升高（來源 1，HF 官方 2026）。</li>
+<li><strong>競爭夾擊</strong>：上游大廠自建分發管道、雲端業者（AWS／Azure／GCP）內建模型市集，均可能繞過或弱化其樞紐地位。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="Transformer.html">Transformer</a>（其同名旗艦函式庫 Transformers 即為此架構的事實標準實作）</li>
+<li><a href="PyTorch.html">PyTorch</a>（Transformers 主要建構基礎與深度學習框架）</li>
+<li><a href="Llama%20%E7%B3%BB%E5%88%97.html">Llama 系列</a>（<a href="Meta.html">Meta</a> 開放權重模型，於 Hub 首發分發的代表）</li>
+<li><a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a>（阿里開放模型，Hub 上衍生模型數最大族群之一）</li>
+<li><a href="DeepSeek.html">DeepSeek</a>（中國開源模型廠，藉 Hub 分發、貢獻下載量）</li>
+<li><a href="NVIDIA.html">NVIDIA</a>（D 輪投資者兼推論算力／工具整合夥伴）</li>
+<li><a href="Meta.html">Meta</a>（最大開放權重模型供應者之一，與其開源路線高度互補）</li>
+<li><a href="OpenAI.html">OpenAI</a>（閉源前沿廠，開源 vs. 閉源路線的對照競爭者）</li>
+<li><a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>（其模型／嵌入工具為 RAG 應用常用基礎元件）</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Hugging Face 官方，State of Open Source AI Spring 2026（平台規模、使用者結構、機器人、模型大型化）：https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026</li>
+<li>GitHub，huggingface/transformers（星數、版本、定位；v5.10.2 / 2026-06-04）：https://github.com/huggingface/transformers</li>
+<li>TechCrunch，Hugging Face 2.35 億美元 D 輪 / 投後 45 億美元（2023-08-24）：https://techcrunch.com/2023/08/24/hugging-face-raises-235m-from-investors-including-salesforce-and-nvidia/</li>
+<li>Sacra，Hugging Face 營收／估值／募資追蹤（2024–2025 估值，數字為第三方估算）：https://sacra.com/c/hugging-face/</li>
+<li>Hugging Face 官方，收購 Pollen Robotics 與 Reachy 2（2025-04）：https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition</li>
+<li>Simon Willison，ggml.ai / llama.cpp 加入 Hugging Face（2026-02-20）：https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/</li>
+<li>Hugging Face 官方，Inference Providers 文件（200+ 模型、商用推論）：https://huggingface.co/docs/inference-providers/en/index</li>
+<li>Hugging Face 官方，Team &amp; Enterprise 方案（Enterprise Hub、席次計價）：https://huggingface.co/enterprise</li>
+<li>Hugging Face 官方，Hub 文件首頁（平台規模行銷標頭：2M 模型／1.5M datasets／1.5M Spaces，與內文「over 500k datasets」並陳；用於 Spaces 口徑說明）：https://huggingface.co/docs/hub/en/index</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

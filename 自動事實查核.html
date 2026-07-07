@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>自動事實查核｜AI產業知識庫</title><meta name="description" content="自動事實查核
+
+ 一句話定義（這個可交付物是什麼）
+給一則真實世界的查核請求（如某政治人物聲明、社群流傳的說法），系統自動「分解問題→上網或在知識庫中檢索證據→綜合證據→輸出判定標籤（屬實／不實／證據不足／需脈絡）＋可追溯的證據鏈與文字理由」。驗收門檻是「獨立人類查核員確認：標籤正確，且所附證據鏈確實支持該標">
+<meta property="og:title" content="自動事實查核"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "自動事實查核", "description": "自動事實查核\n\n 一句話定義（這個可交付物是什麼）\n給一則真實世界的查核請求（如某政治人物聲明、社群流傳的說法），系統自動「分解問題→上網或在知識庫中檢索證據→綜合證據→輸出判定標籤（屬實／不實／證據不足／需脈絡）＋可追溯的證據鏈與文字理由」。驗收門檻是「獨立人類查核員確認：標籤正確，且所附證據鏈確實支持該標", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="自動事實查核">自動事實查核</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給一則真實世界的查核請求（如某政治人物聲明、社群流傳的說法），系統自動「分解問題→上網或在知識庫中檢索證據→綜合證據→輸出判定標籤（屬實／不實／證據不足／需脈絡）＋可追溯的證據鏈與文字理由」。驗收門檻是「獨立人類查核員確認：標籤正確，且所附證據鏈確實支持該標籤」——亦即不只判對，連「為何判這個」的證據都要對。</p>
+<h2 id="難度評分綜合-710技術-6落地-8-理由">難度評分（綜合 7/10：技術 6、落地 8）— 理由</h2>
+<ul>
+<li><strong>技術 6（前沿可做、但「證據鏈正確」是天花板）</strong>：若只要求「判標籤」，頂尖模型在 LIAR 等資料集上已勝過傳統查核系統（見實證一）。但本任務契約要求「證據鏈也正確」，難度陡升：AVeriTeC（最貼合本任務、用真實查核機構的 4,568 則聲明，計分須「判定正確 <strong>且</strong> 檢索證據達品質門檻」）2024 最佳僅 0.63；2025 改用更嚴的 Q+A 證據門檻＋開源權重＋一分鐘限時後，最佳掉到 0.332。代表「端到端、證據鏈經得起獨立查核員檢驗」目前約三到六成，遠未可靠。故技術給 6 而非更低（單純判標籤已成熟），也非更高（證據鏈關卡未過）。</li>
+<li><strong>落地 8（核心動作刻意不交給 AI）</strong>：已部署的查核工具（Full Fact、Factiverse）都把 AI 限定在「找出可查核聲明＋彙整候選證據」，<strong>判定真偽一律由人類查核員定奪</strong>。Full Fact 明言「不要求 AI 判斷真假，因為沒有任何模型能可靠回答，那需要真實世界知識與推理」。也就是說，本任務的關鍵交付物（自動產出可被獨立確認的判定＋證據鏈）正是業界刻意不自動化的部分——錯判的名譽／法律風險、偏誤與幻覺、信任門檻使全自動落地障礙極大。</li>
+<li><strong>綜合判定 7</strong>：屬量表 7–8 級「實驗室／早期、可靠性低或落地障礙大」。研究與 demo 充分、單項（聲明偵測、證據檢索）已商用，但「全自動且證據鏈正確」未規模化、可靠性低。P1 初判 7 維持。</li>
+<li><strong>查證重評：7/6/8</strong>——獨立比對錨定量表：本任務與 <a href="%E4%BC%81%E6%A5%AD%E7%9F%A5%E8%AD%98%E5%BA%AB%E5%B8%B6%E5%BC%95%E7%94%A8%E5%95%8F%E7%AD%94.html">企業知識庫帶引用問答</a>（5）同屬「檢索＋帶來源輸出」家族，但更難——後者只需引用支持答案，本任務還要「判定真偽」這件業界公認 AI 不可靠、且部署時刻意保留給人的事；AVeriTeC 端到端分數 0.33–0.63（含證據門檻）顯著低於企業 RAG 的 grounding 約七成，故較企業問答高 2 級。與 P1 初判 7 一致，差 0 分，無分歧。（2026-06-26 查證）</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>AVeriTeC（最貼合本任務；ACL FEVER 2024 shared task）</strong>：4,568 則真實聲明、取自 50 家查核機構，每則附「問答對證據＋判定＋文字理由」，並排除時間洩漏（不用聲明發布後才出現的證據）。計分核心：「判定正確 <strong>且</strong> 檢索證據達品質門檻」才算過。2024 共 21 隊投稿、18 隊勝基線，冠軍 TUDA_MAI <strong>AVeriTeC score 0.63</strong>。判讀：即使最佳系統，端到端「判對＋證據達標」也只約六成。[來源1][來源3]</li>
+<li><strong>AVeriTeC 2.0（FEVER 2025，更嚴）</strong>：新計分＝「預測證據的 Q+A 分數超過門檻時才計入判定準確率」，並限制只能用單張 23GB GPU 跑的開源權重模型、每題 ≤1 分鐘。冠軍 <strong>CTU AIC 0.332</strong>、次 HerO 2 0.271、yellow_flash 0.253。較 2024 的 0.63 大幅下滑，反映「證據鏈須真正對上」這道關卡一旦嚴格化，可靠性立刻露底。[來源2]</li>
+<li><strong>僅判標籤的對照（LIAR/Politifact，2025）</strong>：去掉「證據鏈須正確」要求、只比對判定標籤時，頂尖 LLM（如 GPT-4.5 級）已無需額外工程即勝過傳統查核系統，小模型加一層證據檢索後也可用。說明難點不在「下標籤」，而在「證據鏈經得起獨立查驗」。[來源1 衍生]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Full Fact AI（英國查核慈善機構，2024–2025）</strong>：claim-detection 工具被 30 國、40+ 家查核組織每日使用，每日偵測約 50 萬則「可查核的東西」、單英文每日處理 30 萬句。<strong>但定位是「找出該查的聲明＋協助監看」，判定真偽保留給人類</strong>；機構向國會書面意見明言不讓 AI 判真假，以控管偏誤與幻覺風險。即：規模化的是「偵測＋輔助」，不是本任務的「自動判定＋證據鏈」。[來源4][來源6]</li>
+<li><strong>Factiverse（挪威新創，2024 美國總統／副總統辯論）</strong>：即時轉錄並標出 1,123 則「值得查核」的陳述，與 Factchequeado 等查核機構及一家美國廣播商合作，輸出採「人類（PolitiFact）查核 vs. Factiverse」並排呈現——<strong>仍是人機協作、人類把關</strong>，公開內容未揭露自動判定的準確率數字。[來源5]</li>
+<li><strong>規模化的全自動端到端查核（自動判定＋證據鏈、無人複核）：尚無可信的規模化生產部署</strong>。現況一致為「AI 偵測＋檢索，人類定奪」。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：自動偵測「哪些聲明該查」、上網或在語料庫檢索候選證據、產出初步判定與理由草稿；單獨判定標籤的準確率已勝傳統系統；可在辯論等即時場景大規模輔助人類查核員。</li>
+<li><strong>做不到／不穩</strong>：(1) 端到端「判定正確且證據鏈達品質門檻」在最貼合的 AVeriTeC 僅 0.33–0.63，遠未可靠；(2)「附了證據」≠「證據真支持該判定」，正是計分把它卡死的地方；(3) 真偽判定涉及真實世界知識與推理，業界（Full Fact）明確認為 AI 尚不能可靠承擔；(4) 錯判的名譽／法律風險高，已部署系統一律保留人類最終判定。整體屬「實驗室／早期、可靠性低、全自動落地障礙大」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="AI%E6%90%9C%E5%B0%8B.html">AI搜尋</a>、<a href="%E4%BC%81%E6%A5%AD%E7%9F%A5%E8%AD%98%E5%BA%AB%E5%B8%B6%E5%BC%95%E7%94%A8%E5%95%8F%E7%AD%94.html">企業知識庫帶引用問答</a>、<a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>、<a href="Agentic%20AI%E7%A0%94%E7%A9%B6.html">Agentic AI研究</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>The Automated Verification of Textual Claims (AVeriTeC) Shared Task 2024（冠軍 TUDA_MAI 0.63、21 隊／18 勝基線）— https://arxiv.org/abs/2410.23850</li>
+<li>The 2nd AVeriTeC Shared Task 2025（CTU AIC 0.332／HerO 2 0.271，嚴格 Q+A 門檻＋開源權重＋1 分鐘）— https://aclanthology.org/2025.fever-1.15/</li>
+<li>AVeriTeC: A Dataset for Real-world Claim Verification with Evidence from the Web（4,568 則、50 家查核機構、排除時間洩漏）— https://arxiv.org/abs/2305.13117</li>
+<li>Full Fact AI（40+ 組織／30 國、每日約 50 萬則偵測；定位偵測＋輔助）— https://fullfact.org/ai/</li>
+<li>Factiverse，2024 美國辯論即時查核（1,123 則、人機並排）— https://www.factiverse.ai/blog/factiverse-leads-real-time-fact-checking-in-2024-u-s-presidential-and-vp-debates</li>
+<li>Full Fact 致英國國會書面意見（明言不讓 AI 判真假）— https://committees.parliament.uk/writtenevidence/124285/pdf/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

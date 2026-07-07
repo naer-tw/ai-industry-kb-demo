@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI影像與影片生成｜AI產業知識庫</title><meta name="description" content="AI影像與影片生成是 AI 供應鏈最下游的「內容生成應用」市場：以擴散模型（diffusion）與 Transformer 架構為核心，由文字、圖片或影片提示自動產出靜態圖像與動態影片（含同步音訊）的軟體產品與服務，使用者橫跨設計、行銷、影視、電商與一般消費者。本頁談整個市場與應用領域，而非單一公司或單一模型">
+<meta property="og:title" content="AI影像與影片生成"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "AI影像與影片生成", "description": "AI影像與影片生成是 AI 供應鏈最下游的「內容生成應用」市場：以擴散模型（diffusion）與 Transformer 架構為核心，由文字、圖片或影片提示自動產出靜態圖像與動態影片（含同步音訊）的軟體產品與服務，使用者橫跨設計、行銷、影視、電商與一般消費者。本頁談整個市場與應用領域，而非單一公司或單一模型", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>市場/應用</span></header>
+<main><article><h1 id="ai影像與影片生成">AI影像與影片生成</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>AI影像與影片生成是 AI 供應鏈最下游的「內容生成應用」市場：以擴散模型（diffusion）與 Transformer 架構為核心，由文字、圖片或影片提示自動產出靜態圖像與動態影片（含同步音訊）的軟體產品與服務，使用者橫跨設計、行銷、影視、電商與一般消費者。本頁談整個市場與應用領域，而非單一公司或單一模型。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>影像生成市場規模：2024 年約 US$8.7B，預估 2030 年達 US$60.8B，CAGR 約 38.2%（MarketsandMarkets，2024-08-13；來源1）。亞太為成長最快區域，零售/電商為成長最快垂直應用。</li>
+<li>影片生成市場規模：口徑差異極大。狹義估 2025 年約 US$1.07B、2030 年 US$1.97B（CAGR 12.81%，ResearchAndMarkets，2025；來源2）；較廣口徑估 2024 年 US$0.43B、2030 年 US$2.34B（CAGR 32.78%，MarkNtel，2025；來源3）。含編輯/分析的「AI 影片」大盤另估 2024 年 US$11.2B（market.us，2025；來源4）。註：定義不一致，引用時須標明口徑。</li>
+<li>Midjourney：2025 年營收約 US$500M（2024 為 US$300M，年增約 67%）；自 2022-07 上線兩個月內即獲利，無外部募資；估佔全球 AI 影像生成市場約 26.8%（getlatka／Demandsage 彙整，2025–2026；來源5、6）。</li>
+<li>Runway：2025 年 ARR 約 US$300M（2024 為 US$121.6M）；2026-02-10 完成 US$315M Series E，由 General Atlantic 領投、<a href="NVIDIA.html">NVIDIA</a> 等參與，投後估值 US$5.3B（Crunchbase，2026-02；來源7）。</li>
+<li>Stability AI（Stable Diffusion）：2024 年營收約 US$50M；Stable Diffusion 系列累計生成逾 120 億張圖、估佔 2024 年全網 AI 影像約 80%；曾因 GPU 租用成本陷財務困境，2024 年換 CEO（Prem Akkaraju）並再募資後脫離（Sacra，2024–2025；來源8）。</li>
+<li>Sora 2 商業化：API 價格 sora-2 720p 為 US$0.10/秒；sora-2-pro 720p US$0.30/秒、1024p US$0.50/秒；消費端 2026-01-10 起免費用戶不再可生成，僅 Plus（US$20/月）、Pro（US$200/月）保留（OpenAI／eesel 彙整，2025–2026；來源9、10）。</li>
+<li>Google Veo 3.1：API 標準版 US$0.40/秒、Fast 版 US$0.15/秒；可生成最長 60 秒、1080p 並含原生音訊（Google Developers Blog，2025-10；來源11）。</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li>屬最下游「內容生成應用層」：向上依賴晶片（<a href="NVIDIA.html">NVIDIA</a>）、雲端算力與基礎模型實驗室（<a href="OpenAI.html">OpenAI</a>、<a href="Google%20DeepMind.html">Google DeepMind</a>）。生成式媒體是把模型推論轉化為可計費內容的「最終封裝形式」之一。</li>
+<li>核心技術：影像主流為擴散模型（diffusion），影片新一代多採 Diffusion Transformer（DiT），與語言模型同源於 <a href="Transformer.html">Transformer</a> 架構；多模態模型（如 <a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>）已將圖像/影片生成內嵌入通用助理。</li>
+<li>三大子賽道：
+<ol type="1">
+<li>影像生成：商業化最成熟、單位成本最低（Midjourney、Stable Diffusion、Adobe Firefly、Google Imagen）。</li>
+<li>影片生成：技術門檻與算力成本最高、2024–2026 進展最快（Sora、Veo、Runway、Kling、Pika）。</li>
+<li>編輯/工具整合：嵌入既有創作軟體（Adobe Creative Cloud、Canva），承接專業工作流。</li>
+</ol></li>
+<li>商業模式：以訂閱（per-seat / 點數制）為主，搭配 API 用量計價（按秒或按張）。影像端因毛利高、消費需求廣，最先驗證單位經濟；影片端推論成本高，廠商以分級模型（Standard / Fast / Lite）控制成本。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>影片生成軍備競賽：OpenAI 2025-09-30 推出 Sora 2，支援同步音訊、cameo（人物置入）並另推 TikTok 式社交 App；API 生成長度依模型分級——基礎版 sora-2 上限 12 秒（4/8/12 秒選項），sora-2-pro 才達 25 秒（10/15/25 秒選項）（OpenAI／eesel 彙整，2025–2026；來源9、10）。Google Veo 3（Google I/O 2025）為首個原生含音訊的影片模型，2025-10-14 升級 Veo 3.1（來源11）。Runway 2025 推 Gen-4 模型族，主打跨場景角色/物件一致性（TechCrunch，2025；來源7）。</li>
+<li>影像端格局：Midjourney 維持高獲利、市佔領先；Adobe Firefly 以「商業安全 + IP 賠償（indemnification）」差異化，訓練資料來自授權的 Adobe Stock 與公共領域素材，是主流消費級工具中唯一明確提供版權賠償者（Adobe／terms.law，2025–2026；來源12）。</li>
+<li>資本動向：Runway 估值一年內由 US$3.3B（2025-04 Series D，亦由 General Atlantic 領投、募 US$308M）跳升至 US$5.3B（2026-02 Series E），<a href="NVIDIA.html">NVIDIA</a>、Adobe、AMD 等戰略入股，反映影片生成被視為下一波高成長賽道（Crunchbase，2026-02；來源7）。</li>
+<li>商業化收緊：Sora 2 於 2026-01-10 取消免費生成，顯示高算力成本下廠商加速向付費牆遷移（eesel，2026；來源10）。</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li>版權訴訟（最大系統性風險）：2025-06-11 Disney、NBCUniversal（後加入 DreamWorks）控告 Midjourney 大規模侵權，為好萊塢與 AI 影像公司首場重大法律對決；Midjourney 2025-08 以「轉化性合理使用」反擊（NPR／CNBC，2025-06、08；來源13、14）。</li>
+<li>訓練合法性判例分歧：英國高等法院 2025-11-04 在 Getty Images v Stability AI 判決中，認定模型權重不構成圖像「重製」，主要著作權主張遭駁回（Getty 因無證據顯示訓練在英國境內進行而於結辯前撤回主訴求），僅商標部分小幅勝訴；該案未對「英國境內爬取與訓練是否侵權」作成定論（UK High Court [2025] EWHC 2863，2025-11；來源15）。</li>
+<li>肖像權與「opt-out」爭議：Sora 2 上線之初採「rightsholders 須主動 opt-out」政策，並因 cameo 功能引發肖像權、表演者同意與「AI slop」（含種族歧視/暴力內容）批評；三日內 Sam Altman 改採偏 opt-in 並提出分潤構想，但已公開生成的侵權內容無法回收（Copyright Lately／Harvard JSEL，2025-10；來源16、17）。</li>
+<li>單位經濟壓力：影片生成推論成本高昂，廠商被迫收緊免費額度、推分級模型；獲利模式仍待驗證（OpenAI/Google 定價變動，2025–2026；來源10、11）。</li>
+<li>市場估值口徑混亂：各研究機構對「影片生成」定義與規模差距達數倍至十數倍（US$1.97B 至 US$71.5B 不等，2030），引用時須謹慎標註口徑（多方彙整，2025；來源2、3、4）。</li>
+<li>創作者與勞動衝突：生成式媒體衝擊插畫、攝影、配音與影視製作就業，並與演員/編劇工會近年協商成果（肖像權、AI 條款）正面衝突（Copyright Lately，2025-10；來源16）。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li>基礎模型實驗室：<a href="OpenAI.html">OpenAI</a>（Sora）、<a href="Google%20DeepMind.html">Google DeepMind</a>（Veo / Imagen）</li>
+<li>核心技術：<a href="Transformer.html">Transformer</a>（Diffusion Transformer 同源架構）</li>
+<li>多模態模型：<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a></li>
+<li>上游算力/晶片：<a href="NVIDIA.html">NVIDIA</a></li>
+<li>本市場：<a href="AI%E5%BD%B1%E5%83%8F%E8%88%87%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">AI影像與影片生成</a></li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>MarketsandMarkets, “AI Image Generator Market worth $60.8 billion by 2030”（2024-08-13）: https://www.marketsandmarkets.com/PressReleases/ai-image-video-generator.asp</li>
+<li>ResearchAndMarkets, “AI Video Generator Market - Forecasts from 2025 to 2030”: https://www.researchandmarkets.com/reports/6061727/ai-video-generator-market-forecasts</li>
+<li>MarkNtel Advisors, “AI Video Generator Market Set to Reach $2.34 Billion by 2030”（2025）: https://www.marknteladvisors.com/press-release/ai-video-generator-market-size</li>
+<li>market.us, “AI Video Market Share, Size, Growth, CAGR at 36.20%”（2025）: https://market.us/report/ai-video-market/</li>
+<li>getlatka, “Midjourney Revenue 2025: $500M ARR”（2025）: https://getlatka.com/companies/midjourney</li>
+<li>Demandsage, “Midjourney Statistics 2026 (Active Users &amp; Revenue)”（2026）: https://www.demandsage.com/midjourney-statistics/</li>
+<li>Crunchbase News, “Gen AI Video Startup Runway Raises $315M … At $5.3B Valuation”（2026-02）: https://news.crunchbase.com/venture/gen-ai-video-startup-unicorn-runway-seriese-raise/</li>
+<li>Sacra, “Stability AI revenue, funding &amp; news”（2024–2025）: https://sacra.com/c/stability-ai/</li>
+<li>OpenAI, “Sora 2 is here”（2025-09-30）: https://openai.com/index/sora-2/</li>
+<li>eesel AI, “Sora 2 pricing: A complete guide to OpenAI’s new video model costs”（2025–2026）: https://www.eesel.ai/blog/sora-2-pricing</li>
+<li>Google Developers Blog, “Veo 3 and Veo 3 Fast – new pricing, new configurations and better resolution”（2025-10）: https://developers.googleblog.com/veo-3-and-veo-3-fast-new-pricing-new-configurations-and-better-resolution/</li>
+<li>terms.law, “Can You Sell Adobe Firefly Images? Commercial Rights &amp; IP Safety (2026)”: https://terms.law/forum/thread/adobe-firefly-commercial-rights-2026.html</li>
+<li>NPR, “Disney and Universal sue AI firm Midjourney for copyright infringement”（2025-06-12）: https://www.npr.org/2025/06/12/nx-s1-5431684/ai-disney-universal-midjourney-copyright-infringement-lawsuit</li>
+<li>CNBC, “Disney and Universal sue AI image company Midjourney”（2025-06-11）: https://www.cnbc.com/2025/06/11/disney-universal-midjourney-ai-copyright.html</li>
+<li>UK High Court, “Getty Images v Stability AI [2025] EWHC 2863 (Ch)”（2025-11-04）: https://www.judiciary.uk/wp-content/uploads/2025/11/Getty-Images-v-Stability-AI.pdf</li>
+<li>Copyright Lately, “New Sora AI App Forces Hollywood to Opt Out or Get Played”（2025-10）: https://copyrightlately.com/new-sora-ai-app-forces-hollywood-to-opt-out-or-get-played/</li>
+<li>Harvard Journal of Sports and Entertainment Law, “OpenAI’s ‘Sora’ Sparks Copyright and Fair Use Debate”（2025-10）: https://journals.law.harvard.edu/jsel/2025/10/openais-sora-sparks-copyright-debate/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

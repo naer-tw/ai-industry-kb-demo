@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mamba狀態空間模型｜AI產業知識庫</title><meta name="description" content="Mamba 是一種以「選擇性狀態空間模型（Selective State Space Model, SSM）」為核心的序列建模架構，用一個隨時間演進的固定大小「狀態」來壓縮並攜帶序列歷史資訊，使運算量隨序列長度「線性（O(N)）」成長、推論時記憶體與每步運算量近乎「常數」——藉此挑戰 Transformer ">
+<meta property="og:title" content="Mamba狀態空間模型"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Mamba狀態空間模型", "description": "Mamba 是一種以「選擇性狀態空間模型（Selective State Space Model, SSM）」為核心的序列建模架構，用一個隨時間演進的固定大小「狀態」來壓縮並攜帶序列歷史資訊，使運算量隨序列長度「線性（O(N)）」成長、推論時記憶體與每步運算量近乎「常數」——藉此挑戰 Transformer ", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="mamba狀態空間模型">Mamba狀態空間模型</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>Mamba 是一種以「選擇性狀態空間模型（Selective State Space Model, SSM）」為核心的序列建模架構，用一個隨時間演進的固定大小「狀態」來壓縮並攜帶序列歷史資訊，使運算量隨序列長度「線性（O(N)）」成長、推論時記憶體與每步運算量近乎「常數」——藉此挑戰 <a href="Transformer.html">Transformer</a> 自注意力 O(N²) 的二次方瓶頸，成為長序列、長上下文場景的主要替代與互補架構。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>起源論文《Mamba: Linear-Time Sequence Modeling with Selective State Spaces》由 Albert Gu（CMU）與 Tri Dao（Princeton，FlashAttention 作者）於 2023 年 12 月 1 日發表（arXiv:2312.00752；2024-05 修訂）。核心創新是讓 SSM 參數「隨輸入內容變化（input-dependent / time-varying）」，使模型能依當前 token「選擇性記住或遺忘」歷史資訊，補足舊式 SSM 無法做「內容導向推理」的缺陷。（arXiv:2312.00752，2023）</li>
+<li>效能宣稱：推論吞吐量達 Transformer 約 5 倍、序列長度線性擴展；Mamba-3B 在預訓練與下游任務勝過同尺寸 Transformer，並可媲美「兩倍大」的 Transformer，效能驗證可達 100 萬 token 長序列。（arXiv:2312.00752，2023）</li>
+<li>工程實作關鍵是「硬體感知並行掃描（hardware-aware parallel scan / selective scan）」，精神承襲 <a href="FlashAttention.html">FlashAttention</a>：避免將完整狀態展開寫入 GPU 高頻寬記憶體，改於晶片內高速記憶體完成。（arXiv:2312.00752，2023；github.com/state-spaces/mamba）</li>
+<li>Mamba-2（Dao &amp; Gu，2024 年 5 月，ICML 2024）提出「狀態空間對偶性（State Space Duality, SSD）」理論，證明選擇性 SSM 與注意力機制互為對偶（rank-1 狀態等價於線性注意力）；新 SSD 演算法較 Mamba-1 的 selective scan 快 2–8 倍訓練、且更易與注意力混搭。（arXiv:2405.21060，2024）</li>
+<li>Mamba-3（2025–2026，ICLR 2026 投稿）改善狀態追蹤（state-tracking，如 parity）能力，並以「一半的狀態大小」達到與 Mamba-2 相當的困惑度；在 1.5B 規模下游平均準確率較次佳模型高約 0.6 個百分點，定位更偏向推論部署效率。（openreview.net HwCvaJOiCj；together.ai，2025）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li>屬中游「模型架構／演算法」層，是 <a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a> 的可選底層骨架，與 <a href="Transformer.html">Transformer</a> 並列為兩大序列建模範式，常與 <a href="MoE%E6%B7%B7%E5%90%88%E5%B0%88%E5%AE%B6.html">MoE混合專家</a> 疊加以兼顧容量與效率。</li>
+<li>主流落地形態是「混合架構（hybrid）」：以少量注意力層保留精準回溯／檢索能力，多數層改用 Mamba 取得長上下文的低記憶體優勢——典型比例約 1:7（Jamba）至 9:1 偏 Mamba（Granite 4.0）。</li>
+<li>對 <a href="%E6%8E%A8%E8%AB%96%E5%84%AA%E5%8C%96.html">推論優化</a> 與算力經濟意義重大：生成階段記憶體與運算近乎常數，在長上下文、多輪 Agent、邊緣裝置等推論密集場景可顯著降低 GPU 成本，也是 <a href="NVIDIA.html">NVIDIA</a> 等廠商推自家高效模型的架構押注。</li>
+<li>因 SSM 的循環特性適合串流與長時序，亦延伸至視覺（Vision Mamba）、語音、基因序列與 <a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a> 等非語言模態。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>Jamba（AI21 Labs，2024 年 3 月，arXiv:2403.19887）為「全球首個生產級 Mamba 模型」：交錯 Transformer／Mamba 層（每 8 層約 1 層注意力）＋MoE，總 52B 參數、推論僅啟用 12B，256K 上下文，單張 80GB GPU 可容約 140K token、長上下文吞吐約為 Mixtral 8x7B 的 3 倍。（ai21.com，2024）</li>
+<li>IBM Granite 4.0（2025 年 10 月）採 Mamba-2／Transformer 約 9:1 混合，主打企業級：官方稱長上下文與多會話推論記憶體較純 Transformer 減少逾 70%；含 H-Small（32B 總／9B 活躍）、H-Tiny（7B／1B）、H-Micro（3B 密集），Apache-2.0 授權。（infoworld.com；ibm.com，2025）</li>
+<li>NVIDIA Nemotron-H（2025 年 4 月，arXiv:2504.03624）以 Mamba 取代多數自注意力層，8B／47B／56B 級在精度持平 Qwen-2.5、Llama-3.1 下推論最高快約 3 倍；後續 Nemotron Nano 2（2025 年 8 月，arXiv:2508.14444）延續混合 Mamba-Transformer 推理路線。（research.nvidia.com，2025）</li>
+<li>2026 年 6 月，NVIDIA 釋出 Nemotron 3 Ultra——開源 550B 規模 MoE 混合 Mamba-Transformer，鎖定「長時間運行 Agent」工作負載，顯示混合 SSM 架構正規模化至前沿。（marktechpost.com，2026-06-04）</li>
+<li>純 SSM 路線亦持續：Falcon Mamba 7B（TII）以 5.8 兆 token 訓練，為純 Mamba 模型，宣稱在 7B 級超越部分 Transformer 開源權重模型，且超長序列近乎常數記憶體。（together.ai／emergentmind 引用，2024–2025）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li>「回溯／複製」是結構性弱點：因狀態大小固定、不隨序列線性增長，Mamba 在精確複製輸入（COPY）、多查詢關聯回憶（MQAR）與部分 in-context learning 上弱於 Transformer 的注意力頭；理論指出若要 Mamba 精確 COPY，需讓狀態隨長度線性成長，反而抵銷其開銷優勢。（arXiv:2410.03810；arXiv:2402.04248，2024）</li>
+<li>此弱點正是「混合架構」成為主流的根本原因——純 Mamba 較少單獨部署於需強檢索／長鏈推理的旗艦模型，多以「少量注意力層補回回溯能力」收尾。（arXiv:2405.21060，2024；綜合上述）</li>
+<li>生態系成熟度仍落後 Transformer：自訂 CUDA 核心、推論框架支援、量化與服務工具鏈相對年輕，遷移與部署仍有工程門檻（github.com/state-spaces/mamba）。</li>
+<li>範式競合而非取代：目前訊號顯示 SSM 與注意力為「互補」而非「誰淘汰誰」；Mamba-2 的對偶性理論本身即說明兩者深層相關。後續若注意力效率演算法或硬體再突破，混合配比將持續調整（屬演進性、非危機性風險）。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="Transformer.html">Transformer</a>、<a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>、<a href="FlashAttention.html">FlashAttention</a>、<a href="MoE%E6%B7%B7%E5%90%88%E5%B0%88%E5%AE%B6.html">MoE混合專家</a>、<a href="NVIDIA.html">NVIDIA</a>、<a href="%E6%8E%A8%E8%AB%96%E5%84%AA%E5%8C%96.html">推論優化</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Gu &amp; Dao,《Mamba: Linear-Time Sequence Modeling with Selective State Spaces》, arXiv:2312.00752, 2023-12 — https://arxiv.org/abs/2312.00752</li>
+<li>state-spaces/mamba 官方程式庫(selective scan 實作) — https://github.com/state-spaces/mamba</li>
+<li>Dao &amp; Gu,《Transformers are SSMs: … State Space Duality (Mamba-2)》, arXiv:2405.21060, 2024 — https://arxiv.org/abs/2405.21060</li>
+<li>AI21,《Jamba: A Hybrid Transformer-Mamba Language Model》, arXiv:2403.19887, 2024 — https://arxiv.org/abs/2403.19887</li>
+<li>AI21 官方部落格(Jamba 256K／吞吐量), 2024 — https://www.ai21.com/blog/announcing-jamba/</li>
+<li>NVIDIA,《Nemotron-H: Hybrid Mamba-Transformer Models》, arXiv:2504.03624, 2025 — https://arxiv.org/abs/2504.03624</li>
+<li>NVIDIA,《Nemotron Nano 2: Hybrid Mamba-Transformer Reasoning Model》, arXiv:2508.14444, 2025 — https://arxiv.org/abs/2508.14444</li>
+<li>InfoWorld, IBM Granite 4.0 混合 Mamba-Transformer(9:1／模型尺寸／Apache-2.0), 2025-10 — https://www.infoworld.com/article/4067691/ibm-launches-granite-4-0-to-cut-ai-infra-costs-with-hybrid-mamba-transformer-models.html</li>
+<li>IBM Think, Granite 4.0 架構與記憶體節省逾 70%, 2025 — https://www.ibm.com/think/news/hybrid-thinking-inside-architecture-granite-4-0 10.《Exploring the Limitations of Mamba in COPY and CoT Reasoning》, arXiv:2410.03810, 2024 — https://arxiv.org/abs/2410.03810 11.《Can Mamba Learn How to Learn? In-Context Learning》, arXiv:2402.04248, 2024 — https://arxiv.org/abs/2402.04248 12.《Mamba-3: Improved Sequence Modeling using State Space Principles》, OpenReview(ICLR 2026), 2025 — https://openreview.net/forum?id=HwCvaJOiCj</li>
+<li>MarkTechPost, NVIDIA Nemotron 3 Ultra(550B MoE 混合 Mamba-Transformer), 2026-06-04 — https://www.marktechpost.com/2026/06/04/nvidia-ai-releases-nemotron-3-ultra-an-open-550b-mixture-of-experts-hybrid-mamba-transformer-for-long-running-agents/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

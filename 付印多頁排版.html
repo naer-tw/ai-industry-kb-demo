@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>付印多頁排版｜AI產業知識庫</title><meta name="description" content="付印多頁排版
+
+ 一句話定義（這個可交付物是什麼）
+餵入一份自由格式的長篇技術文件（規格書、白皮書、研究報告），由 AI 自動完成版面設計、圖表/表格定位、頁碼與目錄，輸出可直接送印的多頁 PDF 或可二次編輯的 InDesign（INDD/IDML）檔——強調「不用人工逐頁排版即可付印」。
+
+ 難度評分（">
+<meta property="og:title" content="付印多頁排版"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "付印多頁排版", "description": "付印多頁排版\n\n 一句話定義（這個可交付物是什麼）\n餵入一份自由格式的長篇技術文件（規格書、白皮書、研究報告），由 AI 自動完成版面設計、圖表/表格定位、頁碼與目錄，輸出可直接送印的多頁 PDF 或可二次編輯的 InDesign（INDD/IDML）檔——強調「不用人工逐頁排版即可付印」。\n\n 難度評分（", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="付印多頁排版">付印多頁排版</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>餵入一份自由格式的長篇技術文件（規格書、白皮書、研究報告），由 AI 自動完成版面設計、圖表/表格定位、頁碼與目錄，輸出可直接送印的多頁 PDF 或可二次編輯的 InDesign（INDD/IDML）檔——強調「不用人工逐頁排版即可付印」。</p>
+<h2 id="難度評分綜合-710技術-7落地-6-理由">難度評分（綜合 7/10：技術 7、落地 6）— 理由</h2>
+<p>關鍵要分清兩條路徑： - <strong>規則/範本自動化（成熟）</strong>：Typefi、Silicon Publishing 等靠 IDML 腳本＋固定範本，可達 1000 頁/小時、自動生成大表格、註腳、參考文獻並付印（Typefi）。但這是「人先設計好範本、機器灌資料」，非 AI 從自由文件自己決定版面，且需專業前置工。 - <strong>AI 生成式排版（本任務真正所指，早期）</strong>：讓 LLM/多代理直接生出版面，可靠性仍低。TeXpert 顯示頂尖模型在「困難」版面任務僅約 15% 正確（GPT-4o），Claude-3.5 Sonnet 與 Gemini 1.5 Flash 更直接掛零；GPT-4o 的失敗中邏輯錯誤占 59.1%、格式錯誤 23.6%、套件錯誤 15.2%（版面/套件類錯誤合計近 39%），純語法筆誤僅 2.1%——顯示卡關在「想錯怎麼排」而非打錯指令。Paper2Poster 雖在單頁海報版面均衡逼近人類（3.86 vs 3.90），但屬單頁、主觀評分，且若拿掉 VLM 校正迴圈即「全案例嚴重溢出」。 頁碼/目錄/分頁本身是確定性引擎的強項（易），真正卡關的是：跨多頁的圖表正確就位、零文字溢出、印前精度（出血/CMYK/字體內嵌）。落地之所以 6 而非更高，是因確定性排版引擎＋AI 內容生成的「混合管線」已有商用部署；但「自由長文一鍵生成可付印多頁稿」尚無可靠規模化方案。故綜合定 7（實驗室/早期、可靠性低）。</p>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>TeXpert</strong>（SDP@ACL 2025，arXiv 2025-06）：分 Simple/Average/Hard 三級的 LaTeX 排版生成。GPT-4o 總體 66.1%、DeepSeek V3 61.4%、DeepSeek Coder 33b 60.7%；但 <strong>Hard 版面任務 GPT-4o 僅 15%、DeepSeek V3 僅 10%</strong>，全表最高的 DeepSeek Coder 33b 亦僅 17.5%，Claude-3.5 Sonnet 與 Gemini 1.5 Flash 在 Hard 直接 0%。GPT-4o 整體失敗類型分布：邏輯 59.1%、格式 23.6%、套件 15.2%、語法 2.1%（Table 4）；複雜度上升即崩。[1]</li>
+<li><strong>Paper2Poster</strong>（NeurIPS 2025，2025-05）：論文轉海報基準。最佳系統 PosterAgent-4o 版面均衡 <strong>3.86（5 分制）</strong>，逼近人類 3.90；但無「文字溢出率」量化值，且去除 Commenter 校正模組即全案例溢出。屬單頁、以理解度（PaperQuiz）為主，<strong>未評估印前/多頁正確性</strong>。[2]</li>
+<li><strong>PosterGen</strong>（2025-08）：多代理美學感知海報生成，設計分 4.44 略勝 PosterAgent 4.26，主題一致性/字體可讀性領先；同為單頁海報，非多頁付印稿。[3]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Typefi（規則式，非 AI 生成版面）</strong>：InDesign 自動化排版，宣稱可達 1000 頁/小時，自動生成大型表格、參考文獻、數學公式並輸出付印稿；學術出版社採用。屬「範本＋資料」確定性流程，圖表定位由人預設規則，非由 AI 自行決定版面。[4]</li>
+<li><strong>Adobe InDesign 2025 AI</strong>：內建 Firefly 生成式功能（Text to Image、Generative Expand、AI Assistant）＋ Flex Layout 自適應；但 AI 僅輔助局部（生圖、改寫、彈性容器），<strong>整體多頁版面仍由設計師主導</strong>，非自由文件一鍵生成付印稿。[5]</li>
+<li><strong>生成式端到端「長文→可付印多頁 PDF/INDD」</strong>：截至 2026-06 <strong>未見規模化商用部署</strong>；現有 AI 文件/電子書生成器多輸出固定範本 PDF，圖表複雜度與印前精度有限，仍需人工把關。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li>做得到：頁碼、目錄、自動分頁（確定性引擎）；範本內灌資料的高速付印；單頁海報/簡單版型逼近人類美感；局部生成式美化。</li>
+<li>做不到（可靠地）：從自由長文自動判斷整本版面、跨多頁圖表零溢出且正確就位、嚴格印前規格（出血、CMYK、字體內嵌、PDF/X）一次過稿。複雜版面正確率僅約一至二成，需 VLM 校正迴圈與大量人工把關。</li>
+<li>一句話：<strong>「機器灌範本付印」已成熟；「AI 看懂長文自己排出可付印多頁稿」仍在早期。</strong></li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="PDF%E6%96%87%E4%BB%B6OCR%E7%B5%90%E6%A7%8B%E5%8C%96.html">PDF文件OCR結構化</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>TeXpert: A Multi-Level Benchmark for Evaluating LaTeX Code Generation by LLMs (SDP@ACL 2025；aclanthology.org/2025.sdp-1.2) — https://arxiv.org/abs/2506.16990</li>
+<li>Paper2Poster: Towards Multimodal Poster Automation from Scientific Papers (NeurIPS 2025) — https://arxiv.org/html/2505.21497v2</li>
+<li>PosterGen: Aesthetic-Aware Paper-to-Poster Generation via Multi-Agent LLMs (2025-08) — https://arxiv.org/pdf/2508.17188</li>
+<li>Typefi — Automated Publishing Software / InDesign Automation Tools — https://www.typefi.com/automated-publishing-software-tools/</li>
+<li>Adobe InDesign 2025 AI Features / Generative AI in InDesign — https://helpx.adobe.com/indesign/using/generative-ai-faq-indesign.html</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

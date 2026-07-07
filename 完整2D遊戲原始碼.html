@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>完整2D遊戲原始碼｜AI產業知識庫</title><meta name="description" content="完整2D遊戲原始碼
+
+ 一句話定義（這個可交付物是什麼）
+給定一段自然語言功能需求（例如「做一個有跳躍、敵人、計分與通關旗的橫向卷軸平台遊戲」），AI 一次（或少量回合）產出整套可執行原始碼，且必須同時滿足三個硬條件：(1) 遊戲邏輯正確（碰撞、狀態機、勝負判定無誤）、(2) 執行時可穩定達 60fps、(3">
+<meta property="og:title" content="完整2D遊戲原始碼"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "完整2D遊戲原始碼", "description": "完整2D遊戲原始碼\n\n 一句話定義（這個可交付物是什麼）\n給定一段自然語言功能需求（例如「做一個有跳躍、敵人、計分與通關旗的橫向卷軸平台遊戲」），AI 一次（或少量回合）產出整套可執行原始碼，且必須同時滿足三個硬條件：(1) 遊戲邏輯正確（碰撞、狀態機、勝負判定無誤）、(2) 執行時可穩定達 60fps、(3", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="完整2d遊戲原始碼">完整2D遊戲原始碼</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定一段自然語言功能需求（例如「做一個有跳躍、敵人、計分與通關旗的橫向卷軸平台遊戲」），AI 一次（或少量回合）產出整套可執行原始碼，且必須同時滿足三個硬條件：(1) 遊戲邏輯正確（碰撞、狀態機、勝負判定無誤）、(2) 執行時可穩定達 60fps、(3) 玩家能從頭玩到尾、真正完整通關。這是「能生成跑得起來的遊戲片段」與「能交付一份可上架、可玩完的成品代碼」之間的分水嶺。</p>
+<h2 id="難度評分綜合-710技術-7落地-6-理由引-benchmark-與部署">難度評分（綜合 7/10：技術 7、落地 6）— 理由(引 benchmark 與部署)</h2>
+<ul>
+<li><strong>技術成熟度 = 7（實驗室/早期、可靠性低）</strong>：在最對口的 benchmark V-GameGym（2,219 個 pygame 遊戲、70 個模型）上，頂尖模型整體解決率僅 o3 49.2%、Gemini-2.5-Pro 47.5%、GPT-5 47.1%（2025-09，見實證一）——意即即使放寬到「品質達標即算過」，最強模型一次性也只有約一半遊戲合格。更關鍵：所有樣本「執行成功率 100%」（代碼跑得起來），但品質分布呈長尾，多數落在 Poor/Fair——即使是品質表現最佳的 GPT-5，其 2,219 次產出中被評為 Excellent（80-100 分）者也僅 83 個（3.7%；其餘 Good 288、Fair 676、Poor 1,172，見 Table 2）。本任務的「正確邏輯＋60fps＋可完整通關」正是 Excellent 等級的要求，而非「跑得起來」，故技術分給 7。</li>
+<li><strong>落地難度 = 6（前沿落地但需重度人工把關）</strong>：實務上「AI 寫整套遊戲代碼」已被廣泛使用——Steam 上逾 7,300 款遊戲揭露使用 GenAI，且 Valve 自 2026-01 明定「代碼類 AI 工具不需揭露」（見實證二）。但這些幾乎都是「人類開發者用 Claude Code/Cursor 多回合迭代＋親自測試把關」，而非「一句需求一次產出可通關成品」。「達 60fps」與「可完整通關」需實機測試與調優，AI 無法自我保證，仍須人持續驗證，故落地分數 6。</li>
+<li><strong>綜合 = 7</strong>：落在量表「7-8 實驗室/早期、可靠性低或落地障礙大」的下緣。簡單小遊戲（貪食蛇、打磚塊）AI 已能一次寫好；但「任意功能需求＋三項硬條件全達標」目前不可靠，且品質達標率僅約一半、頂級品質率 &lt;4%，故綜合給 7 而非 5-6。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>V-GameGym</strong>（Visual Game Generation for Code LLMs，arXiv 2509.20136，2025-09）：2,219 個高品質 pygame 樣本、100 個主題叢集、評測 70 個模型。以「代碼＋靜態截圖＋動態錄影」多模態綜合評分。[來源 1、2]
+<ul>
+<li>整體解決率（達品質門檻者 / 2,219）：<strong>o3 49.2%（1,092）、Gemini-2.5-Pro 47.5%（1,054）、GPT-5 47.1%（1,047）、最佳開源 Qwen3-235B-A22B-Thinking 46.8%（1,039，總榜第 4）</strong>。</li>
+<li>品質長尾：全部樣本「執行成功率 100%」，但多數落在 Poor/Fair；即使最佳模型 GPT-5，2,219 次產出中達 Excellent（80-100）者僅 83 個（3.7%，Table 2）。論文明示「高品質遊戲代碼生成仍具挑戰」。</li>
+</ul></li>
+<li><strong>判讀</strong>：benchmark 的「解決」是品質達標，不等於本任務要求的「正確邏輯＋60fps＋完整通關」三條件同時成立。V-GameGym 未把「穩定 60fps」與「人類可實際通關」設為獨立硬指標，故本任務真實達成率應低於 47~49% 這個上限值——這也是評等級為 B、信心設 low 的原因。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>尚無「一句需求一次產出可通關成品」的規模化部署</strong>；現況是「人＋AI 多回合協作寫遊戲」的工作流已普及：
+<ul>
+<li><strong>Steam</strong>：截至 2026 約 7,818 款遊戲揭露使用 GenAI（約佔 Steam 庫 7%），2025 年新發行遊戲近 20% 揭露使用；但揭露多集中於美術素材（約 60%）。Valve 於 2026-01 改版規則，明定協助寫程式/除錯的 AI 工具「不需揭露」——代碼類 AI 已是日常工具。[來源 4]</li>
+<li><strong>開發者實作案例</strong>：以 Claude Code 約 20 分鐘做出可玩的復古小遊戲為公開教學範例；但流程是人類給需求、AI 產代碼、人類實機測試與多輪修正，而非單次保證 60fps＋通關。[來源 3]</li>
+</ul></li>
+<li><strong>成效結論</strong>：「AI 輔助寫遊戲代碼」已落地且規模可觀；但「輸入需求→自動交付正確邏輯＋60fps＋可完整通關的成品代碼」尚無規模化、可靠的端到端部署，仍以人為測試與調優的最後防線。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：規則明確的經典小遊戲（貪食蛇、打磚塊、俄羅斯方塊、單畫面平台跳躍）多能一次或少回合產出可玩代碼；作為人類開發者的起手架構與素材生成助手，已是主流工作流。</li>
+<li><strong>做不到/仍脆弱</strong>：任意複雜需求一次到位的「正確邏輯＋穩定 60fps＋可完整通關」三條件同時達標——頂尖模型品質達標率僅約一半、Excellent 率 &lt;4%；效能（60fps）與可通關性需實機驗證，AI 無法自我保證；較長關卡設計、平衡性、邊界 bug、跨關卡狀態一致性仍易出錯。</li>
+<li><strong>瓶頸</strong>：可靠度（同一需求能否穩定產出三條件全達標的成品）、效能調優需執行期回饋、可玩性/平衡屬隱性設計判斷、以及缺乏把「60fps＋人類可通關」設為硬指標的成熟自動驗證 benchmark。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a>、<a href="AI%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7.html">AI程式開發工具</a>、<a href="%E7%A8%8B%E5%BC%8F%E7%A2%BC%E8%A3%9C%E5%85%A8.html">程式碼補全</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>V-GameGym: Visual Game Generation for Code Large Language Models（arXiv 2509.20136v1, 2025-09，2,219 pygame 樣本、70 模型、解決率與品質分布）— https://arxiv.org/html/2509.20136v1</li>
+<li>V-GameGym 摘要頁（樣本數 2,219、100 主題叢集）— https://arxiv.org/abs/2509.20136</li>
+<li>Build a Retro Game with Claude Code in 20 Minutes（開發者實作工作流案例）— https://creatoreconomy.so/p/build-a-retro-game-with-claude-code-in-20-min</li>
+<li>Steam GenAI 揭露規模與 2026-01 規則改版（代碼類 AI 不需揭露）— https://www.totallyhuman.io/blog/the-surprising-new-number-of-genai-games-on-steam</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

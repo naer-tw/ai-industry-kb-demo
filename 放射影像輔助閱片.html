@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>放射影像輔助閱片｜AI產業知識庫</title><meta name="description" content="放射影像輔助閱片
+
+ 一句話定義（這個職業任務的可交付物是什麼）
+給定乳房攝影（mammography/DBT）或胸部影像（X 光/CT），AI 自動偵測並框選可疑病灶、給出病灶等級分數，並做優先分流（triage：高風險先讀、低風險可單閱）；以「輔助閱片（CADt / decision support）」身">
+<meta property="og:title" content="放射影像輔助閱片"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "放射影像輔助閱片", "description": "放射影像輔助閱片\n\n 一句話定義（這個職業任務的可交付物是什麼）\n給定乳房攝影（mammography/DBT）或胸部影像（X 光/CT），AI 自動偵測並框選可疑病灶、給出病灶等級分數，並做優先分流（triage：高風險先讀、低風險可單閱）；以「輔助閱片（CADt / decision support）」身", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="放射影像輔助閱片">放射影像輔助閱片</h1>
+<h2 id="一句話定義這個職業任務的可交付物是什麼">一句話定義（這個職業任務的可交付物是什麼）</h2>
+<p>給定乳房攝影（mammography/DBT）或胸部影像（X 光/CT），AI 自動偵測並框選可疑病灶、給出病灶等級分數，並做優先分流（triage：高風險先讀、低風險可單閱）；以「輔助閱片（CADt / decision support）」身分嵌入放射科工作流，由放射科醫師最終簽核。其代表性硬指標為前瞻/RCT 試驗中達高敏感度（乳攝獨立偵測常宣稱 ≥90%，但人群篩檢實測受腫瘤生物學上限約束於 80% 上下）。</p>
+<h2 id="難度評分綜合-410技術-3落地-5-理由">難度評分（綜合 4/10：技術 3、落地 5）— 理由</h2>
+<ul>
+<li><strong>技術成熟度 3（可用、需人工把關、已有產品）</strong>：影像偵測是深度學習最成熟的應用之一。乳攝 AI（Lunit Insight MMG、Transpara）回溯資料集獨立 AUC 約 0.90-0.95（隨族群/機型/資料集差異大，如 Lunit 一分析報 0.903）；MASAI 為全球首個 RCT，介入組敏感度 80.5% 顯著高於標準雙閱 73.8%（同 specificity 98.5%）。胸片肺結節 AI 已有多項 FDA clearance。技術本身已是產品級，但靠單一影像無法突破腫瘤本身的可偵測上限，「≥90% 敏感度」在富集 benchmark 可達、在人群篩檢不保證。</li>
+<li><strong>落地難度 5（部分落地、可靠性/責任仍挑戰）</strong>：核心瓶頸不在演算法而在監管、責任歸屬與信任。幾乎所有產品僅獲 CADt/輔助身分核准，必須由放射科醫師最終負責；自主閱片（無人複核）尚未獲 FDA 准入。現行責任原則（美國）多將過失歸於醫師、廠商曝險有限且不一致、醫院視情形分擔；模擬陪審研究亦顯示 AI 與醫師判讀分歧時陪審更易判醫師敗訴——liability 規則仍懸而未決。分布外影像（不同機型/族群）會掉分，需現場驗證。</li>
+<li><strong>綜合判定 4</strong>：技術可做且已商品化、有 RCT 級實證與真實大規模部署，但仍須人工把關、且自主使用受監管與責任限制 → 落在量表 3-4 偏上界。較 P1 初判 6 下修：實證（RCT + 萬級站點部署）比初判預期更強，技術不再是主要障礙，故綜合下修為 4，但 diff_deploy 維持偏高（5）以反映監管/責任的真實摩擦。</li>
+<li><strong>查證重評：技術 3／落地 5／綜合 5（理由）</strong>：技術 3、落地 5 與原評一致（落地分確實反映「僅 CADt/CADe 輔助核准、無自主閱片、責任歸醫師且規則未定、分布外掉分」等監管/責任/信任摩擦，維持 5 合理，甚至可達 6）。惟綜合分原評 4 略低於錨定量表：量表 §4.1 將「醫療影像輔助」明列為 <strong>5–6 帶</strong>（「前沿可做、可靠性/成本仍是挑戰、部分落地」）的典型例——本任務正屬「可用但僅部分落地（限輔助、不准自主）＋監管責任摩擦」，依量表口徑綜合應為 <strong>5</strong> 而非 4。差距僅 1（各軸皆 &lt;2，未觸發 divergence），但建議校準時上修綜合至 5 以對齊量表錨點。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>MASAI RCT</strong>（全球首個乳攝 AI 隨機對照試驗，瑞典國家篩檢，&gt;105,000 名女性，Transpara v1.7.0 / ScreenPoint Medical）：[1][2]
+<ul>
+<li>敏感度：介入組 <strong>80.5%</strong> vs 標準雙閱 <strong>73.8%</strong>（+6.7 個百分點），同 specificity <strong>98.5%</strong>。[1]</li>
+<li>癌偵測率：最終結果 <strong>6.4/1000</strong> vs <strong>5.0/1000</strong>（+29%；介入組偵出 338/53,043，2026-01 The Lancet）；偵出更多小型、淋巴結陰性、高惡性度 in situ 癌。（2023 期中曾報 6.1 vs 5.1/1000、+20%，最終分析上修）[1][2]</li>
+<li>間隔癌：1.55/1000 vs 1.76/1000（−12%，non-inferior）；侵襲癌 −16%、大型癌 −21%、惡性亞型 −27%。[1]</li>
+<li>偽陽性近似（1.5% vs 1.4%）；閱片工作量 <strong>−44%</strong>（2023 期中）。最終結果 2026-01-29 刊於 The Lancet。[1]</li>
+</ul></li>
+<li><strong>獨立偵測能力</strong>：Lunit Insight MMG、Transpara 等乳攝 AI 在回溯資料集獨立 AUC 約 0.90-0.95（口徑差異大）；廠商常宣稱獨立敏感度 ≥90%（資料集富集，與人群篩檢實測不同口徑）。胸片 qXR（Qure.ai）多指標分流已獲 FDA clearance。[4]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效監管限制">實證二：真實部署/產品案例（誰用、規模、成效、監管限制）</h2>
+<ul>
+<li><strong>Lunit（乳攝）</strong>：截至 2026-04 旗下乳攝 AI 已於<strong>美洲 330+ 站點、年逾 100 萬次乳攝篩檢</strong>（SBI 年會數據，僅美洲口徑，非全球）；公司全產品線 FDA-cleared + CE-marked（MDR），於 <strong>65+ 國、10,000+ 站點</strong>使用。已是臨床常規而非試點。[3]</li>
+<li><strong>Qure.ai（胸片/胸 CT）</strong>：qXR 系列肺結節偵測/分流多次取得 FDA clearance，截至 2026-02 累計 26 項 FDA 適應症（9 個產品）；與英國 NHS 多家醫院有商業部署。[5]</li>
+<li><strong>AZmed（AZchest）</strong>：胸片七種病灶（肺結節、氣胸、肋骨骨折、心臟肥大等）兼具 CE + FDA；2025-12 推出胸 CT 肺結節 AZnod（CE）。</li>
+<li><strong>監管限制（落地真正瓶頸）</strong>：上述產品幾乎全為 <strong>CADt/CADe 輔助身分</strong>，非自主診斷；放射科醫師仍負最終法律責任，自主閱片尚未獲 FDA 准入。責任歸屬（醫師/醫院/廠商）原則上以醫師為主、廠商曝險有限，但規則尚未定型，學界仍在辯論 FDA-cleared AI 漏判時的歸責方式。[6]</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：乳攝/胸片/胸 CT 的病灶偵測、框選、風險分數與分流；以輔助身分提升敏感度、降低工作量、減少間隔癌——已有 RCT 級實證與萬級站點商業部署。</li>
+<li><strong>做不到/受限</strong>：(1) 自主閱片（無人複核）尚未獲監管准入，須醫師簽核；(2)「≥90% 敏感度」是富集 benchmark 口徑，人群篩檢實測受腫瘤生物學上限約束（MASAI 約 80%）；(3) 分布外（不同機型、族群、罕見病灶）易掉分，須現場前瞻驗證；(4) liability 未定、信任與整合成本高。瓶頸已從「能不能偵測」轉為「監管、責任與可靠性長尾」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="%E9%86%AB%E7%99%82AI.html">醫療AI</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>The Lancet: MASAI final RCT results — 原文 https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(25)02464-X/abstract ；新聞稿（EurekAlert, 2026-01-29）https://www.eurekalert.org/news-releases/1114399</li>
+<li>MASAI clinical safety analysis (The Lancet Oncology, 2023) — https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(23)00298-X/abstract</li>
+<li>Lunit Surpasses 330+ Sites and 1M Annual Screenings (Lunit, 2026-04) — https://www.lunit.io/en/media-hub/lunit-surpasses-330-sites-and-1m-annual-screenings-as-breast-imaging-ai-moves-into-clinical-practice/</li>
+<li>Nationwide real-world implementation of AI in mammography screening (Nature Medicine, 2024) — https://www.nature.com/articles/s41591-024-03408-6</li>
+<li>Qure.ai chest X-ray FDA clearance for lung nodule detection (Qure.ai) — https://www.qure.ai/us/news-press-coverages/qure-ai-s-ai-driven-chest-x-ray-solution-receives-fda-clearance-for-enhanced-lung-nodule-detection</li>
+<li>FAQs About AI in Radiology: Legal Risks, Liability, and Malpractice (AJMC) — https://www.ajmc.com/view/faqs-about-ai-in-radiology-legal-risks-liability-and-malpractice</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

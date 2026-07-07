@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>人形機器人重複任務｜AI產業知識庫</title><meta name="description" content="人形機器人重複任務
+
+ 一句話定義（這個可交付物是什麼）
+在結構化的倉儲/工廠環境（料架、輸送帶、固定取放位）內，給人形機器人一組重複性工序——搬箱、轉螺絲、電池/包裹分揀等——它在連續工時（單班乃至多班）內自主完成，且達到產線節拍（takt time）與品質的驗收標準，無人遙控、無需頻繁人工把關。重點不是單">
+<meta property="og:title" content="人形機器人重複任務"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "人形機器人重複任務", "description": "人形機器人重複任務\n\n 一句話定義（這個可交付物是什麼）\n在結構化的倉儲/工廠環境（料架、輸送帶、固定取放位）內，給人形機器人一組重複性工序——搬箱、轉螺絲、電池/包裹分揀等——它在連續工時（單班乃至多班）內自主完成，且達到產線節拍（takt time）與品質的驗收標準，無人遙控、無需頻繁人工把關。重點不是單", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="人形機器人重複任務">人形機器人重複任務</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>在結構化的倉儲/工廠環境（料架、輸送帶、固定取放位）內，給人形機器人一組重複性工序——搬箱、轉螺絲、電池/包裹分揀等——它在連續工時（單班乃至多班）內自主完成，且達到產線節拍（takt time）與品質的驗收標準，無人遙控、無需頻繁人工把關。重點不是單次 demo，而是「整班連跑、達節拍、可商業計費」。</p>
+<h2 id="難度評分綜合-510技術-5落地-6-理由">難度評分（綜合 5/10：技術 5、落地 6）— 理由</h2>
+<ul>
+<li><strong>技術 5</strong>：本任務句綁了三類子任務，成熟度分歧大。<strong>搬箱/分揀</strong>已達前沿可用：Figure F.03 包裹分揀條碼朝向成功率約 95%、單件約 3 秒（2026-05 已達人類同速，較 2025-06 的 4 倍慢大幅進步），且 3 台機器（F.03 硬體、車載 Helix-02 神經網路、無遙控）在 2026-05 的直播中連跑逾 191 小時、累計分揀 238,000 件、無人介入（里程碑：24h≈28,000、40h≈50,000、72h=88,000）。[1][2][3][6] 但<strong>轉螺絲</strong>仍是弱項：受控扭力 + 螺絲軸對位屬精細操作難題，Epoch AI 2026 將家具組裝（含鎖螺絲）列為「早期研究」，現有 demo 多由人類代鎖；小物插入成功率僅 52–83%。[1] 三者合一且要「同時達節拍驗收」尚未被普遍證明，故技術落在 5（前沿可做但不均衡）。</li>
+<li><strong>落地 6</strong>：分揀/搬料已有真實付費部署（Figure–BMW 商業合約、Digit–GXO 多年約），但規模仍以數十至數百台計、限定單一工位、人形不一定是最佳形態（Epoch：工業場景「人形形態鮮少是最適解」）。轉螺絲類精密裝配尚無規模化人形部署。可靠性、ROI、與既有 AMR/夾治具產線整合仍是採用門檻，故落地略高於技術，評 6。</li>
+<li><strong>綜合 5（非平均）</strong>：分揀/搬箱已跨過「可用、已部署」門檻（約 3–4），但任務句要求「搬箱＋轉螺絲＋分揀」三者皆過節拍，最弱的轉螺絲把整體拉回前沿/部分落地區間。較 P1 初判 5 維持不變——分揀證據比預期強（下修壓力），但轉螺絲與「全工序皆達節拍」的綁定條件抵銷，淨值仍為 5。</li>
+<li><strong>查證重評：5/6/5（技術/落地/綜合）</strong>——獨立依 §4.1 錨定量表重評，與原評三項皆相同（差 0，無分歧）。理由：分揀證據經查更強（F.03 直播 191+ 小時、238,000 件、3 秒/件人類同速）支撐技術 5–6 下緣，但任務句綁入「轉螺絲」（Epoch 列早期研究、小物插入 52–83%）與「全工序皆過節拍」，最弱子任務鎖定綜合於前沿/部分落地的 5；落地有真實付費部署但窄工位、人形非最適形態，維持 6。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>Figure F.03 包裹分揀</strong>：條碼可掃朝向成功率約 95%（自約 70% 提升）、約 4.05 秒/件、約 890 件/小時（2025-06 數據）；[2] 2026-05-14 起的公開直播中已優化到約 3 秒/件、達「人類同速」，3 台 F.03 機器（車載 Helix-02 神經網路、無遙控）最終連續逾 191 小時自主分揀、累計逾 238,000 件、零人工介入，policy 出分布時可自動 reset。中途里程碑：24 小時≈28,000 件、40 小時≈50,000 件、72 小時=88,000 件。[3][6] 處理硬箱、軟質塑膠袋、扁平信封等變形件；直播中偶有抓取誤判、推落包裹等短暫失誤。</li>
+<li><strong>Agility Digit（料箱搬運）</strong>：GXO Flowery Branch（SPANX）廠累計搬運逾 100,000 個料箱（自 2024-06），任務為 AMR 與輸送帶間取放、堆疊；運轉比 2:1（兩台作業、一台充電）。[4] 但前 CPO Melonee Wise 2025-10 對 IEEE 直言現有 AI「尚不夠穩健以滿足市場需求」。</li>
+<li><strong>Amazon Vulcan（揀貨）</strong>：多樣品項（從硬書到易碎洋芋片袋）揀取可靠度逾 99%、接近 99.9%，速度「接近人類」、靠 24/7 不休息補足。[1]（非人形，作上限對照）</li>
+<li><strong>轉螺絲/精密裝配（弱項）</strong>：IKEA 家具組裝屬「早期研究」，Berkeley 機器人僅能處理單一木板型，實際鎖螺絲仍需人類；外接埠連接器插入可達 100%/27 秒，但機殼內 PC 組裝無人完成；小物插入 52–83%、較人慢 3–5 倍。[1]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Figure × BMW（轉折性付費案）</strong>：Figure 02 在 BMW Spartanburg 廠 10–11 個月試點期間裝載逾 9 萬個零件、助產逾 3 萬輛；2026 升級為 Figure 03 商業合約，初始 40 台、跨車身/組裝工位，按約 US$25/機器運轉小時計費，任務含零件取放、次組裝、品檢，計畫 2026–27 擴點並至德國廠試行。[5][1] 屬結構化單工位重複工序，非任意工序通用。</li>
+<li><strong>Agility Digit × GXO</strong>：產業首份多年商業合約，逾 10 萬料箱里程碑，已「跨越試點」進入真實倉儲常態作業。[4]</li>
+<li><strong>其他</strong>：Boston Dynamics Stretch 於 GAP 倉真實卸箱、速度「快過人類」；Apptronik Apollo、Tesla Optimus 等多為廠內試點或自用，總量數百台級、尚未規模化。[1]</li>
+<li><strong>結論</strong>：搬箱/分揀已有<strong>少量真實付費部署</strong>並達整班連跑；但「同一台人形把搬箱＋轉螺絲＋電池分揀全做到並過節拍」的廣域部署<strong>尚未出現</strong>，現況=窄工序 × 結構化環境 × 數十至數百台。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：結構化環境的搬箱、料箱在 AMR/輸送帶間取放、包裹/品項分揀，已可長時間（直播實證逾 191 小時、多班連跑）自主作業、接近人類速度與約 95–99% 可靠度，並可商業計費。[1][2][3][4][6]</li>
+<li><strong>做不到/未證實</strong>：受控扭力轉螺絲、機殼內精密裝配（仍需人類、屬早期研究）；<strong>電池分揀</strong>無公開專屬 benchmark（可推測為分揀類可行，但本任務句的電池情境未被單獨證實，標未證實）；「單機通吃多異質工序且皆過節拍」、跨產線/跨物件遷移（transfer 鮮少被證明）。</li>
+<li><strong>核心瓶頸</strong>：不在搬運本身，而在(1)精密裝配（轉螺絲）的可靠扭力與對位、(2)異質工序整合與遷移、(3)穩定達節拍的可靠性/ROI。人形形態在純重複工業任務未必優於專用機械臂/夾治具。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="%E4%BA%BA%E5%BD%A2%E6%A9%9F%E5%99%A8%E4%BA%BA%E8%88%87%E5%85%B7%E8%BA%AB%E6%99%BA%E6%85%A7.html">人形機器人與具身智慧</a>、<a href="VLA%E6%A8%A1%E5%9E%8B.html">VLA模型</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>（具身策略與感知）、<a href="NVIDIA.html">NVIDIA</a>（Isaac 具身運算/模擬）、<a href="Tesla.html">Tesla</a>（Optimus 廠內試點）、<a href="%E5%8F%A3%E8%AA%9E%E5%AE%B6%E5%8B%99%E9%80%9A%E7%94%A8%E6%A9%9F%E5%99%A8%E4%BA%BA.html">口語家務通用機器人</a>（非結構化家戶版對照，難度 9，凸顯「結構化＋窄工序」是本任務可落地的關鍵差異）</p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Epoch AI, “Where Autonomy Works: Evaluating Robot Capabilities in 2026” — https://epoch.ai/blog/where-autonomy-works-evaluating-robot-capabilities-in-2026</li>
+<li>Figure AI, “Scaling Helix: a New State of the Art in Humanoid Logistics”（2025-06-07）— https://www.figure.ai/news/scaling-helix-logistics</li>
+<li>Interesting Engineering, “Figure AI humanoids sort 28,000 packages in 24-hour autonomous test”（2026-05-14）— https://interestingengineering.com/ai-robotics/figure-ai-humanoids-24-hour-autonomous-run</li>
+<li>Agility Robotics, “Digit Moves Over 100,000 Totes in Commercial Deployment”（2025-11-20）— https://www.agilityrobotics.com/content/digit-moves-over-100k-totes</li>
+<li>PR Newswire / Figure, “Figure announces commercial agreement with BMW Manufacturing” — https://www.prnewswire.com/news-releases/figure-announces-commercial-agreement-with-bmw-manufacturing-to-bring-general-purpose-robots-into-automotive-production-302036263.html</li>
+<li>OODA Loop, “Figure AI’s humanoid robots sort 88,000 packages in 72 hours during nonstop livestream”（2026-05-18；後續延伸至 191+ 小時／238,000 件，見 Figure F.03 直播 Day 9）— https://oodaloop.com/briefs/technology/figure-ais-humanoid-robots-sort-88000-packages-in-72-hours-during-nonstop-livestream/ ；YouTube “F.03 Livestream - Day 9” — https://www.youtube.com/watch?v=luU57hMhkak</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

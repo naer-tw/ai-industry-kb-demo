@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>資本與商業模型｜AI產業知識庫</title><meta name="description" content="資本與商業模型
+
+ 導覽
+
+本頁彙整 AI 產業的「錢從哪來、流向何處、能否回收」：超大規模業者的資本支出（capex）、模型實驗室的營收與虧損、應用層的 ARR 與單位經濟，以及循環交易與折舊兩大爭議。數字均沿用本知識庫既有實體頁（已查證），來源頁以雙括號連結標示。整體獲利能否兌現之多空論辯見 AI泡沫論">
+<meta property="og:title" content="資本與商業模型"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "資本與商業模型", "description": "資本與商業模型\n\n 導覽\n\n本頁彙整 AI 產業的「錢從哪來、流向何處、能否回收」：超大規模業者的資本支出（capex）、模型實驗室的營收與虧損、應用層的 ARR 與單位經濟，以及循環交易與折舊兩大爭議。數字均沿用本知識庫既有實體頁（已查證），來源頁以雙括號連結標示。整體獲利能否兌現之多空論辯見 AI泡沫論", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>主題</span></header>
+<main><article><h1 id="資本與商業模型">資本與商業模型</h1>
+<h2 id="導覽">導覽</h2>
+<p>本頁彙整 AI 產業的「錢從哪來、流向何處、能否回收」：超大規模業者的資本支出（capex）、模型實驗室的營收與虧損、應用層的 ARR 與單位經濟，以及循環交易與折舊兩大爭議。數字均沿用本知識庫既有實體頁（已查證），來源頁以雙括號連結標示。整體獲利能否兌現之多空論辯見 <a href="AI%E6%B3%A1%E6%B2%AB%E8%AB%96%E8%BE%AF.html">AI泡沫論辯</a>。</p>
+<p>核心張力：<strong>capex 以兆美元級狂奔，但變現集中在少數玩家、且毛利結構性低於傳統 SaaS。</strong> 一條價值鏈上，上游賣鏟者最賺、中游模型廠燒錢換成長、下游應用層被「token 稅」侵蝕毛利。</p>
+<h2 id="一超大規模-capex兆美元級軍備競賽">一、超大規模 capex：兆美元級軍備競賽</h2>
+<p>四大雲＋甲骨文 2026 年 capex 合計約 6,600–7,250 億美元，較 2025 年近乎倍增（彙整見 <a href="AI%E6%B3%A1%E6%B2%AB%E8%AB%96%E8%BE%AF.html">AI泡沫論辯</a>）。</p>
+<ul>
+<li><strong><a href="Amazon.html">Amazon</a></strong>：2026 capex 指引約 <strong>2,000 億美元</strong>（2025 實際約 1,300 億美元級距），主投 AWS 資料中心；2026 Q1 現金 capex 已達 432 億美元。AWS 2025 全年營收約 1,287 億美元（年增 19%），2026 Q1 增速回升至 28%（15 季新高）。</li>
+<li><strong><a href="Microsoft.html">Microsoft</a></strong>：FY2025 capex 達 <strong>646 億美元</strong>（年增約 50%）；FY2026 全年指引上修至約 <strong>1,100–1,200 億美元</strong>，Q2 FY2026 單季 capex 約 375 億美元。揭露因電力／產能限制無法即時履約的 Azure 訂單積壓（backlog）約 800 億美元。</li>
+<li><strong><a href="Google%20DeepMind.html">Google DeepMind</a></strong>（母公司 Alphabet）：2026 capex 指引 <strong>1,750–1,850 億美元</strong>，明言用於 DeepMind 的 AI 算力與雲端需求。</li>
+<li><strong><a href="Oracle.html">Oracle</a></strong>：FY2026 capex 約 <strong>500 億美元</strong>（FY2025 為 212 億美元，大增逾倍）；RPO（合約積壓）衝上 <strong>5,530 億美元</strong>（年增 325%），絕大多數來自 <a href="OpenAI.html">OpenAI</a> 等大型 AI 合約。</li>
+<li><strong><a href="NVIDIA.html">NVIDIA</a></strong>（capex 的最大收款方）：FY2026 全年營收 <strong>2,159 億美元</strong>（年增 65%），資料中心營收 1,937 億美元；2025-10-29 市值首破 5 兆美元。它是這場 capex 狂潮中唯一「現賺」的環節。</li>
+</ul>
+<blockquote>
+<p>共同瓶頸：先進製程（<a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a>）、HBM 記憶體與資料中心電力併網，使容量「上線即售罄」（詳見 <a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%83%BD%E6%BA%90.html">AI資料中心能源</a>）。</p>
+</blockquote>
+<h2 id="二模型實驗室營收高速成長虧損同步暴衝">二、模型實驗室：營收高速成長，虧損同步暴衝</h2>
+<p>兩大前沿實驗室皆以「燒錢換成長」運作，估值近兆美元但獲利路徑未明。</p>
+<ul>
+<li><strong><a href="OpenAI.html">OpenAI</a></strong>：年化經常性收入（ARR）由 2023 約 20 億 → 2024 約 60 億 → 2025 約 <strong>200 億美元</strong>；run-rate 2026-03 逾 250 億美元。但 2025 全年實收營收約 131 億美元、現金消耗（burn）約 80 億美元；內部財測指 <strong>2026 年虧損約 140 億美元</strong>，至 2029 年累計虧損上看千億美元級，預期 2030 年代才轉盈。2026-03 募資輪投後估值約 8,520 億美元。</li>
+<li><strong><a href="Anthropic.html">Anthropic</a></strong>：年化營收 run-rate 由 2025 年底約 90 億 → 2026 年 2 月 140 億 → 4 月 300 億 → 5 月逾 <strong>470 億美元</strong>；2026-05 完成 Series H、投後估值 <strong>9,650 億美元</strong>（近 1 兆）。企業 LLM 市占（用量計）約 32%，居 <a href="OpenAI.html">OpenAI</a>（約 25%）之上。</li>
+</ul>
+<blockquote>
+<p>認列爭議：<a href="OpenAI.html">OpenAI</a> 主張 <a href="Anthropic.html">Anthropic</a> 的「毛營收」認列法高估約 80 億美元（按淨額計約 220 億）；run-rate 為年化快照、非經審計全年 GAAP 營收（見 <a href="AI%E6%B3%A1%E6%B2%AB%E8%AB%96%E8%BE%AF.html">AI泡沫論辯</a>）。</p>
+</blockquote>
+<h2 id="三應用層arr-飆速但單位經濟劣於-saas">三、應用層：ARR 飆速，但單位經濟劣於 SaaS</h2>
+<p>下游應用層本身不訓練模型，靠調用上游 API 變現，是模型廠最重要的出海口，卻也最受「token 稅」之苦。</p>
+<h3 id="arr-成長ai程式開發工具-領跑">ARR 成長（<a href="AI%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7.html">AI程式開發工具</a> 領跑）</h3>
+<ul>
+<li><strong><a href="Cursor.html">Cursor</a></strong>（Anysphere）：ARR 由 2025-01 的 1 億 → 2025-11 破 10 億 → 2026-02 達 <strong>20 億美元</strong>，被稱史上由 0 到 20 億 ARR 最快的 B2B 軟體公司；2025-11 估值 293 億美元。</li>
+<li><strong>Claude Code</strong>（<a href="Anthropic.html">Anthropic</a>）：2025-05 推出後三個月成長逾 10 倍，2026-02 年化逾 25 億美元。</li>
+<li><strong>GitHub Copilot</strong>（<a href="Microsoft.html">Microsoft</a>）：2026-01 付費訂閱 470 萬，估年化營收逾 10 億美元。</li>
+<li>企業端 <a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>：Microsoft 365 Copilot 突破 2,000 萬付費席次；惟付費滲透率與「shelfware（買了沒人用）」風險並存。</li>
+</ul>
+<h3 id="單位經濟token-稅壓低毛利核心結構問題">單位經濟：token 稅壓低毛利（核心結構問題）</h3>
+<ul>
+<li><strong>AI agent 的「token 稅」</strong>使推論成本吃掉約 <strong>23% 營收</strong>，毛利較成熟 SaaS（75–85%）低約 <strong>30 個百分點</strong>；ICONIQ 2026 估 AI-native 產品毛利僅約 52%（來源見 <a href="AI%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7.html">AI程式開發工具</a>）。</li>
+<li><strong>重度用戶虧損</strong>：<a href="Cursor.html">Cursor</a> 自評一份 200 美元／月訂閱的底層算力成本可達約 5,000 美元；<a href="Microsoft.html">Microsoft</a> 因 Claude Code 算力成本超過其增益的工程師薪資，2025 年取消多數內部授權。</li>
+<li><strong>ROI 落差</strong>：MIT NANDA 報告指約 <strong>95% 企業生成式 AI 試點</strong>未產生可量化損益影響，僅約 5% 快速見效；「買」成功率約 67%，「自建」僅約其三分之一（見 <a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>）。</li>
+<li><strong>平台 vs. 應用的縱向擠壓</strong>：模型廠（<a href="Anthropic.html">Anthropic</a>、<a href="OpenAI.html">OpenAI</a>）同時自營 Claude Code、Codex 直接與工具商競爭，並可隨時調整計費／限流——應用層命脈繫於上游政策。</li>
+</ul>
+<blockquote>
+<p>雲端算力本身毛利亦低：<a href="Oracle.html">Oracle</a> 外洩文件顯示出租 <a href="NVIDIA.html">NVIDIA</a> 伺服器的 AI 雲毛利率僅約 14–16%，遠低於傳統軟體約 70%。</p>
+</blockquote>
+<h2 id="四循環交易與折舊爭議">四、循環交易與折舊爭議</h2>
+<p>兩項「會計與資金結構」爭議是當前最硬的看空證據（完整多空論據見 <a href="AI%E6%B3%A1%E6%B2%AB%E8%AB%96%E8%BE%AF.html">AI泡沫論辯</a>）。</p>
+<h3 id="循環交易circular-deals">循環交易（circular deals）</h3>
+<p>2025 年多筆關聯交易引發「人為放大需求」疑慮：<a href="NVIDIA.html">NVIDIA</a> 擬投資 <a href="OpenAI.html">OpenAI</a> 最高 1,000 億美元；OpenAI 與 <a href="Oracle.html">Oracle</a> 約 3,000 億美元雲端協議、Oracle 再向 NVIDIA 採購約 400 億美元晶片；OpenAI 與 <a href="AMD.html">AMD</a> 數百億美元晶片協議；OpenAI 對 <a href="CoreWeave.html">CoreWeave</a> 擴大至約 224 億美元，而 NVIDIA 持 CoreWeave 約 7% 股權並承諾採購 63 億美元雲端服務。批評者稱此「NVIDIA 出資→OpenAI 買算力→Oracle 買 NVIDIA 晶片」的資金迴圈恐虛增需求。</p>
+<p>另一條暗線：<a href="Amazon.html">Amazon</a> 與 <a href="Google%20DeepMind.html">Google DeepMind</a> 對 <a href="Anthropic.html">Anthropic</a> 的鉅額投資，使兩大雲端 2026 Q1「亮眼 AI 獲利」中約半數實來自 Anthropic 持股的非現金評價利得，而非本業。</p>
+<h3 id="折舊爭議depreciation">折舊爭議（depreciation）</h3>
+<ul>
+<li>Michael Burry（2025-11）主張業者把 GPU 折舊年限拉長至 5–6 年、實際經濟壽命僅 2–3 年，藉此虛增財報獲利。</li>
+<li><a href="Meta.html">Meta</a> 2025 年把伺服器與網路設備折舊年限上調至 5.5 年，使 2025 前九個月折舊費用減少約 23 億美元。Burry 推估 2026–2028 此作法恐低估折舊約 1,760 億美元（屬個人推估）。</li>
+<li>反方（<a href="CoreWeave.html">CoreWeave</a> 與部分分析師）主張 6 年折舊合理，舉證較舊的 NVIDIA A100 在到期合約中仍保有約 95% 原始價格。</li>
+</ul>
+<h2 id="綜合研判判斷非事實">綜合研判（判斷，非事實）</h2>
+<ol type="1">
+<li><strong>價值鏈獲利極不均</strong>：上游（<a href="NVIDIA.html">NVIDIA</a>）現賺、中游（模型廠）燒錢換成長、下游（應用層）被 token 稅侵蝕——「賣鏟者」是目前唯一確定的贏家。</li>
+<li><strong>單位經濟是長期勝負手</strong>：ARR 成長再快，若推論成本曲線不下降、毛利長期卡在 50% 級距，下游難複製 SaaS 的高獲利模型。</li>
+<li><strong>循環交易與折舊是最可量化的看空證據</strong>，但「技術有用」與「估值是否過熱」是兩個問題，可同時為真。詳細多空與監管示警見 <a href="AI%E6%B3%A1%E6%B2%AB%E8%AB%96%E8%BE%AF.html">AI泡沫論辯</a>。</li>
+</ol>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li>超大規模 capex：<a href="Microsoft.html">Microsoft</a>、<a href="Amazon.html">Amazon</a>、<a href="Google%20DeepMind.html">Google DeepMind</a>、<a href="Oracle.html">Oracle</a>、<a href="NVIDIA.html">NVIDIA</a></li>
+<li>模型實驗室：<a href="OpenAI.html">OpenAI</a>、<a href="Anthropic.html">Anthropic</a></li>
+<li>應用層與單位經濟：<a href="Cursor.html">Cursor</a>、<a href="AI%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7.html">AI程式開發工具</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a></li>
+<li>循環交易參與方：<a href="AMD.html">AMD</a>、<a href="CoreWeave.html">CoreWeave</a>、<a href="Meta.html">Meta</a></li>
+<li>橫切議題：<a href="AI%E6%B3%A1%E6%B2%AB%E8%AB%96%E8%BE%AF.html">AI泡沫論辯</a>、<a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%83%BD%E6%BA%90.html">AI資料中心能源</a>、<a href="Scaling%20Laws%E8%88%87%E5%85%B6%E6%A5%B5%E9%99%90.html">Scaling Laws與其極限</a></li>
+</ul>
+<h2 id="來源">來源</h2>
+<p>數字均引自本知識庫既有實體頁（各頁附原始來源與日期，多為公司財報、官方公告與 CNBC／Fortune／Gartner／MIT 等報導）： - 公司頁：<a href="Microsoft.html">Microsoft</a>、<a href="Amazon.html">Amazon</a>、<a href="Google%20DeepMind.html">Google DeepMind</a>、<a href="Oracle.html">Oracle</a>、<a href="NVIDIA.html">NVIDIA</a>、<a href="OpenAI.html">OpenAI</a>、<a href="Anthropic.html">Anthropic</a>、<a href="Cursor.html">Cursor</a> - 市場頁：<a href="AI%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7.html">AI程式開發工具</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a> - 情境頁：<a href="AI%E6%B3%A1%E6%B2%AB%E8%AB%96%E8%BE%AF.html">AI泡沫論辯</a>（循環交易、折舊、capex 缺口、監管示警之完整論據）</p>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scaling Laws與其極限｜AI產業知識庫</title><meta name="description" content="Scaling Laws 指「模型損失（loss）隨參數量、資料量、訓練運算量呈可預測的冪次律下降」的經驗規律；其「極限」討論的是：當高品質人類資料、訓練運算與報酬率三者逼近天花板時，純預訓練擴張是否仍有效，以及產業如何轉向資料效率、推論時運算（test-time compute）與強化學習等新軸線。">
+<meta property="og:title" content="Scaling Laws與其極限"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Scaling Laws與其極限", "description": "Scaling Laws 指「模型損失（loss）隨參數量、資料量、訓練運算量呈可預測的冪次律下降」的經驗規律；其「極限」討論的是：當高品質人類資料、訓練運算與報酬率三者逼近天花板時，純預訓練擴張是否仍有效，以及產業如何轉向資料效率、推論時運算（test-time compute）與強化學習等新軸線。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>研究趨勢</span></header>
+<main><article><h1 id="scaling-laws與其極限">Scaling Laws與其極限</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>Scaling Laws 指「模型損失（loss）隨參數量、資料量、訓練運算量呈可預測的冪次律下降」的經驗規律；其「極限」討論的是：當高品質人類資料、訓練運算與報酬率三者逼近天花板時，純預訓練擴張是否仍有效，以及產業如何轉向資料效率、推論時運算（test-time compute）與強化學習等新軸線。</p>
+<h2 id="研究方向演化與核心問題">研究方向演化與核心問題</h2>
+<ul>
+<li><strong>第一階段（2020，建立規律）</strong>：Kaplan et al. 確立 loss 對規模的冪次律，主張「模型規模成長要快於資料」，催生 GPT-3 式的「越大越好」路線（來源 1）。</li>
+<li><strong>第二階段（2022，修正配比）</strong>：DeepMind Chinchilla 用 400+ 個模型重估，指出當時主流模型「訓練不足」，參數與 token 應約略等比成長（每倍參數配每倍資料）；70B 的 Chinchilla 在相同算力下勝過 280B 的 Gopher（來源 2）。</li>
+<li><strong>第三階段（2023–2024，撞牆論辯）</strong>：(a)「資料牆」——Epoch AI 估算高品質公開文本約 300 兆 token，在 2026–2032 間用罄（來源 3、4）；(b)「湧現是否為假象」——Schaeffer et al. 主張部分湧現能力源於評測指標選擇，非規模本身的相變（來源 5）；(c)「合成資料反噬」——遞迴用模型生成資料訓練會導致 model collapse（來源 6）。</li>
+<li><strong>第四階段（2024–2025，新擴張軸）</strong>：當預訓練報酬遞減，研究重心移往「推論時運算」與「強化學習推理」——以更多測試時思考換取表現（來源 7、8、9、10、11）。</li>
+</ul>
+<p>核心問題：擴張的瓶頸是資料、運算、還是演算法？「撞牆」是預訓練單一路線的飽和，還是整體 AI 進展的放緩？</p>
+<h2 id="關鍵論文2023202611-篇含奠基性-20202022-兩篇作為對照基準">關鍵論文（2023–2026，11 篇；含奠基性 2020/2022 兩篇作為對照基準）</h2>
+<ol type="1">
+<li><strong>Scaling Laws for Neural Language Models</strong> — Kaplan et al.，OpenAI，2020，arXiv:2001.08361。Takeaway：loss 對參數/資料/運算呈冪次律，跨七個數量級成立，奠定 scaling 範式。URL: https://arxiv.org/abs/2001.08361</li>
+<li><strong>Training Compute-Optimal Large Language Models（Chinchilla）</strong> — Hoffmann et al.，DeepMind，2022，arXiv:2203.15556。Takeaway：固定算力下參數與 token 應等比成長，多數模型訓練不足。URL: https://arxiv.org/abs/2203.15556</li>
+<li><strong>Will we run out of data? Limits of LLM scaling based on human-generated data</strong> — Villalobos et al.，Epoch AI，2024（v2），arXiv:2211.04325。Takeaway：約 300 兆 token 高品質文本，2026–2032 間用罄（compute-optimal 約 2028）。URL: https://arxiv.org/abs/2211.04325</li>
+<li><strong>Will we run out of data?（Epoch AI 出版頁）</strong> — Epoch AI，2024。Takeaway：人類公開文本將成 scaling 限制，提出重複資料/加碼程式碼/放寬品質過濾等緩解策略。URL: https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data</li>
+<li><strong>Are Emergent Abilities of Large Language Models a Mirage?</strong> — Schaeffer, Miranda, Koyejo，Stanford，2023，NeurIPS 2023（Outstanding Paper）。Takeaway：非連續指標製造出「湧現」假象，改用連續指標則表現平滑可預測。URL: https://arxiv.org/abs/2304.15004</li>
+<li><strong>AI models collapse when trained on recursively generated data</strong> — Shumailov et al.，2024，Nature 631:755–759。Takeaway：遞迴以模型生成資料訓練導致分布尾部消失、不可逆的 model collapse。URL: https://www.nature.com/articles/s41586-024-07566-y</li>
+<li><strong>Large Language Monkeys: Scaling Inference Compute with Repeated Sampling</strong> — Brown et al.，2024，arXiv:2407.21787。Takeaway：重複取樣可大幅提升可驗證任務表現，是「推論時運算」的擴張軸。URL: https://arxiv.org/abs/2407.21787</li>
+<li><strong>Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</strong> — Snell, Lee, Xu, Kumar，Google DeepMind / UC Berkeley，2024，arXiv:2408.03314。Takeaway：自適應分配推論算力可讓小模型匹敵大模型。URL: https://arxiv.org/abs/2408.03314</li>
+<li><strong>Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference</strong> — Wu et al.，2024，arXiv:2408.00724（ICLR 2025）。Takeaway：建立推論端的 compute-optimal 規律，量化「成本 vs 表現」前緣。URL: https://arxiv.org/abs/2408.00724</li>
+<li><strong>s1: Simple Test-Time Scaling</strong> — Muennighoff et al.，Stanford / 等，2025，arXiv:2501.19393。Takeaway：用 1,000 題精選資料＋「budget forcing」即可在競賽數學上超越 o1-preview，顯示推論擴張門檻低。URL: https://arxiv.org/abs/2501.19393</li>
+<li><strong>DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning</strong> — DeepSeek-AI，2025，Nature 645:633–638。Takeaway：純 RL（R1-Zero）即可自發學會長思維鏈與推論時擴張，驗證 RL 為新擴張軸。URL: https://www.nature.com/articles/s41586-025-09422-z</li>
+</ol>
+<h2 id="代表成果與爭論">代表成果與爭論</h2>
+<ul>
+<li><strong>Kaplan vs Chinchilla 的配比之爭</strong>：兩者皆為冪次律，差別在最優配置。Chinchilla 證明先前過度放大參數、餵資料不足，重塑了 2022 後的訓練實務（來源 1、2）。</li>
+<li><strong>「是否撞牆」核心論辯</strong>：
+<ul>
+<li>看空（已撞牆）：Ilya Sutskever 2024 年 11 月對 Reuters 表示「預訓練擴張的結果已趨於平緩」，並於 NeurIPS 2024 稱網路是「AI 的化石燃料」、會耗盡；外界報導 OpenAI Orion 增益縮小、Anthropic 亦承認預訓練改善放緩（來源 12、13）。</li>
+<li>看多（路線轉移而非終結）：Schaeffer 等指出「撞牆」常是指標錯覺（來源 5）；s1、Large Language Monkeys、Snell 等證明推論時運算開出新成長曲線（來源 7、8、10）；DeepSeek-R1 用 RL 自發擴張推理（來源 11）。共識漸成：飽和的是「單純放大預訓練」，不是 AI 整體進展。</li>
+</ul></li>
+<li><strong>資料牆的真偽</strong>：Epoch AI 量化資料上限並把「資料用罄窗口」前緣修正至約 2028；另指出 ~2e28 FLOP 的資料搬移瓶頸與 ~2e31 FLOP 的「延遲牆」(latency wall)（來源 3、4、14）。但合成資料受 model collapse 限制（來源 6），使「以合成資料突破資料牆」存在天花板。</li>
+</ul>
+<h2 id="對產業的影響">對產業的影響</h2>
+<ul>
+<li><strong>資本配置轉向</strong>：從「堆 GPU 擴預訓練」轉向「訓練更聰明 + 推論時思考更久」，推升推理型模型（o1/R1 類）與推論算力需求，改變資料中心與晶片採購邏輯。</li>
+<li><strong>新護城河</strong>：高品質/專有資料、RL 與資料管線（data engineering）、推論效率，取代「單純參數量」成為競爭關鍵。</li>
+<li><strong>路線分歧的商業押注</strong>：Sutskever 的 SSI 以「研究勝過規模」為論述募得鉅額資金（來源 13），與仍重押大算力叢集的廠商形成對照，是 2025–2026 產業最大策略分歧之一。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><span class="todo" title="待建頁面">Chinchilla</span>、<a href="%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B%E8%88%87test-time%20compute.html">推理模型與test-time compute</a>、<span class="todo" title="待建頁面">資料牆 Data Wall</span>、<a href="%E5%90%88%E6%88%90%E8%B3%87%E6%96%99.html">合成資料</a>、<a href="OpenAI.html">OpenAI</a>、<a href="Google%20DeepMind.html">Google DeepMind</a>、<a href="Epoch%20AI.html">Epoch AI</a>、<a href="Ilya%20Sutskever.html">Ilya Sutskever</a>、<a href="DeepSeek%20%E6%A8%A1%E5%9E%8B.html">DeepSeek 模型</a>、<a href="MoE%E6%B7%B7%E5%90%88%E5%B0%88%E5%AE%B6.html">MoE混合專家</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Kaplan et al., Scaling Laws for Neural Language Models (2020) — https://arxiv.org/abs/2001.08361</li>
+<li>Hoffmann et al., Training Compute-Optimal LLMs / Chinchilla (2022) — https://arxiv.org/abs/2203.15556</li>
+<li>Villalobos et al., Will we run out of data? (2024, arXiv) — https://arxiv.org/abs/2211.04325</li>
+<li>Epoch AI, Will we run out of data?（出版頁） — https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data</li>
+<li>Schaeffer et al., Are Emergent Abilities a Mirage? (NeurIPS 2023) — https://arxiv.org/abs/2304.15004</li>
+<li>Shumailov et al., AI models collapse… (Nature 2024) — https://www.nature.com/articles/s41586-024-07566-y</li>
+<li>Brown et al., Large Language Monkeys (2024) — https://arxiv.org/abs/2407.21787</li>
+<li>Snell et al., Scaling LLM Test-Time Compute Optimally (2024) — https://arxiv.org/abs/2408.03314</li>
+<li>Wu et al., Inference Scaling Laws (2024 / ICLR 2025) — https://arxiv.org/abs/2408.00724</li>
+<li>Muennighoff et al., s1: Simple Test-Time Scaling (2025) — https://arxiv.org/abs/2501.19393</li>
+<li>DeepSeek-AI, DeepSeek-R1 (Nature 2025) — https://www.nature.com/articles/s41586-025-09422-z</li>
+<li>Reuters（2024-11，Sutskever 稱預訓練擴張結果趨緩；原文 Reuters 不開放爬取，內容經多方二手轉述）— https://www.reuters.com/technology/artificial-intelligence/openai-rivals-seek-new-path-smarter-ai-current-methods-hit-limitations-2024-11-11/</li>
+<li>EA Forum / LessWrong, Is Deep Learning Actually Hitting a Wall?（彙整 Sutskever 主張之分析）— https://forum.effectivealtruism.org/posts/cnMmo5txMaNdxgbaH/is-deep-learning-actually-hitting-a-wall-evaluating-ilya</li>
+<li>Epoch AI, Data movement bottlenecks: Scaling past 1e28 FLOP (2024) — https://epoch.ai/blog/data-movement-bottlenecks-scaling-past-1e28-flop</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

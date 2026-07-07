@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agentic AI研究｜AI產業知識庫</title><meta name="description" content="Agentic AI 研究探討如何讓大型語言模型（LLM）從「一次性回答」升級為能自主規劃、使用工具、操作環境、反思修正並跨多步驟完成目標的「代理（agent）」，其核心研究主軸包含工具使用（tool use）、長程規劃（planning）、多代理協作（multi-agent）、電腦操作（computer u">
+<meta property="og:title" content="Agentic AI研究"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Agentic AI研究", "description": "Agentic AI 研究探討如何讓大型語言模型（LLM）從「一次性回答」升級為能自主規劃、使用工具、操作環境、反思修正並跨多步驟完成目標的「代理（agent）」，其核心研究主軸包含工具使用（tool use）、長程規劃（planning）、多代理協作（multi-agent）、電腦操作（computer u", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>研究趨勢</span></header>
+<main><article><h1 id="agentic-ai研究">Agentic AI研究</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>Agentic AI 研究探討如何讓大型語言模型（LLM）從「一次性回答」升級為能自主<strong>規劃、使用工具、操作環境、反思修正並跨多步驟完成目標</strong>的「代理（agent）」，其核心研究主軸包含工具使用（tool use）、長程規劃（planning）、多代理協作（multi-agent）、電腦操作（computer use）與評測基準（benchmarks）；它不是單一模型架構，而是一條橫切上中下游的研究方向。</p>
+<h2 id="研究方向演化與核心問題">研究方向演化與核心問題</h2>
+<ul>
+<li><strong>2022–2023 奠基期</strong>：研究從「推理 + 行動交織」（ReAct）出發，證明把語言推理與外部工具呼叫綁在一起能降低幻覺；隨後 Reflexion 引入「語言式自我反思」、Toolformer/Voyager 證明模型可自學工具與技能，AutoGPT/AutoGen 把單體代理擴張為多代理對話框架。核心問題：<strong>如何讓 LLM 不只「說」而能「做」</strong>。</li>
+<li><strong>2024 規模化與評測期</strong>：研究重心轉向「可衡量」——SWE-bench、GAIA、WebArena、OSWorld、τ-bench 等基準大量出現，把代理放進真實 GitHub 倉庫、真實作業系統、真實客服情境。核心問題從「能不能做」變成<strong>「在真實、長程、多步任務上到底有多可靠」</strong>。</li>
+<li><strong>2025–2026 可靠性與部署爭論期</strong>：基準快速飽和（多項 &gt;90%），研究界開始質疑「排行榜分數」與「真實部署」脫節，提出 pass^k 可靠性指標、時間視野（time horizon）量測，以及對 multi-agent 是否真正優於單體的反思。核心問題：<strong>準確率提升能否轉化為可信賴、可商用的代理</strong>。</li>
+<li><strong>貫穿全程的張力</strong>：能力（capability）vs 可靠性（reliability）；單體強模型 vs 多代理編排；prompt-時代的 scaffold vs 直接以 RL 訓練代理行為；benchmark 進步 vs benchmark 失真（污染、飽和、與部署脫節）。</li>
+</ul>
+<h2 id="關鍵論文2023202613-篇每篇含-標題機構年份venue-或-arxiv-編號一句-takeawayurl">關鍵論文（2023–2026，13 篇；每篇含 標題/機構/年份/venue 或 arXiv 編號/一句 takeaway/URL）</h2>
+<ol type="1">
+<li><strong>ReAct: Synergizing Reasoning and Acting in Language Models</strong> — Princeton + Google（Yao 等）/ 2022 提交、ICLR 2023 / arXiv:2210.03629。Takeaway：把「推理軌跡」與「行動」交織生成，是現代 agent loop 的範式起點，在 ALFWorld/WebShop 大幅超越 RL 基線。 https://arxiv.org/abs/2210.03629</li>
+<li><strong>Reflexion: Language Agents with Verbal Reinforcement Learning</strong> — Northeastern + Princeton（Shinn 等）/ 2023 / NeurIPS 2023、arXiv:2303.11366。Takeaway：用「語言回饋」而非權重更新讓代理從失敗中自我修正，奠定 self-reflection／記憶機制。 https://arxiv.org/abs/2303.11366</li>
+<li><strong>Voyager: An Open-Ended Embodied Agent with Large Language Models</strong> — NVIDIA + Caltech + Stanford 等 / 2023 / arXiv:2305.16291。Takeaway：首個在 Minecraft 終身學習的 LLM 代理，以「自動課程 + 可成長技能庫（程式碼）+ 迭代提示」展示開放式自我探索。 https://arxiv.org/abs/2305.16291</li>
+<li><strong>Improving Factuality and Reasoning in Language Models through Multiagent Debate</strong> — MIT + Google（Du、Torralba、Tenenbaum、Mordatch 等）/ 2023 / ICML 2024、arXiv:2305.14325。Takeaway：多個 LLM 實例多輪辯論再收斂，可提升數學/策略推理與事實正確性，是 multi-agent debate 代表作。 https://arxiv.org/abs/2305.14325</li>
+<li><strong>AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation</strong> — Microsoft Research / 2023 / arXiv:2308.08155。Takeaway：以「可對話代理」為原語的開源框架，讓 LLM + 人類 + 工具組成多代理工作流，2024 年於 GAIA 三層全拿第一。 https://arxiv.org/abs/2308.08155</li>
+<li><strong>SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</strong> — Princeton（Jimenez、Yang 等）/ 2023 提交、ICLR 2024（Oral）/ arXiv:2310.06770。Takeaway：2,294 個真實 GitHub issue 配對 PR，以執行測試判分，成為代理「真實軟體工程」的旗艦基準。 https://arxiv.org/abs/2310.06770</li>
+<li><strong>GAIA: A Benchmark for General AI Assistants</strong> — Meta AI + HuggingFace（Mialon、Scialom、LeCun 等）/ 2023 / arXiv:2311.12983。Takeaway：概念簡單但需多模態+網路+工具的真實題，人類 92% 對比帶外掛 GPT-4 僅 15%，凸顯通用助理的巨大落差。 https://arxiv.org/abs/2311.12983</li>
+<li><strong>OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</strong> — XLANG Lab／HKU（Xie 等）/ 2024 / NeurIPS 2024 Datasets &amp; Benchmarks、arXiv:2404.07972。Takeaway：369 個真實作業系統任務，人類 72.4% 對比最佳模型僅 12.2%，揭露 computer use 的 GUI grounding 與操作知識瓶頸。 https://arxiv.org/abs/2404.07972</li>
+<li><strong>τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</strong> — Sierra（Yao、Shinn、Narasimhan 等）/ 2024 / arXiv:2406.12045。Takeaway：提出 pass^k 可靠性指標，發現 SOTA 函式呼叫代理在零售域 pass<sup>1&lt;50%、pass</sup>8&lt;25%，把「一致性／可靠性」推上檯面。 https://arxiv.org/abs/2406.12045</li>
+<li><strong>The Landscape of Emerging AI Agent Architectures for Reasoning, Planning, and Tool Calling: A Survey</strong> — 2024 / arXiv:2404.11584。Takeaway：系統整理單體 vs 多代理架構在推理、規劃、工具呼叫上的設計取捨，是架構面常被引用的綜述。 https://arxiv.org/abs/2404.11584</li>
+<li><strong>Multi-Agent Collaboration Mechanisms: A Survey of LLMs</strong> — 2025 / arXiv:2501.06322。Takeaway：把多代理協作拆解為任務分配、通訊協定、可擴展性等機制維度，盤點 debate/critique/合作的成效與失敗模式。 https://arxiv.org/html/2501.06322v1</li>
+<li><strong>A Survey on Evaluation of LLM-based Agents</strong> — 2025 / arXiv:2503.16416。Takeaway：橫向審視代理評測（規劃、工具、自我反思、記憶、Web/SWE/科學等域），指出基準碎片化與「與真實部署脫節」的系統性缺口。 https://arxiv.org/html/2503.16416v2</li>
+<li><strong>Measuring AI Ability to Complete Long Software Tasks（Time Horizon；部落格標題作 Long Tasks）</strong> — METR（Kwa、West、Barnes、Chan 等）/ 2025-03、NeurIPS 2025 / arXiv:2503.14499。Takeaway：以「人類完成所需時長」量測代理能力，發現 50% 可靠度的任務時長約每 7 個月翻倍、2024–2025 加速至約每 4 個月，提供能力外推的關鍵尺規。 https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/</li>
+</ol>
+<h2 id="代表成果與爭論">代表成果與爭論</h2>
+<ul>
+<li><strong>代表成果（能力面）</strong>：依 Stanford HAI《2025 AI Index》，SWE-bench 解題率從 2023 年 4.4% 躍升至 2024 年 71.7%；在短時程（2 小時預算）設定下，頂尖代理在 RE-Bench 上得分達人類專家約 4 倍。（AI Index 2025, Technical Performance）</li>
+<li><strong>爭論一｜可靠性 vs 準確率</strong>：τ-bench 顯示同一批零售任務 pass^1 約 61% 但 pass^8 僅約 25%——「平均答對」不等於「每次都對」，這對商用代理是致命落差。（arXiv:2406.12045；多方覆述）</li>
+<li><strong>爭論二｜benchmark 飽和與失真</strong>：GAIA、ARC-AGI-1 等已逼近或超過 90%，研究界質疑分數受資料污染、過擬合與「與部署脫節」影響；以企業任務實測的 <em>Beyond Accuracy</em>（arXiv:2511.14136，2025-11）發現代理可靠度在多次執行下由約 60% 掉到約 25%，且「只追求準確率」會比成本感知方案貴 4.4–10.8 倍、相近精度下成本差異可達約 50 倍。（綜述 arXiv:2503.16416；企業評測研究 arXiv:2511.14136。坊間另有「實驗室與部署約 37% 落差」之說，惟未見於上述兩篇原始論文，僅見於二手評論，宜審慎引用。）</li>
+<li><strong>爭論三｜多代理是否真的更好</strong>：debate/critique 在推理與事實性上有正面證據（arXiv:2305.14325），但綜述同時記錄規格錯誤、代理間錯位、終止/驗證薄弱等失敗模式，且「何時才該開啟多代理」本身成為效率研究主題。（arXiv:2501.06322）</li>
+<li><strong>爭論四｜時間視野的外推可信度</strong>：METR 指 50% 可靠任務時長每約 4–7 個月翻倍，並推估 2030 年代初代理可獨立完成人類數週工作；但此屬趨勢外推、依賴特定任務套件，外推到通用工作仍具不確定性。（METR 2025-03）</li>
+</ul>
+<h2 id="對產業的影響">對產業的影響</h2>
+<ul>
+<li><strong>上游／算力</strong>：代理「多步推理 + 反覆工具呼叫」放大每個任務的 token 與推論次數，推升推論側算力與長情境需求，與 <a href="Transformer.html">Transformer</a>、推論優化、HBM 等基建議題連動。</li>
+<li><strong>中游／框架與接地</strong>：Agentic 設計把 <a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a> 從「naive 檢索」推向「由代理決定何時/如何檢索」的 Agentic RAG，並催生工具/記憶/編排層（如 AutoGen 類框架、MCP 工具協定）。</li>
+<li><strong>下游／應用</strong>：軟體工程（<a href="AI%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7.html">AI程式開發工具</a>、<a href="Cursor.html">Cursor</a>）、客服與企業流程自動化（<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>）是落地最快的場景；computer use（操作 GUI）則指向更廣的「數位員工」想像，但 OSWorld 的低分提醒落地仍早期。</li>
+<li><strong>商業化關鍵變數</strong>：研究共識正從「刷榜」轉向「可靠性、成本、安全（含 prompt injection 與 computer use 安全）」——這些才是決定代理能否從 demo 走向營收的瓶頸。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>、<a href="Transformer.html">Transformer</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Anthropic.html">Anthropic</a>、<a href="OpenAI.html">OpenAI</a>、<a href="AI%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7.html">AI程式開發工具</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="Cursor.html">Cursor</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>ReAct（arXiv:2210.03629）https://arxiv.org/abs/2210.03629</li>
+<li>Reflexion（arXiv:2303.11366）https://arxiv.org/abs/2303.11366</li>
+<li>Voyager（arXiv:2305.16291）https://arxiv.org/abs/2305.16291</li>
+<li>Multiagent Debate（arXiv:2305.14325）https://arxiv.org/abs/2305.14325</li>
+<li>AutoGen（arXiv:2308.08155）https://arxiv.org/abs/2308.08155</li>
+<li>SWE-bench（arXiv:2310.06770）https://arxiv.org/abs/2310.06770</li>
+<li>GAIA（arXiv:2311.12983）https://arxiv.org/abs/2311.12983</li>
+<li>OSWorld（arXiv:2404.07972）https://arxiv.org/abs/2404.07972</li>
+<li>τ-bench（arXiv:2406.12045）https://arxiv.org/abs/2406.12045</li>
+<li>Agent Architectures Survey（arXiv:2404.11584）https://arxiv.org/abs/2404.11584</li>
+<li>Multi-Agent Collaboration Survey（arXiv:2501.06322）https://arxiv.org/html/2501.06322v1</li>
+<li>Evaluation of LLM-based Agents Survey（arXiv:2503.16416）https://arxiv.org/html/2503.16416v2</li>
+<li>METR｜Measuring AI Ability to Complete Long Tasks（2025-03）https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/</li>
+<li>Stanford HAI《2025 AI Index》Technical Performance https://hai.stanford.edu/ai-index/2025-ai-index-report/technical-performance</li>
+<li>Enterprise Agentic AI 多維評測（arXiv:2511.14136）https://arxiv.org/html/2511.14136v1</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

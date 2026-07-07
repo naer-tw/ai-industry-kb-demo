@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI資料中心能源｜AI產業知識庫</title><meta name="description" content="AI資料中心能源指支撐 AI 訓練與推理算力的電力供給體系——涵蓋併網（grid interconnection）、發電（核能、天然氣、再生能源）、輸配電設備（變壓器）與冷卻基礎設施。在 GPU 不再是唯一稀缺品的當下，「電力」已成為 AI 算力擴張最關鍵的結構性瓶頸。">
+<meta property="og:title" content="AI資料中心能源"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "AI資料中心能源", "description": "AI資料中心能源指支撐 AI 訓練與推理算力的電力供給體系——涵蓋併網（grid interconnection）、發電（核能、天然氣、再生能源）、輸配電設備（變壓器）與冷卻基礎設施。在 GPU 不再是唯一稀缺品的當下，「電力」已成為 AI 算力擴張最關鍵的結構性瓶頸。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>供應鏈環節</span></header>
+<main><article><h1 id="ai資料中心能源">AI資料中心能源</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>AI資料中心能源指支撐 AI 訓練與推理算力的電力供給體系——涵蓋併網（grid interconnection）、發電（核能、天然氣、再生能源）、輸配電設備（變壓器）與冷卻基礎設施。在 GPU 不再是唯一稀缺品的當下，「電力」已成為 AI 算力擴張最關鍵的結構性瓶頸。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>全球資料中心耗電量</strong>：IEA 估 2025 年約 485 TWh，預測 2026 年突破 1,000 TWh（約等於日本全國年用電量），2030 年達約 950 TWh，約佔全球電力需求 3%。（IEA《Energy and AI》；S&amp;P Global，2025-04-10）
+<ul>
+<li>註：不同口徑數字略有出入（部分報導引 2026 年 1,100 TWh），反映統計範圍與更新時點差異。</li>
+</ul></li>
+<li><strong>AI 專用資料中心成長最快</strong>：2025 年 AI 資料中心耗電量年增約 50%，遠快於整體資料中心。（IEA，2025-2026）</li>
+<li><strong>關鍵 IT 電力容量</strong>：SemiAnalysis 估全球資料中心關鍵 IT 電力需求由 2023 年 49 GW 增至 2026 年 96 GW，其中 AI 約佔 40 GW；美國 AI 電力需求由 2023 年約 3 GW 增至 2026 年逾 28 GW。（SemiAnalysis）</li>
+<li><strong>超大規模業者 2026 資本支出</strong>：Amazon、Google、Microsoft、Meta 合計約 7,250 億美元，年增約 77%（2025 約 4,100 億）；約 75%（約 4,500 億）投入 AI 基礎設施。（Tom’s Hardware / CNBC，2026-02）
+<ul>
+<li>個別：Amazon 約 2,000 億、Microsoft 約 1,900 億、Google 1,750–1,850 億、Meta 1,150–1,350 億美元。（四家合計約 7,250 億；Microsoft 1,900 億含約 250 億因記憶體與晶片漲價增列。Tom’s Hardware / Statista，2026-02）</li>
+</ul></li>
+<li><strong>每 MW 建置成本</strong>：標準資料中心約 1,000–1,200 萬美元/MW；高密度 AI-ready 設施達 2,000 萬美元/MW 以上。（TrueLook，2025）</li>
+<li><strong>資本結構</strong>：晶片約佔 AI 資料中心總投資 60%；機電（MEP）系統可佔建置預算達 50%。（McKinsey 2025；產業分析）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>位於上游「算力層」的能源底座，與晶片並列為兩大稀缺要素。供應鏈順序為：<a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a> 製造 <a href="NVIDIA.html">NVIDIA</a> GPU →（搭配 <a href="HBM%E8%A8%98%E6%86%B6%E9%AB%94.html">HBM記憶體</a> 與 <a href="%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9DCoWoS.html">先進封裝CoWoS</a>）→ 部署於 <a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%83%BD%E6%BA%90.html">AI資料中心能源</a> → 需巨量穩定電力驅動。GPU 採購受能源供給天花板限制：縱有晶片，若無電可併網、無變壓器、無冷卻，算力即無法上線。能源因此從「營運成本項」上升為「決定算力擴張速度的閘門」。</p>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>核能 PPA 浪潮</strong>：截至 2026 年 5 月，所有主要超大規模業者皆已簽核能採購協議，累計逾 9.7 GW。
+<ul>
+<li>Microsoft：20 年、160 億美元，重啟三哩島 1 號機（835 MW），目標 2028。</li>
+<li>Amazon（AWS）：與 Talen 簽 17 年、1.92 GW（Susquehanna 核電廠）PPA 至 2042，並於賓州投資約 200 億美元。</li>
+<li>Google：2025-08 簽首份企業 SMR PPA（Kairos Power，500 MW）。</li>
+<li>Meta：與 Constellation 簽 20 年、1,121 MW；總計布局達 6.6 GW（TerraPower、Oklo、Vistra 等）。 （smrintel.com；enkiai.com，2025-2026）</li>
+</ul></li>
+<li><strong>轉向自建發電（behind-the-meter）</strong>：因併網受阻，業者改自建廠。2024 年 13% 資料中心用自有發電供主電力，預估 2030 升至 38%。OpenAI 與 Oracle 於 2025-10 下單德州 2.3 GW 現場燃氣電廠（史上最大）。（SemiAnalysis；Marketplace，2026-02）</li>
+<li><strong>超大型專案</strong>：Stargate（OpenAI／Oracle／SoftBank）規劃 5,000 億美元、10 GW；旗艦德州 Abilene 場址預計 2026 年中達約 1.2 GW，全案已推進至近 7 GW 規劃容量。（OpenAI；DCD，2025-09）</li>
+<li><strong>冷卻效率</strong>：NVIDIA 於 2026-01 宣布次世代系統可用 45°C 進水運作，免冷水機，改善廢熱回收經濟性；併網場址 PUE 過建約 1.4–1.5x（主因冷卻）。（SemiAnalysis，2026-01）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>併網瓶頸</strong>：美國互聯排隊等待逾 5 年；德州每月湧入數十 GW 負載申請，過去 12 個月僅核准約 1 GW。電力可用性已正式成為新建第一大限制。（SemiAnalysis；Data Center Knowledge）</li>
+<li><strong>變壓器短缺</strong>：高壓變壓器交期由 2020 年前的 24–30 個月拉長至 4–5 年（2025 Q2 標準變壓器平均 128 週）；西方市場供給缺口達 30%。（pv magazine USA，2026-05-11）</li>
+<li><strong>專案延遲／取消</strong>：Sightline Climate 追蹤 2026 年美國 140 個專案 12 GW，僅 5 GW 實際動工；11 GW 停留在「已宣布」無實體進度。部分分析估近半美國資料中心專案可能延遲或取消。（Digital Watch；產業分析，2025-2026）</li>
+<li><strong>現金流壓力</strong>：巨額資本支出使自由現金流大幅下滑，Amazon 預期 2026 年轉為負值。（CNBC，2026-02）</li>
+<li><strong>環境與電價爭議</strong>：自建燃氣電廠引發甲烷排放疑慮；資料中心負載是否推升家庭電價成為政策焦點。（Grist；SemiAnalysis）</li>
+<li><strong>數字不確定性</strong>：耗電量預測因口徑與時點差異而分歧，使用時須註明來源年份；部分 SMR 商轉時程（多在 2028–2030）尚屬計畫階段，存在執行風險，屬「資料未完全證實」之前瞻數字。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="NVIDIA.html">NVIDIA</a>：GPU 供應商，其功耗規格（如 GB200）直接決定資料中心電力與冷卻設計。</li>
+<li><a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a>：上游晶圓代工，AI 晶片供給源頭。</li>
+<li><a href="HBM%E8%A8%98%E6%86%B6%E9%AB%94.html">HBM記憶體</a>：高頻寬記憶體，AI 加速器關鍵組件與耗電來源之一。</li>
+<li><a href="%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9DCoWoS.html">先進封裝CoWoS</a>：先進封裝技術，AI 晶片產能瓶頸。</li>
+<li><a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%83%BD%E6%BA%90.html">AI資料中心能源</a>：能源的最終承載與消耗端。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>IEA《Energy and AI – Energy demand from AI》 https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai</li>
+<li>S&amp;P Global, Global data center power demand to double by 2030 on AI surge: IEA (2025-04-10) https://www.spglobal.com/energy/en/news-research/latest-news/electric-power/041025-global-data-center-power-demand-to-double-by-2030-on-ai-surge-iea</li>
+<li>SemiAnalysis, How AI Labs Are Solving the Power Crisis: The Onsite Gas Deep Dive https://newsletter.semianalysis.com/p/how-ai-labs-are-solving-the-power</li>
+<li>Tom’s Hardware, Big Tech’s AI spending plans reach $725 billion (2026) https://www.tomshardware.com/tech-industry/big-tech/big-techs-ai-spending-plans-reach-725-billion</li>
+<li>smrintel.com, Every Nuclear-Powered Data Center Deal (2026) https://smrintel.com/nuclear-data-center-deals/</li>
+<li>pv magazine USA, U.S. transformer market faces severe supply constraints (2026-05-11) https://pv-magazine-usa.com/2026/05/11/u-s-transformer-market-faces-severe-supply-constraints-as-lead-times-extend-to-four-years/</li>
+<li>OpenAI, Five new Stargate sites (2025-09) https://openai.com/index/five-new-stargate-sites/</li>
+<li>The Motley Fool, How much are AI companies spending on data centers? https://www.fool.com/research/ai-companies-spending-on-data-centers/</li>
+<li>CNBC, Tech AI spending approaches $700 billion in 2026 (2026-02-06) https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html</li>
+<li>Data Center Knowledge, Gridlocked: Power Constraints Shape the Future of Data Centers https://www.datacenterknowledge.com/energy-power-supply/gridlocked-how-power-constraints-are-shaping-the-future-of-data-centers</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

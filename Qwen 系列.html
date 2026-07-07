@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qwen 系列｜AI產業知識庫</title><meta name="description" content="Qwen（通義千問）是阿里巴巴／阿里雲開發的大型語言模型家族，以「開源權重 + 多尺寸 + 多模態」策略成為全球下載量最高的開源模型生態系，並以閉源旗艦（Qwen-Max 系列）對標 GPT/Gemini/Claude 頂尖閉源模型。">
+<meta property="og:title" content="Qwen 系列"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Qwen 系列", "description": "Qwen（通義千問）是阿里巴巴／阿里雲開發的大型語言模型家族，以「開源權重 + 多尺寸 + 多模態」策略成為全球下載量最高的開源模型生態系，並以閉源旗艦（Qwen-Max 系列）對標 GPT/Gemini/Claude 頂尖閉源模型。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>模型/產品</span></header>
+<main><article><h1 id="qwen-系列">Qwen 系列</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>Qwen（通義千問）是阿里巴巴／阿里雲開發的大型語言模型家族，以「開源權重 + 多尺寸 + 多模態」策略成為全球下載量最高的開源模型生態系，並以閉源旗艦（Qwen-Max 系列）對標 GPT/Gemini/Claude 頂尖閉源模型。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>開發者</strong>：阿里巴巴集團 / 阿里雲，由 Qwen 團隊負責（Wikipedia，2026）。</li>
+<li><strong>起源時間線</strong>：初代 Qwen 2023-04 beta、2023-09 公開；Qwen2 2024-06；Qwen2.5 2024-09；Qwen3 2025-04-28/29；Qwen3-Max 2025-09-23；Qwen3.5 2026-02-16（Wikipedia / Alibaba Cloud blog / Artificial Analysis）。</li>
+<li><strong>Qwen3 旗艦（開源）</strong>：Qwen3-235B-A22B，MoE 架構，總參數 235B、每 token 啟動 22B；採 <strong>Apache 2.0</strong> 授權；2025-04-29 發布（官方 Qwen blog / Alibaba Cloud）。</li>
+<li><strong>Qwen3 完整陣容</strong>：6 個密集模型（0.6B / 1.7B / 4B / 8B / 14B / 32B）＋ 2 個 MoE（30B-A3B、235B-A22B），全數 Apache 2.0；密集模型 context 32K 或 128K、MoE 128K（官方 Qwen blog，2025）。</li>
+<li><strong>Qwen3 代表 benchmark（Qwen3-235B-A22B-2507，官方 2025-07）</strong>：MMLU-Pro <strong>84.4</strong>、MMLU-Redux 93.8、GPQA <strong>81.1</strong>、AIME2025 <strong>92.3</strong>、LiveCodeBench <strong>74.1</strong>、Arena-Hard 1422、IFEval 87.8（Qwen 官方數據，經多源轉述）。</li>
+<li><strong>Qwen3-Coder</strong>：Qwen3-Coder-480B-A35B-Instruct，MoE 480B / 啟動 35B，原生 256K context（可外推至 1M），<strong>SWE-bench Verified 69.6%</strong>，官方稱與 Claude Sonnet 4 相當、為當時開源最強 agentic coding 模型（官方 Qwen blog，2025）。</li>
+<li><strong>Qwen3-Max（閉源旗艦）</strong>：2025-09-23 發布，逾 1 兆參數，context 約 260K、輸出上限約 66K；Artificial Analysis 智慧指數 <strong>31</strong>（71 個模型中排約第 24，平均 24）；定價約 US$1.2/M 輸入、US$6.0/M 輸出（Artificial Analysis / eesel，2026）。</li>
+<li><strong>Qwen3.5-397B-A17B（現主力旗艦）</strong>：2026-02-16 發布，MoE 397B 總參數、僅啟動 17B、512 experts；開源版 256K context、託管版 Qwen3.5-Plus 達 1M token；支援 201 種語言；Artificial Analysis 智慧指數 <strong>45</strong>，於同級開源模型中名列前茅，並宣稱在多項推理／coding 任務上勝過自家逾兆參數的 Qwen3-Max（VentureBeat / MarkTechPost / Artificial Analysis，2026-02）。</li>
+<li><strong>API 定價（eesel / Alibaba Cloud，2026）</strong>：Qwen-Turbo US$0.05/US$0.20（最低門檻）、Qwen-Plus US$0.40/US$1.20、Qwen3-30B-A3B US$0.20/US$0.80、Qwen3-235B US$0.70/US$2.80、Qwen3-Max US$1.2/US$6.0；thinking 模式輸出成本約增 3–10 倍，batch 約打 5 折。</li>
+<li><strong>生態採用</strong>：Qwen 累計下載已突破 <strong>10 億次</strong>、Hugging Face 衍生模型逾 <strong>20 萬個</strong>，2025-10 前後在總下載量超越 Meta Llama 成為全球最受歡迎開源模型；Qwen 手機 App 2026-05 達 2.34 億用戶（Pandaily / Wikipedia / 多源轉述）。</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li><strong>中游（模型層）核心玩家</strong>：Qwen 提供從 0.6B 邊緣裝置到逾兆參數雲端旗艦的完整尺寸帶，同時橫跨文字、視覺、音訊、全模態與影像生成。</li>
+<li><strong>開源生態地基</strong>：因 Apache 2.0 授權與龐大衍生模型數，Qwen 已成為全球（尤其中文／亞太）開發者微調與商用的預設底座，類似 Linux 在作業系統的地位；上游依賴 <a href="NVIDIA.html">NVIDIA</a> GPU 訓練，下游被 <a href="Hugging%20Face.html">Hugging Face</a> 託管並由大量新創與企業二次開發。</li>
+<li><strong>雙軌商業模式</strong>：開源權重衝生態與品牌、閉源 Qwen-Max 系列透過阿里雲 Model Studio 變現，與 <a href="OpenAI.html">OpenAI</a>、<a href="Google.html">Google</a>、<a href="Anthropic.html">Anthropic</a> 的純閉源路線形成對比，更接近 <a href="Meta.html">Meta</a> Llama 與 <a href="DeepSeek.html">DeepSeek</a> 的開放路線。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>2024</strong>：Qwen2（2024-06）、Qwen2.5（2024-09）、Qwen2-Audio（2024-08）陸續發布，奠定多尺寸與多模態基礎。</li>
+<li><strong>2025-01</strong>：Qwen2.5-Max（MoE，預訓練逾 20 兆 token）在 Arena-Hard、LiveBench、GPQA-Diamond 等對標 DeepSeek V3、GPT-4o、Claude 3.5 Sonnet（官方 Qwen blog）。</li>
+<li><strong>2025-04</strong>：Qwen3 發布，引入 hybrid thinking（可切換思考/非思考），235B-A22B 旗艦對標 DeepSeek-R1、o1、Grok-3、Gemini-2.5-Pro。</li>
+<li><strong>2025-07</strong>：Qwen3-Coder-480B 與 Qwen3-235B-A22B-2507 更新版釋出，coding 與推理大幅提升。</li>
+<li><strong>2025-09</strong>：Qwen3-Max（逾兆參數閉源旗艦）上線阿里雲。</li>
+<li><strong>2026-02-16</strong>：<strong>Qwen3.5-397B-A17B</strong> 發布，以「小啟動參數、低成本、長 context（1M）、201 語言」主打 AI agent；智慧指數 45，成為當前主力旗艦。</li>
+<li><strong>2026 上半（資料未完全證實）</strong>：多個來源提及 Qwen3.6（含 27B 密集版）與 Qwen3.7-Max 等後續版本，部分數據來自社群與第三方榜單，官方權威確認待補，本頁標註為待證實。</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>地緣政治與信任風險</strong>：作為中國模型，在歐美政府／金融等敏感場景面臨資料安全疑慮與潛在出口管制／採購限制；國際企業導入時常受合規審查。</li>
+<li><strong>算力與制裁風險</strong>：訓練高度依賴 <a href="NVIDIA.html">NVIDIA</a> 先進 GPU，美國對中出口管制可能限制下一代旗艦的擴張節奏。</li>
+<li><strong>開源變現張力</strong>：開源衝高下載量但直接 API 營收有限，須靠阿里雲生態回收，商業模式可持續性受 <a href="DeepSeek.html">DeepSeek</a>、<a href="Llama%20%E7%B3%BB%E5%88%97.html">Llama 系列</a> 等開源同業價格戰擠壓。</li>
+<li><strong>版本碎片化與資訊雜訊</strong>：發布節奏極快（Qwen3 → 3.5 → 3.6/3.7 在一年內），第三方榜單與社群轉述常領先官方文件，造成版本與數據混淆，引用時須回到官方模型卡／技術報告核實。</li>
+<li><strong>benchmark 可比性</strong>：官方數據多為自家測試條件，跨模型比較須以 LMArena／Artificial Analysis 等第三方獨立評測交叉驗證。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4.html">阿里巴巴</a>（母公司／阿里雲為發布與託管平台）</li>
+<li><a href="DeepSeek.html">DeepSeek</a>（中國開源同業，最直接競品）</li>
+<li><a href="Llama%20%E7%B3%BB%E5%88%97.html">Llama 系列</a>（被 Qwen 於下載量超越的開源對手）</li>
+<li><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>（<a href="OpenAI.html">OpenAI</a> 閉源旗艦對標對象）</li>
+<li><a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>（<a href="Google.html">Google</a> 閉源旗艦對標對象）</li>
+<li><a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>（<a href="Anthropic.html">Anthropic</a> 閉源旗艦對標對象）</li>
+<li><a href="NVIDIA.html">NVIDIA</a>（訓練／推論算力上游）</li>
+<li><a href="Hugging%20Face.html">Hugging Face</a>（開源權重與衍生模型託管平台）</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Qwen — Wikipedia（時間線、授權、多模態、採用）：https://en.wikipedia.org/wiki/Qwen</li>
+<li>Qwen3 官方 blog（陣容、Apache 2.0、context）：https://qwenlm.github.io/blog/qwen3/</li>
+<li>Alibaba Cloud — Introducing Qwen3（旗艦、發布日、對標）：https://www.alibabacloud.com/blog/alibaba-introduces-qwen3-setting-new-benchmark-in-open-source-ai-with-hybrid-reasoning_602192</li>
+<li>Artificial Analysis — Qwen3 Max（智慧指數 31、定價、context）：https://artificialanalysis.ai/models/qwen3-max</li>
+<li>Artificial Analysis — Qwen3.5 397B A17B（智慧指數 45、排名）：https://artificialanalysis.ai/models/qwen3-5-397b-a17b</li>
+<li>VentureBeat — Qwen3.5 397B-A17 beats trillion-param model：https://venturebeat.com/technology/alibabas-qwen-3-5-397b-a17-beats-its-larger-trillion-parameter-model-at-a</li>
+<li>MarkTechPost — Qwen3.5-397B MoE 發布（17B 啟動、1M context）：https://www.marktechpost.com/2026/02/16/alibaba-qwen-team-releases-qwen3-5-397b-moe-model-with-17b-active-parameters-and-1m-token-context-for-ai-agents/</li>
+<li>Qwen3-Coder 官方 blog（SWE-bench Verified 69.6%）：https://qwenlm.github.io/blog/qwen3-coder/</li>
+<li>eesel AI — Qwen pricing 2026（各模型 API 定價）：https://www.eesel.ai/blog/qwen-pricing</li>
+<li>Pandaily — Qwen 突破 10 億下載、20 萬衍生模型：https://pandaily.com/alibaba-s-qwen-open-source-models-surpass-1-billion-downloads-ranking-first-globally</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>嵌字海報圖｜AI產業知識庫</title><meta name="description" content="嵌字海報圖
+
+ 一句話定義（這個可交付物是什麼）
+給定一段欲呈現的條列／標語文字，模型直接產出一張行銷圖或海報，圖中嵌入的文字必須拼寫正確、字距與排版整齊、清晰可讀，且能處理「多行＋多段落＋標語」的版面（標題、副標、條列、CTA 同時存在）。關鍵交付標準不是「圖好不好看」，而是「圖裡的字對不對、念得通、夠不夠">
+<meta property="og:title" content="嵌字海報圖"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "嵌字海報圖", "description": "嵌字海報圖\n\n 一句話定義（這個可交付物是什麼）\n給定一段欲呈現的條列／標語文字，模型直接產出一張行銷圖或海報，圖中嵌入的文字必須拼寫正確、字距與排版整齊、清晰可讀，且能處理「多行＋多段落＋標語」的版面（標題、副標、條列、CTA 同時存在）。關鍵交付標準不是「圖好不好看」，而是「圖裡的字對不對、念得通、夠不夠", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="嵌字海報圖">嵌字海報圖</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定一段欲呈現的條列／標語文字，模型直接產出一張行銷圖或海報，圖中嵌入的文字必須拼寫正確、字距與排版整齊、清晰可讀，且能處理「多行＋多段落＋標語」的版面（標題、副標、條列、CTA 同時存在）。關鍵交付標準不是「圖好不好看」，而是「圖裡的字對不對、念得通、夠不夠多行還不亂」。技術上有兩條路線：(a) 原生生成（GPT-image-1、Imagen、FLUX 等直接把文字當像素畫出來）；(b) 混合管線（AI 生成背景／插畫 ＋ 確定性文字圖層疊加，Canva/Adobe Express 多採此法以保證文字 100% 正確）。本頁評的是「字由 AI 一次畫對」的純生成能力，混合法另計於落地段。</p>
+<h2 id="難度評分綜合-410技術-4落地-3-理由引-benchmark-與部署">難度評分（綜合 4/10：技術 4、落地 3）— 理由(引 benchmark 與部署)</h2>
+<ul>
+<li><strong>技術成熟度 4（多行英文嵌字已大致解，CJK／精確規格仍需把關）</strong>：2024 前文字渲染是 AI 影像的著名痛點（拼錯、亂碼）；2025 年 GPT-image-1（ChatGPT「4o 生圖」）與 Imagen/FLUX 已讓短文字、單行標語、UI 標籤一次畫對。當時最難的「多行／長文字」區間，STRICT（2025-05）顯示擴散模型在約 200 字元後崩落、甚至忽略指令改畫自然圖（GPT-4o 英文 800 字 NED 0.10→2000 字 0.30，Imagen 3 全程 0.74–0.81，NED 越低越好）。<strong>但 2026-04 上線的 GPT Image 2 在 LM Arena 盲測已能把整版海報文字——從主標到內文小字——以近 100% 正確、零字元滲漏畫出，多行嵌字此前的崩落點被前沿模型大幅補上</strong>；Nano Banana Pro／Seedream 4.5 也明顯改善。殘留難點是中文／非拉丁文字（長尾字頻、形近字仍易錯）與須逐字精確的法務／品牌文案。故技術由 5 下修至 4：英文多行已可靠、CJK 與精確規格仍需人工把關，落在量表 3–4「可用但需人工把關」。</li>
+<li><strong>落地難度 3（已大規模商品化，可靠性缺口收斂中）</strong>：4o 生圖上線首週由逾 1.3 億用戶生成逾 7 億張圖；gpt-image-1 API（2025-04-23 上線，方形圖低/中/高品質約 0.02／0.07／0.19 美元）已併入 Adobe Firefly/Express、Figma、Canva（探索整合）、HubSpot 等主流設計與行銷工具，行銷圖／海報是核心用例。業界對「文字須 100% 正確」場景仍常採混合法（AI 出背景、文字用可編輯圖層疊上）保險，但隨 GPT Image 2 等多行嵌字可靠性躍進，純生成可直接交付的比例上升。對嚴格交付仍可能需校字／重生，惟整體已從「靠工程兜底」往「模型可直接出」移動，故落地由 4 下修至 3（與去背同級）。</li>
+<li><strong>綜合判定 4</strong>：已大規模商品化、深嵌主流工具，且前沿模型（GPT Image 2，2026-04）使多行英文嵌字大致可靠 → 對應量表 3–4「可用但需人工把關、已有產品」，而非 5–6「可靠性仍是挑戰」。殘留把關需求來自 CJK 與逐字精確場景，非整體能力缺口。</li>
+<li><strong>查證重評：4/4/3（理由）</strong>：依錨定量表獨立重評綜合 4、技術 4、落地 3。與頁面原評 5/5/4 各差 1（皆 &lt;2），故 divergence=false；但原頁 benchmark／現況以 2025-05 為快照，未納入 2026-04 GPT Image 2 多行嵌字近 100% 正確的躍進，本次據此將分數與敘述更新至 2026-06 實況，並修正採用方清單（PetaPixel 原文列 Adobe/Figma/Canva/HubSpot/GoDaddy/Instacart，未提 Wix）。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>STRICT（Stress Test of Rendering Images Containing Text，arXiv 2505.18985，2025-05-25）</strong>：以 OCR 計 NED（Normalized Edit Distance，越低越好）評文字渲染，跨 50–5000 字元、英／法／中三語。英文 800 字元：GPT-4o 0.10±0.07、Gemini 2.0 0.16±0.09、Imagen 3 0.74±0.08、FLUX 1.1 Pro 0.85±0.16；英文 2000 字元：GPT-4o 0.30±0.08、Gemini 2.0 0.52±0.10、Imagen 3 0.81±0.09。關鍵結論：多數模型在約 200 字元後性能明顯下降（對應 CLIP token 上限），且越過門檻後常忽略指令改畫自然圖；中文因訓練資料不足顯著差於英文。[1]</li>
+<li><strong>後續躍進（2026-04）</strong>：GPT Image 2（2026-04 上線）在 LM Arena 文字渲染盲測達近 100% 正確，是唯一能把整版海報文字（從「Intelligence Layer」主標到內文小字）全數正確拼出、零字元滲漏的模型；對手 Nano Banana Pro 同場仍把 10pt 內文畫成「看似英文但無法解析」的偽文字。顯示 STRICT（2025-05）所記「約 200 字元後崩落」的多行嵌字痛點，已被前沿模型於約一年內大幅補上（英文為主）。[7]</li>
+<li><strong>質性現況</strong>：GlyphControl、GlyphDraw、TextDiffuser 系列等專用方法早在 2025 即提升拼字準確率，但聚焦「單字或單行、約 20 字元內」；2026 多項評測顯示多行英文已大致可解，殘留難點轉向中文等表意文字（長尾字頻、形近字、複雜部首易錯）與須逐字精確的場景。[1][7]</li>
+<li><strong>數據邊界說明</strong>：STRICT 僅評「字畫得對不對」，未綜合評「版面美感／品牌一致性」。GPT-4o 在短文字（≤800 字）領先明顯，但本任務句的條列海報常含多段，落在性能下滑帶。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>OpenAI gpt-image-1（原生生圖）</strong>：2025-03-25 在 ChatGPT 上線「4o 生圖」，主打可畫出整段、多區塊、可讀的嵌字（海報、選單、資訊圖、UI 標籤），首週由逾 1.3 億用戶生成逾 7 億張圖；2025-04-23 開放 API。定價約低/中/高品質方形圖每張 0.02／0.07／0.19 美元。[2][3][6]</li>
+<li><strong>設計／行銷工具整合</strong>：gpt-image-1 API 上線即由 Adobe（Firefly、Express）、Figma Design、Canva（探索整合）、HubSpot（社群／EDM／落地頁素材）等採用，GoDaddy、Instacart 亦在評估；行銷圖與海報為核心場景。[3][4]</li>
+<li><strong>Canva Magic Media</strong>：文字生圖上線不到一年累計逾 2.9 億張圖，廣泛用於社群貼文與宣傳素材；惟海報文字多以「可編輯文字圖層」確保正確，AI 主要負責背景／插畫，屬混合管線的代表做法。[5]</li>
+<li><strong>成效與限制</strong>：整合方主打加速素材產製，但公開資料未見「多行嵌字一次正確率」的規模化部署數字；實務上長文字海報仍常需重生或人工校字，故「規模化、零校稿」尚未證實。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到2026-06">現況與邊界（AI 目前做得到/做不到，2026-06）</h2>
+<ul>
+<li><strong>做得到</strong>：短標語、海報主標、Logo 字、UI 標籤、英文短句早已可靠；至 2026-04，GPT Image 2 等前沿模型更能把整版多行英文海報文字（主標＋副標＋條列＋內文小字）以近 100% 正確、零字元滲漏畫出，已商品化、低成本、深嵌主流設計工具。</li>
+<li><strong>仍吃力／需人工</strong>：中文／非拉丁（表意）文字明顯較差（長尾字頻、形近字、複雜部首易錯）；須逐字精確的品牌字體、固定字距、法務文案，純生成仍須校字；非頂尖模型在密集長文版面仍可能漏字／偽文字。</li>
+<li><strong>本質瓶頸與業界解法</strong>：擴散／自回歸模型把文字當像素「畫」出來，缺乏字符級確定性——這是長文與 CJK 仍有殘留錯誤的根源。產業對「文字須 100% 正確」場景仍常採混合管線（AI 生背景 ＋ 確定性文字圖層）保險，但隨多行嵌字可靠性躍進，純生成可直接交付的比例正上升，整體已落在量表 3–4「可用但需人工把關」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="AI%E5%BD%B1%E5%83%8F%E8%88%87%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">AI影像與影片生成</a>、<a href="%E6%93%B4%E6%95%A3%E6%A8%A1%E5%9E%8B.html">擴散模型</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>STRICT: Stress Test of Rendering Images Containing Text (arXiv 2505.18985, 2025-05-25) — https://arxiv.org/html/2505.18985v1</li>
+<li>Introducing 4o Image Generation (OpenAI, 2025-03) — https://openai.com/index/introducing-4o-image-generation/</li>
+<li>Introducing our latest image generation model in the API / gpt-image-1 (OpenAI, 2025-04-23) — https://openai.com/index/image-generation-api/</li>
+<li>ChatGPT’s New Image Generator Coming to Adobe, Figma, Canva, and More (PetaPixel, 2025-04-24) — https://petapixel.com/2025/04/24/chatgpts-popular-new-image-generator-coming-to-adobe-figma-canva-and-more/</li>
+<li>Canva Magic Media: text-to-image, 290M images (Canva Newsroom) — https://www.canva.com/newsroom/news/text-to-image-ai-image-generator/</li>
+<li>ChatGPT users have generated over 700M images since last week (TechCrunch, 2025-04-03) — https://techcrunch.com/2025/04/03/chatgpt-users-have-generated-over-700m-images-since-last-week-openai-says/</li>
+<li>GPT Image 2 vs Nano Banana Pro / 2 — 2026 comparison（LM Arena 多行海報文字近 100% 正確）(2Slides, 2026) — https://2slides.com/blog/gpt-image-2-vs-nano-banana</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

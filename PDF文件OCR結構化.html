@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PDF文件OCR結構化｜AI產業知識庫</title><meta name="description" content="PDF文件OCR結構化
+
+ 一句話定義（這個可交付物是什麼）
+給定印刷體 PDF 或掃描影像，模型自動辨識文字並還原版面與表格結構，輸出可程式化使用的 Markdown / JSON / HTML（含標題層級、段落、表格 cell 結構、公式 LaTeX、閱讀順序）。屬「文件智能（Document Intel">
+<meta property="og:title" content="PDF文件OCR結構化"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "PDF文件OCR結構化", "description": "PDF文件OCR結構化\n\n 一句話定義（這個可交付物是什麼）\n給定印刷體 PDF 或掃描影像，模型自動辨識文字並還原版面與表格結構，輸出可程式化使用的 Markdown / JSON / HTML（含標題層級、段落、表格 cell 結構、公式 LaTeX、閱讀順序）。屬「文件智能（Document Intel", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="pdf文件ocr結構化">PDF文件OCR結構化</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定印刷體 PDF 或掃描影像，模型自動辨識文字並還原版面與表格結構，輸出可程式化使用的 Markdown / JSON / HTML（含標題層級、段落、表格 cell 結構、公式 LaTeX、閱讀順序）。屬「文件智能（Document Intelligence / IDP）」的核心環節。</p>
+<h2 id="難度評分綜合-310技術-2落地-4-理由">難度評分（綜合 3/10：技術 2、落地 4）— 理由</h2>
+<ul>
+<li><strong>技術成熟度 2（成熟）</strong>：印刷體與一般版面的文字辨識已近飽和。OmniDocBench（CVPR 2025）上前段模型綜合分數已達 94-96 分，GLM-OCR 94.6 分超越 Gemini 3 Pro 與 GPT-5.2 等前沿模型（LlamaIndex 2026-02 直接以「benchmark 已飽和」為題）。GPT-4o 純字元編輯距離低至 0.020，文字準確度極高。技術已是商品。</li>
+<li><strong>落地難度 4（可用但需人工把關）</strong>：核心難點不在技術而在可靠性長尾與信任。複雜表格（合併儲存格、多層表頭、多表並置）、手寫、財報/法律/保險表單仍會失敗；通用多模態模型在結構敏感指標（表格 TEDS、閱讀順序）上仍輸專用 OCR；高風險場景（醫療診斷、法律判斷、金融決策）廠商明文「不建議直接使用」。多數企業仍需 human-in-the-loop 抽檢。</li>
+<li><strong>綜合判定 3</strong>：可用、已大規模商品化、但高價值/高風險文件仍需人工複核 → 落在量表 3-4「可用但需人工把關、已有產品」。較 P1 初判 3 維持不變。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>OmniDocBench</strong>（綜合 ≈ ((1−文字編輯距離)×100 + 表格TEDS + 公式CDM)/3，越高越好），2026-05-21 榜（v1.5/v1.6 混榜，跨列非完全可比）：PaddleOCR-VL-1.6 = 96.33、MinerU2.5-Pro = 95.69（皆 v1.6）；GLM-OCR = 94.62、Gemini 3 Pro = 90.33、GPT-5.2 = 85.4、GPT-4o = 75.02（皆 v1.5；閉源模型僅供參考、不列入最佳排名）。[2][1]</li>
+<li><strong>純字元準確度</strong>：CodeSOTA 榜列 GPT-4o 文字編輯距離 0.020；Mistral OCR-3 0.099、閱讀順序 91.63。[2]（注意：GPT-4o 綜合僅 75.02，OmniDocBench v1.5 論文列其全頁編輯距離約 0.217，0.020 疑為不同指標變體，勿據此判定 GPT-4o 字準最佳。）</li>
+<li><strong>表格結構 TEDS</strong>：GLM-OCR 86.0 vs Gemini 3 Pro 81.8（GLM 勝）；但 Gemini 3 Pro 在手寫 KIE 94.5 反勝 GLM 86.1 → 手寫仍是弱項。[4]</li>
+<li><strong>其他</strong>：Mistral OCR-4 OlmOCRBench 85.20、複雜文件 OmniDocBench 93.07；宣稱 25+ 語言 99%+ 字準。[3]</li>
+<li>注意：LlamaIndex（2026-02-24）指 OmniDocBench 已飽和、資料型別偏少偏易；其 TEDS／編輯距離會懲罰「語意正確但格式不同」的輸出（文中例：TEDS 0.6344、0.3825，及 LlamaParse 0.3825/編輯距離 0.5998），故榜分未必反映真實長尾失敗。[4]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>三大雲商規模化部署</strong>：Azure Document Intelligence（並入 Foundry / Form Recognizer、可容器化 on-prem）、AWS Textract（S3+Lambda 大量 ingestion）、Google Document AI（Vertex AI、多語 OCR），均為企業生產級服務。導入後業界報告處理準確度 +30%、人工輸入工作量 −40%。[5]</li>
+<li><strong>市場規模</strong>：Document AI 市場 2025 估 146.6 億美元 → 2030 預估 276.2 億美元，CAGR 13.5%（MarketsandMarkets）。已是成熟商業市場，非實驗室階段。[5]</li>
+<li><strong>專用 OCR 產品</strong>：Mistral OCR 標準 API $4/千頁、批次 $2/千頁、吞吐達 2,000 頁/分鐘；客戶 Rogo（金融）用於圖表密集財報，「準確度與頂級 agentic 解析器持平、成本約 1/8、延遲約 1/17」。[3]</li>
+<li>開源端：MinerU、PaddleOCR-VL、dots.ocr 等可自架，降低落地門檻。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：印刷體、標準版面、一般表格 → 高準確度結構化輸出（Markdown/JSON/HTML+LaTeX），已商品化、低成本、可自架。</li>
+<li><strong>仍吃力/需人工</strong>：合併儲存格與多層表頭的複雜表格、手寫、財報/法律/保險等高密度表單、視覺圖表元素、跨欄閱讀順序；LLM 式解析偶有幻覺（補字/改數）。</li>
+<li><strong>不宜直接信任</strong>：醫療、法律、金融等高風險決策文件，廠商明示不適用，須人工複核。本任務的瓶頸已從「能不能辨識」轉為「可靠性長尾與信任邊界」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a>、<a href="Mistral%20AI.html">Mistral AI</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>OmniDocBench (CVPR 2025) GitHub — https://github.com/opendatalab/OmniDocBench</li>
+<li>OmniDocBench Leaderboard (CodeSOTA, 2026-05-21) — https://www.codesota.com/ocr/benchmark/omnidocbench</li>
+<li>Mistral OCR 4 vs Top Document Parsing APIs (Eden AI, 2026) — https://www.edenai.co/post/mistral-ocr-4-vs-top-document-parsing-apis-features-benchmarks-and-integration-guide</li>
+<li>OmniDocBench is Saturated, What’s Next (LlamaIndex, 2026-02-24) — https://www.llamaindex.ai/blog/omnidocbench-is-saturated-what-s-next-for-ocr-benchmarks</li>
+<li>Document AI Market 2025-2030 (MarketsandMarkets) — https://www.marketsandmarkets.com/Market-Reports/document-ai-market-195513136.html</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

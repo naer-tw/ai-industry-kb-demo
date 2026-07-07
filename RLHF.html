@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RLHF｜AI產業知識庫</title><meta name="description" content="RLHF（Reinforcement Learning from Human Feedback，人類回饋強化學習）是一種模型「後訓練／對齊」技術：先讓人類對模型的多個回答排序、訓練出一個「獎勵模型（reward model）」來模擬人類偏好，再用強化學習（典型為 PPO）以該獎勵為訊號微調語言模型，使其輸出更">
+<meta property="og:title" content="RLHF"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "RLHF", "description": "RLHF（Reinforcement Learning from Human Feedback，人類回饋強化學習）是一種模型「後訓練／對齊」技術：先讓人類對模型的多個回答排序、訓練出一個「獎勵模型（reward model）」來模擬人類偏好，再用強化學習（典型為 PPO）以該獎勵為訊號微調語言模型，使其輸出更", "datePublished": "2026-06-06", "dateModified": "2026-06-07", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="rlhf">RLHF</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>RLHF（Reinforcement Learning from Human Feedback，人類回饋強化學習）是一種模型「後訓練／對齊」技術：先讓人類對模型的多個回答排序、訓練出一個「獎勵模型（reward model）」來模擬人類偏好，再用強化學習（典型為 PPO）以該獎勵為訊號微調語言模型，使其輸出更符合人類期望的有用、誠實、無害（helpful, honest, harmless）行為。它是 2022 年後讓原始預訓練 LLM 轉變為「聽得懂指令、可對話」產品（如 ChatGPT、Claude）的關鍵技術橋樑。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>解決什麼問題</strong>：純預訓練 LLM 只學會「預測下一個字」，不會主動遵循指令、易產生有害或答非所問內容。RLHF 把難以用損失函數寫死的人類偏好（語氣、安全、有用性）轉成可優化的訊號，是「對齊」的主流落地手段。（Ouyang et al., 2022-03-04，arXiv:2203.02155）</li>
+<li><strong>三步驟管線</strong>：(1) 監督微調 SFT；(2) 蒐集人類對多筆輸出的排序，訓練獎勵模型；(3) 以 PPO（Proximal Policy Optimization）用獎勵模型為「評審」做強化學習微調。（Ouyang et al., 2022-03，arXiv:2203.02155）</li>
+<li><strong>起源代表論文</strong>：OpenAI 的 InstructGPT 論文〈Training language models to follow instructions with human feedback〉（Ouyang、Wu、Schulman、Leike 等，2022-03-04）首次將三步驟 RLHF 大規模化；ChatGPT（2022-11）即此技術的產品化。（arXiv:2203.02155）</li>
+<li><strong>效能里程碑</strong>：論文指出 13 億參數的 InstructGPT 輸出，在多數測試提示上被人類評為優於 1750 億參數的原始 GPT-3——參數少 100 倍卻更受偏好，並降低幻覺與毒性。（Ouyang et al., 2022-03，arXiv:2203.02155）</li>
+<li><strong>採用者</strong>：OpenAI（GPT 系列）、Anthropic（Claude，採其 RLAIF 變體）、Google（Gemini）、Meta（Llama 2 以 RLHF + 拒絕採樣對齊）等所有主流前沿模型，後訓練階段普遍使用 RLHF 或其衍生法。（Lambert/Raschka, 2025；arXiv:2407.16216 後訓練綜述, 2024-07）</li>
+<li><strong>企業採用趨勢</strong>：坊間流傳「用 RLHF／DPO 對齊輸出的企業占比自 2023 年約 25% 升至 2025 年約 70%」之說法。<strong>此數字無一手調查方法佐證</strong>——查證僅見於產業部落格（如 IntuitionLabs）轉引一篇 Medium 文章，未交代抽樣、樣本或調查機構，屬未經查證的二手宣稱，僅可作「採用快速普及」之定性參考，不宜當作可信統計引用。（IntuitionLabs RLHF 解說文，2025；原始出處不可考）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>RLHF 屬<strong>中游「模型後訓練／對齊」</strong>環節，位於預訓練（基於 <a href="Transformer.html">Transformer</a> 與 <a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>）之後、模型上線服務之前。它本身不產生新知識，而是「校準」既有能力的方向，是把基礎模型轉為可商用助理的必經工序。RLHF 也是 <a href="AI%E5%B0%8D%E9%BD%8A%E8%88%87%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6.html">AI對齊與安全研究</a> 從學術概念走向工程實作的代表，但兩者邊界須分清：本頁（technology）談「如何做對齊的具體技術能力」，AI 對齊與安全（research）談「對齊的研究方向與開放問題」。RLHF 的執行高度依賴人工標註資料，因此與資料標註服務商（如 Scale AI、Surge AI）形成需求關係。</p>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>DPO 取代部分 PPO 流程</strong>：〈Direct Preference Optimization: Your Language Model is Secretly a Reward Model〉（Rafailov et al., 2023-05-29，arXiv:2305.18290）證明 RLHF 的受限獎勵最大化問題有閉式解，可「免獎勵模型、免 RL 迴圈」，直接用分類損失在偏好資料上訓練。DPO 更穩定、算力需求更低，2024 年起成為開源社群最常用的 RLHF 替代法，並衍生 IPO、ORPO、SimPO 等變體。（arXiv:2305.18290；arXiv:2407.16216, 2024-07）</li>
+<li><strong>RLAIF／Constitutional AI</strong>：Anthropic 在〈Constitutional AI: Harmlessness from AI Feedback〉（2022-12，arXiv:2212.08073）提出以 AI 依「憲法原則」產生回饋，取代部分人類標註，即 RLAIF（arXiv:2309.00267, 2023-09 進一步系統化）。可大規模標註、縮短訓練週期、降成本，但若監督模型本身有缺陷，缺陷會被學進學生模型。</li>
+<li><strong>2025 轉向 RLVR</strong>：2025 年 LLM 發展由「推理模型」主導，後訓練主流轉為 <strong>RLVR（Reinforcement Learning from Verifiable Rewards，可驗證獎勵強化學習）</strong>——以數學答案是否正確、程式能否通過測試等「客觀可驗證」訊號取代學來的偏好獎勵模型，演算法以 <strong>GRPO</strong>（Group Relative Policy Optimization）為主，DeepSeek-R1（2025-01）為代表。RLHF 仍負責「對話風格、安全與偏好對齊」，RLVR 則專攻「可驗證的推理正確性」，兩者分工並存。（Raschka, 2025；arXiv:2407.16216；參見 <a href="%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B%E8%88%87test-time%20compute.html">推理模型與test-time compute</a>）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>獎勵駭客（reward hacking）／諂媚（sycophancy）</strong>：模型可能學會討好獎勵模型而非真正改善——例如一味迎合使用者觀點（拍馬屁），是 RLHF 已知且持續被研究的副作用。</li>
+<li><strong>標註成本與一致性</strong>：傳統 RLHF 依賴大量人工排序，昂貴、易疲勞、且少數標註者的偏好會被放大為全體行為，引發代表性與偏誤疑慮（亦為 RLAIF 的動機之一）。</li>
+<li><strong>PPO 工程脆弱</strong>：PPO 訓練不穩、超參數敏感、需同時維護策略模型與獎勵模型，是 DPO 等「免 RL」方法興起的主因。</li>
+<li><strong>典範流動風險</strong>：對齊技術正快速從 PPO→DPO→RLVR/GRPO 演進，押注單一方法的工具鏈與團隊面臨快速過時風險；本頁數據與方法占比宜定期 review。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>：RLHF 的對齊對象。</li>
+<li><a href="AI%E5%B0%8D%E9%BD%8A%E8%88%87%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6.html">AI對齊與安全研究</a>：RLHF 是其工程化代表，邊界為「研究方向 vs 技術能力」。</li>
+<li><a href="%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B%E8%88%87test-time%20compute.html">推理模型與test-time compute</a>：2025 年 RLVR/GRPO 後訓練的應用場景。</li>
+<li><a href="Transformer.html">Transformer</a>：被對齊模型的底層架構。</li>
+<li><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>：InstructGPT／ChatGPT 為 RLHF 首個大規模產品化。</li>
+<li><a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>：採 RLAIF／Constitutional AI 變體對齊。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Ouyang et al., 〈Training language models to follow instructions with human feedback〉(InstructGPT), 2022-03-04 — https://arxiv.org/abs/2203.02155</li>
+<li>Bai et al. (Anthropic), 〈Constitutional AI: Harmlessness from AI Feedback〉, 2022-12 — https://arxiv.org/abs/2212.08073</li>
+<li>Rafailov et al., 〈Direct Preference Optimization: Your Language Model is Secretly a Reward Model〉, 2023-05-29 — https://arxiv.org/abs/2305.18290</li>
+<li>Lee et al., 〈RLAIF vs. RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback〉, 2023-09 — https://arxiv.org/abs/2309.00267</li>
+<li>〈Reinforcement Learning for LLM Post-Training: A Survey〉, 2024-07 — https://arxiv.org/abs/2407.16216</li>
+<li>Sebastian Raschka, 〈The State of LLMs 2025〉(RLVR/GRPO 趨勢), 2025 — https://magazine.sebastianraschka.com/p/state-of-llms-2025</li>
+<li>Promptfoo, 〈Reinforcement Learning with Verifiable Rewards (RLVR) Explained〉, 2025 — https://www.promptfoo.dev/blog/rlvr-explained/</li>
+<li>DeepSeek-AI, 〈DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning〉, 2025-01-20 — https://arxiv.org/abs/2501.12948</li>
+<li>IntuitionLabs, 〈Reinforcement Learning from Human Feedback (RLHF) Explained〉, 2025（25%→70% 企業採用率宣稱出處，原始方法不可考，僅供定性參考）— https://intuitionlabs.ai/articles/reinforcement-learning-human-feedback</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

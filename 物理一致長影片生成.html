@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>物理一致長影片生成｜AI產業知識庫</title><meta name="description" content="物理一致長影片生成
+
+ 一句話定義（這個可交付物是什麼）
+給任意動態場景的文字提示，模型一次輸出一段「夠長」的影片，且其中的剛體碰撞、流體、重力/質量守恆等物理量可被獨立量化驗證為「無違反物理」。重點不是「看起來合理」，而是「可量測、零物理違規」——這把問題從生成美學拉高到世界模型的物理一致性。
+
+ 難度評">
+<meta property="og:title" content="物理一致長影片生成"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "物理一致長影片生成", "description": "物理一致長影片生成\n\n 一句話定義（這個可交付物是什麼）\n給任意動態場景的文字提示，模型一次輸出一段「夠長」的影片，且其中的剛體碰撞、流體、重力/質量守恆等物理量可被獨立量化驗證為「無違反物理」。重點不是「看起來合理」，而是「可量測、零物理違規」——這把問題從生成美學拉高到世界模型的物理一致性。\n\n 難度評", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="物理一致長影片生成">物理一致長影片生成</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給任意動態場景的文字提示，模型一次輸出一段「夠長」的影片，且其中的剛體碰撞、流體、重力/質量守恆等物理量可被獨立量化驗證為「無違反物理」。重點不是「看起來合理」，而是「可量測、零物理違規」——這把問題從生成美學拉高到世界模型的物理一致性。</p>
+<h2 id="難度評分綜合-910技術-9落地-8-理由">難度評分（綜合 9/10：技術 9、落地 8）— 理由</h2>
+<ul>
+<li><strong>技術 9</strong>：所有物理 benchmark 一致顯示系統性失敗。VideoPhy-2(2025-03) 困難子集「語意＋物理同時達標」最佳僅 22%[1]；T2VPhysBench(2025-05) 明言「no system achieves even moderate accuracy」，最佳模型 Wan 2.1 平均僅 0.42/1.0，且<strong>守恆律(質量/動量)最差，僅 0.29</strong>[2]。逐項看，Veo-3 在剛體碰撞成功率為 0%[5]。「長影片」本身也未解：實務甜蜜點 5–15 秒，超過約 10–30 秒一致性即崩壞[6]。兩個難點(長＋可驗證零違規)相乘，技術上接近「當前做不到」。</li>
+<li><strong>落地 8（非 10）</strong>：影片生成本身已大規模商品化(消費級採用爆量)，但「物理可驗證的長影片」這個確切交付物<strong>尚無規模化部署</strong>；現有部署都容忍物理錯誤(娛樂/創意)。最接近的工業用途(NVIDIA Cosmos 合成資料)只追求「physically accurate enough to be useful」的近似，而非可量化驗證零違規[7]。落地給 8 反映：載體成熟、但此規格不可信賴、無採用。</li>
+<li><strong>綜合 9</strong>：可交付物 = 長影片 ∩ 可量化驗證無物理違反。後者目前無任何模型能穩定達成，亦無驗證即合格的產品。屬「當前 AI 仍做不到/未解」區間。</li>
+<li><strong>查證重評：9/9/8</strong>（2026-06 對抗式查證）：三項 benchmark 數字皆獨立復核屬實——VideoPhy-2 困難子集 21.9%(ICLR 2026)、T2VPhysBench 守恆律 0.29、MMGR Veo-3 剛體碰撞 0%。技術面命中錨定量表「9–10 做不到/未解」(對應「可量化零違規」此規格無任一模型穩定達成)；落地面載體已大規模商品化(Sora 1M 下載/&lt;5 天、Flow 2.75 億支)但此確切交付物零部署，給 8 合理(亦可辯為 9)。與原評 9/9/8 任一分數差皆 &lt;2，無 divergence。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>VideoPhy / VideoPhy-2</strong>(ICLR 2026, arXiv 2025-03)：評估文字生影片的物理常識(PC)與語意遵循(SA)。最佳模型 Wan2.1-14B 全集聯合達標率 32.6%、困難子集 <strong>21.9%</strong>；論文點名模型「particularly struggle with conservation laws like mass and momentum」[1]。</li>
+<li><strong>T2VPhysBench</strong>(2025-05, 第一性原理基準)：以牛頓律/守恆律/物理現象三類評分(0–1)。最佳 Wan 2.1=<strong>0.42</strong>、Qingying=0.40、Kling=0.35；牛頓律最佳 0.56、守恆律最佳僅 <strong>0.29</strong>、現象類最佳 0.63。結論：<strong>沒有任一模型通過全部物理原則，每一類皆 &lt;0.60</strong>[2]。</li>
+<li><strong>跨模型物理比較</strong>(MMGR, arXiv:2512.14691, 2025-12)：Sora-2 物理常識整體成功率 <strong>70.0%</strong>、Veo-3 <strong>51.0%</strong>、Wan-2.2 <strong>24.0%</strong>；但分項中 <strong>Veo-3 剛體碰撞=0%</strong>(固-液互動卻達 75%)，顯示「可量化無違規」遠未達成[5]。</li>
+<li>註：上述為「短片(多為 ≤10–15 秒)」分數；題目要求「長影片」會進一步劣化，無公開 benchmark 顯示長片能維持上述水準。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>消費級影片生成已爆量、但不要求物理驗證</strong>：OpenAI Sora App 上線 &lt;5 天破 100 萬次下載(2025-10，比 ChatGPT 更快)[3,4]；Google Flow 上線約 5 個月累計生成 2.75 億支影片[8]。皆為娛樂/創意用途，容忍物理瑕疵，<strong>不提供也不要求「零物理違規」之量化驗證</strong>。</li>
+<li><strong>最接近物理用途者</strong>：NVIDIA Cosmos 世界基礎模型(CES 2025 開源)，供 Agility Robotics、Figure AI、Uber 等生成機器人/駕駛合成資料；但定位是「physically accurate enough to be useful」的近似模擬，而非可驗證零違規的長影片產出[7]。</li>
+<li><strong>結論</strong>：符合本交付物完整規格(任意提示→長片→可量化驗證無物理違反)的規模化商用部署<strong>目前不存在</strong>。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li>做得到：數秒短片中「看起來合理」的物理(流體、煙霧、布料、簡單拋體)，娛樂級可用；Sora 2 等已能近似浮力/剛性的籃球反彈等情境[但屬學到的統計樣式，非物理引擎]。</li>
+<li>做不到：(1)守恆律(質量/動量/能量)穩定保持——benchmark 中最弱項；(2)複雜剛體碰撞(Veo-3 達 0%)；(3)長影片(&gt;~30 秒)維持時間一致性不漂移；(4)最關鍵——<strong>對任意提示輸出可被獨立量測為「零物理違規」</strong>。模型本質是學習資料中的視覺相關性，缺乏可驗證的物理約束，因此「可量化驗證無違反物理」是當前未解門檻。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="AI%E5%BD%B1%E5%83%8F%E8%88%87%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">AI影像與影片生成</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>、<a href="NVIDIA.html">NVIDIA</a>、<a href="OpenAI.html">OpenAI</a>、<a href="%E8%87%AA%E5%8B%95%E9%A7%95%E9%A7%9B.html">自動駕駛</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>VideoPhy-2: A Challenging Action-Centric Physical Commonsense Evaluation (arXiv:2503.06800, 2025-03) — https://arxiv.org/abs/2503.06800 ；專案 https://github.com/Hritikbansal/videophy</li>
+<li>T2VPhysBench: A First-Principles Benchmark for Physical Consistency in Text-to-Video (arXiv:2505.00337, 2025-05) — https://arxiv.org/html/2505.00337v1</li>
+<li>OpenAI Sora 2 is here (2025) — https://openai.com/index/sora-2/</li>
+<li>Sora App 1M downloads (CNBC/TechCrunch, 2025-10) — https://techcrunch.com/2025/10/09/sora-hit-1m-downloads-faster-than-chatgpt/</li>
+<li>MMGR: Multi-Modal Generative Reasoning — Sora-2/Veo-3/Wan-2.2 物理常識分項成功率 (arXiv:2512.14691, 2025-12) — https://arxiv.org/abs/2512.14691 ；另見消費級比較 (Lushbinary, 2026) https://lushbinary.com/blog/ai-video-generation-sora-veo-kling-seedance-comparison/</li>
+<li>Best AI Video Generation Models 2026(片長/一致性) (Atlas Cloud, 2026) — https://www.atlascloud.ai/blog/guides/best-ai-video-generation-models-2026</li>
+<li>NVIDIA Cosmos World Foundation Models / Physical AI (NVIDIA, 2025) — https://blogs.nvidia.com/blog/cosmos-world-foundation-models/</li>
+<li>Google Flow 累計生成數 (Google Blog, 2025) — https://blog.google/innovation-and-ai/products/google-flow-veo-ai-filmmaking-tool/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

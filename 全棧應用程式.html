@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>全棧應用程式｜AI產業知識庫</title><meta name="description" content="全棧應用程式
+
+ 一句話定義（這個可交付物是什麼）
+給定多份規格文件（功能需求、資料模型、API 文件）作為輸入，AI 一次性產出一個可直接編譯/啟動通過、且同時包含前端、後端服務、資料庫 schema 與使用者認證（登入/權限）的完整全棧應用。重點不是「生一個能跑的前端 demo」，而是「規格→可編譯且後端">
+<meta property="og:title" content="全棧應用程式"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "全棧應用程式", "description": "全棧應用程式\n\n 一句話定義（這個可交付物是什麼）\n給定多份規格文件（功能需求、資料模型、API 文件）作為輸入，AI 一次性產出一個可直接編譯/啟動通過、且同時包含前端、後端服務、資料庫 schema 與使用者認證（登入/權限）的完整全棧應用。重點不是「生一個能跑的前端 demo」，而是「規格→可編譯且後端", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="全棧應用程式">全棧應用程式</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定多份規格文件（功能需求、資料模型、API 文件）作為輸入，AI 一次性產出一個可直接編譯/啟動通過、且同時包含前端、後端服務、資料庫 schema 與使用者認證（登入/權限）的完整全棧應用。重點不是「生一個能跑的前端 demo」，而是「規格→可編譯且後端資料流真實打通＋帶認證」的一站式交付。這比改既有倉庫一張工單（見 <a href="GitHub-issue%E7%AB%AF%E5%88%B0%E7%AB%AFPR.html">GitHub-issue端到端PR</a>）更難，因為它是 greenfield 從零生成、跨多層、且把最易出錯的認證/安全納入硬要求。</p>
+<h2 id="難度評分綜合-610技術-6落地-6-理由引-benchmark-與部署">難度評分（綜合 6/10：技術 6、落地 6）— 理由(引 benchmark 與部署)</h2>
+<ul>
+<li><strong>技術成熟度 = 6（前沿可做、可靠性仍是主挑戰）</strong>：從 PRD/規格生成完整專案，PRDBench（50 個真實 Python 專案、20 領域）最佳 DEV 通過率僅 Claude-4.5 69.2、GPT-5.2 62.5（2026-03，見實證一）。專測後端＋資料庫的 FullStack-Bench，最佳系統後端 77.8%、資料庫 77.9%——但這是研究級 agent 加上開發導向測試與回譯訓練後的成績，非通用模型一次出手。WebGen-Bench 揭露通病：模型常只生「看起來會動」的前端，功能成功率最佳僅 27.8%（DeepSeek-R1）。再加上「一次編譯通過」是嚴格門檻、認證/安全又是 AI 碼最弱項（45% 失 OWASP Top 10），故技術給 6 而非更低。</li>
+<li><strong>落地難度 = 6（已大規模商用、但需人工迭代把關）</strong>：產品已廣泛部署且營收爆發（Lovable $400M ARR／800 萬用戶、Replit 5,000 萬+用戶、Bolt 500 萬+、v0 400 萬+，見實證二）。但「一次編譯通過＋後端＋DB＋認證」的嚴格交付，正是這些工具仍需人類多輪修正之處：43% 的 AI 生成變更上線後仍需人工除錯（來源 5），74% 機構表示 ≥25% AI 碼需顯著重工（來源 6）。多數平台仍要使用者自行接外部 DB/認證服務，故落地分數與技術分數同高。</li>
+<li><strong>綜合 = 6</strong>：落在量表「5-6 前沿可做、可靠性/成本仍挑戰、部分落地」的上緣。能做、有海量真實商用、規格→可跑應用是日常；但「一次編譯就過、含可信認證、不必人工修」尚非常態。P1 初判 7 偏高——它並非實驗室階段，而是已規模化、唯一次性可靠度未解，故下修為 6。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>PRDBench</strong>（結構化 PRD→真實專案，Agent-as-a-Judge，1,258 評分點）：DEV（從零開發）平均通過率 Claude-4.5 69.2、GPT-5.2 62.5、CodeX 62.1；DEBUG 任務 Claude Code 70.3、GPT-5.2 69.0（2026-03）。代表「規格→可交付軟體」上限約 6~7 成。[來源 1]</li>
+<li><strong>FullStack-Bench</strong>（647 前端＋604 後端＋389 資料庫測試，補足只測 UI 的缺口）：最佳系統 FullStack-Dev（Qwen3-Coder-480B）後端 77.8%、資料庫 77.9%；較前 SOTA 後端 +38.2、資料庫 +15.9（2026）。顯示後端/DB 真實打通仍是主要落差來源。[來源 2]</li>
+<li><strong>WebGen-Bench</strong>（101 指令／647 測例，從零生功能網站）：功能成功率最佳僅 DeepSeek-R1 27.8%，Claude-3.5-Sonnet 外觀最佳（3.0/分）但功能弱——「好看 vs 真能用」是兩回事（2025-05）。[來源 3]</li>
+<li><strong>安全面</strong>：Veracode 2025 報告，45% AI 生成碼未過 OWASP Top 10；XSS 防護最差（86% 失敗）。認證/安全正是本任務最脆弱環節。[來源 5 相關報導彙整]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Lovable</strong>：2026-02 達 $400M ARR（8 個月前才 $100M），$6.6B 估值、800 萬用戶，可由結構化規格生成含後端、資料庫、認證的全棧應用。[來源 4]</li>
+<li><strong>Replit Agent（Agent 4，2026-03）</strong>：自然語言建應用、寫生產級碼、自動管理認證與資料庫並即時上線；2025 營收 $240M、目標 2026 年底 $1B，5,000 萬+用戶、$9B 估值。[來源 4]</li>
+<li><strong>Bolt.new</strong>：瀏覽器內 agent 由自然語言生 JS 全棧應用，5 個月達 $40M ARR、500 萬+註冊用戶；惟後端僅支援 Node/Express。v0（Vercel）400 萬+用戶。[來源 4]</li>
+<li><strong>成效與限制</strong>：Gartner 2026 將 AI 原生開發平台列為頂級策略趨勢，非技術領域專家已能自產軟體。但實務上「一次過」少見——43% 變更上線後仍需人工除錯（來源 5），74% 機構稱 ≥25% AI 碼需重工（來源 6），多數工具仍要使用者自行配置外部 DB/認證。[來源 4、5、6]</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：由規格/PRD 生出可啟動的全棧腳手架（前端＋API＋DB schema＋基本登入），CRUD 應用、原型、內部工具已能規模化交付；商用平台日產數百萬個應用。</li>
+<li><strong>做不到/仍脆弱</strong>：嚴格「一次編譯/啟動即通過」尚非常態，後端與資料庫真實打通仍是落差主因（FullStack-Bench 約 78% 已是研究系統上限）；認證/授權與安全最弱（45% 失 OWASP），不可未經人工審查上線；複雜業務邏輯、多服務整合、效能/規模化超出腳手架後仍需資深工程師接手。</li>
+<li><strong>瓶頸</strong>：一次性可靠度、後端/DB 正確性驗證、認證安全強健性、以及「看似能動」的假象（前端遮蔽後端缺失）。技術曲線陡升但「規格進、可信全棧出、不必修」仍未解。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="GitHub-issue%E7%AB%AF%E5%88%B0%E7%AB%AFPR.html">GitHub-issue端到端PR</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="AI%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7.html">AI程式開發工具</a>、<a href="AI%20Agent%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96.html">AI Agent與自動化</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>PRDBench / Automatically Benchmarking LLM Code Agents（arXiv 2510.24358，2026-03，50 真實專案、PRD→專案、Agent-as-a-Judge）— https://arxiv.org/abs/2510.24358</li>
+<li>FullStack-Agent / FullStack-Bench（arXiv 2602.03798，前端647＋後端604＋資料庫389 測例、開發導向測試）— https://arxiv.org/html/2602.03798</li>
+<li>WebGen-Bench（arXiv 2505.03733，2025-05，從零生功能網站、功能成功率）— https://arxiv.org/html/2505.03733v1</li>
+<li>Lovable / Bolt / Replit / v0 全棧 AI 建構平台規模與營收彙整（含 Lovable $400M ARR、Replit 50M 用戶、Bolt/v0 數據）— https://lovable.dev/guides/bolt-vs-replit-vs-lovable</li>
+<li>43% AI 生成碼上線後需除錯／45% 失 OWASP Top 10、XSS 失敗 86%（VentureBeat 引 Lightrun《2026 State of AI-Powered Engineering》＋ Veracode《2025 GenAI Code Security Report》100+ 模型／80+ 任務）— https://venturebeat.com/technology/43-of-ai-generated-code-changes-need-debugging-in-production-survey-finds</li>
+<li>74% 機構稱 ≥25% AI 生成碼需顯著重工（New Relic《State of AI Coding 2026》）— https://newrelic.com/blog/ai/state-of-ai-coding-2026</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RAG檢索增強生成｜AI產業知識庫</title><meta name="description" content="RAG（Retrieval-Augmented Generation，檢索增強生成）是一種讓大型語言模型在「生成答案前」先從外部知識庫檢索相關資料、再把檢索結果連同問題一起餵給模型的技術，用外部事實來「接地」（grounding）模型輸出，藉此降低幻覺、提供可引用來源，並讓模型回答訓練資料以外或私有的最新知識">
+<meta property="og:title" content="RAG檢索增強生成"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "RAG檢索增強生成", "description": "RAG（Retrieval-Augmented Generation，檢索增強生成）是一種讓大型語言模型在「生成答案前」先從外部知識庫檢索相關資料、再把檢索結果連同問題一起餵給模型的技術，用外部事實來「接地」（grounding）模型輸出，藉此降低幻覺、提供可引用來源，並讓模型回答訓練資料以外或私有的最新知識", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="rag檢索增強生成">RAG檢索增強生成</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>RAG（Retrieval-Augmented Generation，檢索增強生成）是一種讓大型語言模型在「生成答案前」先從外部知識庫檢索相關資料、再把檢索結果連同問題一起餵給模型的技術，用外部事實來「接地」（grounding）模型輸出，藉此降低幻覺、提供可引用來源，並讓模型回答訓練資料以外或私有的最新知識。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li><strong>起源與命名</strong>：核心論文〈Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks〉由 Patrick Lewis 領銜、Facebook AI Research（現 Meta AI）與倫敦大學學院（UCL）、紐約大學合著，發表於 2020 NeurIPS。論文結合「參數記憶」（預訓練 BART 模型內的知識）與「非參數記憶」（以 Dense Passage Retrieval 把維基百科索引成密集向量）。（NeurIPS 2020 論文；NVIDIA Blog）</li>
+<li><strong>解決什麼問題</strong>：RAG「降低模型給出看似合理卻錯誤答案的可能性」，並「給模型可引用的來源，像研究論文的註腳，讓使用者能查證每一項主張」。（NVIDIA Blog，存取 2026-06）</li>
+<li><strong>成本/落地優勢</strong>：NVIDIA 指 RAG「實作相對容易，開發者最少用五行程式碼即可部署」，且「比用額外資料集重新訓練模型更快、更便宜」，並支援「熱抽換」（hot-swap）新知識來源而不需重新部署。（NVIDIA Blog，存取 2026-06）</li>
+<li><strong>核心機制</strong>：使用者查詢被轉成數值向量（embedding），與機器可讀的知識庫索引比對，檢索出的匹配段落回傳給 LLM，模型再把檢索資訊與自身回應結合產出最終答案。（NVIDIA Blog，存取 2026-06）</li>
+<li><strong>市場規模</strong>：MarketsandMarkets（2025-11-14）估全球 RAG 市場由 2025 年 19.4 億美元成長至 2030 年 98.6 億美元，CAGR 38.4%；金融服務為採用領先產業（知識檢索、法遵、詐欺偵測、即時分析）。</li>
+<li><strong>ROI 數據</strong>：微軟委託 IDC 調查（訪談逾 4,000 名企業領袖，2024）顯示，每投入 1 美元於生成式 AI 平均可獲約 3.70 美元回報；頂尖採用者回報可達 10 美元。此數據常被引用於 RAG／檢索式生成式 AI 的投資效益論述。（Microsoft-sponsored IDC report，2025-01）</li>
+<li><strong>底層基建驅動</strong>：RAG 已成為向量資料庫的主要應用場景，帶動向量資料庫市場預估 2028 年達 43 億美元。（Introl Blog／Firecrawl，2025）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>RAG 屬 AI 供應鏈的<strong>中游（應用框架／推論層）</strong>，是介於底層模型（<a href="Transformer.html">Transformer</a>、<a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>）與終端應用之間的「知識接地層」。它本身不是一個模型，而是一套<strong>檢索＋生成的編排管線（pipeline）</strong>，典型由四個元件組成： 1. <strong>嵌入模型（Embedding）</strong>：把文件與查詢轉成向量（如 OpenAI、Cohere、開源 BGE 模型）。 2. <strong><a href="%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB.html">向量資料庫</a></strong>：儲存與檢索向量（<a href="%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB.html">向量資料庫</a>、Weaviate、Milvus、Qdrant、Elastic）。 3. <strong>重排序（Reranking）與檢索器</strong>：提升檢索精準度。 4. <strong>生成模型（LLM）</strong>：整合檢索內容產出回答。</p>
+<p>對產業而言，RAG 是企業把私有資料（內部知識庫、文件、CRM、資料庫）接到通用大模型的關鍵橋樑，使生成式 AI 變得「具脈絡相關性與企業專屬」。它降低了企業導入 AI 的門檻——無需自訓模型，即可讓 LLM 回答公司專屬問題。下游受益者包含金融、法遵、客服、企業搜尋等。</p>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li><strong>從「RAG」走向「Context（情境工程）」</strong>：2025 年產業共識是單純的 naive RAG（切塊＋向量檢索）已不足，重心轉向更廣的「context engineering」——把檢索、記憶、結構化知識整合進模型情境。（RAGFlow 年終回顧，2025）</li>
+<li><strong>Agentic RAG 成主流</strong>：企業把智能代理（agent）與 RAG 結合——由 agent 決定「何時、如何檢索」，RAG 仍是讓答案「可辯護」的接地機制；agent 可規劃多步檢索、選擇工具、反思中間答案，適用跨多系統的法遵查核等複雜任務。（Data Nucleus，2025）</li>
+<li><strong>GraphRAG 補足全域問題</strong>：標準 RAG 擅長精準事實，但對「全域性／主題層級」問題表現不佳；微軟的 GraphRAG 以語料建立實體關係圖，支援摘要與主題層答案並保有可追溯性。（Data Nucleus，2025）</li>
+<li><strong>向量資料庫競賽</strong>：Pinecone 2025 年完成 serverless 預設化（儲存 $0.33/GB/月、運算按量計費、閒置零成本），並推出整合切塊／嵌入／檢索／重排／生成的 Assistant 端點；Milvus 2.4+ 導入 GPU 加速索引，基準測試逾每秒 10 萬次查詢。（DataCamp／TensorBlue／InfoQ，2025）</li>
+<li><strong>與長情境（long context）並存</strong>：百萬 token 級長情境模型興起，部分場景可繞過檢索，但長情境推論成本高昂（如 GPT-4 Turbo 輸入每百萬 token 10 美元、輸出 30 美元，OpenAI 官方定價），RAG 在成本與可控性上仍具優勢。（Data Nucleus，2025；OpenAI API Pricing）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li><strong>「RAG 已死」之爭</strong>：2025–2026 出現「RAG is dead」論調，認為超長情境與情境記憶（contextual memory）將在 agentic AI 場景取代部分 RAG 用途。（VentureBeat 2026 預測；Medium）但多數分析認為這是「演化而非消亡」——RAG 從單一技術轉為更大情境系統的一環。</li>
+<li><strong>企業「離不開卻不滿意」</strong>：企業反映「不能沒有 RAG，卻仍不滿意」——RAG 降低存取私有知識的門檻，但要達到穩定且準確的結果，往往需要大量、細緻的最佳化調校。（RAGFlow，2025）</li>
+<li><strong>檢索品質決定成敗</strong>：切塊策略、嵌入模型選擇、檢索召回率直接影響答案品質；naive RAG 易檢索到不相關段落而誤導生成。</li>
+<li><strong>幻覺未完全消除</strong>：RAG 大幅降低但不能完全消除幻覺；若檢索內容本身錯誤或過時，模型仍可能產生錯誤但有「來源」的答案。</li>
+<li><strong>基建依賴</strong>：高度仰賴<a href="%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB.html">向量資料庫</a>與嵌入運算，billion-vector 級部署的成本與運維複雜度上升。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="Transformer.html">Transformer</a>：RAG 中生成模型的底層架構。</li>
+<li><a href="%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8BLLM.html">大型語言模型LLM</a>：RAG 接地的對象與生成核心。</li>
+<li><a href="%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB.html">向量資料庫</a>：RAG 檢索層的核心基建。</li>
+<li><a href="%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB.html">向量資料庫</a>：代表性託管向量資料庫供應商。</li>
+<li><span class="todo" title="待建頁面">GraphRAG</span>：以知識圖譜增強的 RAG 變體（微軟）。</li>
+<li><a href="Agentic%20AI%E7%A0%94%E7%A9%B6.html">Agentic AI研究</a>：與 RAG 融合的代理式架構（Agentic RAG）。</li>
+<li><a href="NVIDIA.html">NVIDIA</a>：提供 RAG 推論所需 GPU 與參考架構。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>NVIDIA Blog — What Is Retrieval-Augmented Generation aka RAG（存取 2026-06）：https://blogs.nvidia.com/blog/what-is-retrieval-augmented-generation/</li>
+<li>Lewis et al., 2020 NeurIPS — Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks：https://proceedings.neurips.cc/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf</li>
+<li>GlobeNewswire / MarketsandMarkets（2025-11-14）— RAG Market Surges to $9.86 billion by 2030：https://www.globenewswire.com/news-release/2025/11/14/3188383/0/en/Retrieval-Augmented-Generation-RAG-Market-Surges-to-9-86-billion-by-2030-Dominated-by-Microsoft-US-Amazon-Web-Services-Inc-US-Anthropic-US.html</li>
+<li>RAGFlow（2025）— From RAG to Context: A 2025 year-end review：https://ragflow.io/blog/rag-review-2025-from-rag-to-context</li>
+<li>Data Nucleus（2025）— What is RAG: Enterprise Guide 2025（Graph RAG / Agentic AI）：https://datanucleus.dev/rag-and-agentic-ai/what-is-rag-enterprise-guide-2025</li>
+<li>VentureBeat（2026）— Six data shifts that will shape enterprise AI in 2026：https://venturebeat.com/data/six-data-shifts-that-will-shape-enterprise-ai-in-2026</li>
+<li>Mordor Intelligence — Retrieval Augmented Generation Market（市場與 ROI 數據）：https://www.mordorintelligence.com/industry-reports/retrieval-augmented-generation-market</li>
+<li>DataCamp（2026）— Best Vector Databases：https://www.datacamp.com/blog/the-top-5-vector-databases</li>
+<li>Microsoft / IDC（2025-01）— Generative AI delivering substantial ROI（每 1 美元投入回報 3.70 美元）：https://news.microsoft.com/en-xm/2025/01/14/generative-ai-delivering-substantial-roi-to-businesses-integrating-the-technology-across-operations-microsoft-sponsored-idc-report/</li>
+<li>OpenAI — API Pricing（GPT-4 Turbo 輸入 $10／輸出 $30 每百萬 token）：https://openai.com/api/pricing/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

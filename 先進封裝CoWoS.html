@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>先進封裝CoWoS｜AI產業知識庫</title><meta name="description" content="CoWoS（Chip-on-Wafer-on-Substrate，晶片堆疊於晶圓再接合至基板）是台積電主導的 2.5D 先進封裝技術，透過矽中介層（interposer）把 GPU/ASIC 邏輯晶片與多顆 HBM 高頻寬記憶體整合在同一封裝內；它是 AI 加速器得以量產的關鍵環節，也是 2024–2025 ">
+<meta property="og:title" content="先進封裝CoWoS"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "先進封裝CoWoS", "description": "CoWoS（Chip-on-Wafer-on-Substrate，晶片堆疊於晶圓再接合至基板）是台積電主導的 2.5D 先進封裝技術，透過矽中介層（interposer）把 GPU/ASIC 邏輯晶片與多顆 HBM 高頻寬記憶體整合在同一封裝內；它是 AI 加速器得以量產的關鍵環節，也是 2024–2025 ", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>供應鏈環節</span></header>
+<main><article><h1 id="先進封裝cowos">先進封裝CoWoS</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>CoWoS（Chip-on-Wafer-on-Substrate，晶片堆疊於晶圓再接合至基板）是台積電主導的 2.5D 先進封裝技術，透過矽中介層（interposer）把 GPU/ASIC 邏輯晶片與多顆 HBM 高頻寬記憶體整合在同一封裝內；它是 AI 加速器得以量產的關鍵環節，也是 2024–2025 年全球 AI 算力供給最主要的瓶頸。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>技術分支：CoWoS-S 使用全矽中介層、互連密度最高，但封裝尺寸上限約為 3.3 倍光罩（reticle）面積、約 2700 mm²；超過此尺寸需改用 CoWoS-L（矽中介層改為內嵌矽橋 LSI 的有機基板）或 CoWoS-R。CoWoS-L 兼顧效能、良率與成本，為目前 AI 晶片主流。（TrendForce / 業界資料，2025）</li>
+<li>月產能演進（每月晶圓投入 WPM）：2023 年底約 13,000–16,000 → 2024 年底約 35,000–40,000 → 2025 年底約 65,000–75,000。（Epoch AI，2026-03）</li>
+<li>需求集中度：2025 年 NVIDIA、Google、AMD、Amazon 四大 AI 晶片設計商「依產值消耗了全球逾 90% 的 CoWoS 產能與 HBM 供給，卻僅占先進邏輯晶圓產量約 12%」。（Epoch AI，2026-03）</li>
+<li>NVIDIA 鎖定份額：NVIDIA 取得台積電 2025 年 CoWoS-L 產能逾 70%；以總 CoWoS 計，2025–2026 年 NVIDIA 鎖定逾 60% 份額，為封裝線「定錨客戶」。（TrendForce，2025-02-24）</li>
+<li>單片價值：單片 CoWoS 晶圓平均售價（ASP）約 1 萬美元，與 7nm 先進製程相當；因不需 EUV（單台逾 1.5 億美元）等前段設備，資本支出結構較輕、毛利可比擬先進製程。（TrendForce，2026-04-28）</li>
+<li>營收占比：先進封裝（以 CoWoS 為主）占台積電總營收 2024 年約 7–9%（法人估）、2025 年達約 10%（TrendForce 2026-04 證實 2025 年約 10%；2024 年數字為華爾街分析師估值區間，非台積電官方揭露）。</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>位於上游算力層中段，介於晶圓製造與系統組裝之間。AI 加速器的供給鏈條為：先進邏輯晶圓（3nm/4nm，<a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a>）→ <strong>CoWoS 先進封裝（整合邏輯晶片＋<a href="HBM%E8%A8%98%E6%86%B6%E9%AB%94.html">HBM記憶體</a>）→</strong> AI 加速器（<a href="NVIDIA.html">NVIDIA</a> GPU、Google TPU、博通/AMD ASIC）→ 伺服器與 <a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%83%BD%E6%BA%90.html">AI資料中心能源</a>。其中 CoWoS 與 HBM 才是真正卡住產能的瓶頸，而非邏輯晶圓——多數先進製程產能本有其他終端市場，AI 晶片是靠競標搶下中介層與封裝產能而非等待新晶圓廠（Epoch AI，2026-03）。</p>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>全線滿載：2025 年底台積電 CoWoS-L 與 CoWoS-S 雙雙全數預訂、月產能約 75,000–80,000 片。（TrendForce，2025-12-08）</li>
+<li>加速擴產：AP8（南科，原群創 Innolux 廠房）、AP7（嘉義）等新廠陸續進機；法人估 2026 年底月產能目標約 12 萬–13 萬片（大摩約 12.5 萬片、摩根大通上修至約 11 萬片）。（TrendForce 2025-12；cnyes/財報狗整理 2026）</li>
+<li>委外第二供應鏈：2026 年台積電計畫把較簡單 RDL 結構產品外包給 OSAT，估約 24 萬–27 萬片/年，主要交予 Amkor（約 18–19 萬片）與 SPIL（約 6–8 萬片）。（TrendForce，2025-12）</li>
+<li>缺口延續：法人估 2026 年市場需求約 100 萬片，台積電最多供 60–70 萬片，供不應求延續至 2027 年底；部分美系 AI 晶片商轉向力成（Powertech）。（TrendForce 2025-11-10；cnyes 2026-05-27）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li>單一瓶頸風險：AI 算力釋出高度受制於 CoWoS 與 HBM 產能；任一環節擴產不如預期即直接壓抑全球 GPU/ASIC 出貨（Epoch AI，2026-03）。</li>
+<li>客戶集中：NVIDIA 與博通幾乎吃下新增產能，Google TPU、聯發科 ASIC、AMD 共搶剩餘池子，二線客戶取得困難（TrendForce 2025；大摩調查 2026）。</li>
+<li>技術替代與分流：超大封裝需求與美國在地化推升 Intel EMIB、ASE CoWoP（Chip-on-Wafer-on-PCB）、力成等替代/分流方案；ASIC 有從 CoWoS 轉向 EMIB 的趨勢（TrendForce 2025-11-25 / 2025-12-08）。</li>
+<li>尺寸物理極限：矽中介層僅約 100 微米厚，放大易裂或分層，3.3 倍光罩為實體上限，推動產業往 CoWoS-L/面板級封裝演進（業界資料，2025）。</li>
+<li>資料未證實：2027 年後的確切月產能、各 OSAT 最終承接量、面板級封裝量產時點，各機構估值分歧，屬預測而非官方公告，須持續追蹤台積電法說會。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="NVIDIA.html">NVIDIA</a>：CoWoS 最大客戶與定錨租戶，Blackwell 平台需求主導擴產節奏。</li>
+<li><a href="%E5%8F%B0%E7%A9%8D%E9%9B%BB.html">台積電</a>：CoWoS 技術發明者與絕對主導者，掌握全球多數先進封裝產能。</li>
+<li><a href="HBM%E8%A8%98%E6%86%B6%E9%AB%94.html">HBM記憶體</a>：與邏輯晶片一同被封進 CoWoS 的高頻寬記憶體，同為 AI 算力雙瓶頸之一。</li>
+<li><a href="AI%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E8%83%BD%E6%BA%90.html">AI資料中心能源</a>：CoWoS 封裝的 GPU 最終部署於資料中心，產能釋出直接帶動電力需求。</li>
+<li><a href="%E5%85%88%E9%80%B2%E5%B0%81%E8%A3%9DCoWoS.html">先進封裝CoWoS</a>：本頁。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Epoch AI，AI 晶片供應鏈瓶頸（2026-03-12）：https://epoch.ai/data-insights/ai-chip-supply-chain-constraints</li>
+<li>TrendForce，台積電 2025 年 CoWoS 擴至 75,000 片（2025-01-02）：https://www.trendforce.com/news/2025/01/02/news-tsmc-set-to-expand-cowos-capacity-to-record-75000-wafers-in-2025-doubling-2024-output/</li>
+<li>TrendForce，NVIDIA 取得 2025 年 70% CoWoS-L 產能（2025-02-24）：https://www.trendforce.com/news/2025/02/24/news-tsmc-reportedly-sees-cowos-order-surge-with-nvidia-securing-70-of-2025-cowos-l-capacity/</li>
+<li>TrendForce，CoWoS-L/S 全數預訂、OSAT 補位（2025-12-08）：https://www.trendforce.com/news/2025/12/08/news-tsmcs-cowos-l-s-reportedly-fully-booked-osat-partners-step-up-with-ases-cowop-in-focus/</li>
+<li>TrendForce，CoWoS 單片 ASP 接近 7nm（2026-04-28）：https://www.trendforce.com/news/2026/04/28/news-tsmc-cowos-wafer-asp-reportedly-nears-7nm-levels-advanced-packaging-poised-to-become-a-key-profit-driver/</li>
+<li>TrendForce，ASIC 由 CoWoS 轉向 EMIB（2025-11-25）：https://www.trendforce.com/presscenter/news/20251125-12796.html</li>
+<li>TrendForce，CoWoS 缺口推動美系廠轉向力成至 2027（2025-11-10）：https://www.trendforce.com/news/2025/11/10/news-tsmc-cowos-capacity-crunch-reportedly-pushes-u-s-ai-chipmakers-to-powertech-through-2027/</li>
+<li>鉅亨網 cnyes，台積電再上調 2026–2027 CoWoS 產能目標（2026-05-27）：https://hao.cnyes.com/post/249444</li>
+<li>財報狗／大摩，2026 年 CoWoS 擴產輝達、博通吃下多數產能：https://statementdog.com/news/15201</li>
+<li>TSMC 官方 3DFabric CoWoS 技術頁（擷取時 HTTP 403，內容經多方二手來源佐證）：https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

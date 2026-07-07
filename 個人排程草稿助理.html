@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>個人排程草稿助理｜AI產業知識庫</title><meta name="description" content="個人排程草稿助理
+
+ 一句話定義（這個應用/產品是什麼）
+一個串接使用者個人行事曆、郵件與待辦清單的 AI 助理：主動偵測需排程/需回覆的訊息，產生排程提醒與「以你的口吻」草擬的回覆草稿，由使用者審核後一鍵送出。本質是「human-in-the-loop（人工守門）的個人生產力 copilot」，而非全自動代">
+<meta property="og:title" content="個人排程草稿助理"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "個人排程草稿助理", "description": "個人排程草稿助理\n\n 一句話定義（這個應用/產品是什麼）\n一個串接使用者個人行事曆、郵件與待辦清單的 AI 助理：主動偵測需排程/需回覆的訊息，產生排程提醒與「以你的口吻」草擬的回覆草稿，由使用者審核後一鍵送出。本質是「human-in-the-loop（人工守門）的個人生產力 copilot」，而非全自動代", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="個人排程草稿助理">個人排程草稿助理</h1>
+<h2 id="一句話定義這個應用產品是什麼">一句話定義（這個應用/產品是什麼）</h2>
+<p>一個串接使用者個人行事曆、郵件與待辦清單的 AI 助理：主動偵測需排程/需回覆的訊息，產生排程提醒與「以你的口吻」草擬的回覆草稿，由使用者審核後一鍵送出。本質是「human-in-the-loop（人工守門）的個人生產力 copilot」，而非全自動代理人——AI 提草稿、人按送出。</p>
+<h2 id="難度評分綜合-410技術-3落地-5-理由">難度評分（綜合 4/10：技術 3、落地 5）— 理由</h2>
+<ul>
+<li><strong>技術 3（可用但需人工把關、已大規模商品化）</strong>：核心動作「讀郵件/行事曆 → 抽取意圖 → 生成草稿」屬 LLM 已成熟能力。Gmail「Help me write」可由提示在數秒內生成「符合你語氣、自動帶入郵件/Drive 細節」的完整草稿（2026 已對所有用戶開放），Superhuman/Copilot 等已把「建議回覆＋排程」做成預設功能。關鍵在於<strong>有人審核</strong>：草稿錯、語氣偏、時間衝突由使用者攔下，所以對單次可靠度的要求遠低於 <a href="%E8%B7%A8%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AD%98%E5%B7%A5%E4%BD%9Cagent.html">跨工具知識工作agent</a> 那種「免守門重跑皆穩」的任務——後者 pass^8 多 &lt;25%，本任務因有守門而不受此瓶頸限制。落在「可用需把關」的 3。</li>
+<li><strong>落地 5（產品已普及，但單位經濟與信任仍是商機門檻）</strong>：分發已解決——綁進 Gmail/Outlook 即觸及數十億帳號，Copilot 達 20M 付費席位（2026Q3）。但作為<strong>獨立可打造的產品/商業機會</strong>，落地分數被三件事拉高：(1) 信任與授信——AI 誤排會議、誤回敏感郵件成本高，必須維持人工守門，限制了「全自動」溢價；(2) 單位經濟——獨立 App 須付 LLM 推理成本，卻要與 Google/Microsoft「附贈」競爭，x.ai（Amy）正是因人工標註成本＋難敵巨頭分發而於 2021 收掉並售予 Bizzabo；(3) 採用落差——Copilot 約 20–30% 席位才週用。技術不難、但「靠它賺錢且勝過免費內建」不易，落地給 5。</li>
+<li><strong>綜合判定 4</strong>：屬「可用但需人工把關、已有成熟產品」的 3–4 區，維持 P1 初判 4。技術已商品化（3），但作為新創產品的落地/商業可行性（5）把綜合拉到 4。非 1–2，因仍須人工守門、單一供應商級可靠度未達；非 5–6，因這已是廣泛部署的成熟功能而非前沿挑戰。</li>
+<li><strong>查證重評（2026-06-26）：4/3/5</strong>——獨立依錨定量表重評三分皆與原評相同（綜合 4、技術 3、落地 5），無分歧（divergence=false）。技術錨「可用需把關、已有產品」對應 3；落地由單位經濟（須與 Google/Microsoft 免費內建競爭）、信任/授信（誤送成本高、無法全自動）、採用落差（Copilot 約 20–30% 席位週用）三因錨定 5；綜合落在 3–4 帶、偏 4。</li>
+</ul>
+<h2 id="實證一benchmark-或市場數據分數規模日期來源">實證一：Benchmark 或市場數據（分數/規模＋日期＋來源）</h2>
+<ul>
+<li><strong>Google Workspace / Gemini（規模＋能力）</strong>：Gemini App 月活躍用戶 2026/05（Google I/O）突破 <strong>9 億</strong>[來源7]；Workspace 服務逾 <strong>30 億</strong>用戶[來源8]。Gmail「Help me write」可由提示<strong>在數秒內</strong>生成符合個人語氣的完整草稿，並能引用過往郵件、聊天、Drive 檔案帶入風格與細節（即「讀脈絡→草擬」）；2026 已對所有用戶開放[來源1]。（註：未見廠商公布「完成度百分比」或固定秒數之量化指標。）</li>
+<li><strong>Microsoft 365 Copilot（付費規模）</strong>：2026Q3（FY26）達 <strong>20M 付費企業席位</strong>（前一季 15M）；逾 90% 財星 500 採用，Accenture 逾 74 萬席。Copilot 的 Outlook 整合即「讀信→建議回覆＋排程」。[來源2][來源3]</li>
+<li><strong>Superhuman（成效數據）</strong>：被 Grammarly 收購（2025/07，後 Grammarly 改名 Superhuman）公告引述：週活用戶 <strong>94% 使用 AI 功能</strong>，使用後<strong>每小時收發郵件量較使用前增加 72%</strong>，作為「AI 草擬＋優先排序」的成效佐證。[來源4]</li>
+<li><strong>判讀</strong>：市場數據（採用規模、生產力增幅）充足且來自一手廠商；但缺乏「排程/草稿正確率」這類公開獨立 benchmark，且廠商數字含行銷成分，故 evidence_level 評 B 而非 A。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效商業模式">實證二：真實部署/產品案例（誰用、規模、成效、商業模式）</h2>
+<ul>
+<li><strong>已大規模部署</strong>：本能力是 2026 主流生產力套件的<strong>預設功能</strong>而非實驗品——Gmail/Gemini（綁 Workspace，per-seat 訂閱）、Microsoft 365 Copilot（per-seat 加購）、Superhuman Mail、Shortwave、Lindy（連 Gmail/Outlook/Calendar/Slack 等數百工具，agent 訂閱制）。商業模式以<strong>每席訂閱</strong>為主，分發靠既有郵件/辦公帳號基座。</li>
+<li><strong>成效與限制</strong>：跨功能整合研究指「單一連接 agent 同時管郵件+排程+待辦」可省約 50% 雜務時間；但<strong>採用落差</strong>明顯——獨立調查（Gartner 等）指 Copilot 僅約 20–30% 授權席位每週實用，付費≠常用。</li>
+<li><strong>失敗案例（商業可行性教訓）</strong>：x.ai 的 Amy/Andrew 是本任務最早的純粹形態（純 email 排程助理），早期靠大量人工標註者修正草稿、成本高，最終 <strong>2021/06 被 Bizzabo 收購、同年 10/31 關閉獨立服務</strong>——印證「技術可做，但獨立產品難敵巨頭內建＋人工守門的單位經濟」。</li>
+<li><strong>規模化「全自動免人工守門送出」</strong>：未證實。所有主流產品仍是<strong>草稿/建議＋使用者審核送出</strong>；自動送信、自動定案會議普遍未開放或僅限低風險場景。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：讀取行事曆/郵件/待辦脈絡、偵測待排程與待回覆、以個人語氣產生回覆草稿與排程建議、找空檔提時段、彙整提醒——皆已商用且廣泛部署，配人工審核可靠度足夠。</li>
+<li><strong>做不到/不宜全自動</strong>：(1) 免人工守門、自動送出敏感/高風險郵件——廠商普遍不開放，因誤送成本高；(2) 跨多方複雜協商排程的端到端定案仍易出錯，需人介入；(3) 對語氣、優先順序、隱含承諾的判斷會偶有偏差或幻覺，故維持「AI 草擬、人送出」。整體屬「可用、需人工把關、已成熟商品化」。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="%E6%B6%88%E8%B2%BB%E7%B4%9AAI%E5%8A%A9%E7%90%86.html">消費級AI助理</a>、<a href="%E4%BC%81%E6%A5%ADAI%E6%87%89%E7%94%A8.html">企業AI應用</a>、<a href="AI%20Agent%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96.html">AI Agent與自動化</a>、<a href="%E5%95%86%E5%8B%99email%E7%BF%BB%E8%AD%AF.html">商務email翻譯</a>、<a href="%E8%B7%A8%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AD%98%E5%B7%A5%E4%BD%9Cagent.html">跨工具知識工作agent</a>、<a href="Microsoft.html">Microsoft</a>、<a href="Google.html">Google</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Google Workspace Blog — More personalized and proactive assistance in Gmail（Help me write 數秒生成、引用郵件/Chat/Drive 脈絡與個人風格）— https://workspace.google.com/blog/product-announcements/more-personalized-and-proactive-assistance-in-gmail-coming-to-business-customers</li>
+<li>Directions on Microsoft — Microsoft Claims 15 Million Paid M365 Copilot Seats — https://www.directionsonmicrosoft.com/microsoft-claims-15-million-paid-m365-copilot-seats/</li>
+<li>Let’s Data Science — Microsoft Copilot Reaches 20 Million Paid Enterprise Seats — https://letsdatascience.com/news/microsoft-copilot-reaches-20-million-paid-enterprise-seats-eed5aec2</li>
+<li>Grammarly Blog — Grammarly to Acquire Superhuman（94% 週活用 AI、每小時回信量 +72%）— https://www.grammarly.com/blog/company/grammarly-to-acquire-superhuman/</li>
+<li>TASBIA — x.ai’s Scheduling Tool is Shutting Down after Bizzabo Acquisition（Amy 關閉時間線）— https://tasbia.com/x-ais-scheduling-tool-is-shutting-down/</li>
+<li>Value Add VC — Microsoft Copilot Enterprise Adoption（90% 財星500、20–30% 席位週用的採用落差）— https://valueaddvc.com/blog/microsoft-copilot-enterprise-adoption-what-the-data-shows-about-real-usage-vs-hype</li>
+<li>PPC.land — Gemini hits 900 million users（Gemini App 月活 9 億 <span class="citation" data-cites="2026/05">@2026/05</span>，Google I/O 投資人簡報揭露）— https://ppc.land/gemini-hits-900-million-users-closing-gap-with-chatgpt-fast/</li>
+<li>Google Workspace Blog — Next 2026 announcements（Workspace 服務逾 30 億用戶）— https://workspace.google.com/blog/product-announcements/10-more-announcements-workspace-at-next-2026</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

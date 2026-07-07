@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>結構化機械臂揀選｜AI產業知識庫</title><meta name="description" content="結構化機械臂揀選
+
+ 一句話定義（這個可交付物是什麼）
+在一個固定、受控的取放工位上——料箱排列規則（結構化擺放或淺亂堆）、要揀的 SKU 已知且建檔——機械臂用 3D 視覺＋抓取規劃，自動把物件一件件揀出並放到指定位置，達到 ≥1000 件/小時的節拍與 >99% 的正確率，且整條產線的驗收標準（誤揀率、漏">
+<meta property="og:title" content="結構化機械臂揀選"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "結構化機械臂揀選", "description": "結構化機械臂揀選\n\n 一句話定義（這個可交付物是什麼）\n在一個固定、受控的取放工位上——料箱排列規則（結構化擺放或淺亂堆）、要揀的 SKU 已知且建檔——機械臂用 3D 視覺＋抓取規劃，自動把物件一件件揀出並放到指定位置，達到 ≥1000 件/小時的節拍與 >99% 的正確率，且整條產線的驗收標準（誤揀率、漏", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="結構化機械臂揀選">結構化機械臂揀選</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>在一個固定、受控的取放工位上——料箱排列規則（結構化擺放或淺亂堆）、要揀的 SKU 已知且建檔——機械臂用 3D 視覺＋抓取規劃，自動把物件一件件揀出並放到指定位置，達到 ≥1000 件/小時的節拍與 &gt;99% 的正確率，且整條產線的驗收標準（誤揀率、漏揀率、節拍）能穩定通過。這是「bin picking」中最容易的一端：物件已知、場景受控，與「陌生雜亂、未知物」的隨機揀選不同。</p>
+<h2 id="難度評分綜合-310技術-2落地-3-理由引-benchmark-與部署">難度評分（綜合 3/10：技術 2、落地 3）— 理由（引 benchmark 與部署）</h2>
+<ul>
+<li><strong>技術 2</strong>：「結構化料箱＋已知 SKU」是工業視覺與抓取最成熟的子問題。3D 結構光相機點雲精度可達 ±0.1mm、單次擷取 &lt;150ms（Zivid 2+R）；對已知 SKU 用 CAD 比對／模板匹配即可定位，抓取規劃（Dex-Net 類分析＋學習模型）在受控場景非常穩。代表性系統 Fizyr+Cognibotics+Zivid 已達 <strong>2000 件/小時 <span class="citation" data-cites="99.5">@99.5</span>% 正確率</strong>（2024-10 展示），遠超任務句的 1000/99% 門檻。學術 bin-picking 在「已知物、單物揀出」設定下達 <strong>99.8% 抓取率 <span class="citation" data-cites="367">@367</span> PPH</strong>。技術門檻低，故給 2。</li>
+<li><strong>落地 3</strong>：不是 1-2，因為仍需逐 SKU／逐料箱導入工程（標定、夾爪選型、料箱治具、產線整合），有非零的整合成本與停機風險，且要達「產線驗收」需現場調校。但這是成熟商品化品類：RightHand RightPick 規模化部署可達 ≤1200 件/小時、Amazon 倉儲機械臂日揀數百萬件，市場以約 13% CAGR 成長。屬「可用、已有產品、需工程把關」，故落地 3。</li>
+<li>綜合 3（已上調自 P1 初判 2）：技術近乎商品化，但「通過產線驗收＋每 SKU 導入」仍有真實工程摩擦，把綜合拉到 3 較誠實。仍屬量表「3-4 可用但需人工把關、已有產品」的下緣。</li>
+<li>查證重評：3/2/3（2026-06-26 對抗式查證：五組 benchmark 全部對齊現有來源——Fizyr+Cognibotics+Zivid 2000 PPH@99.5%、學術已知物 99.8%<span class="citation" data-cites="367">@367</span> PPH、Dex-Net 4.0 &gt;95%@&gt;300 MPPH、Inbolt 70+ 廠/2000 萬循環/95%、Amazon 99.7%、RightHand 1200 PPH/PALTAC 99.9%；多家商品部署已超門檻且量產，故綜合落在 3-4 下緣，與原評一致，無 divergence）</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>Fizyr PANOPTIC + Cognibotics HKM1800 + Zivid 2+R</strong>：宣稱「世界最快」自動揀選——<strong>最高 2000 件/小時、99.5% 成功率</strong>，10m² 工作範圍，3D 相機單次擷取 &lt;150ms 不成為節拍瓶頸。2024-10 於 Fizyr 大會展示，2025-04 對外發布。[1]</li>
+<li><strong>學術 bin-picking 基準（已知物、受控）</strong>：單物揀出 <strong>99.8±0.2% 抓取率 <span class="citation" data-cites="367">@367</span>±2 PPH</strong>；場景越受控、物件越已知，分數越高。（自監督式機械抓取研究，受控已知物設定，arXiv:1903.00228）[3]</li>
+<li><strong>Dex-Net 4.0（對照，較難設定）</strong>：對「最多 25 件新奇未知物」清空料箱達 <strong>&gt;95% 可靠度 @&gt;300 MPPH</strong>——注意這是「未知物隨機揀選」，比本任務句難；本任務句的「已知 SKU＋結構化」場景表現更好。[3]</li>
+<li>節拍換算：1000 件/小時 = 平均 3.6 秒/件；前述系統 0.15–1 秒級單拍能力足以達標並留裕度。</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Inbolt（on-arm AI 視覺）</strong>：服務 <strong>逾 70 家工廠</strong>，客戶含 Stellantis、Toyota、Beko、Volkswagen；2025 上半年累計 <strong>2000 萬次循環</strong>，<strong>&lt;1 秒/拍、最高 95% 成功率</strong>、約 6 個月回收投資。其結構化／半結構化揀選即屬本任務句範疇（新發布的「非結構化」版本則更難、成功率較低）。[2]</li>
+<li><strong>Amazon Robotics</strong>：倉儲機械臂（Sparrow/Robin 等）每日揀選達數百萬件、橫跨 1000+ 履約中心，2024 報導視覺揀選正確率高達 99.7%；雖部分屬大 SKU 庫，但「已知 SKU＋結構化來料」工序已長期量產運行。[4]</li>
+<li><strong>RightHand Robotics RightPick</strong>：機器節拍 <strong>最高 1200 件/小時</strong>；日本 PALTAC（逾 2 萬 SKU、&gt;30 站）實場持續 <strong>900 PPH <span class="citation" data-cites="99.9">@99.9</span>% 正確率</strong>，較人工翻倍；Staples 北美多座履約中心已導入。[5]</li>
+<li><strong>結論</strong>：本任務句（結構化料箱＋已知 SKU、≥1000/小時、&gt;99%）<strong>已有多家規模化商品部署達標</strong>，非實驗室階段。</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：受控工位、已知 SKU、結構化或淺亂堆——速度與正確率均已商品化超標；剛性／半剛性物件、規則料箱尤其穩。</li>
+<li><strong>邊界與摩擦</strong>：(1) <strong>未知物／高度雜亂隨機揀選</strong>仍較難（成功率掉到 90-95%、PPH 下降，屬另一更難能力，見 Dex-Net 4.0 與 Inbolt 非結構化版）；(2) <strong>透明／高反光／極薄軟性物件</strong>仍是 3D 視覺難點（雖 Zivid 等已大幅改善）；(3) 變形物（線束、布料、生鮮）抓取仍弱；(4) 每新 SKU／新料箱要導入工程，非「開箱即用」。本任務句因「已知 SKU＋結構化」兩條件把難度鎖在成熟區，故落在 3。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="%E4%BA%BA%E5%BD%A2%E6%A9%9F%E5%99%A8%E4%BA%BA%E8%88%87%E5%85%B7%E8%BA%AB%E6%99%BA%E6%85%A7.html">人形機器人與具身智慧</a>（同屬具身操作，本任務為其最成熟子集）、<a href="AI%20Agent%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96.html">AI Agent與自動化</a>、<a href="VLA%E6%A8%A1%E5%9E%8B.html">VLA模型</a>（新一代學習式抓取的技術路線）、<a href="Amazon.html">Amazon</a>（倉儲規模化部署者）、<a href="NVIDIA.html">NVIDIA</a>（Isaac 機器人模擬／推論平台）、<a href="%E5%8F%A3%E8%AA%9E%E5%AE%B6%E5%8B%99%E9%80%9A%E7%94%A8%E6%A9%9F%E5%99%A8%E4%BA%BA.html">口語家務通用機器人</a>（對照：同為操作任務但難度 9，凸顯「受控已知 vs 開放未知」的鴻溝）</p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Robotics &amp; Automation News, “Fizyr, Cognibotics and Zivid claim ‘world’s fastest automated bin picking solution’”（2025-04-11，2000 件/小時 <span class="citation" data-cites="99.5">@99.5</span>%）— https://roboticsandautomationnews.com/2025/04/11/fizyr-cognibotics-and-zivid-claim-worlds-fastest-automated-bin-picking-solution/89648/</li>
+<li>The Robot Report, “Inbolt provides vision guidance in real time for new bin-picking system”（70+ 工廠、2000 萬循環、&lt;1 秒/拍、95%）— https://www.therobotreport.com/inbolt-provides-vision-guidance-in-real-time-for-new-bin-picking-system/</li>
+<li>Berkeley AUTOLAB, “Dex-Net”（4.0：25 件未知物 &gt;95% 可靠度 @&gt;300 MPPH）— https://berkeleyautomation.github.io/dex-net/ ；已知物 99.8% <span class="citation" data-cites="367">@367</span> PPH 出自自監督式抓取研究 — https://arxiv.org/pdf/1903.00228</li>
+<li>Amazon, “Meet the robots inside Amazon fulfillment centers”（倉儲機械臂規模化揀選；2024 報導視覺正確率 99.7%）— https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center</li>
+<li>RightHand Robotics 產品頁／PALTAC 案例（1200 PPH 機器節拍；PALTAC 900 PPH <span class="citation" data-cites="99.9">@99.9</span>%、&gt;30 站、2 萬 SKU；Staples 北美部署）— https://righthandrobotics.com/products ；https://www.supplychaindive.com/news/staples-righthand-robotics-automate-fulfillment-centers-warehouses/707942/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中游｜AI產業知識庫</title><meta name="description" content="中游（模型與平台）總覽
+
+> AI 供應鏈三段中的中游：把上游的算力（GPU／HBM／資料中心）轉化為「智慧」，再交給下游應用。本層四個環節環環相扣——基礎模型實驗室 → 旗艦模型 → 訓練／推論框架與技術 → 雲端平台分發。本頁彙整本知識庫既有實體頁，數字沿用各該頁（皆附原始來源），引用時請點入對">
+<meta property="og:title" content="中游"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "中游", "description": "中游（模型與平台）總覽\n\n> AI 供應鏈三段中的中游：把上游的算力（GPU／HBM／資料中心）轉化為「智慧」，再交給下游應用。本層四個環節環環相扣——基礎模型實驗室 → 旗艦模型 → 訓練／推論框架與技術 → 雲端平台分發。本頁彙整本知識庫既有實體頁，數字沿用各該頁（皆附原始來源），引用時請點入對", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>供應鏈總表</span></header>
+<main><article><h1 id="中游模型與平台總覽">中游（模型與平台）總覽</h1>
+<blockquote>
+<p>AI 供應鏈三段中的<strong>中游</strong>：把上游的算力（GPU／HBM／資料中心）轉化為「智慧」，再交給下游應用。本層四個環節環環相扣——<strong>基礎模型實驗室 → 旗艦模型 → 訓練／推論框架與技術 → 雲端平台分發</strong>。本頁彙整本知識庫既有實體頁，數字沿用各該頁（皆附原始來源），引用時請點入對應頁核實。</p>
+</blockquote>
+<h2 id="一句話定位">一句話定位</h2>
+<p>中游是 AI 產業的「引擎室」：少數前沿實驗室以鉅額算力訓練出旗艦大型語言模型，透過 <a href="Transformer.html">Transformer</a>／<a href="MoE%E6%B7%B7%E5%90%88%E5%B0%88%E5%AE%B6.html">MoE混合專家</a> 等架構與 <a href="CUDA.html">CUDA</a>、<a href="PyTorch.html">PyTorch</a>、<a href="%E6%8E%A8%E8%AB%96%E5%84%AA%E5%8C%96.html">推論優化</a>、<a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a> 等技術堆疊，最後經由 <a href="Microsoft.html">Microsoft</a>、<a href="Amazon.html">Amazon</a>、<a href="Oracle.html">Oracle</a> 等雲端平台與各家 API 分發到企業與開發者手中。</p>
+<h2 id="價值鏈流程圖">價值鏈流程圖</h2>
+<pre class="mermaid">flowchart TD
+    subgraph LAB["① 基礎模型實驗室"]
+        OAI["OpenAI"]
+        ANT["Anthropic"]
+        GDM["Google DeepMind"]
+        META["Meta"]
+        XAI["xAI"]
+        MIS["Mistral AI"]
+        DS["DeepSeek"]
+    end
+
+    subgraph MODEL["② 旗艦模型（閉源／開源）"]
+        direction LR
+        CLOSED["閉源：GPT / Claude / Gemini / Grok"]
+        OPEN["開源權重：Llama / Qwen / DeepSeek"]
+    end
+
+    subgraph TECH["③ 訓練／推論框架與技術"]
+        ARCH["架構：Transformer · MoE混合專家"]
+        STACK["軟體：CUDA · PyTorch"]
+        SERVE["服務：推論優化 · RAG檢索增強生成"]
+    end
+
+    subgraph CLOUD["④ 雲端平台分發"]
+        MSFT["Microsoft Azure"]
+        AMZN["Amazon AWS / Bedrock"]
+        ORCL["Oracle OCI"]
+        API["各家 API / claude.ai / ChatGPT"]
+    end
+
+    LAB --> MODEL
+    MODEL --> TECH
+    TECH --> CLOUD
+    CLOUD --> APP["下游應用層（Agent / Copilot / 垂直 SaaS）"]
+
+    UP["上游算力：NVIDIA GPU · TPU · HBM · 資料中心"] -.算力.-> LAB
+    UP -.算力.-> TECH</pre>
+<h2 id="基礎模型實驗室">① 基礎模型實驗室</h2>
+<p>前沿模型由少數重資本實驗室主導，分屬「閉源」與「開源權重」兩大陣營：</p>
+<ul>
+<li><a href="OpenAI.html">OpenAI</a>：GPT 系列開發商，與 <a href="Microsoft.html">Microsoft</a> 深度綁定（持股約 27%）；2025 年 ARR 約 200 億美元，ChatGPT 週活約 9 億。</li>
+<li><a href="Anthropic.html">Anthropic</a>：Claude 系列母公司，企業級 LLM 市占龍頭；H 輪後投後估值 9,650 億美元，年化營收 2026-05 突破 470 億美元（來源見 <a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>）。主要算力夥伴為 <a href="Amazon.html">Amazon</a> 與 Google。</li>
+<li><a href="Google%20DeepMind.html">Google DeepMind</a>：Gemini 開發單位，少數自研晶片（TPU）的垂直整合者，不依賴 <a href="Microsoft.html">Microsoft</a> 等外部雲。</li>
+<li><a href="Meta.html">Meta</a>：Llama 開源權重旗手；2026-04 推出閉源 Muse Spark，轉為「開源 Llama 5 ＋閉源 Muse Spark」雙軌。</li>
+<li><a href="xAI.html">xAI</a>：Grok 開發商，靠 Colossus 超大算力叢集硬拚 SOTA；2026-02 併入 SpaceX。</li>
+<li><a href="Mistral%20AI.html">Mistral AI</a>：歐洲主權 AI 代表，開放權重路線，ASML 為大股東。</li>
+<li><a href="DeepSeek.html">DeepSeek</a>：中國高性價比開源（MIT）實驗室，2025-01 R1 引爆全球「DeepSeek 衝擊」。</li>
+</ul>
+<h2 id="旗艦模型開源-vs-閉源分野">② 旗艦模型：開源 vs 閉源分野</h2>
+<p>中游最關鍵的結構性分界線，是<strong>閉源（專有 API）</strong>與<strong>開源／開放權重</strong>兩條路線：</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 33%" />
+<col style="width: 20%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>路線</th>
+<th>代表模型</th>
+<th>授權</th>
+<th>護城河</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>閉源（專有）</td>
+<td><a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>、<a href="Grok%20%E7%B3%BB%E5%88%97.html">Grok 系列</a></td>
+<td>僅 API／平台提供</td>
+<td>前沿能力、品牌、整合通路</td>
+</tr>
+<tr>
+<td>開源權重</td>
+<td><a href="Llama%20%E7%B3%BB%E5%88%97.html">Llama 系列</a>、<a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a>、<a href="DeepSeek%20%E6%A8%A1%E5%9E%8B.html">DeepSeek 模型</a></td>
+<td>Apache 2.0／MIT／社群授權</td>
+<td>可自架、可微調、低成本、避免廠商鎖定</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>閉源旗艦：<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>（<a href="OpenAI.html">OpenAI</a>）、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>（<a href="Anthropic.html">Anthropic</a>）、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a>（<a href="Google%20DeepMind.html">Google DeepMind</a>）、<a href="Grok%20%E7%B3%BB%E5%88%97.html">Grok 系列</a>（<a href="xAI.html">xAI</a>）。</li>
+<li>開源權重：<a href="Llama%20%E7%B3%BB%E5%88%97.html">Llama 系列</a>（<a href="Meta.html">Meta</a>）、<a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a>（阿里巴巴）、<a href="DeepSeek%20%E6%A8%A1%E5%9E%8B.html">DeepSeek 模型</a>（<a href="DeepSeek.html">DeepSeek</a>）。</li>
+<li>雙軌跨界：<a href="OpenAI.html">OpenAI</a> 另有 gpt-oss（Apache 2.0）開放權重支線；<a href="Meta.html">Meta</a>、<a href="Mistral%20AI.html">Mistral AI</a> 同時跨開源與閉源；<a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a> 開源衝生態、閉源 Qwen-Max 變現。</li>
+</ul>
+<h2 id="競爭格局截至-2026-06">競爭格局（截至 2026-06）</h2>
+<ul>
+<li><strong>綜合智慧指數榜（Artificial Analysis）</strong>：<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a> Opus 4.8 以 61.4 分居首，<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a> GPT-5.5（約 60.2）、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a> Gemini 3.1 Pro（約 57）、<a href="Grok%20%E7%B3%BB%E5%88%97.html">Grok 系列</a> Grok 4.3（53）緊追；領先窗口常以個位數分計、榜首頻繁易主（來源：各模型頁引 Artificial Analysis）。</li>
+<li><strong>企業市占</strong>：報導顯示 <a href="Anthropic.html">Anthropic</a> 在企業級 LLM 領先、<a href="OpenAI.html">OpenAI</a> 與 <a href="Google%20DeepMind.html">Google DeepMind</a> 次之（數據隨來源而異，見 <a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Anthropic.html">Anthropic</a>）。</li>
+<li><strong>開源 vs 閉源</strong>：<a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a> 累計下載破 10 億、衍生模型逾 20 萬個，超越 <a href="Llama%20%E7%B3%BB%E5%88%97.html">Llama 系列</a> 成最受歡迎開源底座；<a href="DeepSeek%20%E6%A8%A1%E5%9E%8B.html">DeepSeek 模型</a> 以「對標 o1、價格約 1/10」施壓閉源。開源陣營在成本敏感場景對閉源構成結構性制衡。</li>
+<li><strong>代理（agentic）戰場</strong>：coding／電腦操作能力成為新焦點，<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>（Online-Mind2Web 84%）與 <a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>（Terminal-Bench 82.7%）互有領先。</li>
+</ul>
+<h2 id="訓練推論框架與技術">③ 訓練／推論框架與技術</h2>
+<p>模型能力的底層，是一整套架構與軟體堆疊：</p>
+<ul>
+<li><strong>架構層</strong>：<a href="Transformer.html">Transformer</a>（2017《Attention Is All You Need》，當今幾乎所有 LLM 的共通底座）與 <a href="MoE%E6%B7%B7%E5%90%88%E5%B0%88%E5%AE%B6.html">MoE混合專家</a>（稀疏啟動，使總參數與推論成本脫鉤；<a href="DeepSeek%20%E6%A8%A1%E5%9E%8B.html">DeepSeek 模型</a>、<a href="Llama%20%E7%B3%BB%E5%88%97.html">Llama 系列</a>、<a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a> 皆採用）。</li>
+<li><strong>軟體堆疊層</strong>：<a href="CUDA.html">CUDA</a>（NVIDIA 專有平行運算平台，被視為最持久的「軟體護城河」，累積約 600 萬開發者）與 <a href="PyTorch.html">PyTorch</a>（事實標準深度學習框架，由 Meta 創建、現屬 Linux Foundation）。</li>
+<li><strong>服務層</strong>：<a href="%E6%8E%A8%E8%AB%96%E5%84%AA%E5%8C%96.html">推論優化</a>（PagedAttention／vLLM、KV cache 量化、推測解碼等，把昂貴算力轉成可負擔的 token 單價）與 <a href="RAG%E6%AA%A2%E7%B4%A2%E5%A2%9E%E5%BC%B7%E7%94%9F%E6%88%90.html">RAG檢索增強生成</a>（外部知識接地、降低幻覺，市場估 2030 年達 98.6 億美元）。</li>
+</ul>
+<h2 id="雲端平台分發">④ 雲端平台分發</h2>
+<p>旗艦模型最終透過超大規模雲端與各家 API 觸及客戶：</p>
+<ul>
+<li><a href="Microsoft.html">Microsoft</a>：Azure ＋ Microsoft Foundry，唯一同時提供 GPT 與 Claude 前沿模型的雲；365 Copilot 為最大企業通路之一。</li>
+<li><a href="Amazon.html">Amazon</a>：AWS ＋ Amazon Bedrock 託管 <a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a> 等模型，並以自研 Trainium／Inferentia 與對 <a href="Anthropic.html">Anthropic</a> 鉅額投資綁定旗艦。</li>
+<li><a href="Oracle.html">Oracle</a>：OCI 強勢切入算力租賃，與 <a href="OpenAI.html">OpenAI</a> 簽 3,000 億美元 Stargate 雲端合約，RPO 暴增至 5,530 億美元。</li>
+<li><strong>多雲分發常態</strong>：<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a> 同時上架 AWS Bedrock、Vertex AI（Google）、Microsoft Foundry；<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a> 走 Vertex AI；開源權重模型則經 Hugging Face、Together、Fireworks、Groq 等託管分發。</li>
+</ul>
+<h2 id="風險與張力">風險與張力</h2>
+<ul>
+<li><strong>領先脆弱</strong>：前沿排名每數週易主，閉源三強差距常僅個位數分。</li>
+<li><strong>算力依賴</strong>：訓練／推論高度仰賴上游 NVIDIA GPU、HBM 與資料中心電力，受先進製程與能源瓶頸牽動。</li>
+<li><strong>成本與定價</strong>：旗艦閉源（如 Opus、GPT-5.5）維持高價位，面臨開源與對手降價雙重壓力。</li>
+<li><strong>地緣與智財</strong>：中國模型（<a href="Qwen%20%E7%B3%BB%E5%88%97.html">Qwen 系列</a>、<a href="DeepSeek%20%E6%A8%A1%E5%9E%8B.html">DeepSeek 模型</a>）面臨出口管制與採購限制；<a href="Anthropic.html">Anthropic</a>、<a href="OpenAI.html">OpenAI</a> 指控對手「蒸餾」前沿模型，牽動 AI 智財邊界。</li>
+<li><strong>估值與泡沫</strong>：實驗室估值與資本支出狂飆，與「AI 泡沫」疑慮並存。</li>
+</ul>
+<h2 id="其他重要中游業者">其他重要中游業者</h2>
+<ul>
+<li>企業／開源平台：<a href="Cohere.html">Cohere</a>（企業／主權 LLM）、<a href="Databricks.html">Databricks</a>（資料＋AI 平台）、<a href="Together%20AI.html">Together AI</a>（開源模型推論雲）、<a href="Hugging%20Face.html">Hugging Face</a>（開源模型樞紐）。</li>
+<li>純前沿實驗室：<a href="Safe%20Superintelligence.html">Safe Superintelligence</a>（Ilya Sutskever 創立，純安全 ASI、無產品）。</li>
+<li>中國巨頭：<a href="%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4.html">阿里巴巴</a>（Qwen＋阿里雲）、<a href="%E7%99%BE%E5%BA%A6.html">百度</a>、<a href="%E5%AD%97%E7%AF%80%E8%B7%B3%E5%8B%95.html">字節跳動</a>、<a href="%E9%A8%B0%E8%A8%8A.html">騰訊</a>、<a href="DeepSeek.html">DeepSeek</a>。</li>
+</ul>
+<h2 id="相關層級導覽">相關層級導覽</h2>
+<ul>
+<li>上游（算力硬體）：NVIDIA、台積電、HBM 記憶體、先進封裝 CoWoS、AI 資料中心能源（見各實體頁）。</li>
+<li>下游（應用）：<a href="Microsoft.html">Microsoft</a> 365 Copilot、企業 AI 應用、AI Agent 與自動化、AI 程式開發工具（見 markets／segments 分類）。</li>
+</ul>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

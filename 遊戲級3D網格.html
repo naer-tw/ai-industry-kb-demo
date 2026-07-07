@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>遊戲級3D網格｜AI產業知識庫</title><meta name="description" content="遊戲級3D網格
+
+ 一句話定義（這個可交付物是什麼）
+給定一段文字描述或一張參考圖，模型自動產出一個 3D 網格（mesh），且附帶：UV 展開、已烘焙的貼圖、PBR 材質貼圖組（base color／normal／roughness／metallic 等），可直接匯入 Unity/Unreal 等遊戲引擎在">
+<meta property="og:title" content="遊戲級3D網格"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "遊戲級3D網格", "description": "遊戲級3D網格\n\n 一句話定義（這個可交付物是什麼）\n給定一段文字描述或一張參考圖，模型自動產出一個 3D 網格（mesh），且附帶：UV 展開、已烘焙的貼圖、PBR 材質貼圖組（base color／normal／roughness／metallic 等），可直接匯入 Unity/Unreal 等遊戲引擎在", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>capability</span></header>
+<main><article><h1 id="遊戲級3d網格">遊戲級3D網格</h1>
+<h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
+<p>給定一段文字描述或一張參考圖，模型自動產出一個 3D 網格（mesh），且附帶：UV 展開、已烘焙的貼圖、PBR 材質貼圖組（base color／normal／roughness／metallic 等），可直接匯入 Unity/Unreal 等遊戲引擎在物理光照下正確渲染。難點不在「生出一個立體形狀」，而在輸出要同時滿足三件事：幾何正確、貼圖與 PBR 材質齊備、且拓樸（topology）乾淨到能進生產管線（多邊形分佈合理、可變形動畫、不破面）。本頁評的是「遊戲級／可匯入引擎」這個嚴格交付標準，而非僅生出可看的 3D 預覽。</p>
+<h2 id="難度評分綜合-510技術-4落地-6-理由引-benchmark-與部署">難度評分（綜合 5/10：技術 4、落地 6）— 理由(引 benchmark 與部署)</h2>
+<ul>
+<li><strong>技術成熟度 4（可用、已有產品，前沿仍在補拓樸）</strong>：text/image→帶 PBR 貼圖的 mesh 已是可量測、可商品化的能力。Hunyuan3D 2.1（arXiv 2506.15442, 2025-06）在形狀對齊（ULIP-I 0.1395、Uni3D-I 0.3213）與貼圖品質（CLIP-FID 24.78、CLIP-I 0.9207）皆勝 Trellis/SyncMVD 等基線；Meta AssetGen（2024-07）對少視角重建 Chamfer +17%、LPIPS +40%，且對「支援 PBR 的同速商用對手」拿到 72% 人類偏好。幾何＋貼圖＋PBR 三件已能一次產出，故技術值不在實驗室級（7-8）。但「乾淨拓樸／可動畫」仍是活躍研究、未完全自動，故未到成熟（2-3）。</li>
+<li><strong>落地難度 6（前沿可量產原型，但 hero/動畫資產仍卡人工把關）</strong>：低階用途（背景道具、prototyping、low-poly、3D 列印）已大規模量產；但「遊戲級」的最後一哩——乾淨拓樸與不重疊 UV——是公認瓶頸。產線報告指 AI 生成 mesh 常「密集、不規則、不利動畫」，hero 角色多被當「高品質設計參考」再人工 retopo（業界估每件 2-4 小時），非直接上線。故對嚴格交付定義，落地壓力高於去背（3）、低於長影片（7+）。</li>
+<li><strong>綜合判定 5</strong>：前沿可做、已部分落地、可靠性與「直接可用率」對嚴格交付仍有挑戰 → 落在量表 5「前沿可做但可靠性/成本仍挑戰、部分落地」。較 P1 初判 6 下修 1：deploy 端確實偏 6，但 tech 端（4）已有可靠商品與 benchmark 領先，綜合不取平均、按「能不能交付可用結果」實況定 5。</li>
+</ul>
+<h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
+<ul>
+<li><strong>形狀生成（Hunyuan3D 2.1, arXiv 2506.15442, 2025-06, Table 1）</strong>：Hunyuan3D-DiT 取 ULIP-T 0.0774／ULIP-I 0.1395／Uni3D-T 0.2556／Uni3D-I 0.3213，四項皆勝 Trellis（ULIP-I 0.1267、Uni3D-I 0.3129）、TripoSG、Step1X-3D、Craftsman 1.5（數值越高＝文字/圖像對齊越好）。[1]</li>
+<li><strong>貼圖/材質（同論文 Table 2）</strong>：Hunyuan3D-Paint 取 CLIP-FID 24.78（越低越好）／CMMD 2.191／CLIP-I 0.9207（越高越好）／LPIPS 0.1211，皆勝 Hunyuan3D-2.0、SyncMVD-IPA、TexGen。論文明標可輸出「production-ready PBR material」。[1]</li>
+<li><strong>Meta AssetGen（arXiv 2407.02445, 2024-07）</strong>：對少視角重建 Chamfer Distance +17%、LPIPS +40% 勝同期最佳；對「支援 PBR 的同速商用對手」72% 人類偏好。可直接輸出 game/VR 用的 PBR 資產。[2]</li>
+<li><strong>口徑提醒</strong>：上述為 CLIP/ULIP/FID 類「對齊與感知」代理指標，業界尚無單一公認的「遊戲級可用率」leaderboard（拓樸乾淨度、可動畫性無標準量測），故 benchmark 強度評為中等（B）。[1][2][3]</li>
+</ul>
+<h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
+<ul>
+<li><strong>Meshy</strong>：2025-11 公布 ARR 約 1,500 萬美元、月增約 30%、累計 600 萬用戶[4]；2026-03 GDC 公布用戶突破 1,000 萬、生成逾 1 億個 3D 模型、三個月內 ARR 倍增至約 3,000 萬美元（同期發表 Meshy Labs），用戶含大量遊戲開發者。[6]</li>
+<li><strong>Tripo AI</strong>：2026-03 宣布新一輪 5,000 萬美元（阿里、百度創投參投），累計募資約 2.5 億美元；平台逾 650 萬創作者、9 萬開發者，累計生成近 1 億個 3D 資產，主打「production-ready」並提供開發者 API 接入產線。[5]</li>
+<li><strong>騰訊 Hunyuan3D（開源）</strong>：業界首個支援多模態輸入的開源 3D 生成模型，權重＋訓練碼公開於 GitHub/Hugging Face；Hunyuan3D Studio（arXiv 2509.12815, 2025-09）為端到端「game-ready」管線，整合自動 retopology（PolyGen）、語意 UV 展開、PBR 貼圖。內部成效：騰訊遊戲某手遊 prototyping 成本降約 30%、騰訊地圖導航圖示製作效率提升約 91%。[3]</li>
+<li><strong>產業滲透</strong>：Meshy 2025 調查指約 70% 受訪遊戲開發者已用或計畫採用 3D AI 工具。整體屬「已規模化商品化」，但多數量產集中在道具/prototyping，而非直接上線的可動畫 hero 資產。[4]</li>
+</ul>
+<h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
+<ul>
+<li><strong>做得到</strong>：文字/圖→秒至數分鐘產出帶 PBR 貼圖的 mesh；背景道具、low-poly、靜態裝飾、3D 列印、快速 prototyping 可近直接用；已有 Meshy/Tripo/Hunyuan/Rodin 等成熟低成本服務與開源權重，可自架。</li>
+<li><strong>仍吃力/需人工</strong>：「遊戲級」的拓樸與 UV 是長尾——AI mesh 常過度三角化、邊流不順、UV 重疊拉伸；hero 角色與需骨架動畫的資產，業界仍把 AI 產物當高保真參考再人工 retopo（每件約 2-4 小時）。2025-2026 已出現 Tripo Smart Mesh、PolyGen 等自動 retopo 工具明顯改善，但 deformation 用的乾淨邊流（臉/關節）仍常需人工微調。</li>
+<li><strong>本質瓶頸</strong>：生成模型擅長「形與貌」，但尚未被「生產拓樸規則」充分約束——這是它停在量表 5、且 deploy（6）高於 tech（4）的主因。對「無需修整、直接上線可動畫」的嚴格定義，仍非全自動；對「可匯入、可渲染、可用作道具」的寬鬆定義，則已商品化。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="AI%E5%BD%B1%E5%83%8F%E8%88%87%E5%BD%B1%E7%89%87%E7%94%9F%E6%88%90.html">AI影像與影片生成</a>、<a href="%E6%93%B4%E6%95%A3%E6%A8%A1%E5%9E%8B.html">擴散模型</a>、<a href="%E5%A4%9A%E6%A8%A1%E6%85%8B%E8%88%87%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B.html">多模態與世界模型</a>、<a href="%E9%A8%B0%E8%A8%8A.html">騰訊</a>、<a href="Gemini%20%E7%B3%BB%E5%88%97.html">Gemini 系列</a></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Hunyuan3D 2.1: From Images to High-Fidelity 3D Assets with Production-Ready PBR Material (arXiv 2506.15442, 2025-06) — https://arxiv.org/abs/2506.15442</li>
+<li>Meta 3D AssetGen: Text-to-Mesh Generation with High-Quality Geometry, Texture, and PBR Materials (arXiv 2407.02445, 2024-07) — https://arxiv.org/abs/2407.02445</li>
+<li>Hunyuan3D Studio: End-to-End AI Pipeline for Game-Ready 3D Asset Generation (arXiv 2509.12815, 2025-09) — https://arxiv.org/abs/2509.12815</li>
+<li>Meshy Hits $15M ARR… / Meshy 6 (PR Newswire, 2025-11) — https://www.prnewswire.co.uk/news-releases/meshy-hits-15m-arr-with-30-month-over-month-growth-unveils-meshy-6-preview-for-next-gen-3d-creation-302613962.html</li>
+<li>Tripo AI Announces $50 Million in Funding and New Models for Production-Ready 3D Generation (PR Newswire, 2026-03) — https://www.prnewswire.com/news-releases/tripo-ai-announces-50-million-in-funding-and-new-models-for-production-ready-3d-generation-302724894.html</li>
+<li>Meshy Unveils Meshy Labs at GDC 2026 — Breakthrough AI-Native Gameplay and $30M ARR Milestone (PR Newswire, 2026-03) — https://www.prnewswire.com/news-releases/meshy-unveils-meshy-labs-at-gdc-2026–breakthrough-ai-native-gameplay-and-30m-arr-milestone-302708046.html</li>
+<li>AI-generated 3D topology / retopology bottleneck 產線觀察 (Datameister / Tripo3D, 2025-2026) — https://blog.datameister.ai/ai-automated-retopology</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

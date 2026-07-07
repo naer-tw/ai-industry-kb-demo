@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CUDA｜AI產業知識庫</title><meta name="description" content="CUDA（Compute Unified Device Architecture）是 NVIDIA 於 2007 年正式釋出的專有平行運算平台與程式介面（API），讓開發者能用 C/C++/Python 等語言把 GPU 當作通用運算加速器使用；它是 NVIDIA 最被公認的「軟體護城河」，使 GPU 硬體優">
+<meta property="og:title" content="CUDA"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "CUDA", "description": "CUDA（Compute Unified Device Architecture）是 NVIDIA 於 2007 年正式釋出的專有平行運算平台與程式介面（API），讓開發者能用 C/C++/Python 等語言把 GPU 當作通用運算加速器使用；它是 NVIDIA 最被公認的「軟體護城河」，使 GPU 硬體優", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
+<main><article><h1 id="cuda">CUDA</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>CUDA（Compute Unified Device Architecture）是 NVIDIA 於 2007 年正式釋出的專有平行運算平台與程式介面（API），讓開發者能用 C/C++/Python 等語言把 GPU 當作通用運算加速器使用；它是 NVIDIA 最被公認的「軟體護城河」，使 GPU 硬體優勢轉化為難以撼動的生態鎖定。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>本質：專有（proprietary）平行運算平台＋API，僅在 NVIDIA GPU 上執行；支援 C、C++、Fortran、Python、Julia，並有 Java/R/MATLAB 等第三方綁定。（來源：Wikipedia「CUDA」，2026 存取）</li>
+<li>起源：源自 Ian Buck 在史丹佛的 BrookGPU 研究；NVIDIA 於 2004 年延攬 Buck，與 John Nickolls 合作演化為 CUDA，2006 年隨 G80 晶片（GeForce 8800 GTX，2006/11/8 發表）問世，初版 CUDA SDK 於 2007 年 2 月 15 日公開、CUDA Toolkit 1.0 於 2007 年 6 月正式釋出。（來源：Wikipedia「CUDA」，2026 存取；ACM Queue《Scalable Parallel Programming with CUDA》，2008）</li>
+<li>最新版本：CUDA Toolkit 13.x 系列，2026 年 3 月更新（13.2/13.3，各來源版號略有出入）。（來源：Wikipedia「CUDA」、NVIDIA Developer CUDA Downloads，2026）</li>
+<li>開發者規模：NVIDIA 於 GTC 2026 宣布 CUDA 滿 20 年、累積約 600 萬名開發者；對比 2020 年約 180 萬名、近年約 450 萬名，成長顯著。（來源：Computer Weekly〈CUDA at 20〉，2026；NVIDIA/SlashData 引用數據）</li>
+<li>下載量：截至 COMPUTEX 2023 累積逾 4,000 萬次下載。（來源：NVIDIA，2023）</li>
+<li>核心函式庫（CUDA-X）：cuDNN（深度學習）、cuBLAS（線性代數）、cuFFT、cuRAND、cuSPARSE、NCCL（多卡通訊）、TensorRT（推論優化）等；NVIDIA 2025 年一次推出 60+ 項 CUDA-X 函式庫更新。（來源：NVIDIA Newsroom，2025）</li>
+<li>框架地位：PyTorch、TensorFlow、JAX 等主流框架的 GPU 後端皆建立在 cuDNN／CUDA 之上。（來源：NVIDIA cuDNN 頁面，2025）</li>
+</ul>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<p>CUDA 屬中游（運算層的軟體底座），是連接「上游硬體（GPU、<span class="todo" title="待建頁面">Tensor Core</span>、<a href="HBM%E8%A8%98%E6%86%B6%E9%AB%94.html">HBM記憶體</a>）」與「下游框架／模型（<a href="PyTorch.html">PyTorch</a>、Transformer 訓練）」的關鍵中介層。它的角色不是某個產業環節（segment），而是一項「能力」：把 NVIDIA 晶片的平行運算潛能，透過編譯器、函式庫與工具鏈轉成開發者可直接呼叫的高階介面。</p>
+<p>正因主流 AI 框架的高效運算路徑長年針對 CUDA 最佳化，NVIDIA 的硬體領先得以被「軟體鎖定」放大——客戶買的不只是晶片，而是整套經過十多年生產驗證的軟體堆疊。SemiAnalysis 將此稱為「CUDA 護城河」，並視為 NVIDIA 最持久的競爭優勢。（來源：SemiAnalysis，2024–2025）</p>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>護城河仍在，但出現裂縫：SemiAnalysis 五個月實測指出，AMD MI300X 帳面記憶體優於 H100，但在公開穩定版軟體上的訓練「每 TCO 效能」仍輸 NVIDIA，問題出在軟體成熟度而非硬體。（來源：SemiAnalysis〈MI300X vs H100 vs H200〉，2024–2025）</li>
+<li>競品快速逼近：MI355X 在 MLPerf Inference 6.0（MLCommons 2026/4/1 公布）的 Llama 2 70B 推論，對 NVIDIA B200 達 Offline 持平、Server 接近持平、Interactive 反超；對更高階的 B300 則為 Offline 92%／Server 93%／Interactive 104%（即僅差個位數百分比、互動模式反超）。（來源：AMD Newsroom〈MLPerf Inference 6.0〉、MLCommons，2026）市占方面，NVIDIA 在資料中心 AI 加速器仍居絕對主導（獨立顯卡 add-in board 市占約 92%，2025 H1），惟分析機構普遍認為其份額正受 AMD 與雲端自研 ASIC 緩慢侵蝕；坊間流傳「資料中心 GPU 營收占比由約 90% 降至約 86%」之說法，目前查無權威來源佐證，僅供參考。（來源：Jon Peddie Research／carboncredits.com 引述，2025；佔比變化數字未獲證實）</li>
+<li>抽象層繞道：自 PyTorch 2.0（2023/3）起，torch.compile 預設後端 TorchInductor 在 GPU 上即以 OpenAI 的 <span class="todo" title="待建頁面">Triton</span> 作為程式碼生成（codegen）引擎，同一份 kernel 可編譯到 NVIDIA／AMD／Intel；PyTorch 官方亦展示「CUDA-Free（純 Triton）」LLM 推論路徑。（來源：PyTorch 2.x 文件；PyTorch Blog，2024）</li>
+<li>生態持續擴張：NVIDIA 在 GTC 2026 強調 CUDA 邁向 agentic AI 與科學運算新領域，並大規模更新 CUDA-X 函式庫，鞏固上層黏著度。（來源：Computer Weekly、NVIDIA Newsroom，2025–2026）</li>
+</ul>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li>開源替代壓力：AMD <span class="todo" title="待建頁面">ROCm</span> 在 2026 年已達 PyTorch／vLLM 生產可用水準，硬體常以 15–40% 價格優勢切入；CUDA 主要靠 TensorRT-LLM、FlashAttention 3、NIM 容器等深度工具鏈守住差距。（來源：Spheron Blog、Thunder Compute，2026）</li>
+<li>框架去耦：Triton／torch.compile 等硬體中立抽象層，正把「kernel 開發」從 CUDA C++ 移開，長期可能侵蝕鎖定效果。（來源：PyTorch Blog、Modular Blog，2024–2025）</li>
+<li>大客戶自研：超大規模雲端業者（如 Google TPU 路線與 TorchTPU、自研 ASIC）試圖繞過 CUDA，降低對單一供應商依賴。（來源：Hyperframe Research，2025）</li>
+<li>監管與專有風險：CUDA 為封閉專有，授權條款曾限制在非 NVIDIA 硬體上經轉譯層執行，潛在引發反壟斷與生態反彈疑慮。（來源：Wikipedia「CUDA」，2026）</li>
+<li>綜合研判：資料顯示護城河在「訓練端＋深度工具鏈」仍穩固，但「推論端＋開源框架」正被快速侵蝕；因此建議關注 Triton 採用率與雲端自研晶片進度，作為護城河鬆動的領先指標。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<ul>
+<li><a href="NVIDIA.html">NVIDIA</a>：CUDA 的開發與擁有者，護城河直接受益方。</li>
+<li><span class="todo" title="待建頁面">ROCm</span>：AMD 的開源對標平台，最主要競品。</li>
+<li><span class="todo" title="待建頁面">Triton</span>：OpenAI 硬體中立 kernel 語言，CUDA 抽象層繞道路徑。</li>
+<li><a href="PyTorch.html">PyTorch</a>：最大宗 AI 框架，其 GPU 後端深度依賴 CUDA。</li>
+<li><span class="todo" title="待建頁面">cuDNN</span>／<span class="todo" title="待建頁面">TensorRT</span>：CUDA-X 核心函式庫，深度學習與推論加速。</li>
+<li><span class="todo" title="待建頁面">Tensor Core</span>：CUDA 透過其暴露矩陣運算能力的硬體單元。</li>
+<li><a href="HBM%E8%A8%98%E6%86%B6%E9%AB%94.html">HBM記憶體</a>：餵養 GPU 平行運算的高頻寬記憶體。</li>
+<li><span class="todo" title="待建頁面">GPU</span>：CUDA 所驅動的底層運算硬體。</li>
+</ul>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Wikipedia — CUDA：https://en.wikipedia.org/wiki/CUDA</li>
+<li>NVIDIA Developer — CUDA Platform / Toolkit Downloads：https://developer.nvidia.com/cuda</li>
+<li>SemiAnalysis — MI300X vs H100 vs H200 Benchmark Part 1: Training (CUDA Moat Still Alive)：https://newsletter.semianalysis.com/p/mi300x-vs-h100-vs-h200-benchmark-part-1-training</li>
+<li>SemiAnalysis — AMD 2.0 / Nvidia’s New Moat：https://semianalysis.com/2025/04/23/amd-2-0-new-sense-of-urgency-mi450x-chance-to-beat-nvidia-nvidias-new-moat/</li>
+<li>Computer Weekly — CUDA at 20: From billion-dollar gamble to agentic AI：https://www.computerweekly.com/news/366640614/CUDA-at-20-From-billion-dollar-gamble-to-agentic-AI</li>
+<li>PyTorch Blog — CUDA-Free Inference for LLMs：https://pytorch.org/blog/cuda-free-inference-for-llms/</li>
+<li>OpenAI — Introducing Triton：https://openai.com/index/triton/</li>
+<li>Spheron Blog — ROCm vs CUDA (2026)：https://www.spheron.network/blog/rocm-vs-cuda-gpu-cloud-2026/</li>
+<li>NVIDIA Newsroom — 60+ Updates to CUDA-X Libraries：https://nvidianews.nvidia.com/news/nvidia-introduces-60+-updates-to-cuda-x-libraries-opening-new-science-and-industries-to-accelerated-computing</li>
+<li>NVIDIA Developer — cuDNN：https://developer.nvidia.com/cudnn</li>
+<li>Thunder Compute — ROCm vs CUDA (June 2026)：https://www.thundercompute.com/blog/rocm-vs-cuda-gpu-computing</li>
+<li>ACM Queue — Scalable Parallel Programming with CUDA：https://spawn-queue.acm.org/doi/10.1145/1365490.1365500</li>
+<li>AMD Newsroom — AMD Delivers Breakthrough MLPerf Inference 6.0 Results：https://www.amd.com/en/blogs/2026/amd-delivers-breakthrough-mlperf-inference-6-0-results.html</li>
+<li>MLCommons — MLPerf Inference v6.0 Results（2026/4/1）：https://mlcommons.org/2026/04/mlperf-inference-v6-0-results/</li>
+<li>PyTorch — Get Started with PyTorch 2.x（TorchInductor／Triton 後端）：https://pytorch.org/get-started/pytorch-2-x/</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>

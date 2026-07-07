@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gemini 系列｜AI產業知識庫</title><meta name="description" content="Gemini 是 Google DeepMind 自研、以自家 TPU 訓練的原生多模態旗艦大型語言模型系列，主打超長 context、影像／影片／音訊原生理解與代理（agentic）能力，是 OpenAI GPT 與 Anthropic Claude 的主要競爭對手。">
+<meta property="og:title" content="Gemini 系列"><meta property="og:type" content="article">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Gemini 系列", "description": "Gemini 是 Google DeepMind 自研、以自家 TPU 訓練的原生多模態旗艦大型語言模型系列，主打超長 context、影像／影片／音訊原生理解與代理（agentic）能力，是 OpenAI GPT 與 Anthropic Claude 的主要競爭對手。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+:root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
+color:var(--ink);background:var(--bg);line-height:1.75}
+header.site{display:flex;gap:.75rem;align-items:baseline;padding:1rem 1.5rem;border-bottom:2px solid var(--acc);
+position:sticky;top:0;background:var(--bg);z-index:5}
+header.site a{color:var(--acc);font-weight:700;text-decoration:none;font-size:1.05rem}
+header.site span{color:var(--mut);font-size:.85rem}
+main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem}
+article h1{font-size:2rem;border-bottom:3px solid var(--gold);padding-bottom:.4rem;margin-top:0}
+article h2{font-size:1.3rem;color:var(--acc);margin-top:2rem;border-left:4px solid var(--gold);padding-left:.6rem}
+article h3{font-size:1.08rem;margin-top:1.4rem}
+a{color:var(--acc)}a.todo{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut);cursor:help}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f0ece1}code{background:#f0ece1;padding:.1rem .3rem;border-radius:3px;font-size:.9em}
+pre.mermaid{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center}
+footer{max-width:820px;margin:0 auto;padding:1.5rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line)}
+.idx-group{margin:1.5rem 0}.idx-group h2{color:var(--acc)}
+.idx-group a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;background:#fff;
+border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.lead{color:var(--mut);font-size:1.05rem}.flag{color:#a33;font-weight:600}
+</style></head>
+<body><header class="site"><a href="index.html">AI產業知識庫</a><span>模型/產品</span></header>
+<main><article><h1 id="gemini-系列">Gemini 系列</h1>
+<h2 id="一句話定義">一句話定義</h2>
+<p>Gemini 是 Google DeepMind 自研、以自家 TPU 訓練的原生多模態旗艦大型語言模型系列，主打超長 context、影像／影片／音訊原生理解與代理（agentic）能力，是 OpenAI GPT 與 Anthropic Claude 的主要競爭對手。</p>
+<h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
+<ul>
+<li>開發者：Google DeepMind（2023 年由 Google Brain 與 DeepMind 合併而成）；以 Google 自研 TPU 訓練，不依賴 NVIDIA GPU。（Wikipedia, 2026-06）</li>
+<li>目前主力版本：Gemini 3.1 Pro，2026-02-19 發布；為 Google 首次使用「.1」小版號（過去用「.5」做期中更新）。（搜尋彙整 / artificialanalysis.ai, 2026）</li>
+<li>前一旗艦：Gemini 3 Pro，2025-11-18 發布；同日發布 Gemini 3 Deep Think（深度推理版，Google AI Ultra 訂戶）。（blog.google, 2025-11-18）</li>
+<li>Context window：100 萬 token（Gemini 3 / 3.1 Pro）；最大輸出約 6.5 萬 token；2.5 / 3 Pro 標示 200 萬「coming soon」。（llm-stats.com / Google docs, 2026）</li>
+<li>模態：原生多模態，輸入支援文字、影像、影片、音訊、程式碼。（blog.google, 2025-11-18）</li>
+<li>授權：閉源專有，僅透過 Gemini App、AI Studio、Vertex AI 與 API 提供；開源由姊妹系列 Gemma 承擔。（Google docs, 2026）</li>
+</ul>
+<p>代表 benchmark（Gemini 3 Pro，來源 Google 官方部落格 2025-11-18，除另註）： - GPQA Diamond（博士級科學）：91.9%（Deep Think 93.8%） - Humanity’s Last Exam（無工具）：37.5%（Deep Think 41.0%） - MMLU：91.8%（vs 2.5 Pro 89.5%；來源 Vellum AI, 2025-11） - SWE-bench Verified（軟體工程）：76.2% - MMMU-Pro（多模態）：81%；Video-MMMU：87.6% - ARC-AGI-2：45.1%（Deep Think + 程式執行） - LMArena：1501 Elo（史上首個破 1500 的模型）；WebDev Arena 1487 Elo。（blog.google + aibase, 2025-11）</p>
+<p>Gemini 3.1 Pro 進一步提升（搜尋彙整，2026-02，第三方整理待官方模型卡完整證實）： - GPQA Diamond 94.3%、SWE-bench Verified 80.6%、ARC-AGI-2 77.1%（較 3 Pro 標準模式 31.1% 倍增；3 Pro Deep Think+程式執行為 45.1%）。（officechai / Google DeepMind 模型卡, 2026-02） - 維持與 3 Pro 相同價格，等同免費升級。</p>
+<h2 id="在-ai-供應鏈的位置與角色">在 AI 供應鏈的位置與角色</h2>
+<ul>
+<li>層級定位：中游「模型層」核心資產，是 Google 全棧策略（自研 TPU 晶片 → 模型 → 雲端 Vertex AI → 消費端產品）的引擎。</li>
+<li>垂直整合：Gemini 由 <a href="Google%20DeepMind.html">Google DeepMind</a> 在 Google 自研 <a href="%E5%AE%A2%E8%A3%BDAI%E6%99%B6%E7%89%87ASIC.html">客製AI晶片ASIC</a> 上訓練與推論，使 Google 在成本與供應鏈上相對獨立於 <a href="NVIDIA.html">NVIDIA</a> GPU，是少數不依賴 NVIDIA 的前沿模型。</li>
+<li>分發通路：嵌入 Search（AI Overviews / AI Mode）、Workspace、Android、Chrome 等十億級用戶產品，並透過 Gemini API、AI Studio、Vertex AI 對開發者與企業輸出。</li>
+<li>競爭座標：與 <a href="OpenAI.html">OpenAI</a> <a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、Anthropic <a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、xAI Grok、DeepSeek 同屬前沿閉源／半開源模型陣營。</li>
+</ul>
+<h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
+<ul>
+<li>2024-02：Gemini 1.5 發布，採 MoE 架構，引入 100 萬 token context（API 達 200 萬），長 context 領先業界。（developers.googleblog.com / Wikipedia）</li>
+<li>2024-12-11：Gemini 2.0 Flash Experimental 發布，含即時音訊／影片 Multimodal Live API。（Wikipedia, 2024-12）</li>
+<li>2025-03-25：Gemini 2.5 Pro Experimental 發布；2025-06-17 2.5 Pro / Flash 正式 GA，並推 2.5 Flash-Lite。（Wikipedia / Google, 2025）</li>
+<li>2025-11-18：Gemini 3 Pro + Deep Think 發布，LMArena 破 1501 Elo 登頂，Musk、Altman 公開致賀。（blog.google / aibase, 2025-11）</li>
+<li>2025-12-17：Gemini 3 Flash 發布，取代 2.5 Flash。（搜尋彙整, 2025-12）</li>
+<li>2026-02-19：Gemini 3.1 Pro 發布（目前主力）；2026-03 傳出 3.1 Ultra 與 2M context、3.1 Flash-Lite。（搜尋彙整, 2026，部分待官方證實）</li>
+<li>2026-06：Artificial Analysis 智慧指數由 Claude Opus 4.8（2026-05-28 發布）暫居榜首，Gemini 3 Pro 仍高度競爭。（felloai / artificialanalysis, 2026-06）</li>
+</ul>
+<p>定價（Gemini API，2026-06 現行）： - Gemini 3 / 3.1 Pro：輸入 US$2.00、輸出 US$12.00／百萬 token（≤200K）；&gt;200K 升至 US$4.00／US$18.00。（ai.google.dev / 搜尋彙整, 2026） - Gemini 2.5 Pro：輸入 US$1.25、輸出 US$10.00／百萬 token（≤200K）；&gt;200K 為 US$2.50／US$15.00；Batch 模式 5 折。（ai.google.dev, 2026） - AI Studio 免費層可用；Vertex AI 提供 SLA、Provisioned Throughput 等企業功能。（cloud.google.com, 2026）</p>
+<h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
+<ul>
+<li>競爭白熱化：前沿排名每數週易主，2026-06 Claude Opus 4.8 與 GPT-5.x 在部分指標反超，領先窗口短暫。（felloai, 2026-06）</li>
+<li>第三方數據落差：3.1 Pro 多項分數來自第三方整理，官方完整模型卡／技術報告尚未全面公開，部分標「資料未證實」。</li>
+<li>「preview」標籤：3 / 3.1 Pro 長期掛 preview，版本與定價變動快，企業導入有穩定性疑慮。</li>
+<li>監管與信任：Search 深度整合 AI 引發內容來源、版權與反壟斷關注；歷史上 Gemini 影像生成曾因偏誤爭議下架重訓。</li>
+<li>定價競爭：相較 2.5 Pro，3 Pro 輸入價翻倍（US$1.25→US$2.00），須與更便宜開源／半開源模型（DeepSeek、GLM）競爭性價比。</li>
+</ul>
+<h2 id="相關實體">相關實體</h2>
+<p><a href="Google%20DeepMind.html">Google DeepMind</a>、<a href="%E5%AE%A2%E8%A3%BDAI%E6%99%B6%E7%89%87ASIC.html">客製AI晶片ASIC</a>、<a href="GPT%20%E7%B3%BB%E5%88%97.html">GPT 系列</a>、<a href="Claude%20%E7%B3%BB%E5%88%97.html">Claude 系列</a>、<a href="OpenAI.html">OpenAI</a>、<a href="NVIDIA.html">NVIDIA</a>、<span class="todo" title="待建頁面">Gemma</span></p>
+<h2 id="來源清單編號url">來源清單（編號＋URL）</h2>
+<ol type="1">
+<li>Google 官方部落格，Gemini 3 發布（2025-11-18）：https://blog.google/products/gemini/gemini-3/</li>
+<li>Gemini API 官方定價：https://ai.google.dev/gemini-api/docs/pricing</li>
+<li>llm-stats，Gemini 3 Pro Preview 規格／定價：https://llm-stats.com/models/gemini-3-pro-preview</li>
+<li>Wikipedia，Gemini (language model) 版本時間線：https://en.wikipedia.org/wiki/Gemini_(language_model)</li>
+<li>Artificial Analysis，Gemini 3.1 Pro Preview：https://artificialanalysis.ai/models/gemini-3-1-pro-preview</li>
+<li>VentureBeat，Gemini 3 benchmark 報導：https://venturebeat.com/ai/google-unveils-gemini-3-claiming-the-lead-in-math-science-multimodal-and</li>
+<li>Vellum AI，Gemini 3 benchmarks（MMLU 對比）：https://www.vellum.ai/blog/google-gemini-3-benchmarks</li>
+<li>AIbase，Gemini 3 登頂 LMArena：https://news.aibase.com/news/23002</li>
+<li>Fello AI，2026-06 最佳 AI 比較：https://felloai.com/the-best-ai-of-december-2025/</li>
+<li>Google Cloud，Vertex AI 生成式定價：https://cloud.google.com/vertex-ai/generative-ai/pricing</li>
+</ol>
+</article></main>
+<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
+</body></html>
