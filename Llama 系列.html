@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Llama 系列｜AI產業知識庫</title><meta name="description" content="Llama 是 Meta 推出的「開放權重」大型語言模型家族，以可免費下載、可商用、可微調的策略，成為全球開源 / 開放權重生態的事實標準與最大競爭者。">
 <meta property="og:title" content="Llama 系列"><meta property="og:type" content="article">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Llama 系列", "description": "Llama 是 Meta 推出的「開放權重」大型語言模型家族，以可免費下載、可商用、可微調的策略，成為全球開源 / 開放權重生態的事實標準與最大競爭者。", "datePublished": "2026-06-06", "dateModified": "2026-06-06（對抗式查證：修正 Maverick MATH 分數與訓練 token 數）", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Llama 系列", "description": "Llama 是 Meta 推出的「開放權重」大型語言模型家族，以可免費下載、可商用、可微調的策略，成為全球開源 / 開放權重生態的事實標準與最大競爭者。", "datePublished": "2026-06-06", "dateModified": "2026-10-21", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
 :root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
 color:var(--ink);background:var(--bg);line-height:1.75}
@@ -31,6 +31,14 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <p>Llama 是 Meta 推出的「開放權重」大型語言模型家族，以可免費下載、可商用、可微調的策略，成為全球開源 / 開放權重生態的事實標準與最大競爭者。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
 <ul>
+<li><strong>【2026-10-21 更新】2026-06→10 查證結果</strong>（來源 11–14）：
+<ul>
+<li><strong>Meta 官方 Muse Spark 1.1 於 2026-07-09 發布</strong>（Meta AI 部落格列表標題 “Introducing Muse Spark 1.1”）；2026-07-07 發布 Muse Image 與 Muse Video（來源 11）。Meta Model API（dev.meta.ai）現列 Muse Wonder（<code>muse-wonder-1.0</code>，preview，1,048,576 token context，自稱最強、用於複雜 coding 與長代理任務）、Muse Spark 1.3／1.2／1.1（1,048,576 token context）、Muse Image 1.0、Muse Voice Transcribe 1.0（$0.18／小時）、SAM 3.1（來源 12、13）。Spark 1.2、1.3、Wonder 的確切發布日【待查】。</li>
+<li><strong>開放權重</strong>：Meta 官方模型頁列 <strong>Muse Spark Open</strong>（816B 總參數、42B 啟用的 MoE，自稱「最強的美國開放權重模型」，可下載 BF16／NVFP4 檢查點；授權條款頁面未載明【待查】）與 <strong>Muse Glimmer</strong>（蒸餾自 Muse Spark 的本地／邊緣開放權重模型，Apache 2.0）（來源 12、13）。Muse Spark Open 發布日、官方 benchmark【待查】。</li>
+<li><strong>Llama 品牌現況</strong>：Meta 開發者模型頁與 API 文件均未列任何 Llama 型號；meta-llama Hugging Face 組織頁最近一代仍為 Llama 4（最新更新為 2025-11 的 Prompt-Guard-86M），<strong>頁面未見 Llama 5</strong>（來源 14）。因此下文「Llama 5（2026-04-08）」一說僅見於來源 6（VentureBeat），本輪未能由 Meta 官方頁證實，列為【待查】；實務上 Meta 前沿能力已轉到 Muse 線。Meta 官方部落格 2026-07-21、07-27 仍有「Meta AI 模型」開源應用案例（Genesis Mission、匹茲堡大學機器人），未明示使用何種模型（來源 11）。</li>
+<li>定價：Meta Model API 為隨用隨付，每百萬 token 單價官方頁未列【待查】。</li>
+<li>以下為 2026-06 舊內容：</li>
+</ul></li>
 <li><strong>發布時間線</strong>：Llama 1（2023-02，7B–65B）→ Llama 2（2023-07，最高 70B）→ Llama 3（2024-04-18）→ Llama 3.1（2024-07-23，含首個開放 405B）→ Llama 3.2（2024-09-25，1B/3B/11B/90B）→ Llama 3.3（2024-12-06，70B）→ <strong>Llama 4 Scout/Maverick（2025-04-05）</strong> → <strong>Llama 5（2026-04-08，開源權重）</strong>。〔來源 4, 9〕</li>
 <li><strong>目前主力 Llama 4 兩款已釋出</strong>：Scout（17B 啟用 / 109B 總參數、16 experts、宣稱 10M token 上下文）與 Maverick（17B 啟用 / 約 400B 總參數、128 experts、約 1M token 上下文）；皆為 MoE 架構、原生文字＋影像多模態（early fusion）；整體訓練資料混合超過 30 兆 token（Meta 官方部落格），依模型卡 Scout 約 40 兆、Maverick 約 22 兆 token，涵蓋 200 種語言。〔來源 1, 2, 10〕</li>
 <li><strong>代表 benchmark（Meta 官方，2025-04）</strong>：Maverick MMLU-Pro 80.5%（GPT-4o 74.4%）、GPQA Diamond 69.8%、MATH-500 88.1%、多語 MMLU 84.6%。（註：MATH-500 95.0% 係尚未釋出的 Behemoth 成績，非 Maverick。）〔來源 1, 6, 10〕</li>
@@ -70,8 +78,12 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>OpenRouter：Llama 4 Maverick 定價與規格 — https://openrouter.ai/meta-llama/llama-4-maverick</li>
 <li>TechCrunch：Meta says Llama downloaded 1.2B times — https://techcrunch.com/2025/04/29/meta-says-its-llama-ai-models-have-been-downloaded-1-2b-times/</li>
 <li>Meta Llama 4 官方部落格（benchmark 表、訓練 token、語言數）— https://ai.meta.com/blog/llama-4-multimodal-intelligence/ ；Llama 4 Scout 模型卡（Scout ~40T／Maverick ~22T token）— https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E</li>
+<li>Meta AI 部落格列表（2026-10-21 查閱；Muse Spark 1.1 2026-07-09、Muse Image／Video 2026-07-07）：https://ai.meta.com/blog/</li>
+<li>Meta 開發者，Models（Muse Wonder／Spark／Spark Open／Glimmer 清單）：https://dev.meta.ai/models/</li>
+<li>Meta 開發者，Docs（Muse API 模型 ID、context、Spark Open 816B／42B、Glimmer Apache 2.0）：https://dev.meta.ai/docs</li>
+<li>Hugging Face meta-llama 組織頁（2026-10-21 查閱；最新 Llama 世代仍為 Llama 4）：https://huggingface.co/meta-llama</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

@@ -27,6 +27,9 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 </style></head>
 <body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
 <main><article><h1 id="rlhf">RLHF</h1>
+<blockquote>
+<p><strong>時效提示</strong>：本頁數據基準日 2026-06-06；2026-10-21 月度掃描標記 5 處時效性陳述待更新（本輪未刷新）。 待更新處：所有主流前沿模型後訓練階段普遍使用 RLHF 或其衍生法；企業占比自 2023 年約 25% 升至 2025 年約 70%（無一手來源）；2024 年起 DPO 成為開源社群最常用的 RLHF 替代法；2025 年後訓練主流轉為 RLVR，DeepSeek-R1 為代表；對齊技術正快速從 PPO→DPO→RLVR/GRPO 演進，宜定期 review</p>
+</blockquote>
 <h2 id="一句話定義">一句話定義</h2>
 <p>RLHF（Reinforcement Learning from Human Feedback，人類回饋強化學習）是一種模型「後訓練／對齊」技術：先讓人類對模型的多個回答排序、訓練出一個「獎勵模型（reward model）」來模擬人類偏好，再用強化學習（典型為 PPO）以該獎勵為訊號微調語言模型，使其輸出更符合人類期望的有用、誠實、無害（helpful, honest, harmless）行為。它是 2022 年後讓原始預訓練 LLM 轉變為「聽得懂指令、可對話」產品（如 ChatGPT、Claude）的關鍵技術橋樑。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
@@ -75,6 +78,6 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>IntuitionLabs, 〈Reinforcement Learning from Human Feedback (RLHF) Explained〉, 2025（25%→70% 企業採用率宣稱出處，原始方法不可考，僅供定性參考）— https://intuitionlabs.ai/articles/reinforcement-learning-human-feedback</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

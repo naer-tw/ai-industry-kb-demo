@@ -27,6 +27,9 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 </style></head>
 <body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
 <main><article><h1 id="推論優化">推論優化</h1>
+<blockquote>
+<p><strong>時效提示</strong>：本頁數據基準日 2026-06-06；2026-10-21 月度掃描標記 8 處時效性陳述待更新（本輪未刷新）。 待更新處：NVIDIA B200 InferenceMAX（2025-10-09）每百萬 token 兩美分；GB200 NVROI 約 15 倍（NVIDIA 廠商口徑，2025-10）；AI 推論市場 2025 年約 1,061.5 億美元，2030 年 2,549.8 億美元；SemiAnalysis InferenceMAX 獨立基準（2025-10）；Blackwell 橫掃；2025–2026 推理模型放大需求，推論成為存亡問題；推論占總算力比重持續上升（2025 約一半、2026 約三分之二，預估）；廠商 ROI 口徑偏樂觀，獨立驗證有限；護城河稀薄，核心方法多為開源</p>
+</blockquote>
 <h2 id="一句話定義">一句話定義</h2>
 <p>推論優化（Inference Optimization）是一整套讓「已訓練好的大模型」在生產環境中跑得更快、更便宜、能服務更多並發使用者的軟體與系統技術，核心戰場是繞過 GPU「記憶體頻寬」與「KV cache 容量」兩大瓶頸；代表手段包括 PagedAttention／連續批次（vLLM）、KV cache 量化與壓縮、模型權重量化（INT8／FP8／FP4）、以及推測解碼（speculative decoding）。它屬於 AI 供應鏈中游的「模型服務（serving）層」，把上游昂貴算力轉換成下游可負擔的 token 單價。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
@@ -88,6 +91,6 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>Red Hat，How vLLM accelerates AI inference: 3 enterprise use cases（Roblox／LinkedIn 採用案例來源）：https://www.redhat.com/en/topics/ai/how-vllm-accelerates-ai-inference-3-enterprise-use-cases</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

@@ -27,6 +27,9 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 </style></head>
 <body><header class="site"><a href="index.html">AI產業知識庫</a><span>研究趨勢</span></header>
 <main><article><h1 id="推理模型與test-time-compute">推理模型與test-time compute</h1>
+<blockquote>
+<p><strong>時效提示</strong>：本頁數據基準日 2026-06-06；2026-10-21 月度掃描標記 7 處時效性陳述待更新（本輪未刷新）。 待更新處：2025 開源復現 + 民主化期；Apple《Illusion of Thinking》：超過複雜度即「完全崩潰」；o3 ARC-AGI 費用為 ARC Prize 估算值，已依定價上修；能力突破（事實）：o3 ARC-AGI 達 87.5%；「真推理 vs. 模式比對」之爭至今未定論；CoT 忠實性：部分結論「資料未完全證實」；Stanford AI Index 2025：推論成本 2022–2024 降逾 280 倍</p>
+</blockquote>
 <h2 id="一句話定義">一句話定義</h2>
 <p>「推理模型（reasoning models / LRM, Large Reasoning Models）」是指在輸出最終答案前，先生成一段長思維鏈（chain-of-thought, CoT）來「思考」的大型語言模型；「test-time compute（推論期運算 / inference-time scaling）」則是新的擴展軸線——不再只靠加大模型參數與預訓練算力，而是讓模型在「回答時」花更多算力（更長 CoT、取樣多條路徑再投票、搜尋＋驗證），以換取更高準確度。代表作為 OpenAI o1/o3 與 DeepSeek-R1。</p>
 <h2 id="研究方向演化與核心問題">研究方向演化與核心問題</h2>
@@ -91,6 +94,6 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>Stanford AI Index 2025 — https://hai.stanford.edu/ai-index/2025-ai-index-report</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

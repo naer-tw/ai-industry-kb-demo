@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Gemini 系列｜AI產業知識庫</title><meta name="description" content="Gemini 是 Google DeepMind 自研、以自家 TPU 訓練的原生多模態旗艦大型語言模型系列，主打超長 context、影像／影片／音訊原生理解與代理（agentic）能力，是 OpenAI GPT 與 Anthropic Claude 的主要競爭對手。">
 <meta property="og:title" content="Gemini 系列"><meta property="og:type" content="article">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Gemini 系列", "description": "Gemini 是 Google DeepMind 自研、以自家 TPU 訓練的原生多模態旗艦大型語言模型系列，主打超長 context、影像／影片／音訊原生理解與代理（agentic）能力，是 OpenAI GPT 與 Anthropic Claude 的主要競爭對手。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Gemini 系列", "description": "Gemini 是 Google DeepMind 自研、以自家 TPU 訓練的原生多模態旗艦大型語言模型系列，主打超長 context、影像／影片／音訊原生理解與代理（agentic）能力，是 OpenAI GPT 與 Anthropic Claude 的主要競爭對手。", "datePublished": "2026-06-06", "dateModified": "2026-10-21", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
 :root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
 color:var(--ink);background:var(--bg);line-height:1.75}
@@ -31,6 +31,14 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <p>Gemini 是 Google DeepMind 自研、以自家 TPU 訓練的原生多模態旗艦大型語言模型系列，主打超長 context、影像／影片／音訊原生理解與代理（agentic）能力，是 OpenAI GPT 與 Anthropic Claude 的主要競爭對手。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
 <ul>
+<li><strong>【2026-10-21 更新】2026-06→10 新版本</strong>（來源 11–14，Google 官方文件）：
+<ul>
+<li>2026-06-01 Gemini 2.0 Flash／Flash-Lite 關閉；06-24 Gemini 3.5 Flash 的 Computer Use 公開預覽；07-21 <strong>Gemini 3.6 Flash</strong> 與 <strong>3.5 Flash-Lite</strong> GA（3.6 Flash 定價低於 3.5 Flash）；08-13 <strong>Gemini 3.7 Flash</strong> GA（導入價至 2026-12-31）；09-02 <strong>Gemini 3.8 Flash</strong> GA；09-15 Gemini 3.8 Live／Live Extended Thinking GA；09-18 2.5 系列限舊用戶；10-08 3.7 Flash 與 3.5 Flash 公告棄用並導向 3.8／3.6 Flash（來源 12）。</li>
+<li><strong>2026-10-13 Gemini 4 Argon（<code>gemini-4-argon</code>）GA</strong>，官方稱為旗艦推理模型；開放給 Google AI Pro／Ultra 訂戶；輸出窗口最高 1M token（單一 1M 統一窗口，來源 11、14）；API 定價 $2.00／$10.00，2026-12-01 起漲價為 $4.00／$20.00（來源 13）。</li>
+<li>Google 自報 benchmark（對比 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5）：Vals Index 68.9%、DeepSWE v1.1 77.9%、Vibe Code Bench 91.9%、LABBench 2 88.8%、GraphWalks 256K–1M BFS 84.2%、CWE-bench v1 68.0%（與 Astra 並列）；落後處：FrontierSWE v2 55.0%（Astra 65.5%）、Terminal-bench 4.0 57.4%（Opus 5.5 66.4%）（來源 14，Google 自報、未經獨立重現；獨立評測【待查】）。</li>
+<li>3.1 Pro 仍標 Preview（<code>gemini-3.1-pro-preview</code>）；Gemini 3 Pro Preview 已關閉（來源 11）。其他：Nano Banana 2.1、Gemini Omni Flash（影片）、Antigravity Agent preview（2026-09）等周邊模型見來源 11。</li>
+<li>以下為 2026-06 舊內容：</li>
+</ul></li>
 <li>開發者：Google DeepMind（2023 年由 Google Brain 與 DeepMind 合併而成）；以 Google 自研 TPU 訓練，不依賴 NVIDIA GPU。（Wikipedia, 2026-06）</li>
 <li>目前主力版本：Gemini 3.1 Pro，2026-02-19 發布；為 Google 首次使用「.1」小版號（過去用「.5」做期中更新）。（搜尋彙整 / artificialanalysis.ai, 2026）</li>
 <li>前一旗艦：Gemini 3 Pro，2025-11-18 發布；同日發布 Gemini 3 Deep Think（深度推理版，Google AI Ultra 訂戶）。（blog.google, 2025-11-18）</li>
@@ -60,6 +68,7 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <p>定價（Gemini API，2026-06 現行）： - Gemini 3 / 3.1 Pro：輸入 US$2.00、輸出 US$12.00／百萬 token（≤200K）；&gt;200K 升至 US$4.00／US$18.00。（ai.google.dev / 搜尋彙整, 2026） - Gemini 2.5 Pro：輸入 US$1.25、輸出 US$10.00／百萬 token（≤200K）；&gt;200K 為 US$2.50／US$15.00；Batch 模式 5 折。（ai.google.dev, 2026） - AI Studio 免費層可用；Vertex AI 提供 SLA、Provisioned Throughput 等企業功能。（cloud.google.com, 2026）</p>
 <h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
 <ul>
+<li>（2026-10-21）定價調漲：Argon 2026-12-01 起輸入／輸出價翻倍，3.8／3.6 Flash 2027-01-01 起翻倍（來源 13），與 2026-06 前「降價競爭」敘事相反，開發者成本預期需重算。</li>
 <li>競爭白熱化：前沿排名每數週易主，2026-06 Claude Opus 4.8 與 GPT-5.x 在部分指標反超，領先窗口短暫。（felloai, 2026-06）</li>
 <li>第三方數據落差：3.1 Pro 多項分數來自第三方整理，官方完整模型卡／技術報告尚未全面公開，部分標「資料未證實」。</li>
 <li>「preview」標籤：3 / 3.1 Pro 長期掛 preview，版本與定價變動快，企業導入有穩定性疑慮。</li>
@@ -80,8 +89,12 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>AIbase，Gemini 3 登頂 LMArena：https://news.aibase.com/news/23002</li>
 <li>Fello AI，2026-06 最佳 AI 比較：https://felloai.com/the-best-ai-of-december-2025/</li>
 <li>Google Cloud，Vertex AI 生成式定價：https://cloud.google.com/vertex-ai/generative-ai/pricing</li>
+<li>Google AI for Developers，Gemini models（2026-10-19 更新，2026-10-21 查閱）：https://ai.google.dev/gemini-api/docs/models</li>
+<li>Google AI for Developers，Changelog（2026-06→10 GA／棄用日期）：https://ai.google.dev/gemini-api/docs/changelog</li>
+<li>Google AI for Developers，Pricing（2026-10-19 更新；Argon、3.8／3.6 Flash、3.5 Flash-Lite、3.1 Pro）：https://ai.google.dev/gemini-api/docs/pricing</li>
+<li>Google DeepMind，Gemini 模型頁（Gemini 4 Argon 自報 benchmark）：https://deepmind.google/models/gemini/</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

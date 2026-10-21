@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GPT 系列｜AI產業知識庫</title><meta name="description" content="GPT 系列是 OpenAI 的旗艦大型語言模型家族，自 GPT-1（2018）演進至 GPT-5.x（2025–2026）的統一推理多模態系統，是當前生成式 AI 供應鏈中游「基礎模型」的標竿產品線之一。">
 <meta property="og:title" content="GPT 系列"><meta property="og:type" content="article">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "GPT 系列", "description": "GPT 系列是 OpenAI 的旗艦大型語言模型家族，自 GPT-1（2018）演進至 GPT-5.x（2025–2026）的統一推理多模態系統，是當前生成式 AI 供應鏈中游「基礎模型」的標竿產品線之一。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "GPT 系列", "description": "GPT 系列是 OpenAI 的旗艦大型語言模型家族，自 GPT-1（2018）演進至 GPT-5.x（2025–2026）的統一推理多模態系統，是當前生成式 AI 供應鏈中游「基礎模型」的標竿產品線之一。", "datePublished": "2026-06-06", "dateModified": "2026-10-21", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
 :root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
 color:var(--ink);background:var(--bg);line-height:1.75}
@@ -31,6 +31,16 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <p>GPT 系列是 OpenAI 的旗艦大型語言模型家族，自 GPT-1（2018）演進至 GPT-5.x（2025–2026）的統一推理多模態系統，是當前生成式 AI 供應鏈中游「基礎模型」的標竿產品線之一。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
 <ul>
+<li><strong>【2026-10-21 更新】2026-06→10 新版本</strong>（OpenAI 開發者文件 changelog／定價頁／模型頁，來源 21–24）：
+<ul>
+<li>2026-07-09 <strong>GPT-5.6 家族</strong>發布：Sol（前沿）、Terra（平衡）、Luna（高量）；別名 <code>gpt-5.6</code> 指向 Sol（來源 23）。同年 08-07 推 GPT-5.6 Cyber（Daybreak Red，需另行核准）（來源 23）。</li>
+<li>2026-09-03 <strong>GPT-6 Astra</strong> 發布（<code>gpt-6-astra</code>），官方稱最強模型，用於複雜推理／coding／電腦操作／研究；context 1,050,000 token（最大輸入 922K、輸出 128K）、知識截止 2026-04-30、文字＋影像輸入文字輸出；reasoning effort low→max；定價 $10／$50（快取輸入 $1、寫入 $12.50）；&gt;272K 輸入加價（來源 23、24）。</li>
+<li>2026-09-22 <strong>GPT-6 Sol／GPT-6 Luna</strong> 發布，Sol $2／$10（快取輸入 $0.20）、Luna $0.10／$0.50（快取 $0.01）；2026-09-29 <strong>GPT-6.1 Sol</strong>（<code>gpt-6.1-sol</code>，多代理 beta）$2／$10、快取輸入 $0.10；2026-10-08 Ultrafast 模式擴及 GPT-6.1 Sol（來源 22、23）。</li>
+<li>價格變動：2026-07-30 GPT-5.6 Luna 降 80%、Terra 降 20%；2026-08-21 GPT-5.6 Sol 降至 $4／$20（促銷價至少至 2026-11-21）；GPT-5.5 於定價頁仍列 $5／$30（來源 22、23）。</li>
+<li>汰換：2026-08-26 Assistants API 關閉；whisper-1、gpt-4o-transcribe 系列公告 2027-02-26 停用（來源 23）。</li>
+<li>第三方轉載 benchmark（OpenAI 所報，轉自 Anthropic 2026-09-22 發布稿對照表）：Terminal-Bench 4.0：GPT-6 Astra 57.9%、GPT-5.6 Sol 37.3%；GDPval-AA v2.1：Astra 1542 Elo、GPT-5.6 Sol 1588；Humanity’s Last Exam（含工具）Astra 57.2%——Anthropic Opus 5.5 在上述多數項目領先，但 Astra 在 Terminal-Bench-Science 0.1（64.6% vs 58.7%）與 AutomationBench（41.4% vs 40.0%）略勝（來源 25）。OpenAI 官方 GPT-6 發布稿與模型卡本輪【待查】（發布稿頁面 403）；GPT-6 Astra 模型頁本身無 benchmark。開放權重 gpt-oss 2026-06→10 有無新版【待查】（本輪官方模型頁未列）。</li>
+<li>以下 GPT-5.5 及之前為 2026-06 舊內容：</li>
+</ul></li>
 <li>版本時間線（2025–2026）：GPT-5 於 2025-08-07 發布，為首個「統一系統」（自動決定快答或長思考）（OpenAI，2025-08-07）。其後迭代：GPT-5.1（2025-11-13）、GPT-5.2「Garlic」（2025-12-10/11）、GPT-5.5（2026-04-23）、GPT-5.5 Instant（成為 ChatGPT 預設，2026-05-05）（OpenAI 官方公告／TechCrunch，2025–2026）。</li>
 <li>GPT-5 原版 benchmark（OpenAI，2025-08）：AIME 2025 達 94.6%（無工具）、SWE-bench Verified 74.9%、Aider Polyglot 88%、MMMU 84.2%、GPQA 88.4%（Pro 延伸推理，無工具）、HealthBench Hard 46.2%。</li>
 <li>GPT-5.5 benchmark（O-mega.ai／Converge AI 整理，2026-04）：MMLU 92.4%、GPQA Diamond 93.6%、SWE-bench Verified 88.7%、SWE-bench Pro 58.6%、Terminal-Bench 2.0 82.7%、OSWorld-Verified 78.7%、ARC-AGI-2 85.0%、MRCR v2（512K–1M）74.0%。註：此為第三方彙整，部分數字尚待 OpenAI 模型卡逐項對照證實。</li>
@@ -49,7 +59,7 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>主力為 GPT-5.5（2026-04-23），官方稱為「最聰明、最直覺」的模型，並首次是自 GPT-4.5 以來的完整重新預訓練（第三方整理）。</li>
 <li>GPT-5.5 Instant 自 2026-05-05 成為 ChatGPT 預設，官方稱在醫療／法律／金融等高風險題上幻覺主張較 GPT-5.3 Instant 減少 52.5%（OpenAI／TechCrunch，2026-05）。</li>
 <li>在 agentic（自主代理）領域，GPT-5.5 於 Terminal-Bench（82.7%）、OSWorld（78.7%）領先 Claude Opus 4.7，被視為 OpenAI 自 GPT-4 以來首次在代理執行上反超 Anthropic（第三方測評，2026-04）。</li>
-<li>傳聞 GPT-5.6 預計 2026-06 發布，主打進階推理與 agentic 工作流（Geeky-Gadgets，2026；屬媒體預測，資料未由官方證實）。</li>
+<li>（已證實，2026-10-21 更新）原傳聞的 GPT-5.6 實際於 2026-07-09 發布（來源 23）；之後 OpenAI 於 2026-09 轉入 GPT-6 世代（Astra／Sol／Luna），GPT-5.5 與 GPT-5.6 已成上一代。</li>
 </ul>
 <h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
 <ul>
@@ -88,8 +98,13 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>AI Model Hallucination Benchmarks 2026 | Digital Applied — https://www.digitalapplied.com/blog/ai-model-hallucination-rate-benchmarks-2026-study</li>
 <li>GPT-5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro | ofox.ai — https://ofox.ai/blog/gpt-5-5-api-vs-claude-opus-gemini-3-1-flagship-2026/</li>
 <li>openai/codex issue #19319（context window 實測） — https://github.com/openai/codex/issues/19319</li>
+<li>OpenAI 開發者文件，Models（2026-10-21 查閱；GPT-6 Astra／6.1 Sol／6 Luna 規格）：https://developers.openai.com/api/docs/models</li>
+<li>OpenAI 開發者文件，Pricing（2026-10-21 查閱；各旗艦模型單價）：https://developers.openai.com/api/docs/pricing</li>
+<li>OpenAI 開發者文件，Changelog（2026-10-21 查閱；07-09 GPT-5.6、09-03 GPT-6 Astra、09-22 Sol／Luna、09-29 GPT-6.1 Sol、降價與汰換）：https://developers.openai.com/api/docs/changelog</li>
+<li>OpenAI 開發者文件，GPT-6 Astra 模型頁（context、知識截止、定價）：https://developers.openai.com/api/docs/models/gpt-6-astra</li>
+<li>Anthropic，Introducing Claude Opus 5.5（2026-09-22；對照表中轉載 OpenAI 自報之 GPT-6 Astra／GPT-5.6 Sol 分數）：https://www.anthropic.com/news/claude-opus-5-5</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

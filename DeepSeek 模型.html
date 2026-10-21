@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>DeepSeek 模型｜AI產業知識庫</title><meta name="description" content="DeepSeek（深度求索）是中國杭州由量化基金 High-Flyer（幻方量化）孵化的 AI 實驗室，以「高性價比、開源權重（MIT）的 Mixture-of-Experts 大模型與推理模型」聞名；其 R1 推理模型於 2025 年 1 月引爆全球「DeepSeek 衝擊」，並重塑了開源/低成本訓練的論辯">
 <meta property="og:title" content="DeepSeek 模型"><meta property="og:type" content="article">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "DeepSeek 模型", "description": "DeepSeek（深度求索）是中國杭州由量化基金 High-Flyer（幻方量化）孵化的 AI 實驗室，以「高性價比、開源權重（MIT）的 Mixture-of-Experts 大模型與推理模型」聞名；其 R1 推理模型於 2025 年 1 月引爆全球「DeepSeek 衝擊」，並重塑了開源/低成本訓練的論辯", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "DeepSeek 模型", "description": "DeepSeek（深度求索）是中國杭州由量化基金 High-Flyer（幻方量化）孵化的 AI 實驗室，以「高性價比、開源權重（MIT）的 Mixture-of-Experts 大模型與推理模型」聞名；其 R1 推理模型於 2025 年 1 月引爆全球「DeepSeek 衝擊」，並重塑了開源/低成本訓練的論辯", "datePublished": "2026-06-06", "dateModified": "2026-10-21", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
 :root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
 color:var(--ink);background:var(--bg);line-height:1.75}
@@ -31,6 +31,14 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <p>DeepSeek（深度求索）是中國杭州由量化基金 High-Flyer（幻方量化）孵化的 AI 實驗室，以「高性價比、開源權重（MIT）的 Mixture-of-Experts 大模型與推理模型」聞名；其 R1 推理模型於 2025 年 1 月引爆全球「DeepSeek 衝擊」，並重塑了開源/低成本訓練的論辯。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
 <ul>
+<li><strong>【2026-10-21 更新】2026-06→10 新版本</strong>（來源 11–15，DeepSeek 官方 changelog／定價頁／Hugging Face）：
+<ul>
+<li>2026-07-31 V4-Flash 在 API 進入 public beta（<code>deepseek-v4-flash</code>，V4-Flash-0731，原生支援 Codex 用 Responses API）；<strong>2026-08-13 V4-Pro 正式 GA</strong>（V4-Pro-0813，1.7T 參數，HF 標示），V4-Pro／Flash 新增 low／high／max 思考強度，並自 2026-08-16 16:00 UTC 起改尖峰／離峰計價（離峰半價）；2026-08-21 V4-Flash-Vision-Exp 實驗性多模態；<strong>2026-09-10 DeepSeek-V4.1-Flash 發布</strong>（原生多模態，763B，API 名 <code>deepseek-flash</code>，同時降價）；<strong>2026-10-17 DeepSeek-V4.1-Flash-1017</strong> 取代前者（官方稱 HLE、Terminal-Bench 4.0 等進步、任務耗時與輸出較短），同日開放自家 Search／Fetch API（各 $0.75／千次呼叫）（來源 11、12、15）。</li>
+<li>規格：deepseek-flash 與 deepseek-v4-pro 皆 1M context、最大輸出 384K；Flash 支援視覺、Pro 不支援；MIT 授權、權重在 Hugging Face／ModelScope（來源 13、14、15）。定價見 frontmatter（來源 13）。</li>
+<li>官方自報 benchmark（V4.1-Flash-1017 模型卡，使用 Claude Code harness／Mini-SWE-V2）：HLE 無工具 42.6（前版 36.8）、Terminal-Bench 4.0 42.3（前版 31.2）、DeepSWE v1.1 77.0、Chartography（含工具）83.0；同表對照 Opus 5 的 Terminal-Bench 4.0 為 51.8、HLE 56.3（來源 15）。廠商自報、獨立複現【待查】。</li>
+<li>舊名汰換：<code>deepseek-v4-flash</code>、<code>deepseek-v4-flash-vision-exp</code> 已退役但仍可呼叫，請求由 Flash 模型服務並按 Flash 價計費（來源 11）。DeepSeek Harness（agent harness）進入開發者預覽（來源 11）。</li>
+<li>以下為 2026-06 舊內容（其中 V4-Pro 1.6T、API 價 $0.435／$0.87 已為舊值）：</li>
+</ul></li>
 <li>公司：2023-07-17 成立於杭州，創辦人梁文鋒（亦為母公司 High-Flyer CEO），員工約 160 人。[來源1，Wikipedia]</li>
 <li>DeepSeek-V3：2024-12 發布，671B 總參數 / 每 token 啟動 37B（MoE），MIT 授權。MMLU 88.5、MMLU-Pro 75.9、GPQA 59.1（V3 技術報告 arXiv:2412.19437）。[來源4]</li>
 <li>訓練成本宣稱：V3 預訓練 2.788M H800 GPU-hours，以 $2/GPU-hr 估算約 <strong>$5.576M</strong>（僅變動成本，未含前期研究與消融實驗）。[來源4][來源7]</li>
@@ -84,8 +92,13 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>CNBC — Anthropic 指控中國 AI 公司蒸餾 Claude（2026-02-24）：https://www.cnbc.com/2026/02/24/anthropic-openai-china-firms-distillation-deepseek.html</li>
 <li>Morph — DeepSeek V4 Specs/Benchmarks/Pricing（2026）：https://www.morphllm.com/deepseek-v4</li>
 <li>CNBC — Nvidia drops nearly 17% as DeepSeek sparks global tech sell-off（2025-01-27）：https://www.cnbc.com/2025/01/27/nvidia-falls-10percent-in-premarket-trading-as-chinas-deepseek-triggers-global-tech-sell-off.html</li>
+<li>DeepSeek API Docs，首頁／公告（2026-10-21 查閱；舊名汰換、Search／Fetch API）：https://api-docs.deepseek.com/news/news261017（舊名汰換與 Harness developer preview 字句實見於首頁 https://api-docs.deepseek.com/ ，查證修正 2026-10-21 補註）</li>
+<li>DeepSeek API Docs，Updates changelog（2026-07-31→10-17）：https://api-docs.deepseek.com/updates</li>
+<li>DeepSeek API Docs，Models &amp; Pricing（2026-10-21 查閱；尖峰／離峰價）：https://api-docs.deepseek.com/quick_start/pricing/</li>
+<li>Hugging Face，deepseek-ai 組織頁（V4.1-Flash 763B、V4-Pro-0813 1.7T 等）：https://huggingface.co/deepseek-ai</li>
+<li>Hugging Face，DeepSeek-V4.1-Flash-1017 模型卡（MIT、1M context、benchmark）：https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

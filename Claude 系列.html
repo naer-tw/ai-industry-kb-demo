@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Claude 系列｜AI產業知識庫</title><meta name="description" content="Claude 系列是 Anthropic 開發的閉源前沿大型語言模型家族，以「coding／agent（代理）長時程任務」與「安全對齊」為核心定位，分為 Opus（最強）、Sonnet（速度與智慧平衡）、Haiku（最快）三條產品線，是生成式 AI 中游「模型層」與企業／開發者市場的領先者之一。">
 <meta property="og:title" content="Claude 系列"><meta property="og:type" content="article">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Claude 系列", "description": "Claude 系列是 Anthropic 開發的閉源前沿大型語言模型家族，以「coding／agent（代理）長時程任務」與「安全對齊」為核心定位，分為 Opus（最強）、Sonnet（速度與智慧平衡）、Haiku（最快）三條產品線，是生成式 AI 中游「模型層」與企業／開發者市場的領先者之一。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Claude 系列", "description": "Claude 系列是 Anthropic 開發的閉源前沿大型語言模型家族，以「coding／agent（代理）長時程任務」與「安全對齊」為核心定位，分為 Opus（最強）、Sonnet（速度與智慧平衡）、Haiku（最快）三條產品線，是生成式 AI 中游「模型層」與企業／開發者市場的領先者之一。", "datePublished": "2026-06-06", "dateModified": "2026-10-21", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
 :root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
 color:var(--ink);background:var(--bg);line-height:1.75}
@@ -31,7 +31,21 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <p>Claude 系列是 Anthropic 開發的閉源前沿大型語言模型家族，以「coding／agent（代理）長時程任務」與「安全對齊」為核心定位，分為 Opus（最強）、Sonnet（速度與智慧平衡）、Haiku（最快）三條產品線，是生成式 AI 中游「模型層」與企業／開發者市場的領先者之一。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
 <ul>
-<li><strong>目前旗艦：Claude Opus 4.8</strong>，於 2026-05-28 發布，API ID 為 <code>claude-opus-4-8</code>。Anthropic 官方文件定位為「最複雜推理、長時程代理式 coding 與高自主工作」的最強模型（來源 1，Anthropic 官方文件；來源 3，官方公告）。</li>
+<li><strong>【2026-10-21 更新】2026-06→10 新增世代（Claude 5／5.5 家族）</strong>（來源 11–20，Anthropic 官方，除另註）：
+<ul>
+<li><strong>Claude Fable 5</strong>（<code>claude-fable-5</code>）2026-06-09 發布，頂級線，$10／$50，1M context、知識截止 2026-01；同時推出僅限驗證機構的 Claude Mythos 5（取代 2026-06-09 已標 Deprecated 的 <code>claude-mythos-preview</code>）（來源 17）。</li>
+<li><strong>Claude Sonnet 5</strong>（<code>claude-sonnet-5</code>）2026-06-30 發布，$2／$10（來源 15）。</li>
+<li><strong>Claude Opus 5</strong>（<code>claude-opus-5</code>）2026-07-24 發布，$5／$25（與 Opus 4.8 同價），知識截止 2026-05（來源 14）。</li>
+<li><strong>Claude Fable 5.1</strong>（<code>claude-fable-5-1</code>）：官方文件載發布日 2026-09-01（來源 12）；官方新聞頁列「Introducing Claude Mythos and Fable 5.1」為 2026-09-15——兩日期不一致，【待查】以文件為準。價格不變 $10／$50，快取讀降 75% 至 $0.25；官方稱典型工作負載成本降約 25%、高度代理型最多約 45%。<strong>Mythos 5.1</strong> 為同一模型、不同安全機制，官方稱將經兩個受信任存取計畫提供：Life Sciences Verification Program 已與美國政府合作收首批參與者，Cyber Verification Program 則「近期」才納入 Mythos 級模型；目前僅提供給一批美國機構（來源 13）（查證修正 2026-10-21：原寫「僅經 Cyber／Life Sciences 計畫提供」，發布稿載 CVP 尚未納入；但文件頁（來源 12）以 CVP 為例，兩官方來源說法不一，CVP 現況【待查】）。</li>
+<li><strong>Claude Opus 5.5</strong>（<code>claude-opus-5-5</code>）2026-09-22 發布，$4／$20（Opus 5 為 $5／$25），官方稱「大部分工作達 Fable 5.1 水準」、典型成本較 Opus 5 約低 40%、輸出快 30% 以上；官方現行推薦「多數工作負載先用 Opus 5.5」（來源 11、16）。</li>
+<li><strong>Claude Sonnet 5.5</strong>（<code>claude-sonnet-5-5</code>）2026-09-28 發布，$2／$10 不變、快取讀降至 $0.10，官方稱較 Sonnet 5 快 30% 以上、每任務成本最多低 30%（來源 18）。</li>
+<li><strong>Claude Haiku 5.5</strong>（<code>claude-haiku-5-5</code>）2026-10-07 發布，定價 $0.10／$0.50 起（prompt ≤100k；&gt;100k 為 $0.50／$2.50），官方稱較 Haiku 4.5 平均便宜約 75%，並已具 1M context、128K 輸出（來源 11、19）。</li>
+<li><strong>規格共通</strong>：Fable 5.1／Opus 5.5／Sonnet 5.5／Haiku 5.5 皆 1M context、最大輸出 128K、知識截止 2026-06、文字＋影像輸入文字輸出、自適應思考（Fable 5.1 與 Opus 5.5 思考無法關閉）；預設 effort 依序 high／medium／high／medium（來源 11）。</li>
+<li><strong>官方自報 benchmark（2026-09/10，均為 Anthropic 發布稿自報、未經獨立重現）</strong>：Opus 5.5／Fable 5.1／Opus 5 於 Terminal-Bench 4.0 分別為 66.4%／55.8%／52.3%（OpenAI GPT-6 Astra 57.9%、GPT-5.6 Sol 37.3%）；GDPval-AA v2.1 Elo 1846／1735／1708；Humanity’s Last Exam（含工具）67.7%／65.6%／63.6%；OSWorld 2.1（partial）81.8%／80.7%／74.0%（來源 16）。Sonnet 5.5：Terminal-Bench 4.0 70.6%、CursorBench 4.0 55.5%、GDPval-AA 1844、OSWorld 2.1 80.1%（來源 18）。Haiku 5.5：GDPval-AA 1620、OSWorld 2.1（offline 子集）72.4%、Terminal-Bench 4.0 39.2%（來源 19）。註：各代 benchmark 版本（如 Terminal-Bench 4.0、GDPval-AA v2.1）與 2026-05 舊頁不同，數字不可與舊頁 Opus 4.8 數據直接比較。</li>
+<li><strong>汰換</strong>：Opus 4.1 於 2026-08-05 退役；Sonnet 4.5 於 2026-09-30 公告 2026-11-30 退役（建議改 Sonnet 5.5）；Haiku 4.5 最早 2026-10-15 可退役；Opus 4.8／4.7／4.6 仍為 Active（來源 20）。</li>
+<li>查證日 2026-10-21：Artificial Analysis 對 Opus 5.5／Fable 5.1 的獨立指數【待查】（本輪未取得獨立評測頁），故下方「目前旗艦 Opus 4.8」及 AA 61.4 分為 2026-05 舊事實。</li>
+</ul></li>
+<li><strong>（2026-05 舊）旗艦：Claude Opus 4.8</strong>，於 2026-05-28 發布，API ID 為 <code>claude-opus-4-8</code>。Anthropic 官方文件定位為「最複雜推理、長時程代理式 coding 與高自主工作」的最強模型（來源 1，Anthropic 官方文件；來源 3，官方公告）。</li>
 <li><strong>發布時間線（4.5 世代起）</strong>：Sonnet 4.5（2025-09-29）→ Haiku 4.5（2025-10）→ Opus 4.5（2025-11-24）→ Opus 4.6 與 Sonnet 4.6（2026-02）→ Opus 4.7（2026-04）→ Opus 4.8（2026-05-28）；更早為 Claude 3／3.5／4／4.1 等世代（來源 1、3、4，Anthropic 官方）。</li>
 <li><strong>授權與形態</strong>：閉源專有模型，無權重釋出；僅透過 Claude API、Claude Platform on AWS、Amazon Bedrock、Vertex AI、Microsoft Foundry 與 claude.ai 提供（來源 1，Anthropic 官方文件）。</li>
 <li><strong>模態與規格</strong>：所有現役模型皆支援文字＋影像輸入、文字輸出、多語言與視覺。Opus 4.8 採自適應思考、context window 100 萬 token（Microsoft Foundry 上為 20 萬）、最大輸出 12.8 萬 token，可靠知識截止 2026-01（來源 1，Anthropic 官方文件）。</li>
@@ -52,11 +66,12 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 </ul>
 <h2 id="現況與最新動態20242026">現況與最新動態（2024–2026）</h2>
 <ul>
-<li><strong>旗艦快速迭代</strong>：自 2025-11 Opus 4.5 起，約每 1–2 個月推進一個小版號，至 2026-05 已達 Opus 4.8，主打 coding、代理任務與電腦操作的連續登頂（來源 1、3、5）。</li>
-<li><strong>百萬 token 長脈絡常態化</strong>：Opus 4.8／4.7／4.6 與 Sonnet 4.6 皆內建 100 萬 token context，且以標準價計費（90 萬 token 請求與 9 千 token 同單價）（來源 2，Anthropic 官方）。</li>
-<li><strong>Claude Code 商業化</strong>：2025-05 正式上線，2025-11 年化營收破 10 億美元，2026-02 達 25 億美元年化（來源 8 衍生報導）。</li>
-<li><strong>母公司爆發成長</strong>：Anthropic 年化營收 2025 年底約 90 億美元，至 2026-05 官方證實突破 470 億美元；2026-02-12 完成 300 億美元 G 輪、投後估值 3,800 億美元（來源 7，Anthropic 官方）；2026-05-28 再完成 650 億美元 H 輪、投後估值 9,650 億美元，由 Altimeter、Dragoneer、Greenoaks、Sequoia 領投，超越 OpenAI 成全球最高估值 AI 新創（來源 9，Anthropic 官方）；隨後於 2026-06-01 以該 9,650 億美元估值機密申請 IPO（來源 10，Fortune／CNBC 報導；股數與定價尚未確定）。</li>
-<li><strong>Project Glasswing／Claude Mythos Preview</strong>：Anthropic 推出僅限邀請的防禦性網路安全研究預覽模型 Mythos，與一般 Claude 產品線分流（來源 1，Anthropic 官方文件）。</li>
+<li><p><strong>【2026-10-21】產品線已全面升至 5／5.5 世代</strong>（見上方「2026-06→10 新增世代」）：頂級 Fable 5.1（$10／$50）、主力 Opus 5.5（$4／$20）、Sonnet 5.5（$2／$10）、Haiku 5.5（$0.10／$0.50 起）；Opus 5.5 較 Opus 5 降價並被官方定為多數工作的起點（來源 11、16）。</p></li>
+<li><p><strong>旗艦快速迭代</strong>：自 2025-11 Opus 4.5 起，約每 1–2 個月推進一個小版號，至 2026-05 已達 Opus 4.8，主打 coding、代理任務與電腦操作的連續登頂（來源 1、3、5）。</p></li>
+<li><p><strong>百萬 token 長脈絡常態化</strong>：Opus 4.8／4.7／4.6 與 Sonnet 4.6 皆內建 100 萬 token context，且以標準價計費（90 萬 token 請求與 9 千 token 同單價）（來源 2，Anthropic 官方）。</p></li>
+<li><p><strong>Claude Code 商業化</strong>：2025-05 正式上線，2025-11 年化營收破 10 億美元，2026-02 達 25 億美元年化（來源 8 衍生報導）。</p></li>
+<li><p><strong>母公司爆發成長</strong>：Anthropic 年化營收 2025 年底約 90 億美元，至 2026-05 官方證實突破 470 億美元；2026-02-12 完成 300 億美元 G 輪、投後估值 3,800 億美元（來源 7，Anthropic 官方）；2026-05-28 再完成 650 億美元 H 輪、投後估值 9,650 億美元，由 Altimeter、Dragoneer、Greenoaks、Sequoia 領投，超越 OpenAI 成全球最高估值 AI 新創（來源 9，Anthropic 官方）；隨後於 2026-06-01 以該 9,650 億美元估值機密申請 IPO（來源 10，Fortune／CNBC 報導；股數與定價尚未確定）。</p></li>
+<li><p><strong>Project Glasswing／Claude Mythos Preview</strong>：Anthropic 推出僅限邀請的防禦性網路安全研究預覽模型 Mythos，與一般 Claude 產品線分流（來源 1，Anthropic 官方文件）。</p></li>
 </ul>
 <h2 id="危機-變化-風險">危機 / 變化 / 風險</h2>
 <ul>
@@ -88,8 +103,18 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>Simon Willison，Anthropic 年化營收達 470 億美元（2026-05-29，引述 SemiAnalysis）：https://simonwillison.net/2026/May/29/anthropic/</li>
 <li>Anthropic 官方新聞稿，650 億美元 H 輪、9,650 億美元投後估值（2026-05-28；並證實年化營收當月突破 470 億美元）：https://www.anthropic.com/news/series-h</li>
 <li>Fortune，Anthropic 以 9,650 億美元估值機密申請 IPO（2026-06-01）：https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/</li>
+<li>Anthropic 官方文件，Models overview（2026-10-21 查閱；Fable 5.1／Opus 5.5／Sonnet 5.5／Haiku 5.5 規格、定價、退役日）：https://platform.claude.com/docs/en/about-claude/models/overview</li>
+<li>Anthropic 官方文件，Claude Fable 5.1 overview（發布日 2026-09-01，$10／$50）：https://platform.claude.com/docs/en/models/fable-5-1/overview</li>
+<li>Anthropic 官方公告，Claude Fable 5.1 與 Mythos 5.1（2026-09；benchmark 與 Mythos 授權範圍）：https://www.anthropic.com/claude-fable-and-mythos-5-1</li>
+<li>Anthropic 官方文件，Claude Opus 5 overview（2026-07-24 發布，$5／$25）：https://platform.claude.com/docs/en/models/opus-5/overview</li>
+<li>Anthropic 官方文件，Claude Sonnet 5 overview（2026-06-30 發布）：https://platform.claude.com/docs/en/models/sonnet-5/overview</li>
+<li>Anthropic 官方公告，Introducing Claude Opus 5.5（2026-09-22；定價與 benchmark 對照表）：https://www.anthropic.com/news/claude-opus-5-5</li>
+<li>Anthropic 官方文件，Claude Fable 5 overview（2026-06-09 發布，Mythos 5 分流）：https://platform.claude.com/docs/en/models/fable-5/overview</li>
+<li>Anthropic 官方公告，Introducing Claude Sonnet 5.5（2026-09-28）：https://www.anthropic.com/news/claude-sonnet-5-5</li>
+<li>Anthropic 官方公告，Introducing Claude Haiku 5.5（2026-10-07）：https://www.anthropic.com/news/claude-haiku-5-5</li>
+<li>Anthropic 官方文件，Model deprecations（2026-10-21 查閱）：https://platform.claude.com/docs/en/about-claude/model-deprecations</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

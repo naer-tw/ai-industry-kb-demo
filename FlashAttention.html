@@ -27,6 +27,9 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 </style></head>
 <body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
 <main><article><h1 id="flashattention">FlashAttention</h1>
+<blockquote>
+<p><strong>時效提示</strong>：本頁數據基準日 2026-06-06；2026-10-21 月度掃描標記 6 處時效性陳述待更新（本輪未刷新）。 待更新處：FA4（2026-03-05）前向 BF16 約 1,605–1,613 TFLOPs/s，較 cuDNN 9.13 快 1.3 倍；截至 2025-10 已整合進 PyTorch、HF、vLLM、TensorRT-LLM；GitHub 約 24.1k stars；最新版 fa4-v4.0.0.beta4（2026-03-05）；版本演進至第四代：FA3（2024）→ FA4（2026）；FA4 在 Blackwell 上較 cuDNN 9.13 仍快約 1.3 倍，NVIDIA 已吸納；事實上已是 LLM 基礎設施，成為預設或標準選項</p>
+</blockquote>
 <h2 id="一句話定義">一句話定義</h2>
 <p>FlashAttention 是一種「IO-aware（記憶體存取感知）」的精確注意力（attention）運算演算法，透過分塊（tiling）與重算（recomputation）大幅減少 GPU 高頻寬記憶體（HBM）與晶片內 SRAM 之間的資料搬移，讓 Transformer 在更省記憶體、更快速度下支援超長 context，是當代大型語言模型訓練與推論的關鍵底層核心（kernel）。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
@@ -81,6 +84,6 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>VentureBeat FlashAttention-3 報導：https://venturebeat.com/ai/flashattention-3-unleashes-the-power-of-h100-gpus-for-llms</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

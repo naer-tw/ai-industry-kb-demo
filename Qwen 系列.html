@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Qwen 系列｜AI產業知識庫</title><meta name="description" content="Qwen（通義千問）是阿里巴巴／阿里雲開發的大型語言模型家族，以「開源權重 + 多尺寸 + 多模態」策略成為全球下載量最高的開源模型生態系，並以閉源旗艦（Qwen-Max 系列）對標 GPT/Gemini/Claude 頂尖閉源模型。">
 <meta property="og:title" content="Qwen 系列"><meta property="og:type" content="article">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Qwen 系列", "description": "Qwen（通義千問）是阿里巴巴／阿里雲開發的大型語言模型家族，以「開源權重 + 多尺寸 + 多模態」策略成為全球下載量最高的開源模型生態系，並以閉源旗艦（Qwen-Max 系列）對標 GPT/Gemini/Claude 頂尖閉源模型。", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Qwen 系列", "description": "Qwen（通義千問）是阿里巴巴／阿里雲開發的大型語言模型家族，以「開源權重 + 多尺寸 + 多模態」策略成為全球下載量最高的開源模型生態系，並以閉源旗艦（Qwen-Max 系列）對標 GPT/Gemini/Claude 頂尖閉源模型。", "datePublished": "2026-06-06", "dateModified": "2026-10-21", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
 :root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
 color:var(--ink);background:var(--bg);line-height:1.75}
@@ -31,6 +31,14 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <p>Qwen（通義千問）是阿里巴巴／阿里雲開發的大型語言模型家族，以「開源權重 + 多尺寸 + 多模態」策略成為全球下載量最高的開源模型生態系，並以閉源旗艦（Qwen-Max 系列）對標 GPT/Gemini/Claude 頂尖閉源模型。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
 <ul>
+<li><strong>【2026-10-21 更新】2026-06→10 新版本</strong>（來源 11–15）：
+<ul>
+<li><strong>Qwen3.8 家族</strong>（Hugging Face 組織頁，卡片標示 2026-08）：<strong>Qwen3.8-2.4T-A95B</strong>（文字模型，2.4 兆總參數／95B 啟用 MoE、92 層、512 專家、原生 262,144 token context 可延伸至 1,010,000；為閉源託管版 <strong>Qwen3.8-Max</strong> 的對應權重，授權為自訂「qwen3.8-max」license，非 Apache）；<strong>Qwen3.8-27B</strong>（27B 密集、含視覺編碼器、Apache 2.0）；<strong>Qwen3.8-Flash-Next</strong>（約 125B 總參數／6B 啟用、實驗性開放權重、qwen-community-1.0 授權）；另有 Qwen-Drive-1.0-4B（2026-09-02）、Qwen-Image-2.1 系列、Qwen3Guard-Stream（來源 11–14）。</li>
+<li>官方自報 benchmark（Qwen3.8-Max 對比表，卡片稱 Fable 5 結果可能含 fallback、各家 harness 不同）：Terminal Bench 2.1 86.6（Opus 4.8＝84.6、GPT 5.6 Sol max＝88.8）、SWE-bench Pro 67.7（Fable 5＝80.0）、GPQA Diamond 92.6、HLE 43.6（Fable 5＝53.3）、IFBench 82.8、WideSearch 81.9、MRCR v2 256K 92.9（來源 12）；Qwen3.8-27B：SWE-bench Pro 61.7、OSWorld-Verified 84.3、GPQA Diamond 89.2（來源 13）。均為廠商自報、未見獨立評測【待查】。</li>
+<li>前幾代：卡片與定價頁顯示期間已有 Qwen3.6（含 27B、35B-A3B 開源）與 Qwen3.7-Max／Qwen3.7-Plus；其發布日【待查】（本輪官方頁未載日期）（查證修正 2026-10-21：Qwen3.6-35B-A3B 的 HF 卡引用標 2026-04、Apache 2.0，早於 2026-06，非本期新版；定價頁稱 qwen3.7-max 等同 qwen3.7-max-2026-05-20 快照）。</li>
+<li><strong>阿里雲 Model Studio 定價（頁面更新 2026-10-19，USD／百萬 token）</strong>：qwen3.8-max 新加坡 $2／$6、全球區（香港、德、日、美全球）$1.65／$4.951；qwen3.8-max-prime（快速模式，限中國北京區）$3.301／$9.902；qwen3.7-max 新加坡 $2.5／$7.5；qwen3.7-plus 新加坡 $0.4／$1.6（≤256K，限時 8 折）；qwen3.6-plus $0.5／$3（來源 15）（查證修正 2026-10-21：頁面更新日原誤植 10-11，實為 10-19；全球區不含北京，prime 版僅北京區）。</li>
+<li>以下為 2026-06 舊內容；其中「Qwen3.5-397B 為現主力旗艦」已被 Qwen3.8 取代：</li>
+</ul></li>
 <li><strong>開發者</strong>：阿里巴巴集團 / 阿里雲，由 Qwen 團隊負責（Wikipedia，2026）。</li>
 <li><strong>起源時間線</strong>：初代 Qwen 2023-04 beta、2023-09 公開；Qwen2 2024-06；Qwen2.5 2024-09；Qwen3 2025-04-28/29；Qwen3-Max 2025-09-23；Qwen3.5 2026-02-16（Wikipedia / Alibaba Cloud blog / Artificial Analysis）。</li>
 <li><strong>Qwen3 旗艦（開源）</strong>：Qwen3-235B-A22B，MoE 架構，總參數 235B、每 token 啟動 22B；採 <strong>Apache 2.0</strong> 授權；2025-04-29 發布（官方 Qwen blog / Alibaba Cloud）。</li>
@@ -89,8 +97,13 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>Qwen3-Coder 官方 blog（SWE-bench Verified 69.6%）：https://qwenlm.github.io/blog/qwen3-coder/</li>
 <li>eesel AI — Qwen pricing 2026（各模型 API 定價）：https://www.eesel.ai/blog/qwen-pricing</li>
 <li>Pandaily — Qwen 突破 10 億下載、20 萬衍生模型：https://pandaily.com/alibaba-s-qwen-open-source-models-surpass-1-billion-downloads-ranking-first-globally</li>
+<li>Hugging Face，Qwen 組織頁（2026-10-21 查閱；Qwen3.8 家族清單）：https://huggingface.co/Qwen</li>
+<li>Hugging Face，Qwen3.8-2.4T-A95B 模型卡（規格、授權、Qwen3.8-Max 對比 benchmark）：https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B</li>
+<li>Hugging Face，Qwen3.8-27B 模型卡（Apache 2.0、benchmark）：https://huggingface.co/Qwen/Qwen3.8-27B</li>
+<li>Hugging Face，Qwen3.8-Flash-Next 模型卡（125B／6B 啟用、qwen-community-1.0）：https://huggingface.co/Qwen/Qwen3.8-Flash-Next</li>
+<li>阿里雲 Model Studio，Model pricing（頁面更新 2026-10-19；查證修正 2026-10-21）：https://www.alibabacloud.com/help/en/model-studio/model-pricing</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

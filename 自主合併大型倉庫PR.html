@@ -5,7 +5,7 @@
  一句話定義（這個可交付物是什麼）
 給 AI 一個「大型生產倉庫」的開放式 feature ticket（自然語言、需求未完全規格化），由 AI 全自動定位程式碼、實作、過測試、開 PR，且在「無任何人工審查或介入」下穩定合併到主幹，一次合併成功率 >90%。重點不在「能不能寫出 pa">
 <meta property="og:title" content="自主合併大型倉庫PR"><meta property="og:type" content="article">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "自主合併大型倉庫PR", "description": "自主合併大型倉庫PR\n\n 一句話定義（這個可交付物是什麼）\n給 AI 一個「大型生產倉庫」的開放式 feature ticket（自然語言、需求未完全規格化），由 AI 全自動定位程式碼、實作、過測試、開 PR，且在「無任何人工審查或介入」下穩定合併到主幹，一次合併成功率 >90%。重點不在「能不能寫出 pa", "datePublished": "2026-06-06", "dateModified": "2026-06-26", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "自主合併大型倉庫PR", "description": "自主合併大型倉庫PR\n\n 一句話定義（這個可交付物是什麼）\n給 AI 一個「大型生產倉庫」的開放式 feature ticket（自然語言、需求未完全規格化），由 AI 全自動定位程式碼、實作、過測試、開 PR，且在「無任何人工審查或介入」下穩定合併到主幹，一次合併成功率 >90%。重點不在「能不能寫出 pa", "datePublished": "2026-06-06", "dateModified": "2026-10-21", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
 :root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
 color:var(--ink);background:var(--bg);line-height:1.75}
@@ -32,34 +32,29 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <main><article><h1 id="自主合併大型倉庫pr">自主合併大型倉庫PR</h1>
 <h2 id="一句話定義這個可交付物是什麼">一句話定義（這個可交付物是什麼）</h2>
 <p>給 AI 一個「大型生產倉庫」的開放式 feature ticket（自然語言、需求未完全規格化），由 AI 全自動定位程式碼、實作、過測試、開 PR，且在「無任何人工審查或介入」下穩定合併到主幹，一次合併成功率 &gt;90%。重點不在「能不能寫出 patch」，而在「不需人看就敢進 main 且九成以上一次過」。</p>
-<h2 id="難度評分綜合-810技術-7落地-9-理由引-benchmark-與部署">難度評分（綜合 8/10：技術 7、落地 9）— 理由(引 benchmark 與部署)</h2>
-<ul>
-<li><strong>技術 7</strong>：模型「寫得出可用 patch」已從前沿邁向可用，但<strong>最貼近本任務的大型/商業倉庫 benchmark 仍遠低於 90%</strong>。SWE-bench Pro（1,865 題、41 個真實/專有倉庫、平均改 107 行跨 4 個檔）標準化榜首 GPT-5.4 僅 59.1%，廠商自報 Claude Opus 4.8 也只有 69.2%（2026-06-18）。較簡單的 SWE-bench Verified（500 題 Python）已達 Opus 4.8 88.6%（2026-05-28），但那是「規格清楚、單倉庫」的測項，<strong>最貼近本任務的 Pro 仍只有 60-69%</strong>。技術成熟但「大型倉庫一次過 90%」尚未達標，故給 7 而非更低。</li>
-<li><strong>落地 9</strong>：本任務的真正障礙在「無人工介入 + &gt;90% 一次合併」這個信任門檻。生產數據顯示自主 PR 合併率<strong>收斂在約 67-68%</strong>（Devin 67%、微軟 .NET 團隊 Copilot 878 個 PR 合併 535、67.9%），且<strong>所有主流系統都強制人工審查、agent 不可自行 merge</strong>。完全無人審查的「dark factory」目前僅用於重構/測試/相依升級等窄域、低風險任務，開放式 feature ticket 仍須人把關。可靠性、責任歸屬、安全與監管信任未解，故落地給 9。</li>
-<li><strong>綜合 8</strong>：技術接近、落地遠未到。整體屬「實驗室/早期、可靠性低或落地障礙大」區間偏上，定 8（與 P1 初判一致）。</li>
-<li>查證重評：8/7/9（與原評一致，無 divergence。所有 benchmark／生產數據經 2026-06-26 反查屬實；唯 SWE-bench Verified 已由 Opus 4.6 80.8% 更新為 Opus 4.8 88.6%<span class="citation" data-cites="2026-05-28">@2026-05-28</span>，但屬單倉庫規格清楚測項，不影響「大型開放式倉庫無人介入 &gt;90%」未達標的結論，故分數不變）。</li>
-</ul>
+<h2 id="難度評分綜合-710技術-6落地-8-理由引-benchmark-與部署">難度評分（綜合 7/10：技術 6、落地 8）— 理由(引 benchmark 與部署)</h2>
+<p><em>下列評分理由為 2026-06 原評（當時 7/9/8）；2026-10-21 重校後分數與證據見本章節末「2026-10-21 重校」條。</em> - <strong>技術 7</strong>：模型「寫得出可用 patch」已從前沿邁向可用，但<strong>最貼近本任務的大型/商業倉庫 benchmark 仍遠低於 90%</strong>。SWE-bench Pro（1,865 題、41 個真實/專有倉庫、平均改 107 行跨 4 個檔）標準化榜首 GPT-5.4 僅 59.1%，廠商自報 Claude Opus 4.8 也只有 69.2%（2026-06-18）。較簡單的 SWE-bench Verified（500 題 Python）已達 Opus 4.8 88.6%（2026-05-28），但那是「規格清楚、單倉庫」的測項，<strong>最貼近本任務的 Pro 仍只有 60-69%</strong>。技術成熟但「大型倉庫一次過 90%」尚未達標，故給 7 而非更低。 - <strong>落地 9</strong>：本任務的真正障礙在「無人工介入 + &gt;90% 一次合併」這個信任門檻。生產數據顯示自主 PR 合併率<strong>收斂在約 67-68%</strong>（Devin 67%、微軟 .NET 團隊 Copilot 878 個 PR 合併 535、67.9%），且<strong>所有主流系統都強制人工審查、agent 不可自行 merge</strong>。完全無人審查的「dark factory」目前僅用於重構/測試/相依升級等窄域、低風險任務，開放式 feature ticket 仍須人把關。可靠性、責任歸屬、安全與監管信任未解，故落地給 9。 - <strong>綜合 8</strong>：技術接近、落地遠未到。整體屬「實驗室/早期、可靠性低或落地障礙大」區間偏上，定 8（與 P1 初判一致）。 - 查證重評：8/7/9（與原評一致，無 divergence。所有 benchmark／生產數據經 2026-06-26 反查屬實；唯 SWE-bench Verified 已由 Opus 4.6 80.8% 更新為 Opus 4.8 88.6%<span class="citation" data-cites="2026-05-28">@2026-05-28</span>，但屬單倉庫規格清楚測項，不影響「大型開放式倉庫無人介入 &gt;90%」未達標的結論，故分數不變）。 - <strong>2026-10-21 重校</strong>：tech/deploy/綜合 7/9/8→6/8/7；證據：https://benchlm.ai/md/benchmarks/swe-bench-pro.md（2026-10-20）；https://dev.to/raxxostudios/claude-opus-5-benchmarks-what-the-numbers-actually-show-35gf（2026-07-26）；https://amplifying.ai/coding-agents/autonomy.md（2026-08-28）；獨立盲評 5/7/7，一致。</p>
 <h2 id="實證一benchmark測項分數日期來源">實證一：Benchmark（測項＋分數＋日期＋來源）</h2>
 <ul>
 <li><strong>SWE-bench Pro</strong>（最貼近本任務：大型真實/專有倉庫、長程任務、過倉庫測試套件）
 <ul>
-<li>標準化（Scale SEAL 公開集）：GPT-5.4(xHigh) <strong>59.1%</strong>；Claude Opus 4.6(thinking) 51.9%；Gemini 3.1 Pro 46.1%（2026-06-18，morphllm 榜）。</li>
-<li>廠商自報（自有 scaffolding）：Claude Opus 4.8 <strong>69.2%</strong>（同日，數字高於標準化方法）。</li>
+<li>標準化（Scale SEAL 公開集）：GPT-5.4(xHigh) <strong>59.1%</strong>；Claude Opus 4.6(thinking) 51.9%；Gemini 3.1 Pro 46.1%（2026-06-18，morphllm 榜）。（2026-06 數據；2026-10 重校見難度評分章節）</li>
+<li>廠商自報（自有 scaffolding）：Claude Opus 4.8 <strong>69.2%</strong>（同日，數字高於標準化方法）。（2026-06 數據；2026-10 重校見難度評分章節）</li>
 </ul></li>
 <li><strong>SWE-bench Verified</strong>（較簡單，僅 Python、12 倉庫 500 題）：2026-05-28 Claude Opus 4.8 已達 <strong>88.6%</strong>（Opus 4.6 80.8%、Gemini 3.1 Pro 80.6%）；早期 2026 Claude 4 Sonnet 77.2%、GPT-5 74.9%。注意此測項為單倉庫、規格清楚，與本任務（大型/多倉、開放式）落差大，不可外推。</li>
-<li>解讀：即便最強模型在「最像本任務」的測項也僅約 60-69%，距 &gt;90% 一次合併目標有 20-30 個百分點落差；且 benchmark 是「過測試」而非「無人審查進 main」，後者門檻更高。</li>
+<li>解讀：即便最強模型在「最像本任務」的測項也僅約 60-69%，距 &gt;90% 一次合併目標有 20-30 個百分點落差；且 benchmark 是「過測試」而非「無人審查進 main」，後者門檻更高。（2026-06 數據；2026-10 重校見難度評分章節）</li>
 </ul>
 <h2 id="實證二真實部署產品案例誰用規模成效">實證二：真實部署/產品案例（誰用、規模、成效）</h2>
 <ul>
-<li><strong>Cognition Devin</strong>：PR 合併率由前一年 34% 升至 <strong>67%</strong>（2026）；官方定位仍為「初級工程師等級」，要求 scoped access、PR 交付、CI gate、<strong>強制人工 review</strong>。</li>
-<li><strong>微軟 .NET 團隊 + GitHub Copilot coding agent</strong>：2025-05～2026-03 開出 878 個 PR、合併 535 個（<strong>67.9%</strong>），回退率 0.6%（優於人工 0.8%）。但 <strong>agent 不能自行核可或 merge，永遠交人審查</strong>。</li>
-<li><strong>Stripe Minions</strong>：每週產出逾千個 AI PR，<strong>仍由人審查</strong>。</li>
-<li><strong>整體</strong>：2026 約 18% 已合併 PR 的主要/協作作者為 coding agent；但「無人審查直接進 main」（dark factory）僅在重構、寫測試、文件、相依升級等窄域、可控失敗範圍內落地。<strong>尚無針對「大型倉庫開放式 feature ticket、無人介入、&gt;90% 一次合併」的規模化部署證據。</strong></li>
+<li><strong>Cognition Devin</strong>：PR 合併率由前一年 34% 升至 <strong>67%</strong>（2026）；官方定位仍為「初級工程師等級」，要求 scoped access、PR 交付、CI gate、<strong>強制人工 review</strong>。（2026-06 數據；2026-10 重校見難度評分章節）</li>
+<li><strong>微軟 .NET 團隊 + GitHub Copilot coding agent</strong>：2025-05～2026-03 開出 878 個 PR、合併 535 個（<strong>67.9%</strong>），回退率 0.6%（優於人工 0.8%）。但 <strong>agent 不能自行核可或 merge，永遠交人審查</strong>。（2026-06 數據；2026-10 重校見難度評分章節）</li>
+<li><strong>Stripe Minions</strong>：每週產出逾千個 AI PR，<strong>仍由人審查</strong>。（2026-06 數據；2026-10 重校見難度評分章節）</li>
+<li><strong>整體</strong>：2026 約 18% 已合併 PR 的主要/協作作者為 coding agent；但「無人審查直接進 main」（dark factory）僅在重構、寫測試、文件、相依升級等窄域、可控失敗範圍內落地。<strong>尚無針對「大型倉庫開放式 feature ticket、無人介入、&gt;90% 一次合併」的規模化部署證據。</strong>（2026-06 數據；2026-10 重校見難度評分章節）</li>
 </ul>
 <h2 id="現況與邊界ai-目前做得到做不到">現況與邊界（AI 目前做得到/做不到）</h2>
 <ul>
-<li><strong>做得到</strong>：在中小型或規格清楚的任務上自動開 PR、過 CI；窄域任務（重構/測試/相依升級）可近乎自主；生產合併率約 2/3。</li>
-<li><strong>做不到（本任務的缺口）</strong>：① 大型倉庫長程任務一次過率僅約 60-69%（benchmark）/67-68%（生產），未達 90%；② 「無人介入」未被任何主流系統允許於開放式 feature ——皆強制人工 review，agent 不可自 merge；③ 開放式（需求模糊）ticket 的需求釐清、跨檔副作用、安全/邊界案例仍是主要失敗模式。</li>
+<li><strong>做得到</strong>：在中小型或規格清楚的任務上自動開 PR、過 CI；窄域任務（重構/測試/相依升級）可近乎自主；生產合併率約 2/3。（2026-06 數據；2026-10 重校見難度評分章節）</li>
+<li><strong>做不到（本任務的缺口）</strong>：① 大型倉庫長程任務一次過率僅約 60-69%（benchmark）/67-68%（生產），未達 90%；② 「無人介入」未被任何主流系統允許於開放式 feature ——皆強制人工 review，agent 不可自 merge；③ 開放式（需求模糊）ticket 的需求釐清、跨檔副作用、安全/邊界案例仍是主要失敗模式。（2026-06 數據；2026-10 重校見難度評分章節）</li>
 <li>結論：技術正快速逼近「能寫」，但「無人敢放手 + 九成一次過」屬尚未跨越的信任與可靠性門檻。</li>
 </ul>
 <h2 id="相關實體">相關實體</h2>
@@ -74,6 +69,6 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>Vellum：Claude Opus 4.8 benchmarks（SWE-bench Verified 88.6%、Pro 69.2%，發布 2026-05-28）— https://www.vellum.ai/blog/claude-opus-4-8-benchmarks-explained</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

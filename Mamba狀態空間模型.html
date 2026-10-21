@@ -27,6 +27,9 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 </style></head>
 <body><header class="site"><a href="index.html">AI產業知識庫</a><span>技術</span></header>
 <main><article><h1 id="mamba狀態空間模型">Mamba狀態空間模型</h1>
+<blockquote>
+<p><strong>時效提示</strong>：本頁數據基準日 2026-06-06；2026-10-21 月度掃描標記 6 處時效性陳述待更新（本輪未刷新）。 待更新處：Mamba-3 在 1.5B 規模下游平均準確率較次佳高約 0.6 個百分點；IBM Granite 4.0（2025-10）官方稱記憶體減少逾 70%；2026 年 6 月 NVIDIA 釋出 Nemotron 3 Ultra（550B MoE 混合）；生態系成熟度仍落後 Transformer；目前訊號顯示 SSM 與注意力為「互補」而非「誰淘汰誰」；純 Mamba 較少單獨部署於旗艦模型（判斷句，時態待查）</p>
+</blockquote>
 <h2 id="一句話定義">一句話定義</h2>
 <p>Mamba 是一種以「選擇性狀態空間模型（Selective State Space Model, SSM）」為核心的序列建模架構，用一個隨時間演進的固定大小「狀態」來壓縮並攜帶序列歷史資訊，使運算量隨序列長度「線性（O(N)）」成長、推論時記憶體與每步運算量近乎「常數」——藉此挑戰 <a href="Transformer.html">Transformer</a> 自注意力 O(N²) 的二次方瓶頸，成為長序列、長上下文場景的主要替代與互補架構。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
@@ -75,6 +78,6 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>MarkTechPost, NVIDIA Nemotron 3 Ultra(550B MoE 混合 Mamba-Transformer), 2026-06-04 — https://www.marktechpost.com/2026/06/04/nvidia-ai-releases-nemotron-3-ultra-an-open-550b-mixture-of-experts-hybrid-mamba-transformer-for-long-running-agents/</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>

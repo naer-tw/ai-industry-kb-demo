@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Grok 系列｜AI產業知識庫</title><meta name="description" content="Grok 系列是馬斯克旗下 xAI 開發的大型語言模型家族，主打與 X（Twitter）整合的「即時資料」存取、「政治不正確／追求真相」的人設，以及多代快速迭代的前沿推理能力，是 AI 中游模型層中由 OpenAI、Google、Anthropic 之外少數靠超大算力（Colossus 叢集）硬拚 SOTA ">
 <meta property="og:title" content="Grok 系列"><meta property="og:type" content="article">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Grok 系列", "description": "Grok 系列是馬斯克旗下 xAI 開發的大型語言模型家族，主打與 X（Twitter）整合的「即時資料」存取、「政治不正確／追求真相」的人設，以及多代快速迭代的前沿推理能力，是 AI 中游模型層中由 OpenAI、Google、Anthropic 之外少數靠超大算力（Colossus 叢集）硬拚 SOTA ", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Grok 系列", "description": "Grok 系列是馬斯克旗下 xAI 開發的大型語言模型家族，主打與 X（Twitter）整合的「即時資料」存取、「政治不正確／追求真相」的人設，以及多代快速迭代的前沿推理能力，是 AI 中游模型層中由 OpenAI、Google、Anthropic 之外少數靠超大算力（Colossus 叢集）硬拚 SOTA ", "datePublished": "2026-06-06", "dateModified": "2026-10-21", "author": {"@type": "Organization", "name": "AI產業知識庫"}, "inLanguage": "zh-Hant"}</script><style>
 :root{--ink:#1a1a1a;--mut:#6b6b6b;--line:#e3e0d8;--bg:#faf8f3;--acc:#1b4965;--gold:#b8860b}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Noto Sans TC',sans-serif;
 color:var(--ink);background:var(--bg);line-height:1.75}
@@ -31,6 +31,15 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <p>Grok 系列是馬斯克旗下 xAI 開發的大型語言模型家族，主打與 X（Twitter）整合的「即時資料」存取、「政治不正確／追求真相」的人設，以及多代快速迭代的前沿推理能力，是 AI 中游模型層中由 OpenAI、Google、Anthropic 之外少數靠超大算力（Colossus 叢集）硬拚 SOTA 的後進挑戰者。</p>
 <h2 id="關鍵事實與數據每項附來源與時間">關鍵事實與數據（每項附來源與時間）</h2>
 <ul>
+<li><strong>【2026-10-21 更新】2026-06→10 新版本</strong>（xAI 官方開發者文件，來源 9–11）：
+<ul>
+<li><strong>Grok 4.5</strong>：2026-07 上線 xAI API，$2／$6 每百萬 token，推理強度 low／medium／high（預設 high），歐盟用戶可用；<strong>Grok 4.6</strong>：2026-08，context 500K，$2／$0.50／$6（&lt;200K 提示；&gt;200K 為 $4／$1／$12），新增 xhigh 推理強度；<strong>Grok 4.7（<code>grok-4.7</code>）</strong>：2026-09，同 4.6 的 context 與計價，文字＋影像輸入，官方文件稱其為「我們打造過最強的模型」、適合程式與對話，知識截止 2026-05；回應一律回傳 <code>reasoning.encrypted_content</code>，走美國區域端點；批次 API 八折（來源 9–11）。</li>
+<li><strong>Grok 4.7 Fast</strong>：同模型、2 倍標準 token 價（長 context 1.5 倍），僅在 Cursor 與 Grok Build 提供、不在公開 API（來源 10）。<strong>Grok Bot</strong>（2026-08，常駐雲端電腦的 AI 隊友）、grok-imagine-video-1.5（2026-07）、grok-voice-3.0（2026-10，Grok Voice 2.0 同步棄用，價不變）（來源 10）。</li>
+<li>官方文件頁將 Grok 4.7 稱為「SpaceXSI」的模型（疑指 xAI 與 SpaceX 相關的公司重組），母公司名稱變動本輪未查證，【待查】，未改動公司頁。</li>
+<li><strong>Grok 5</strong>：文件頁與發布說明（2026-06→10）均未列出，<strong>截至 2026-10-21 未見發布</strong>；先前傳聞發布時程仍為未證實【待查】。</li>
+<li>排名/benchmark：本輪未取得 Artificial Analysis 等對 Grok 4.5–4.7 的獨立評測頁，【待查】；下方「智慧指數 53／榜單排名」為 2026-06 舊資料。</li>
+<li>以下為 2026-06 舊內容：</li>
+</ul></li>
 <li><strong>版本時間線</strong>：Grok 預覽於 2023-11 對 X Premium 用戶開放；Grok-1 於 2024-03-17 以 Apache 2.0 開源；Grok-1.5（128k 脈絡）2024-03-29；Grok-1.5V（視覺）2024-04；Grok-2／2-mini 2024-08-14（加入 Flux 影像生成）；Grok-3 2025-02-18（強化推理與工具）；<strong>Grok 4 2025-07-09 成為旗艦</strong>（來源 4，Wikipedia；來源 1，xAI 官方）。</li>
 <li><strong>Grok 4 規格</strong>：脈絡視窗 App 內 128k、API 256k；以 xAI 200,000 顆 GPU 的 Colossus 叢集做大規模強化學習訓練，宣稱訓練計算效率較前代提升約 6 倍，並原生會自主操作程式直譯器與網頁瀏覽器（來源 1，xAI 官方 Grok 4 公告，2025-07）。Grok 3／Grok 4 知識截止為 2024-11（來源 2，xAI docs）。</li>
 <li><strong>Grok 4 代表 benchmark</strong>：GPQA Diamond 約 87–88%、MMLU-Pro 約 87%（部分源報 83%）、AIME 2025 約 94%（含工具有源稱達 100%）、SWE-bench 約 72–75%（Grok 4 Code）、LiveCodeBench 79–82%、Humanity’s Last Exam 38.6%（含工具）；多代理版 <strong>Grok 4 Heavy 在 HLE 達 44.4%</strong>，當時領先 Gemini（26.9%）與 OpenAI o3（24.9%）（來源 3 衍生彙整；DataCamp、Scientific American 轉述官方數字，2025-07；部分為發布會主張，獨立複現待第三方確認）。</li>
@@ -81,8 +90,11 @@ border:1px solid var(--line);border-radius:6px;text-decoration:none}
 <li>TechCrunch，xAI 開源 Grok 2.5（含授權限制條款，2025-08-24）：https://techcrunch.com/2025/08/24/elon-musk-says-xai-has-open-sourced-grok-2-5/</li>
 <li>NPR，Grok 自稱「MechaHitler」反猶事件報導（2025-07-09）：https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content</li>
 <li>NVIDIA 新聞室，Spectrum-X 乙太網支撐 xAI Colossus 超級電腦：https://nvidianews.nvidia.com/news/spectrum-x-ethernet-networking-xai-colossus</li>
+<li>xAI 官方開發者文件，Models（2026-10-21 查閱；Grok 4.7 等 context 與價目）：https://docs.x.ai/docs/models</li>
+<li>xAI 官方開發者文件，Release notes（2026-07→10 逐月記載）：https://docs.x.ai/docs/release-notes</li>
+<li>xAI 官方開發者文件，Grok 4.7 模型頁：https://docs.x.ai/docs/models/grok-4.7</li>
 </ol>
 </article></main>
-<footer>由 Claude 多代理自動研究生成（2026-06-06）· 數字經對抗式查證，請以內文標註之原始來源為準 · <a href="index.html">回索引</a></footer>
+<footer>由 Claude 多代理自動研究生成（基準日 2026-06-06 · 月度更新 2026-10-21）· 數字經對抗式查證，請以內文標註之原始來源為準 · 未於本輪刷新的頁面標有「時效提示」 · <a href="index.html">回索引</a></footer>
 <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'neutral'});</script>
 </body></html>
